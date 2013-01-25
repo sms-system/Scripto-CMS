@@ -1,8 +1,8 @@
 <?
 //Scripto CMS
 /*
-Разработчик Иванов Дмитрий
-Начало разработки - 26.04.08
+Р Р°Р·СЂР°Р±РѕС‚С‡РёРє РРІР°РЅРѕРІ Р”РјРёС‚СЂРёР№
+РќР°С‡Р°Р»Рѕ СЂР°Р·СЂР°Р±РѕС‚РєРё - 26.04.08
 e-mail: support@scripto-cms.ru
 */
 session_start();
@@ -40,20 +40,20 @@ function getmicrotime()
 $time_start=getmicrotime();
 define("time_start",$time_start);
 define("SCRIPTO_GALLERY",true);
-setlocale(LC_ALL, "ru_RU.CP1251");
+setlocale(LC_ALL, "ru_RU.UTF8");
 //ini_set('zlib.output_compression', 'On');
-//Вывод ошибок
+//Р’С‹РІРѕРґ РѕС€РёР±РѕРє
 	$err=@$_REQUEST["debug"];
 		if ($err) {
-			//включить вывод ошибок
+			//РІРєР»СЋС‡РёС‚СЊ РІС‹РІРѕРґ РѕС€РёР±РѕРє
 		   @ini_set (display_errors,On);
 		   @ini_set (error_reporting, E_ALL);
 		if ($err=="phpinfo") {
-			//вывести phpinfo
+			//РІС‹РІРµСЃС‚Рё phpinfo
 			phpinfo();die();
 		}
 		if ($err=="check") {
-			//проверить технические требования
+			//РїСЂРѕРІРµСЂРёС‚СЊ С‚РµС…РЅРёС‡РµСЃРєРёРµ С‚СЂРµР±РѕРІР°РЅРёСЏ
 			header("Location:http://".$_SERVER["HTTP_HOST"]."/?user_module=check",true,301);
 			die();
 		}
@@ -69,8 +69,8 @@ setlocale(LC_ALL, "ru_RU.CP1251");
 		}
 	clearRequest();
 	include("core/functions/a.charset.php");
-//определяем пути
-	//имя сайта
+//РѕРїСЂРµРґРµР»СЏРµРј РїСѓС‚Рё
+	//РёРјСЏ СЃР°Р№С‚Р°
 	$host="http://".$_SERVER["HTTP_HOST"];
 	$path=pathinfo($_SERVER["PHP_SELF"]);
 	 if (($path["dirname"]!="\\") && ($path["dirname"]!="/")) {
@@ -89,7 +89,7 @@ setlocale(LC_ALL, "ru_RU.CP1251");
 	 $_SESSION["scripto_root"]=$root;
 	 $_SESSION["scripto_httproot"]=$httproot;
 	header("HTTP/1.0 200 OK");
-//загружаем конфиги
+//Р·Р°РіСЂСѓР¶Р°РµРј РєРѕРЅС„РёРіРё
 	$config_dir=$root."config/";
 	if (is_file($config_dir."main.config.php")) {
 		include($config_dir."main.config.php");
@@ -117,22 +117,22 @@ setlocale(LC_ALL, "ru_RU.CP1251");
 		die("couldn't found main config ".$config_dir."languages.config.php");
 	}
 	if ($config["debug_mode"]) {
-		//включить вывод ошибок
+		//РІРєР»СЋС‡РёС‚СЊ РІС‹РІРѕРґ РѕС€РёР±РѕРє
 	   @ini_set (display_errors,On);
 	   @ini_set (error_reporting, E_ALL);
 	}
 
 	if ($config["install"]==false)
 		header("location: install.php");
-//подгружаем обязательные классы
+//РїРѕРґРіСЂСѓР¶Р°РµРј РѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рµ РєР»Р°СЃСЃС‹
 	include($config["classes"]["mysql"]);
 	include($config["classes"]["engine"]);
-//подключаемся к базе данных
+//РїРѕРґРєР»СЋС‡Р°РµРјСЃСЏ Рє Р±Р°Р·Рµ РґР°РЅРЅС‹С…
 	$db=new Db();
 	$db->config=$config;
 	$db->SQLConnect();
 	$db->setPrefix();
-//Инициализация прочих классов
+//РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїСЂРѕС‡РёС… РєР»Р°СЃСЃРѕРІ
 	$engine=new Engine();
 	$engine->db=$db;
 	$engine->config=$config;
@@ -148,7 +148,7 @@ setlocale(LC_ALL, "ru_RU.CP1251");
 	$settings["hour"]=date("H");
 	$settings["minute"]=date("i");
 	$settings["second"]=date("S");
-//подключаем языковые файлы
+//РїРѕРґРєР»СЋС‡Р°РµРј СЏР·С‹РєРѕРІС‹Рµ С„Р°Р№Р»С‹
 	if (is_dir($config["pathes"]["lang_dir"].$settings["language"])) {
 		if (is_file($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php")) {
 include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
@@ -158,17 +158,17 @@ include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
 	} else {
 		die("Couldn't find languages dir (".$config["pathes"]["lang_dir"].$settings["language"].")");
 	}
-//подключаем сторонние скрипты (Smarty и т.п.)
+//РїРѕРґРєР»СЋС‡Р°РµРј СЃС‚РѕСЂРѕРЅРЅРёРµ СЃРєСЂРёРїС‚С‹ (Smarty Рё С‚.Рї.)
      require($config["classes"]["smarty"]);
 	 $smarty = new Smarty;
 	 $smarty->compile_check = true;
 	 $smarty->debugging = false;
 	 $smarty->template_dir = $config["pathes"]["templates_dir"];
 	 $smarty->compile_dir = $config["smarty"]["compiledir"];
-//дополняем $engine
+//РґРѕРїРѕР»РЅСЏРµРј $engine
 	$engine->smarty=$smarty;
 	$engine->lang=$lang;
-//подключаем к смарти основные переменные
+//РїРѕРґРєР»СЋС‡Р°РµРј Рє СЃРјР°СЂС‚Рё РѕСЃРЅРѕРІРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ
 	$smarty->assign("config",$config);
 	$smarty->assign("settings",$settings);
 	$smarty->assign("lang",$lang);
@@ -183,7 +183,7 @@ include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
 	$smarty->assign("user_flash",$config["pathes"]["user_flash_http"]);
 	$smarty->assign("user_thumbnails",$config["pathes"]["user_thumbnails_http"]);
 	
-	/*дата и время*/
+	/*РґР°С‚Р° Рё РІСЂРµРјСЏ*/
 	
 	$curryear=$settings["year"];
 	$j=0;
@@ -206,38 +206,38 @@ include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
 	if (isset($_REQUEST["ajax"])) {
 		$ajax=true;
 		$smarty->assign("ajax",true);
-		header('Content-Type: text/html; charset=windows-1251');
+		header('Content-Type: text/html; charset=utf-8');
 	}
 
-	//инклудим все модули
-	/*здесь тормоза*/
+	//РёРЅРєР»СѓРґРёРј РІСЃРµ РјРѕРґСѓР»Рё
+	/*Р·РґРµСЃСЊ С‚РѕСЂРјРѕР·Р°*/
 	$engine->modules=$engine->loadModules();
-	/*конец тормозам*/
-	//работаем
+	/*РєРѕРЅРµС† С‚РѕСЂРјРѕР·Р°Рј*/
+	//СЂР°Р±РѕС‚Р°РµРј
 	$id_rubric=noSlash(trim(@$_REQUEST["id_rubric"]));
 	if ($id_rubric=="admin") {
-		//админка
-		//Проверяем разрешен ли доступ с данного IP
+		//Р°РґРјРёРЅРєР°
+		//РџСЂРѕРІРµСЂСЏРµРј СЂР°Р·СЂРµС€РµРЅ Р»Рё РґРѕСЃС‚СѓРї СЃ РґР°РЅРЅРѕРіРѕ IP
 		if (!checkIp($settings["ips"],getIp())) {
 			header("location: $httproot");
 		}
-		//переменные для админа
+		//РїРµСЂРµРјРµРЅРЅС‹Рµ РґР»СЏ Р°РґРјРёРЅР°
 		$smarty->assign("admin_templates",$config["templates"]["admin"]);
 		$smarty->assign("admin_images",$config["http"]["admin_images"]);
 		$smarty->assign("admin_icons",$config["http"]["admin_images"].'icons/');
 		$smarty->assign("admin_module_icon",$config["http"]["image_modules"]);
 		
-		//получаем установленные модули
+		//РїРѕР»СѓС‡Р°РµРј СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹Рµ РјРѕРґСѓР»Рё
 		$installed_modules=$engine->getInstallModulesFast();
 		$smarty->assign("installed_modules",$installed_modules);
 		
-		//получаем информацию о пользователе
+		//РїРѕР»СѓС‡Р°РµРј РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ
 		$user=$engine->getAdmin();
 		$smarty->assign("user",$user);
 		$engine->user=$user;
 		switch ($user["status"]) {
 			case 2:
-				//авторизованы
+				//Р°РІС‚РѕСЂРёР·РѕРІР°РЅС‹
 				$module=trim(@$_REQUEST["module"]);
 				if ($module=="") $module="main";
 					if ($ajax) {
@@ -250,19 +250,19 @@ include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
 				$engine->assignCongratulation();
 			break;
 			case 1:
-				//ошибка ввода логина\пароля
+				//РѕС€РёР±РєР° РІРІРѕРґР° Р»РѕРіРёРЅР°\РїР°СЂРѕР»СЏ
 				$main_template=$config["admin"]["splashscreen"];
 				$main_css=$config["admin"]["splashscreen_css"];
 			break;
 			case 0:
-				//не авторизованы
+				//РЅРµ Р°РІС‚РѕСЂРёР·РѕРІР°РЅС‹
 				$main_template=$config["admin"]["splashscreen"];
 				$main_css=$config["admin"]["splashscreen_css"];
 			break;
 		}
 	} else {
-		//пользовательский интерфейс
-		//если требуется просто загрузка определенного модуля
+		//РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ РёРЅС‚РµСЂС„РµР№СЃ
+		//РµСЃР»Рё С‚СЂРµР±СѓРµС‚СЃСЏ РїСЂРѕСЃС‚Рѕ Р·Р°РіСЂСѓР·РєР° РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ РјРѕРґСѓР»СЏ
 		$user_module=false;
 		if (isset($_REQUEST["user_module"])) {
 			if (preg_match("/^[a-zA-Z0-9]{1,}$/i",$_REQUEST["user_module"]))
@@ -273,7 +273,7 @@ include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
 			$main_css=$config["user"]["white_css"];
 			$page=$engine->processModule($user_module,"user");
 		} else {
-			//Обрабатываем язык
+			//РћР±СЂР°Р±Р°С‚С‹РІР°РµРј СЏР·С‹Рє
 			$db->user_mode=true;
 			$mainlang=$engine->getLanguage(&$id_rubric);
 			$smarty->assign("mainlang",$mainlang);
@@ -294,16 +294,16 @@ include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
 			$db->internal_number=0;
 			$settings=$db->convertArrayToLang($settings);
 			$smarty->assign("settings",$settings);
-			//показываем рубрики
+			//РїРѕРєР°Р·С‹РІР°РµРј СЂСѓР±СЂРёРєРё
 			if ($id_rubric=="") {
-				//главная страница
+				//РіР»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°
 				$page=$engine->getMainPage();
 			} else {
 				$page=$engine->getCategoryByIdent($id_rubric);
 				if (!is_array($page)) {
-					//выводим 404 ошибку
+					//РІС‹РІРѕРґРёРј 404 РѕС€РёР±РєСѓ
 					header('HTTP/1.0 404 Not Found', true, '404');
-					header('Content-Type: text/html; charset=windows-1251');
+					header('Content-Type: text/html; charset=utf-8');
 					$page=$engine->get404Page();
 					if (!is_array($page))
 						$page=$engine->getMainPage();
@@ -318,22 +318,22 @@ include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
 		$main_css=$config["templates"]["css"].$page["template"]["tpl_theme"]."/".$page["template"]["tpl_css"];
 					$smarty->assign("img_theme",$config["http"]["images"]."themes/".$template["tpl_theme"]."/");
 
-					//проверка на iPhone
+					//РїСЂРѕРІРµСЂРєР° РЅР° iPhone
 					$engine->iPhoneCheck();
-					//проверка на iPad
+					//РїСЂРѕРІРµСЂРєР° РЅР° iPad
 					$engine->iPadCheck();
 					
-					//получаем путь к текущим рубрикам
+					//РїРѕР»СѓС‡Р°РµРј РїСѓС‚СЊ Рє С‚РµРєСѓС‰РёРј СЂСѓР±СЂРёРєР°Рј
 					$path=$engine->getPath($page["id_category"]);
 					foreach ($path as $pth) {
 						$config["path"][]=$pth["id_category"];
 					}
 					
-					//получаем все рубрики
+					//РїРѕР»СѓС‡Р°РµРј РІСЃРµ СЂСѓР±СЂРёРєРё
 					$rubrics=$engine->getAllPositionsRubrics();
 					$engine->rubrics=$rubrics;
 					
-					//получаем адреса
+					//РїРѕР»СѓС‡Р°РµРј Р°РґСЂРµСЃР°
 					$urls=array();
 					foreach ($rubrics as $position)
 						foreach ($position as $r)
@@ -341,19 +341,19 @@ include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
 					$engine->urls=$urls;
 					$smarty->assign("urls",$urls);
 					
-					//Устанавливаем дополнительные свойства для рубрики и пути к рубрике
+					//РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СЃРІРѕР№СЃС‚РІР° РґР»СЏ СЂСѓР±СЂРёРєРё Рё РїСѓС‚Рё Рє СЂСѓР±СЂРёРєРµ
 					$engine->getPageInfo($page);
 					$path=$engine->getPathInfo($path);
 					
-					//устанавливаем page для основного класса
+					//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј page РґР»СЏ РѕСЃРЅРѕРІРЅРѕРіРѕ РєР»Р°СЃСЃР°
 					$engine->page=$page;
 					
-					//получаем контент для подразделов
+					//РїРѕР»СѓС‡Р°РµРј РєРѕРЅС‚РµРЅС‚ РґР»СЏ РїРѕРґСЂР°Р·РґРµР»РѕРІ
 					$params=array();
 					
 					foreach ($rubrics as $pos=>$r) {
 						foreach ($r as $key=>$r2) {
-							//просматриваем разделы
+							//РїСЂРѕСЃРјР°С‚СЂРёРІР°РµРј СЂР°Р·РґРµР»С‹
 							if ($r2["parent"]==$page["id_category"]) {
 								$this_type=$rubrics[$pos][$key]["category_type"];
 								$params[$pos][$this_type][$key]=$r2["id_category"];
@@ -364,19 +364,19 @@ include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
 					$engine->getElementsByCat($rubrics,$params,1);
 					$smarty->assign("rubrics",$rubrics);
 					
-					//получаем родителя
+					//РїРѕР»СѓС‡Р°РµРј СЂРѕРґРёС‚РµР»СЏ
 					if (isset($path[sizeof($path)-2]) && (sizeof($path)-2)>0)
 						$smarty->assign("parent",$path[sizeof($path)-2]);
 					
-					//получаем модули, которые подключаются в независимости от раздела
+					//РїРѕР»СѓС‡Р°РµРј РјРѕРґСѓР»Рё, РєРѕС‚РѕСЂС‹Рµ РїРѕРґРєР»СЋС‡Р°СЋС‚СЃСЏ РІ РЅРµР·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СЂР°Р·РґРµР»Р°
 					$static_modules=$engine->getStaticModules($page);
 					
 					$page["content"]=$engine->checkRegistered($page["content"]);
 					$page=$engine->getContentCategory($page);
 					$engine->page=$page;
 					
-					//получаем блоки
-					//получаем блоки, которые должны быть на всех страницах
+					//РїРѕР»СѓС‡Р°РµРј Р±Р»РѕРєРё
+					//РїРѕР»СѓС‡Р°РµРј Р±Р»РѕРєРё, РєРѕС‚РѕСЂС‹Рµ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РЅР° РІСЃРµС… СЃС‚СЂР°РЅРёС†Р°С…
 					$types=$engine->getBlockTypes();
 					$blocks=array();
 					$allblocks=$engine->getBlocks("allblocks",$page,$types);
@@ -390,18 +390,18 @@ include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
 					}
 					unset($thispage_blocks);
 					$smarty->assign("blocks",$blocks);
-					//получаем модули текущей рубрики
+					//РїРѕР»СѓС‡Р°РµРј РјРѕРґСѓР»Рё С‚РµРєСѓС‰РµР№ СЂСѓР±СЂРёРєРё
 					$modules=$engine->getModulesByCategory($page["id_category"],$page);
 					$page["modules"]=$modules;
 					$page["static_modules"]=$static_modules;
 					$smarty->assign("modules",$modules);
 					$smarty->assign("static_modules",$static_modules);
 					
-					//обрабатываем текущую рубрику и получаем контент
+					//РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј С‚РµРєСѓС‰СѓСЋ СЂСѓР±СЂРёРєСѓ Рё РїРѕР»СѓС‡Р°РµРј РєРѕРЅС‚РµРЅС‚
 					$content=$engine->getContentByPage($page);
 					$smarty->assign("content",$content);
 					
-					//Устанавливаем дополнительные свойства пути
+					//РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СЃРІРѕР№СЃС‚РІР° РїСѓС‚Рё
 					$path=$engine->getSubPath($path);
 					$real_path=$engine->getRealPath($path);
 					$smarty->assign("real_path",$real_path);
@@ -419,9 +419,9 @@ include($config["pathes"]["lang_dir"].$settings["language"]."/main.lang.php");
 		$smarty->assign("page",$page);
 	}
 $time_end=getmicrotime();
-if (isset($_REQUEST["speed"])) echo "Ядро загрузилось за ".($time_end-$time_start)." секунд";	
+if (isset($_REQUEST["speed"])) echo "РЇРґСЂРѕ Р·Р°РіСЂСѓР·РёР»РѕСЃСЊ Р·Р° ".($time_end-$time_start)." СЃРµРєСѓРЅРґ";	
 	if (isset($_REQUEST["white"])) $smarty->assign("white",true);
-	//рисуем шаблон
+	//СЂРёСЃСѓРµРј С€Р°Р±Р»РѕРЅ
 	if (isset($main_template)) {
 		if (is_file($config["pathes"]["templates_dir"].$main_template)) {
 			if (isset($main_css)) {
@@ -437,8 +437,8 @@ if (isset($_REQUEST["speed"])) echo "Ядро загрузилось за ".($time_end-$time_star
 	}
 $time_end=getmicrotime();
 if (isset($_REQUEST["speed"])) {
-echo "<p>Страница с шаблоном сгенерирована за ".($time_end-$time_start)." секунд</p>";
+echo "<p>РЎС‚СЂР°РЅРёС†Р° СЃ С€Р°Р±Р»РѕРЅРѕРј СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅР° Р·Р° ".($time_end-$time_start)." СЃРµРєСѓРЅРґ</p>";
 $mem=$engine->get_memory_usage();
-echo "<p>Скрипт потребляет памяти: <b>".@$mem["percent"]."</b>% (".@$mem["usage"]." из ".@$mem["limit"].")</p>";
+echo "<p>РЎРєСЂРёРїС‚ РїРѕС‚СЂРµР±Р»СЏРµС‚ РїР°РјСЏС‚Рё: <b>".@$mem["percent"]."</b>% (".@$mem["usage"]." РёР· ".@$mem["limit"].")</p>";
 }
 ?>

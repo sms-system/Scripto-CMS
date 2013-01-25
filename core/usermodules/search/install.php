@@ -1,16 +1,16 @@
 <?
 /*
-Óñòàíîâî÷íûé ôàéë äëÿ ìîäóëÿ ïîèñê ïî ñàéòó
+Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¾Ñ‡Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ð¿Ð¾Ð¸ÑÐº Ð¿Ð¾ ÑÐ°Ð¹Ñ‚Ñƒ
 */
 global $engine;
-$install_sql[]="insert into `%block_types%` values (null,'Ïîèñê ïî ñàéòó','search','search',0);";
+$install_sql[]="insert into `%block_types%` values (null,'ÐŸÐ¾Ð¸ÑÐº Ð¿Ð¾ ÑÐ°Ð¹Ñ‚Ñƒ','search','search',0);";
 $m_page=$engine->getMainpage();
 $date_category=array();
 $date_category[0]=(int)date("d");
 $date_category[1]=(int)date("m");
 $date_category[2]=(int)date("Y");
 /*
-Äîáàâëÿåì ðàçäåë ïîèñê ïî ñàéòó
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» Ð¿Ð¾Ð¸ÑÐº Ð¿Ð¾ ÑÐ°Ð¹Ñ‚Ñƒ
 */
 $m_page=$engine->getMainpage();
 $date_category=array();
@@ -18,7 +18,7 @@ $date_category[0]=(int)date("d");
 $date_category[1]=(int)date("m");
 $date_category[2]=(int)date("Y");
 if (!$engine->rubricExist($m->thismodule["search_url"],0)) {
-$engine->addCategory($m_page["id_category"],"Ïîèñê ïî ñàéòó","text",$m->thismodule["search_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
+$engine->addCategory($m_page["id_category"],"ÐŸÐ¾Ð¸ÑÐº Ð¿Ð¾ ÑÐ°Ð¹Ñ‚Ñƒ","text",$m->thismodule["search_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
 $engine->addModuleToCategory("search",mysql_insert_id());
 }
 ?>

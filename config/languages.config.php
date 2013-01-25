@@ -1,60 +1,60 @@
 <?
-//íàñòðîéêà ñòàíäàðòíûõ òàáëèö è ïîëåé, äîñòóïíûõ â ðàçíûõ ÿçûêîâûõ âåðñèÿõ
-//êàòåãîðèè
+//Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° ÑÑ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½Ñ‹Ñ… Ñ‚Ð°Ð±Ð»Ð¸Ñ† Ð¸ Ð¿Ð¾Ð»ÐµÐ¹, Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹Ñ… Ð² Ñ€Ð°Ð·Ð½Ñ‹Ñ… ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸ÑÑ…
+//ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸
 $tables["categories"]["caption"]["type"]="text";
-$tables["categories"]["caption"]["caption"]="Íàçâàíèå ðàçäåëà";
+$tables["categories"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°";
 $tables["categories"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["categories"]["caption"]["sql_type"]="VARCHAR(250) NULL";
 $tables["categories"]["content"]["type"]="solmetra";
-$tables["categories"]["content"]["caption"]="Ñîäåðæàíèå ðàçäåëà";
+$tables["categories"]["content"]["caption"]="Ð¡Ð¾Ð´ÐµÑ€Ð¶Ð°Ð½Ð¸Ðµ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°";
 $tables["categories"]["content"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["categories"]["content"]["sql_type"]="LONGTEXT NULL";
 $tables["categories"]["subcontent"]["type"]="solmetra";
-$tables["categories"]["subcontent"]["caption"]="Äîïîëíèòåëüíîå ñîäåðæàíèå ðàçäåëà";
+$tables["categories"]["subcontent"]["caption"]="Ð”Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ð½Ð¸Ðµ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°";
 $tables["categories"]["subcontent"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["categories"]["subcontent"]["sql_type"]="LONGTEXT NULL";
 $tables["categories"]["title"]["type"]="text";
-$tables["categories"]["title"]["caption"]="Òåã title äëÿ ðàçäåëà";
+$tables["categories"]["title"]["caption"]="Ð¢ÐµÐ³ title Ð´Ð»Ñ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°";
 $tables["categories"]["title"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["categories"]["title"]["sql_type"]="VARCHAR(250) NULL";
 $tables["categories"]["meta"]["type"]="textarea";
-$tables["categories"]["meta"]["caption"]="Òåãè meta description";
+$tables["categories"]["meta"]["caption"]="Ð¢ÐµÐ³Ð¸ meta description";
 $tables["categories"]["meta"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["categories"]["meta"]["sql_type"]="TEXT NULL";
 $tables["categories"]["keywords"]["type"]="textarea";
-$tables["categories"]["keywords"]["caption"]="Òåãè meta keywords";
+$tables["categories"]["keywords"]["caption"]="Ð¢ÐµÐ³Ð¸ meta keywords";
 $tables["categories"]["keywords"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["categories"]["keywords"]["sql_type"]="TEXT NULL";
 
-//íàñòðîéêè
+//Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸
 $tables["settings"]["caption"]["type"]="text";
-$tables["settings"]["caption"]["caption"]="Íàçâàíèå ñàéòà";
+$tables["settings"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ ÑÐ°Ð¹Ñ‚Ð°";
 $tables["settings"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["settings"]["caption"]["sql_type"]="VARCHAR(250) NULL";
 
 $tables["settings"]["title"]["type"]="text";
-$tables["settings"]["title"]["caption"]="Òåã title";
+$tables["settings"]["title"]["caption"]="Ð¢ÐµÐ³ title";
 $tables["settings"]["title"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["settings"]["title"]["sql_type"]="VARCHAR(250) NULL";
 
 $tables["settings"]["meta"]["type"]="textarea";
-$tables["settings"]["meta"]["caption"]="Òåã meta";
+$tables["settings"]["meta"]["caption"]="Ð¢ÐµÐ³ meta";
 $tables["settings"]["meta"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["settings"]["meta"]["sql_type"]="TEXT NULL";
 
 $tables["settings"]["keywords"]["type"]="textarea";
-$tables["settings"]["keywords"]["caption"]="Òåã keywords";
+$tables["settings"]["keywords"]["caption"]="Ð¢ÐµÐ³ keywords";
 $tables["settings"]["keywords"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["settings"]["keywords"]["sql_type"]="TEXT NULL";
 
-//áëîêè
+//Ð±Ð»Ð¾ÐºÐ¸
 $tables["blocks"]["caption"]["type"]="text";
-$tables["blocks"]["caption"]["caption"]="Íàçâàíèå áëîêà";
+$tables["blocks"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð±Ð»Ð¾ÐºÐ°";
 $tables["blocks"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["blocks"]["caption"]["sql_type"]="VARCHAR(250) NULL";
 
 $tables["blocks"]["content"]["type"]="solmetra";
-$tables["blocks"]["content"]["caption"]="Ñîäåðæèìîå áëîêà";
+$tables["blocks"]["content"]["caption"]="Ð¡Ð¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ Ð±Ð»Ð¾ÐºÐ°";
 $tables["blocks"]["content"]["eregi"]="/^[^`#]{2,255}$/i";
 $tables["blocks"]["content"]["sql_type"]="LONGTEXT NULL";
 ?>

@@ -1,8 +1,8 @@
 <?
-//Установочный файл Scripto CMS
+//РЈСЃС‚Р°РЅРѕРІРѕС‡РЅС‹Р№ С„Р°Р№Р» Scripto CMS
 	session_start();
 	include("core/functions/main.lib.php");
-	$check_zend=false;//проверять Зенд или нет
+	$check_zend=false;//РїСЂРѕРІРµСЂСЏС‚СЊ Р—РµРЅРґ РёР»Рё РЅРµС‚
 	$host="http://".$_SERVER["HTTP_HOST"];
 	$path=pathinfo($_SERVER["PHP_SELF"]);
 	 if (($path["dirname"]!="\\") && ($path["dirname"]!="/")) {
@@ -21,14 +21,14 @@
 	 $_SESSION["scripto_root"]=$root;
 	 $_SESSION["scripto_httproot"]=$httproot;
 	header("HTTP/1.0 200 OK");
-//загружаем конфиги
+//Р·Р°РіСЂСѓР¶Р°РµРј РєРѕРЅС„РёРіРё
 	$config_dir=$root."config/";
 	if (is_file($config_dir."main.config.php")) {
 		include($config_dir."main.config.php");
 	} else {
 		die("couldn't found main config ".$config_dir."main.config.php");
 	}
-	if ($config["install"]==true) die("Программа уже установлена, рекомендуется удалить данный файл.");
+	if ($config["install"]==true) die("РџСЂРѕРіСЂР°РјРјР° СѓР¶Рµ СѓСЃС‚Р°РЅРѕРІР»РµРЅР°, СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ СѓРґР°Р»РёС‚СЊ РґР°РЅРЅС‹Р№ С„Р°Р№Р».");
 	if (is_file($config_dir."images.config.php")) {
 		include($config_dir."images.config.php");
 	} else {
@@ -44,19 +44,19 @@
 	} else {
 		die("couldn't found main config ".$config_dir."pathes.config.php");
 	}
-	//включить вывод ошибок
+	//РІРєР»СЋС‡РёС‚СЊ РІС‹РІРѕРґ РѕС€РёР±РѕРє
     @ini_set (display_errors,On);
     @ini_set (error_reporting, E_ALL);
-	$critical="<b>Критическая ошибка!</b>";
+	$critical="<b>РљСЂРёС‚РёС‡РµСЃРєР°СЏ РѕС€РёР±РєР°!</b>";
 	if (!is_file($config["classes"]["smarty"]))
-		die($critical." Не найдена библиотека Smarty (".$config["classes"]["smarty"].")");
+		die($critical." РќРµ РЅР°Р№РґРµРЅР° Р±РёР±Р»РёРѕС‚РµРєР° Smarty (".$config["classes"]["smarty"].")");
     require($config["classes"]["smarty"]);
 	$smarty = new Smarty;
 	$smarty->compile_check = true;
 	$smarty->debugging = false;
 	$smarty->template_dir = $config["pathes"]["templates_dir"];
 	if (!is_writable($config["smarty"]["compiledir"])) 
-		die($critical." Папка ".$config["smarty"]["compiledir"]." не доступна для записи");
+		die($critical." РџР°РїРєР° ".$config["smarty"]["compiledir"]." РЅРµ РґРѕСЃС‚СѓРїРЅР° РґР»СЏ Р·Р°РїРёСЃРё");
 	$smarty->compile_dir = $config["smarty"]["compiledir"];
 	$engine->smarty=$smarty;
 	$sql_dump=$root."core/sql/install.sql";
@@ -69,7 +69,7 @@
 	}
 	$main_template=$config["admin"]["install"];
 	if (isset($_REQUEST["save"])) {
-		//работаем
+		//СЂР°Р±РѕС‚Р°РµРј
 		switch ($step) {
 			case 0:
 				if (isset($_REQUEST["agree"])) {
@@ -107,10 +107,10 @@
 					 	$smarty->assign("db_error",true);
 					 } else {
 						if (preg_match("/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i",$mailadmin)) {
-						/*процесс установки*/
-						//Генерируем секретный ключ
+						/*РїСЂРѕС†РµСЃСЃ СѓСЃС‚Р°РЅРѕРІРєРё*/
+						//Р“РµРЅРµСЂРёСЂСѓРµРј СЃРµРєСЂРµС‚РЅС‹Р№ РєР»СЋС‡
 						$secretkey=rand(100000,9999999999);
-						//Логин администратора по умолчанию
+						//Р›РѕРіРёРЅ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 						$admin_login="admin";
 						$admin_password=generatePassword();
 						$smarty->assign("admin_login",$admin_login);
@@ -152,8 +152,8 @@
 						unset($replace);
 						@file_put_contents($config_dir."main.config.php",$main_config);
 						unset($main_config);
-						$subject="Благодарим Вас за установку Scripto CMS";
-						$text="Уважаемый пользователь!<br>Благодарим Вас за установку Scripto CMS на сайт $httproot.<br>Ваши доступы к административной части:<br>Адрес: <a href=\"".$httproot."admin\" target=\"blank\">".$httproot."admin</a><br>Логин администратора: $admin_login <br>Пароль администратора: $admin_password<br>С Уважением, команда разработчиков Scripto CMS.";
+						$subject="Р‘Р»Р°РіРѕРґР°СЂРёРј Р’Р°СЃ Р·Р° СѓСЃС‚Р°РЅРѕРІРєСѓ Scripto CMS";
+						$text="РЈРІР°Р¶Р°РµРјС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ!<br>Р‘Р»Р°РіРѕРґР°СЂРёРј Р’Р°СЃ Р·Р° СѓСЃС‚Р°РЅРѕРІРєСѓ Scripto CMS РЅР° СЃР°Р№С‚ $httproot.<br>Р’Р°С€Рё РґРѕСЃС‚СѓРїС‹ Рє Р°РґРјРёРЅРёСЃС‚СЂР°С‚РёРІРЅРѕР№ С‡Р°СЃС‚Рё:<br>РђРґСЂРµСЃ: <a href=\"".$httproot."admin\" target=\"blank\">".$httproot."admin</a><br>Р›РѕРіРёРЅ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°: $admin_login <br>РџР°СЂРѕР»СЊ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°: $admin_password<br>РЎ РЈРІР°Р¶РµРЅРёРµРј, РєРѕРјР°РЅРґР° СЂР°Р·СЂР°Р±РѕС‚С‡РёРєРѕРІ Scripto CMS.";
 						mailHTML($mailadmin,"support@scripto-cms.ru",$subject,$text);
 						$smarty->assign("installed",true);
 						//$_SESSION["step"]=0;
@@ -174,15 +174,15 @@
 	}
 	switch ($step) {
 		case 0:
-			$smarty->assign("step_title","Шаг 1");
+			$smarty->assign("step_title","РЁР°Рі 1");
 			$smarty->assign("step",$step);
 		break;
 		case 1:
-			$smarty->assign("step_title","Шаг 2");
+			$smarty->assign("step_title","РЁР°Рі 2");
 			$smarty->assign("step",$step);
 			$report=array();
 			$rep["lib"]="php";
-			$rep["value"]="PHP версии 5.x + ";
+			$rep["value"]="PHP РІРµСЂСЃРёРё 5.x + ";
 			if (phpversion() >= '5.0') {
 				$rep["install"]=true;
 			} else {
@@ -204,15 +204,15 @@
 			}
 			$report[]=$rep;
 			unset($rep);
-			$extensions["curl"]='Библиотека <a href="http://ru2.php.net/manual/en/book.curl.php" target="_blank">CURL</a>';
-			$extensions["xml"]='Библиотека <a href="http://ru2.php.net/manual/en/book.xml.php" target="_blank">XML</a>';
-			$extensions["gd"]='Библиотека <a href="http://ru2.php.net/manual/en/book.image.php" target="_blank">GD</a>';
+			$extensions["curl"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a href="http://ru2.php.net/manual/en/book.curl.php" target="_blank">CURL</a>';
+			$extensions["xml"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a href="http://ru2.php.net/manual/en/book.xml.php" target="_blank">XML</a>';
+			$extensions["gd"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a href="http://ru2.php.net/manual/en/book.image.php" target="_blank">GD</a>';
 			if ($check_zend)
 			$extensions["Zend Optimizer"]='<a href="http://zend.com" target="_blank">Zend Optimizer</a>';
-			$extensions["mbstring"]='Библиотека <a href="http://ru2.php.net/manual/en/book.mbstring.php" target="_blank">MBString</a>';
-			$extensions["json"]='Библиотека <a
+			$extensions["mbstring"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a href="http://ru2.php.net/manual/en/book.mbstring.php" target="_blank">MBString</a>';
+			$extensions["json"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a
  href="http://ru2.php.net/manual/en/book.json.php" target="_blank">JSON</a>';
-			$extensions["iconv"]='Библиотека <a href="http://ru2.php.net/manual/en/book.iconv.php" target="_blank">Iconv</a>'; 
+			$extensions["iconv"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a href="http://ru2.php.net/manual/en/book.iconv.php" target="_blank">Iconv</a>'; 
 			foreach ($extensions as $lib=>$value) {
 				$rep["lib"]=$lib;
 				$rep["value"]=$value;
@@ -234,8 +234,8 @@
 			unset($rep);
 			$smarty->assign("report",$report);
 			$setup=array();
-			$settings["safe_mode"]="Безопасный режим PHP (Safe Mode)";
-			$settings["file_uploads"]="Загрузка файлов";
+			$settings["safe_mode"]="Р‘РµР·РѕРїР°СЃРЅС‹Р№ СЂРµР¶РёРј PHP (Safe Mode)";
+			$settings["file_uploads"]="Р—Р°РіСЂСѓР·РєР° С„Р°Р№Р»РѕРІ";
 			$settings["magic_quotes_runtime"]="magic_quotes_runtime";
 			foreach ($settings as $zn=>$set) {
 				$rep["lib"]=$zn;
@@ -248,7 +248,7 @@
 				$setup[]=$rep;
 			}
 			$rep["lib"]="register_globals";
-			$rep["value"]="Register Globals выключено";
+			$rep["value"]="Register Globals РІС‹РєР»СЋС‡РµРЅРѕ";
 			if (ini_get("register_globals")) {
 				$rep["install"]=false;
 			} else {
@@ -257,7 +257,7 @@
 			$setup[]=$rep;
 			unset($rep);
 			$rep["lib"]="allow_url_fopen";
-			$rep["value"]="Открытие удаленных файлов выключено";
+			$rep["value"]="РћС‚РєСЂС‹С‚РёРµ СѓРґР°Р»РµРЅРЅС‹С… С„Р°Р№Р»РѕРІ РІС‹РєР»СЋС‡РµРЅРѕ";
 			if (ini_get("allow_url_fopen")) {
 				$rep["install"]=false;
 			} else {
@@ -319,7 +319,7 @@
 			}
 		break;
 		case 2:
-			$smarty->assign("step_title","Шаг 3");
+			$smarty->assign("step_title","РЁР°Рі 3");
 			$smarty->assign("step",$step);
 		break;
 	}

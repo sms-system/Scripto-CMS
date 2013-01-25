@@ -2,7 +2,7 @@ tinyMCE.addI18n('ru.advimage_dlg',{
 tab_general:"\u041E\u0431\u0449\u0435\u0435",
 tab_appearance:"\u041F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u0435",
 tab_advanced:"\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u043E",
-tab_advanced:"Загрузить",
+tab_advanced:"Р—Р°РіСЂСѓР·РёС‚СЊ",
 general:"\u041E\u0431\u0449\u0438\u0435 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B",
 title:"\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A",
 preview:"\u041F\u0435\u0434\u0432\u0430\u0440\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440",
@@ -41,7 +41,7 @@ align_textbottom:"\u041F\u043E \u043D\u0438\u0436\u043D\u0435\u043C\u0443 \u043A
 align_left:"\u041F\u043E \u043B\u0435\u0432\u043E\u043C\u0443 \u043A\u0440\u0430\u044E",
 align_right:"\u041F\u043E \u043F\u0440\u0430\u0432\u043E\u043C\u0443 \u043A\u0440\u0430\u044E",
 image_list:"\u0421\u043F\u0438\u0441\u043E\u043A \u043A\u0430\u0440\u0442\u0438\u043D\u043E\u043A",
-upload:"Загрузите изображение",
-choose:"Выберите изображение",
-upld_btn:"Загрузить"
+upload:"Р—Р°РіСЂСѓР·РёС‚Рµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ",
+choose:"Р’С‹Р±РµСЂРёС‚Рµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ",
+upld_btn:"Р—Р°РіСЂСѓР·РёС‚СЊ"
 });

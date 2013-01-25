@@ -1,5 +1,5 @@
 <?
-//ßçûêîâîé ôàéë äëÿ ìîäóëÿ ïîëüçîâàòåëè
+//Ð¯Ð·Ñ‹ÐºÐ¾Ð²Ð¾Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ð¸
 $lang["users"]["my"]="Edit user data";
 $lang["users"]["objects"]="User objects";
 $lang["users"]["upload_photo"]="Choose photo";
@@ -47,7 +47,7 @@ $lang["users"]["newpassword2"]["caption"]="New password";
 $lang["users"]["newpassword2"]["error"]="Incorrect new password";
 
 $lang["users"]["eq_passwords"]="The entered passwords coincide";
-$lang["users"]["wrong_old_password"]="You have incorrectly specified the old passwordü";
+$lang["users"]["wrong_old_password"]="You have incorrectly specified the old passwordÑŒ";
 
 $lang["users"]["change"]="Change";
 

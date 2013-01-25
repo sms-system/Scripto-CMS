@@ -1,5 +1,5 @@
 <?
-//Ìîäóëü ïîèñê ïî ñàéòó, ïîëüçîâàòåëüñêàÿ ÷àñòü
+//ĞœĞ¾Ğ´ÑƒĞ»ÑŒ Ğ¿Ğ¾Ğ¸ÑĞº Ğ¿Ğ¾ ÑĞ°Ğ¹Ñ‚Ñƒ, Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ÑŒÑĞºĞ°Ñ Ñ‡Ğ°ÑÑ‚ÑŒ
 global $engine;
 $cprefix=$engine->current_prefix;
 $str=trim(strip_tags(sql_quote(@$_REQUEST["str"])));
@@ -14,7 +14,7 @@ $res=$db->query("select * from %categories% where (LOWER(`caption$cprefix`) LIKE
 $smarty->assign("items",$items);
 $smarty->assign("count",sizeof($items));
 $dop_objects=array();
-/*ïîèñê ïî ìîäóëÿì*/
+/*Ğ¿Ğ¾Ğ¸ÑĞº Ğ¿Ğ¾ Ğ¼Ğ¾Ğ´ÑƒĞ»ÑĞ¼*/
 $modules=$engine->getInstallModulesFast();
 	foreach ($modules as $key=>$module) {
 		if (@$module["name"]!=false) {
@@ -29,7 +29,7 @@ $modules=$engine->getInstallModulesFast();
 	}
 $smarty->assign("dop_objects",$dop_objects);
 $smarty->assign("count_objects",sizeof($dop_objects));
-/*ïîèñê ïî ìîäóëÿì*/
+/*Ğ¿Ğ¾Ğ¸ÑĞº Ğ¿Ğ¾ Ğ¼Ğ¾Ğ´ÑƒĞ»ÑĞ¼*/
 }
 $url=$engine->getModuleFullViewUrl("search");
 $smarty->assign("search_url",$url);

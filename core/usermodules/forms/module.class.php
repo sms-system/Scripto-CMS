@@ -1,6 +1,6 @@
 <?
 /*
-Модуль формы
+РњРѕРґСѓР»СЊ С„РѕСЂРјС‹
 */
 
 define("SCRIPTO_forms",true);
@@ -43,7 +43,7 @@ class forms {
 	}
 	
 	function checkMe() {
-	//проверяем существуют ли уже таблицы модуля
+	//РїСЂРѕРІРµСЂСЏРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‚ Р»Рё СѓР¶Рµ С‚Р°Р±Р»РёС†С‹ РјРѕРґСѓР»СЏ
 		global $engine;
 		if ($engine->checkInstallModule("forms")) {
 			return true;
@@ -64,7 +64,7 @@ class forms {
 		
 		if (is_file($this->thismodule["path"]."user_module.mod.php")) {
 			include($this->thismodule["path"]."user_module.mod.php");
-			//здесь получаем товары для рубрик
+			//Р·РґРµСЃСЊ РїРѕР»СѓС‡Р°РµРј С‚РѕРІР°СЂС‹ РґР»СЏ СЂСѓР±СЂРёРє
 $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path"]."user_module".$this->engine->current_prefix.".tpl.html";
 		if (is_file($fname)) {
 		$content=$smarty->fetch($this->thismodule["template_path"]."user_module".$this->engine->current_prefix.".tpl.html");
@@ -202,7 +202,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		$key_default=sizeof($inputs);
 			foreach ($inputs as $key=>$input) {
 				if ($id_input==$input["id_input"]) {
-					//нашли нужный элемент,запоминаем его номер
+					//РЅР°С€Р»Рё РЅСѓР¶РЅС‹Р№ СЌР»РµРјРµРЅС‚,Р·Р°РїРѕРјРёРЅР°РµРј РµРіРѕ РЅРѕРјРµСЂ
 					$key_default=$key;
 					$sort_value=$inputs[$key+1]["sort"]-1;
 					$db->query("update `%FORMS_INPUT%` set sort=$sort_value where id_input=".$input["id_input"]);
@@ -218,7 +218,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		$key_default=sizeof($inputs);
 			foreach ($inputs as $key=>$input) {
 				if ($id_input==$input["id_input"]) {
-					//нашли нужный элемент,запоминаем его номер
+					//РЅР°С€Р»Рё РЅСѓР¶РЅС‹Р№ СЌР»РµРјРµРЅС‚,Р·Р°РїРѕРјРёРЅР°РµРј РµРіРѕ РЅРѕРјРµСЂ
 					$key_default=$key;
 					$sort_value=$inputs[$key+1]["sort"]-1;
 					$db->query("update `%FORMS_INPUT%` set sort=$sort_value where id_input=".$input["id_input"]);
@@ -348,7 +348,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		$count=@mysql_num_rows($res);
 		if ($count>0) {
 			$reminder['subject']=ToUTF8($this->thismodule["caption"]);
-			$reminder['content']=ToUTF8('У Вас '.@mysql_num_rows($res).' новых заявок по формам');
+			$reminder['content']=ToUTF8('РЈ Р’Р°СЃ '.@mysql_num_rows($res).' РЅРѕРІС‹С… Р·Р°СЏРІРѕРє РїРѕ С„РѕСЂРјР°Рј');
 			$reminder['count']=$count;
 			return $reminder;
 		} else {

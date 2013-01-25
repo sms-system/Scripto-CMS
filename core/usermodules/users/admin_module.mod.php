@@ -1,8 +1,8 @@
 <?
 /*
-Модуль пользователи, управление
-Версия модуля - 1.0
-Разработчик - Иванов Дмитрий
+РњРѕРґСѓР»СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё, СѓРїСЂР°РІР»РµРЅРёРµ
+Р’РµСЂСЃРёСЏ РјРѕРґСѓР»СЏ - 1.0
+Р Р°Р·СЂР°Р±РѕС‚С‡РёРє - РРІР°РЅРѕРІ Р”РјРёС‚СЂРёР№
 */
 $objects_install=false;
 if ($engine->checkInstallModule("objects")) {
@@ -17,7 +17,7 @@ if ($engine->checkInstallModule("basket")) {
 $m_action=@$_REQUEST["m_action"];
 switch ($m_action) {
 	case "group_users":
-		//Назначение пользователей для группы
+		//РќР°Р·РЅР°С‡РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РґР»СЏ РіСЂСѓРїРїС‹
 		$id_group=@$_REQUEST["id_group"];
 		if (preg_match("/^[0-9]{1,}$/i",$id_group)) {
 			$group=$this->getGroupByID($id_group);
@@ -39,22 +39,22 @@ switch ($m_action) {
 		}
 	break;
 	case "groups":
-		//группы пользователей
+		//РіСЂСѓРїРїС‹ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 		$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Группы пользователей','',false);
+		$engine->addPath('Р“СЂСѓРїРїС‹ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№','',false);
 		$engine->assignPath();
 		if (isset($_REQUEST["addnew"])) {
 			$groupname=trim(strip_tags(@$_REQUEST["groupname"]));
 			if (!$this->existGroup($groupname)) {
 				if ($this->addGroup($groupname,0,0)) {
-					$engine->setCongratulation('Группа создана','Группа '.$groupname.' создана!',3000);
+					$engine->setCongratulation('Р“СЂСѓРїРїР° СЃРѕР·РґР°РЅР°','Р“СЂСѓРїРїР° '.$groupname.' СЃРѕР·РґР°РЅР°!',3000);
 				} else {
-					$engine->setCongratulation('Ошибка','При создании новой группы произошла ошибка!',3000);
+					$engine->setCongratulation('РћС€РёР±РєР°','РџСЂРё СЃРѕР·РґР°РЅРёРё РЅРѕРІРѕР№ РіСЂСѓРїРїС‹ РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!',3000);
 				}
 			} else {
-				$engine->setCongratulation('Ошибка','Группа '.$groupname.' уже существует!',3000);
+				$engine->setCongratulation('РћС€РёР±РєР°','Р“СЂСѓРїРїР° '.$groupname.' СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!',3000);
 			}
 		}
 		if (isset($_REQUEST["save"])) {
@@ -98,7 +98,7 @@ switch ($m_action) {
 						}
 					}
 				}
-			$engine->setCongratulation('',"Обновлено $u групп , удалено $d групп",5000);
+			$engine->setCongratulation('',"РћР±РЅРѕРІР»РµРЅРѕ $u РіСЂСѓРїРї , СѓРґР°Р»РµРЅРѕ $d РіСЂСѓРїРї",5000);
 			unset($groups);
 			}
 		}
@@ -110,7 +110,7 @@ switch ($m_action) {
 		if (preg_match("/^[0-9]{1,}$/i",$id_user)) {
 			$db->query("DELETE from `%USERS%` where id_user=$id_user");
 			$db->query("DELETE from `%USER_OBJECTS%` where id_user=$id_user");
-			$engine->setCongratulation("Пользователи","Пользователь удален успешно!",5000);
+			$engine->setCongratulation("РџРѕР»СЊР·РѕРІР°С‚РµР»Рё","РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓРґР°Р»РµРЅ СѓСЃРїРµС€РЅРѕ!",5000);
 		}
 		$m_action="users";
 	break;
@@ -144,12 +144,12 @@ switch ($m_action) {
 					}
 				}
 			}
-			$engine->setCongratulation("Пользователи","Обновлено $u пользователей!",5000);
+			$engine->setCongratulation("РџРѕР»СЊР·РѕРІР°С‚РµР»Рё","РћР±РЅРѕРІР»РµРЅРѕ $u РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№!",5000);
 		}
 		$m_action="users";
 	break;
 	case "users":
-		//просмотр пользователей
+		//РїСЂРѕСЃРјРѕС‚СЂ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
 		
 	break;
 	case "register":
@@ -164,7 +164,7 @@ switch ($m_action) {
 				$usr=$this->getuserByID($id_user);
 			}
 			
-			//устанавливаем превью
+			//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїСЂРµРІСЊСЋ
 				if (isset($_REQUEST["setPreview"])) {
 					$previewMode=@$_REQUEST["previewMode"];
 					$id_image=@$_REQUEST["id_image"];
@@ -178,11 +178,11 @@ switch ($m_action) {
 						switch ($previewMode) {
 							case "small":
 								if ($mode!="edit") {
-$engine->setPreview($img["small_photo"],$previewMode,'Аватар установлен');
+$engine->setPreview($img["small_photo"],$previewMode,'РђРІР°С‚Р°СЂ СѓСЃС‚Р°РЅРѕРІР»РµРЅ');
 $_SESSION["user_small"]=$img["small_photo"];
 								} else {
 								if ($db->query("update `%USERS%` set `avatar`='".$img["small_photo"]."' where id_user=$id_user")) {
-$engine->setPreview($img["small_photo"],$previewMode,'Аватар установлен');
+$engine->setPreview($img["small_photo"],$previewMode,'РђРІР°С‚Р°СЂ СѓСЃС‚Р°РЅРѕРІР»РµРЅ');
 								}
 								}
 							break;
@@ -247,41 +247,41 @@ $engine->setPreview($img["small_photo"],$previewMode,'Аватар установлен');
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 			
-$frm->addField("Желаемый логин","Неверно заполнено поле желаемый логин","text",$login,$login,"/^[a-zA-Z0-9]{2,20}$/i","login",1,"dmitry991984",array('size'=>'40','ticket'=>"Цифры и латинские буквы, от 5 до 10 символов"));
+$frm->addField("Р–РµР»Р°РµРјС‹Р№ Р»РѕРіРёРЅ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ Р¶РµР»Р°РµРјС‹Р№ Р»РѕРіРёРЅ","text",$login,$login,"/^[a-zA-Z0-9]{2,20}$/i","login",1,"dmitry991984",array('size'=>'40','ticket'=>"Р¦РёС„СЂС‹ Рё Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹, РѕС‚ 5 РґРѕ 10 СЃРёРјРІРѕР»РѕРІ"));
 
-$frm->addField("Группа пользователя","Неверно выбрана группа пользователя","list",$values,$id_group,"/^[0-9]{1,}$/i","id_group",1,"Постоянные клиенты",array('size'=>'40'));
+$frm->addField("Р“СЂСѓРїРїР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅР° РіСЂСѓРїРїР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ","list",$values,$id_group,"/^[0-9]{1,}$/i","id_group",1,"РџРѕСЃС‚РѕСЏРЅРЅС‹Рµ РєР»РёРµРЅС‚С‹",array('size'=>'40'));
 
-$frm->addField("Фамилия","Неверно заполнено поле фамилия","text",$family,$family,"/^[^`#]{2,255}$/i","family",0,"Кузнецов",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("Р¤Р°РјРёР»РёСЏ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ С„Р°РјРёР»РёСЏ","text",$family,$family,"/^[^`#]{2,255}$/i","family",0,"РљСѓР·РЅРµС†РѕРІ",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Имя","Неверно заполнено поле имя","text",$name,$name,"/^[^`#]{2,255}$/i","name",1,"Валерий",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РРјСЏ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ РёРјСЏ","text",$name,$name,"/^[^`#]{2,255}$/i","name",1,"Р’Р°Р»РµСЂРёР№",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Отчество","Неверно заполнено поле отчество","text",$otch,$otch,"/^[^`#]{2,255}$/i","otch",0,"Степанович",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РћС‚С‡РµСЃС‚РІРѕ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ РѕС‚С‡РµСЃС‚РІРѕ","text",$otch,$otch,"/^[^`#]{2,255}$/i","otch",0,"РЎС‚РµРїР°РЅРѕРІРёС‡",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Город","Неверно заполнено поле город","text",$city,$city,"/^[^`#]{2,255}$/i","city",0,"Москва",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("Р“РѕСЂРѕРґ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ РіРѕСЂРѕРґ","text",$city,$city,"/^[^`#]{2,255}$/i","city",0,"РњРѕСЃРєРІР°",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("E-mail","Неверно заполнено поле e-mail","text",$email,$email,"/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i","email",1,"valery@site.ru",array('size'=>'40','ticket'=>""));
+$frm->addField("E-mail","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ e-mail","text",$email,$email,"/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i","email",1,"valery@site.ru",array('size'=>'40','ticket'=>""));
 
-$frm->addField("Городской телефон","Неверно заполнено поле городской телефон","text",$phone1,$phone1,"/^[+]?[0-9]?[ -]?[(]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[)]?[- .]?[0-9]{3}[- .]?[0-9]{2,4}[- .]?[0-9]{2,4}$/i","phone1",0,"8 (495) 910-44-56",array('size'=>'40','ticket'=>""));
+$frm->addField("Р“РѕСЂРѕРґСЃРєРѕР№ С‚РµР»РµС„РѕРЅ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ РіРѕСЂРѕРґСЃРєРѕР№ С‚РµР»РµС„РѕРЅ","text",$phone1,$phone1,"/^[+]?[0-9]?[ -]?[(]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[)]?[- .]?[0-9]{3}[- .]?[0-9]{2,4}[- .]?[0-9]{2,4}$/i","phone1",0,"8 (495) 910-44-56",array('size'=>'40','ticket'=>""));
 
-$frm->addField("Сотовый телефон","Неверно заполнено поле сотовый телефон","text",$phone2,$phone2,"/^[+]?[0-9]?[ -]?[(]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[)]?[- .]?[0-9]{3}[- .]?[0-9]{2,4}[- .]?[0-9]{2,4}$/i","phone2",0,"8 (926) 910-44-56",array('size'=>'40','ticket'=>""));
+$frm->addField("РЎРѕС‚РѕРІС‹Р№ С‚РµР»РµС„РѕРЅ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ СЃРѕС‚РѕРІС‹Р№ С‚РµР»РµС„РѕРЅ","text",$phone2,$phone2,"/^[+]?[0-9]?[ -]?[(]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[)]?[- .]?[0-9]{3}[- .]?[0-9]{2,4}[- .]?[0-9]{2,4}$/i","phone2",0,"8 (926) 910-44-56",array('size'=>'40','ticket'=>""));
 
-$frm->addField('Аватар пользователя',"","caption",0,0,"/^[0-9]{1}$/i","avatar",0,'',array('hidden'=>true));
+$frm->addField('РђРІР°С‚Р°СЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ',"","caption",0,0,"/^[0-9]{1}$/i","avatar",0,'',array('hidden'=>true));
 if ($mode=="edit") {
-$frm->addField('Аватар','',"preview",$usr["avatar"],$usr["avatar"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true));
+$frm->addField('РђРІР°С‚Р°СЂ','',"preview",$usr["avatar"],$usr["avatar"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true));
 } else {
 if (isset($_SESSION["user_small"])) {
 $usr["avatar"]=$_SESSION["user_small"];
 } else {
 $usr["avatar"]='';
 }
-$frm->addField('Аватар','',"preview",$usr["avatar"],$usr["avatar"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true));
+$frm->addField('РђРІР°С‚Р°СЂ','',"preview",$usr["avatar"],$usr["avatar"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true));
 }
-$frm->addField('Аватар пользователя',"","caption",0,0,"/^[0-9]{1}$/i","avatar",0,'',array('end'=>true));
+$frm->addField('РђРІР°С‚Р°СЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ',"","caption",0,0,"/^[0-9]{1}$/i","avatar",0,'',array('end'=>true));
 
-$frm->addField("Сделать пользователя модератором","Неверно выбрано свойство сделать пользователя модератором","check",$moderator,$moderator,"/^[0-9]{1}$/i","moderator",1);
+$frm->addField("РЎРґРµР»Р°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РјРѕРґРµСЂР°С‚РѕСЂРѕРј","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ СЃРґРµР»Р°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РјРѕРґРµСЂР°С‚РѕСЂРѕРј","check",$moderator,$moderator,"/^[0-9]{1}$/i","moderator",1);
 
 if ($mode=="edit") {
-	$frm->addField("Изменить пароль","Неверно выбрано свойство смены пароля","check",$change_pass,$change_pass,"/^[0-9]{1}$/i","change_pass",1);
+	$frm->addField("РР·РјРµРЅРёС‚СЊ РїР°СЂРѕР»СЊ","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ СЃРјРµРЅС‹ РїР°СЂРѕР»СЏ","check",$change_pass,$change_pass,"/^[0-9]{1}$/i","change_pass",1);
 }
 
 $frm->addField("","","hidden",$mode,$mode,"/^[^`]{0,}$/i","mode",1);
@@ -292,24 +292,24 @@ $frm->addField("","","hidden",$id_user,$id_user,"/^[^`]{0,}$/i","id_user",1);
 }
 $smarty->assign("mode",$mode);
 if ($mode=="edit") {
-$b_text="Изменить";
-$engine->addPath('Редактирование пользователя '.$usr["login"],'',false);
+$b_text="РР·РјРµРЅРёС‚СЊ";
+$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ '.$usr["login"],'',false);
 if ($login!=$usr["login"])
  if ($this->loginExist($login)) 
-	$frm->addError("Пользователь с логином <b>$login</b> уже существует!");	
+	$frm->addError("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ Р»РѕРіРёРЅРѕРј <b>$login</b> СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!");	
 } else {
-$b_text="Регистрация";
-$engine->addPath('Регистрация нового пользователя','',false);
+$b_text="Р РµРіРёСЃС‚СЂР°С†РёСЏ";
+$engine->addPath('Р РµРіРёСЃС‚СЂР°С†РёСЏ РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ','',false);
 if ($this->loginExist($login)) 
-	$frm->addError("Пользователь с логином <b>$login</b> уже существует!");
+	$frm->addError("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ Р»РѕРіРёРЅРѕРј <b>$login</b> СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!");
 }
 
 			if (
 $engine->processFormData($frm,$b_text,$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if (isset($id_user)) {
 				 	$pass_sql="";
 				 	if ($change_pass) {
@@ -319,31 +319,31 @@ $engine->processFormData($frm,$b_text,$first
 					}
 					if ($engine->user["type"]!="root") {
 						$moderator=$usr["moderator"];
-						$engine->setCongratulation('Ошибка','Назначить, либо снять права модератора может только администратор сайта',0);
+						$engine->setCongratulation('РћС€РёР±РєР°','РќР°Р·РЅР°С‡РёС‚СЊ, Р»РёР±Рѕ СЃРЅСЏС‚СЊ РїСЂР°РІР° РјРѕРґРµСЂР°С‚РѕСЂР° РјРѕР¶РµС‚ С‚РѕР»СЊРєРѕ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ СЃР°Р№С‚Р°',0);
 					}
 				 	if ($db->query("update %USERS% set `new`=0,`id_group`=$id_group,`moderator`=$moderator,`login`='".sql_quote($login)."' $pass_sql , family='".sql_quote($family)."' , `name`='".sql_quote($name)."',`otch`='".sql_quote($otch)."',city='".sql_quote($city)."',`email`='".sql_quote($email)."',`phone1`='".sql_quote($phone1)."',`phone2`='".sql_quote($phone2)."' where id_user=$id_user")) {
-						//отредактировали
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
 				//	   $modAction="view";
-				   $engine->setCongratulation("Пользователи","Информация о пользователе $login отредактирована успешно!");
+				   $engine->setCongratulation("РџРѕР»СЊР·РѕРІР°С‚РµР»Рё","РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ $login РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅР° СѓСЃРїРµС€РЅРѕ!");
 				   $cuser=$this->getuserByID($id_user);
 				   $smarty->assign("cuser",$cuser);
-				   $this->mailMe($email,$this->thismodule["mailadmin"],"Изменение информации о пользователе $login на сайте ".$settings["httproot"],1);
+				   $this->mailMe($email,$this->thismodule["mailadmin"],"РР·РјРµРЅРµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ $login РЅР° СЃР°Р№С‚Рµ ".$settings["httproot"],1);
 					$m_action="users";
 					}
 				 } else {
-				 	//показываем ошибку
+				 	//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
 				 $password=$this->generatePassword();
 				 $smarty->assign("password",$password);
  $add_id=$this->addUser($login,$password,$family,$name,$otch,$city,$email,$phone1,$phone2,0,$usr["avatar"],$moderator,$id_group);
 				 if ($add_id!=false) {
-				   //добавили успешно!
-				   $engine->setCongratulation("Пользователи","Пользователь $login зарегистрирован успешно!");
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
+				   $engine->setCongratulation("РџРѕР»СЊР·РѕРІР°С‚РµР»Рё","РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ $login Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ СѓСЃРїРµС€РЅРѕ!");
 				   $cuser=$this->getUserByID($add_id);
 				   $smarty->assign("cuser",$cuser);
-				   $this->mailMe($email,$this->thismodule["mailadmin"],"Регистрация пользователя на сайте ".$settings["httproot"],0);
+				   $this->mailMe($email,$this->thismodule["mailadmin"],"Р РµРіРёСЃС‚СЂР°С†РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅР° СЃР°Р№С‚Рµ ".$settings["httproot"],0);
 					$m_action="users";
 				 }
 				}
@@ -384,7 +384,7 @@ $engine->processFormData($frm,$b_text,$first
 		$ob->doDb();
 		$smarty->assign("addObj2",true);
 				if (isset($_REQUEST["sort_me"])) {
-					//сортировка
+					//СЃРѕСЂС‚РёСЂРѕРІРєР°
 					$del=@$_REQUEST["del"];
 					$sort=@$_REQUEST["sort"];
 					if (is_array($sort)) {
@@ -401,7 +401,7 @@ $engine->processFormData($frm,$b_text,$first
 								}
 							}
 						}
-						$engine->setCongratulation("","Изменения сохранены (Удалено $d объектов , обновлено $u объектов)");
+						$engine->setCongratulation("","РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹ (РЈРґР°Р»РµРЅРѕ $d РѕР±СЉРµРєС‚РѕРІ , РѕР±РЅРѕРІР»РµРЅРѕ $u РѕР±СЉРµРєС‚РѕРІ)");
 					}
 				}
 		$usr_objects=$this->getObjectsByUser($id_user);
@@ -417,7 +417,7 @@ $engine->processFormData($frm,$b_text,$first
 								$smarty->assign("objct",$obj);
 								$smarty->assign("id_object2",$id_object2);
 								if ($this->addObject2User($id_object2,$id_user,$obj["id_type"])) {
-									$smarty->assign("fancyTooltip","Объект успешно добавлен");
+									$smarty->assign("fancyTooltip","РћР±СЉРµРєС‚ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅ");
 $smarty->assign("addObj2",true);
 								}
 								}
@@ -425,7 +425,7 @@ $smarty->assign("addObj2",true);
 							default:
 								if ($id_object2==0) {
 										$db->query("delete from `%USER_OBJECTS%` where id_object=$previewMode and id_user=$id_user");
-										$smarty->assign("fancyTooltip","Объект удален успешно");
+										$smarty->assign("fancyTooltip","РћР±СЉРµРєС‚ СѓРґР°Р»РµРЅ СѓСЃРїРµС€РЅРѕ");
 										$smarty->assign("id_object2",$previewMode);
 										$smarty->assign("deleteObj",true);
 								} else {
@@ -434,7 +434,7 @@ $smarty->assign("addObj2",true);
 									$smarty->assign("id_object2",$id_object2);
 									$smarty->assign("addObj2",true);
 								if ($db->query("update `%USER_OBJECTS%` set id_object=$id_object2 where id_object=$previewMode and id_user=$id_user")) {
-	$engine->setPreview($obj["caption"],$previewMode,'Объект установлен успешно','html');
+	$engine->setPreview($obj["caption"],$previewMode,'РћР±СЉРµРєС‚ СѓСЃС‚Р°РЅРѕРІР»РµРЅ СѓСЃРїРµС€РЅРѕ','html');
 								}
 								}
 						}
@@ -445,7 +445,7 @@ $smarty->assign("addObj2",true);
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 		$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-$engine->addPath('Выбор объектов для пользователя '.$usr["login"],'',false);
+$engine->addPath('Р’С‹Р±РѕСЂ РѕР±СЉРµРєС‚РѕРІ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ '.$usr["login"],'',false);
 		$engine->assignPath();
 	}
 	break;
@@ -453,7 +453,7 @@ $engine->addPath('Выбор объектов для пользователя '.$usr["login"],'',false);
 		if (isset($_REQUEST["id_user"]) && $objects_install) {
 			$id_user=$_REQUEST["id_user"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_user)) {
-				/*установка свойств*/
+				/*СѓСЃС‚Р°РЅРѕРІРєР° СЃРІРѕР№СЃС‚РІ*/
 				$smarty->assign("doAjaxify",true);
 				if (isset($_REQUEST["mode"])) {
 				$mode=$_REQUEST["mode"];
@@ -461,19 +461,19 @@ $engine->addPath('Выбор объектов для пользователя '.$usr["login"],'',false);
 					 $smarty->assign("mode",$mode);
 				}
 				$smarty->assign("multiple","no");
-				//откуда пришел пользователь
+				//РѕС‚РєСѓРґР° РїСЂРёС€РµР» РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ
 				if (!isset($_REQUEST["ref"])) {
 					$ref=getenv("HTTP_REFERER");
 					$smarty->assign("ref",$ref);
 				}
-				$engine->setAdminTitle('Выбор объекта');
-				$page["title"]='Выбор объекта';
+				$engine->setAdminTitle('Р’С‹Р±РѕСЂ РѕР±СЉРµРєС‚Р°');
+				$page["title"]='Р’С‹Р±РѕСЂ РѕР±СЉРµРєС‚Р°';
 				if (isset($_REQUEST["get_rubrics"])) {
 					$smarty->assign("get_rubrics",true);
 				} else {
 					$smarty->assign("get_rubrics",false);
 				}
-				/*конец установки свойств*/
+				/*РєРѕРЅРµС† СѓСЃС‚Р°РЅРѕРІРєРё СЃРІРѕР№СЃС‚РІ*/
 				$engine->clearPath();
 				$usr=$this->getUserByID($id_user);
 				$obj=new objects();
@@ -504,7 +504,7 @@ if ($m_action=="users") {
 	$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 	$engine->addPath($this->thismodule["caption"],'',false);
 	$engine->assignPath();
-	//проверяем поисковый запрос
+	//РїСЂРѕРІРµСЂСЏРµРј РїРѕРёСЃРєРѕРІС‹Р№ Р·Р°РїСЂРѕСЃ
 	if (isset($_REQUEST["str"])) {
 		$str_real=trim($_REQUEST["str"]);
 		if (trim($str_real)!='') {

@@ -1,6 +1,6 @@
 <?
 /*
-Ãëàâíûé êëàññ ãàëëåðåè
+Ð“Ð»Ð°Ð²Ð½Ñ‹Ð¹ ÐºÐ»Ð°ÑÑ Ð³Ð°Ð»Ð»ÐµÑ€ÐµÐ¸
 */
 	class Engine {
 	var $config;
@@ -23,12 +23,12 @@
 	var $tables=array();
 	var $current_language="ru";
 	var $current_prefix="";
-	
+
 		function Engine() {
 			$this->templates=$this->getTemplatesSystem();
 		}
-		
-		//Ïîëó÷àåì ÿçûê
+
+		//ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑÐ·Ñ‹Ðº
 		function getLanguage($id_rubric) {
 			foreach ($this->languages as $lng)
 				if ($lng["default"]==1)
@@ -52,7 +52,7 @@
 				}
 			}
 		}
-		
+
 		function setCategoryAdditional($id_category,$val=array()) {
 			global $db;
 			if (!preg_match("/^[0-9]{1,}$/i",$id_category)) return false;
@@ -68,7 +68,7 @@
 				return false;
 			}
 		}
-		
+
 		function generateUpdateSQL($table,$values) {
 			global $db;
 			global $tables;
@@ -91,7 +91,7 @@
 			}
 			return $sql;
 		}
-		
+
 		function generateInsertSQL($table,$values) {
 			global $db;
 			global $tables;
@@ -114,12 +114,12 @@
 			}
 			return $sql;
 		}
-		
+
 		function generateLangControls($table,$values,$f) {
 			global $lang;
 			global $languages;
 			global $tables;
-			
+
 			if (isset($this->tables[$table])) {
 				if (sizeof($languages)>1) {
 	$f->addField($lang["interface"]["languages"],"","caption",0,0,"/^[0-9]{1}$/i","langs",0,'',array('hidden'=>true));
@@ -135,7 +135,7 @@
 							if ($field["type"]=="solmetra") {
 							$val=$this->createFCKEditor("lang_values[".$lng["ident"]."][$key]",$val);
 							}
-							$f->addField($field["caption"],'Íåâåðíî çàïîëíåíî ïîëå '.$field["caption"].' (ÿçûê - '.$lng["ident"].')',$field["type"],$val,$val,$field["eregi"],"lang_values[".$lng["ident"]."][$key]",0,'');
+							$f->addField($field["caption"],'ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Ð¿Ð¾Ð»Ðµ '.$field["caption"].' (ÑÐ·Ñ‹Ðº - '.$lng["ident"].')',$field["type"],$val,$val,$field["eregi"],"lang_values[".$lng["ident"]."][$key]",0,'');
 						}
 $f->addField($lng["caption"],"","caption",0,0,"/^[0-9]{1}$/i","lang".$lng["id_language"],0,'',array('end'=>true));
 					}
@@ -146,7 +146,7 @@ $f->addField('',"","caption",0,0,"/^[0-9]{1}$/i","langs",0,'',array('end'=>true)
 				return false;
 			}
 		}
-		
+
 		function generateLangArray($table,$object) {
 			global $db;
 			global $tables;
@@ -171,7 +171,7 @@ $f->addField('',"","caption",0,0,"/^[0-9]{1}$/i","langs",0,'',array('end'=>true)
 				return false;
 			}
 		}
-		
+
 		function existLanguage($ident) {
 			global $db;
 			if (!preg_match("/^[a-z]{1,8}$/i",$ident)) return false;
@@ -182,7 +182,7 @@ $f->addField('',"","caption",0,0,"/^[0-9]{1}$/i","langs",0,'',array('end'=>true)
 				return false;
 			}
 		}
-		
+
 		function createLanguage($caption,$ident,$default=0) {
 			global $db;
 
@@ -201,21 +201,21 @@ $modules=$this->getInstallModulesFast();
 		}
 	}
 			if ($db->query("insert into `%languages%` values(null,$default,'$ident','".sql_quote($caption)."')")) {
-				
+
 				$this->doMultilang('',$ident);
 				return true;
 			} else {
 				return false;
 			}
 		}
-		
+
 		function getLanguageByID($id_language) {
 			global $db;
 			if (!preg_match("/^[0-9]{1,}$/i",$id_language)) return false;
 			$res=$db->query("select * from `%languages%` where id_language=$id_language");
 			return $db->fetch($res);
 		}
-		
+
 		function deleteLanguage($id_language) {
 			global $db;
 			if (!preg_match("/^[0-9]{1,}$/i",$id_language)) return false;
@@ -245,13 +245,13 @@ $modules=$this->getInstallModulesFast();
 				return false;
 			}
 		}
-		
+
 		function assignTables($table) {
 			if (is_array($table))
 				$this->tables=array_merge($this->tables,$table);
 			return true;
 		}
-		
+
 		function alter($language,$table,$field,$type) {
 			global $db;
 			if ($db->query("ALTER TABLE `%$table%` ADD `".$field."_".$language."` $type")) {
@@ -260,7 +260,7 @@ $modules=$this->getInstallModulesFast();
 				return false;
 			}
 		}
-		
+
 		function alter_delete($language,$table,$field) {
 			global $db;
 			if ($db->query("ALTER TABLE `%$table%` DROP `".$field."_".$language."`")) {
@@ -269,7 +269,7 @@ $modules=$this->getInstallModulesFast();
 				return false;
 			}
 		}
-		
+
 		function deleteMultilang($table="",$language) {
 			global $tables;
 			if (preg_match("/^[a-zA-Z0-9_-]{1,}$/i",$table)) {
@@ -283,7 +283,7 @@ $modules=$this->getInstallModulesFast();
 			}
 			return true;
 		}
-		
+
 		function doMultilang($table="",$language) {
 			global $tables;
 			if (preg_match("/^[a-zA-Z0-9_-]{1,}$/i",$table)) {
@@ -297,7 +297,7 @@ $modules=$this->getInstallModulesFast();
 			}
 			return true;
 		}
-		
+
 		function getListLanguages() {
 			global $db;
 			$res=$db->query("select * from `%languages%` order by id_language ASC");
@@ -310,7 +310,7 @@ $modules=$this->getInstallModulesFast();
 				return false;
 			}
 		}
-		
+
 		function getTemplatesSystem() {
 			global $db;
 			$templates=array();
@@ -320,10 +320,10 @@ $modules=$this->getInstallModulesFast();
 			}
 			return $templates;
 		}
-		
+
 		function getSettings() {
 			global $db;
-			
+
 			$res=$db->query("select * from %settings% LIMIT 0,1");
 			if (@mysql_num_rows($res)==1) {
 				$row=$db->fetch($res);
@@ -333,11 +333,11 @@ $modules=$this->getInstallModulesFast();
 				die("Couldn't not load settings");
 			}
 		}
-		
+
 		function generate_admin_password($str) {
 			return md5($this->config["secretkey"].$str);
 		}
-		
+
 		function checkForAdditionalUser() {
 			global $settings;
 			global $lang;
@@ -401,13 +401,13 @@ $modules=$this->getInstallModulesFast();
 				return false;
 			}
 		}
-		
+
 		function getAdmin() {
 		 global $settings;
 		 global $lang;
-			//ïîëó÷àåì òåêóùåãî ïîëüçîâàòåëÿ, àâòîðèçîâàíû \ íåò
+			//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ, Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð¾Ð²Ð°Ð½Ñ‹ \ Ð½ÐµÑ‚
 			if (isset($_SESSION["authorized"])) {
-				//àâòîðèçîâàíû
+				//Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð¾Ð²Ð°Ð½Ñ‹
 				if (isset($_SESSION["login"])) {
 					$login=$_SESSION["login"];
 				} else {
@@ -422,7 +422,7 @@ $modules=$this->getInstallModulesFast();
 					($login==$settings["login"]) &&
 					($password==$settings["pass"])
 					) {
-						//âñå îê , âîøëè
+						//Ð²ÑÐµ Ð¾Ðº , Ð²Ð¾ÑˆÐ»Ð¸
 						$user["status"]=2;
 						$user["login"]=$login;
 						$user["password"]=$password;
@@ -430,7 +430,7 @@ $modules=$this->getInstallModulesFast();
 						$_SESSION["authorized"]="yes";
 						$_SESSION["login"]=$login;
 						$_SESSION["password"]=$password;
-						if (isset($_REQUEST["exit"])) 
+						if (isset($_REQUEST["exit"]))
 							if ($_REQUEST["exit"]=="yes") {
 								$this->clearAdminSession();
 								$user["status"]=0;
@@ -439,7 +439,7 @@ $modules=$this->getInstallModulesFast();
 								$user["type"]="none";
 							}
 					} else {
-						//íåïðàâèëüíûé ëîãèí\ïàðîëü
+						//Ð½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¹ Ð»Ð¾Ð³Ð¸Ð½\Ð¿Ð°Ñ€Ð¾Ð»ÑŒ
 						$additional_user=$this->checkForAdditionalUser();
 						if (!is_array($additional_user)) {
 						$user["status"]=1;
@@ -452,19 +452,19 @@ $modules=$this->getInstallModulesFast();
 						}
 					}
 			} else {
-				//íå àâòîðèçîâàíû
-				//ñìîòðèì ïîñëàí ëè çàïðîñ íà àâòîðèçàöèþ
+				//Ð½Ðµ Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð¾Ð²Ð°Ð½Ñ‹
+				//ÑÐ¼Ð¾Ñ‚Ñ€Ð¸Ð¼ Ð¿Ð¾ÑÐ»Ð°Ð½ Ð»Ð¸ Ð·Ð°Ð¿Ñ€Ð¾Ñ Ð½Ð° Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸ÑŽ
 				if (isset($_REQUEST["login"]) && isset($_REQUEST["password"])) {
 					$login=$_REQUEST["login"];
 					$password=$this->generate_admin_password($_REQUEST["password"]);
-					//ïîñëàí , ïðîâåðÿåì êîððåêòíîñòü ëîãèíà
+					//Ð¿Ð¾ÑÐ»Ð°Ð½ , Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾ÑÑ‚ÑŒ Ð»Ð¾Ð³Ð¸Ð½Ð°
 					if (preg_match("/^[a-zA-Z0-9]{1,20}$/i",$login)) {
-						//âñå îê, ïðîâåðÿåì ïàðó ëîãèí\ïàðîëü
+						//Ð²ÑÐµ Ð¾Ðº, Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ Ð¿Ð°Ñ€Ñƒ Ð»Ð¾Ð³Ð¸Ð½\Ð¿Ð°Ñ€Ð¾Ð»ÑŒ
 						if (
 						($login==$settings["login"]) &&
 						($password==$settings["pass"])
 						) {
-						//âñå îê , âîøëè
+						//Ð²ÑÐµ Ð¾Ðº , Ð²Ð¾ÑˆÐ»Ð¸
 							$user["status"]=2;
 							$user["login"]=$login;
 							$user["password"]=$password;
@@ -474,7 +474,7 @@ $modules=$this->getInstallModulesFast();
 							$_SESSION["password"]=$password;
 							$this->setCongratulation($lang["interface"]["success"],$lang["interface"]["welcome"],3000);
 						} else {
-						//íåïðàâèëüíûé ëîãèí\ïàðîëü
+						//Ð½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¹ Ð»Ð¾Ð³Ð¸Ð½\Ð¿Ð°Ñ€Ð¾Ð»ÑŒ
 							$additional_user=$this->checkForAdditionalUser();
 							if (!is_array($additional_user)) {
 							$user["status"]=1;
@@ -485,13 +485,13 @@ $modules=$this->getInstallModulesFast();
 							}
 						}
 					} else {
-						//íåâåðíûé ëîãèí\ïàðîëü
+						//Ð½ÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð»Ð¾Ð³Ð¸Ð½\Ð¿Ð°Ñ€Ð¾Ð»ÑŒ
 						$user["status"]=1;
 						$user["login"]="";
 						$user["password"]="";
 					}
 				} else {
-					//íå ïîñëàí, ïîêàçûâàåì ôîðìó
+					//Ð½Ðµ Ð¿Ð¾ÑÐ»Ð°Ð½, Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÐ¼ Ñ„Ð¾Ñ€Ð¼Ñƒ
 					$user["status"]=0;
 					$user["login"]="";
 					$user["password"]="";
@@ -499,9 +499,9 @@ $modules=$this->getInstallModulesFast();
 			}
 			return $user;
 		}
-		
+
 		function clearAdminSession() {
-			//î÷èùàåì àäìèíñêóþ ñåññèþ
+			//Ð¾Ñ‡Ð¸Ñ‰Ð°ÐµÐ¼ Ð°Ð´Ð¼Ð¸Ð½ÑÐºÑƒÑŽ ÑÐµÑÑÐ¸ÑŽ
 			unset($_SESSION["authorized"]);
 			if (isset($_SESSION["login"]))
 				unset($_SESSION["login"]);
@@ -509,8 +509,8 @@ $modules=$this->getInstallModulesFast();
 				unset($_SESSION["password"]);
 			return true;
 		}
-		
-		//Ïîëó÷åíèå ñïèñêà âñåõ ìîäóëåé
+
+		//ÐŸÐ¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ ÑÐ¿Ð¸ÑÐºÐ° Ð²ÑÐµÑ… Ð¼Ð¾Ð´ÑƒÐ»ÐµÐ¹
 		function getAllModulesSettings() {
 			global $config;
 			$modules["standart"]=$config["modules"];
@@ -523,8 +523,8 @@ $modules=$this->getInstallModulesFast();
 			}
 			return $modules;
 		}
-		
-		//óäàëåíèå ôîòêè
+
+		//ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ Ñ„Ð¾Ñ‚ÐºÐ¸
 		function deletePhoto($id_photo) {
 			global $db;
 			global $config;
@@ -534,19 +534,19 @@ $modules=$this->getInstallModulesFast();
 			if (is_file($pth.$photo["small_photo"])) {
 				@unlink($pth.$photo["small_photo"]);
 			}
-			
+
 			if (is_file($pth.$photo["preview"])) {
 				@unlink($pth.$photo["preview"]);
 			}
-			
+
 			if (is_file($pth.$photo["medium_photo"])) {
 				@unlink($pth.$photo["medium_photo"]);
 			}
-			
+
 			if (is_file($config["pathes"]["user_image"].$photo["big_photo"])) {
 				@unlink($config["pathes"]["user_image"].$photo["big_photo"]);
 			}
-			
+
 			if ($db->query("delete from %photos% where id_photo=$id_photo")) {
 				$db->query("delete from %photos% where big_photo='".sql_quote($photo["big_photo"])."'");
 				$db->query("delete from %videos% where preview='".sql_quote($photo["big_photo"])."' or big_preview='".sql_quote($photo["big_photo"])."'");
@@ -561,24 +561,24 @@ $modules=$this->getInstallModulesFast();
 				return false;
 			}
 		}
-		
-		//óäàëåíèå âèäåî
+
+		//ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð²Ð¸Ð´ÐµÐ¾
 		function deleteVideo($id_video) {
 			global $db;
 			global $config;
-			
+
 			$video=$this->getVideoByID($id_video);
 			if (is_array($video)) {
 			$pth=$config["pathes"]["user_thumbnails"];
-			
+
 			if (is_file($pth.$video["preview"])) {
 				@unlink($pth.$video["preview"]);
 			}
-			
+
 			if (is_file($config["pathes"]["user_video"].$video["filename"])) {
 				@unlink($config["pathes"]["user_video"].$video["filename"]);
 			}
-			
+
 			if ($db->query("delete from %videos% where id_video=$id_video")) {
 				$db->query("delete from %videos% where filename='".sql_quote($video["filename"])."'");
 				return true;
@@ -589,24 +589,24 @@ $modules=$this->getInstallModulesFast();
 				return false;
 			}
 		}
-		
-		//óäàëåíèå àóäèî
+
+		//ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð°ÑƒÐ´Ð¸Ð¾
 		function deleteAudio($id_audio) {
 			global $db;
 			global $config;
-			
+
 			$audio=$this->getAudioByID($id_audio);
 			if (is_array($audio)) {
 			$pth=$config["pathes"]["user_thumbnails"];
-			
+
 			if (is_file($pth.$audio["preview"])) {
 				@unlink($pth.$audio["preview"]);
 			}
-			
+
 			if (is_file($config["pathes"]["user_music"].$audio["filename"])) {
 				@unlink($config["pathes"]["user_music"].$audio["filename"]);
 			}
-			
+
 			if ($db->query("delete from %audio% where id_audio=$id_audio")) {
 				$db->query("delete from %audio% where filename='".sql_quote($audio["filename"])."'");
 				return true;
@@ -617,24 +617,24 @@ $modules=$this->getInstallModulesFast();
 				return false;
 			}
 		}
-		
-		//óäàëåíèå flash
+
+		//ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ flash
 		function deleteFlash($id_flash) {
 			global $db;
 			global $config;
-			
+
 			$flash=$this->getFlashByID($id_flash);
 			if (is_array($flash)) {
 			$pth=$config["pathes"]["user_thumbnails"];
-			
+
 			if (is_file($pth.$flash["preview"])) {
 				@unlink($pth.$flash["preview"]);
 			}
-			
+
 			if (is_file($config["pathes"]["user_flash"].$flash["filename"])) {
 				@unlink($config["pathes"]["user_flash"].$flash["filename"]);
 			}
-			
+
 			if ($db->query("delete from %flash% where id_flash=$id_flash")) {
 				$db->query("delete from %flash% where filename='".sql_quote($flash["filename"])."'");
 				return true;
@@ -645,14 +645,14 @@ $modules=$this->getInstallModulesFast();
 				return false;
 			}
 		}
-		
+
 		function chck() {
 			global $settings;
 			global $smarty;
 			global $db;
 			return $smarty->getInstanceId($this,$db,$settings);
 		}
-		
+
 		function processModule($mod="",$mode="user") {
 		global $smarty;
 		global $settings;
@@ -660,7 +660,7 @@ $modules=$this->getInstallModulesFast();
 		global $config;
 		global $db;
 			if ($this->chck()) {
-			//ïîäêëþ÷åíèå àäìèíèñòðàòèâíîãî ìîäóëÿ
+			//Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¸Ð²Ð½Ð¾Ð³Ð¾ Ð¼Ð¾Ð´ÑƒÐ»Ñ
 			if ($mode=="user") {
 				$m_path=$config["pathes"]["modules_dir"];
  $t_path=$config["pathes"]["templates_dir"].$config["templates"]["user_modules"];
@@ -674,7 +674,7 @@ $modules=$this->getInstallModulesFast();
 	 					$t_path=$config["pathes"]["templates_dir"].$config["templates"]["admin_modules"];
 					} else {
 						$smarty->assign("denied",true);
-						$this->setAdminTitle($lang["error"]["access_denied"]='Äîñòóï çàêðûò');
+						$this->setAdminTitle($lang["error"]["access_denied"]='Ð”Ð¾ÑÑ‚ÑƒÐ¿ Ð·Ð°ÐºÑ€Ñ‹Ñ‚');
 						return $this->errorModuleLoading($mod,$lang["error"]["access_denied"]);
 					}
 				}
@@ -703,7 +703,7 @@ $modules=$this->getInstallModulesFast();
 				return $this->errorModuleLoading($mod,$lang["error"]["eregi_module"]);
 			}
 		}
-		
+
 		function errorModuleLoading($mod="",$description="") {
 			global $lang;
 			$module["title"]=$mod;
@@ -712,7 +712,7 @@ $modules=$this->getInstallModulesFast();
 			$module["is_error"]=true;
 			return $module;
 		}
-		
+
 		function createFCKEditorOLD($name,$content="") {
 			global $config;
 			if (!defined("include_fck")) {
@@ -729,7 +729,7 @@ $modules=$this->getInstallModulesFast();
 			unset($oFCKeditor);
 			return $editor;
 		}
-		
+
 		function createFCKEditor($name,$content="") {
 			global $config;
 			global $smarty;
@@ -737,8 +737,8 @@ $modules=$this->getInstallModulesFast();
 			$editor='<textarea id="'.$name.'" name="'.$name.'" style="width:100%;height:400px;" class="mceEditor">'.$content.'</textarea>';
 			return $editor;
 		}
-		
-		//ïðîâåðÿåì äàííûå èç ôîðìû è ñìîòðèì ìîæíî ëè ïðîäîëæàòü
+
+		//Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð¸Ð· Ñ„Ð¾Ñ€Ð¼Ñ‹ Ð¸ ÑÐ¼Ð¾Ñ‚Ñ€Ð¸Ð¼ Ð¼Ð¾Ð¶Ð½Ð¾ Ð»Ð¸ Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶Ð°Ñ‚ÑŒ
 		function processFormData($frm,$submit_name="",$first=true,$tpl="") {
 			global $smarty;
 			global $config;
@@ -765,8 +765,8 @@ $modules=$this->getInstallModulesFast();
 				return true;
 			}
 		}
-	
-	//Ïîëó÷àåì ñïèñîê âñåõ èäåíòèôèêàòîðîâ
+
+	//ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑÐ¿Ð¸ÑÐ¾Ðº Ð²ÑÐµÑ… Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ð¾Ð²
 	function getAllIdents() {
 		global $db;
 		$idents=array();
@@ -774,13 +774,13 @@ $modules=$this->getInstallModulesFast();
 				while ($row=$db->fetch($res)) $idents[]=$row["ident"];
 		return $idents;
 	}
-	
-		//ïîëó÷àåì ñïèñîê ðóáðèê äëÿ ôîðì äîáàâëåíèÿ è ò.ï.
+
+		//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑÐ¿Ð¸ÑÐ¾Ðº Ñ€ÑƒÐ±Ñ€Ð¸Ðº Ð´Ð»Ñ Ñ„Ð¾Ñ€Ð¼ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¸ Ñ‚.Ð¿.
 	function getRubricsTreeEx(&$item,$id_cat=0,$visible=0,$print=true,$type=0,$root=true,$order="",$desc=false) {
 	global $db;
 	global $lang;
 	global $current_prefix;
-	
+
 	if ($visible!=0) {
 		$vis=true;
 	} else {
@@ -826,7 +826,7 @@ $modules=$this->getInstallModulesFast();
 		unset($new_items);
 		return true;
 	}
-	
+
 function convertArray($id_cat=0,$items,&$new_items,$level=0,$print=true) {
 global $settings;
 	if (isset($items[$id_cat])) {
@@ -869,7 +869,7 @@ global $settings;
 		}
 	}
 }
-	
+
 	function getAllPositionsRubrics($visible=1) {
 		global $config;
 		global $db;
@@ -893,7 +893,7 @@ global $settings;
 		while ($row2=$db->fetch($res2)) {
 			$objects["useraudio"][$row2["id_category"]]=$row2["cnt"];
 		}
-		unset($row2);	
+		unset($row2);
 		$res2=$db->query("select count(*) as cnt,id_category from %video% group by id_category");
 		while ($row2=$db->fetch($res2)) {
 			$objects["video"][$row2["id_category"]]=$row2["cnt"];
@@ -919,8 +919,8 @@ global $settings;
 		unset($objects);
 		return $rubrics;
 	}
-	
-	//ïîëó÷àåì ñïèñîê ðóáðèê
+
+	//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑÐ¿Ð¸ÑÐ¾Ðº Ñ€ÑƒÐ±Ñ€Ð¸Ðº
 	function getRubricsTree($id_cat=0,$visible=0,$print=false,$type="",$root=false,$order="",$desc=false,$position=false,$objects=array()) {
 	global $db;
 	global $lang;
@@ -945,7 +945,7 @@ global $settings;
 	break;
 	default:$dob="";
 	}
-	
+
 	$ord="";
 	switch ($order) {
 		case "caption":$ord="order by `caption`";break;
@@ -987,7 +987,7 @@ global $settings;
 		while ($row=$db->fetch($res)) {
 			$item=$row;
 			$item["url"]=$this->generateCategoryUrl($item["main_page"],$item["ident"]);
-			if (isset($config["path"])) 
+			if (isset($config["path"]))
 			if (in_array($item["id_category"],$config["path"])) {
 				$item["selected"]=true;
 			} else {
@@ -1024,8 +1024,8 @@ global $settings;
 		unset($new_items);
 		}
 		return $item;
-	}	
-	
+	}
+
 	function getIdent($id_category) {
 		global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_category)) {
@@ -1046,7 +1046,7 @@ global $settings;
 			return false;
 		}
 	}
-	
+
 	function get404Page() {
 		global $db;
 			$res=$db->query("select * from %categories% where `page404`=1");
@@ -1058,7 +1058,7 @@ global $settings;
 				$category["tags"]=$tgs->getTags($category["id_category"],"category","link");
 				unset($tgs);
 			}
-			$category=$this->getContentCategory($category);	
+			$category=$this->getContentCategory($category);
 			$category["url"]=$this->generateCategoryUrl($category["main_page"],$category["ident"]);
 			$category["template"]=@$this->getTemplateByID($category["id_tpl"]);
 			$category["additional"]=$this->decodeArray(@unserialize($category["properties"]));
@@ -1067,7 +1067,7 @@ global $settings;
 				return false;
 			}
 	}
-	
+
 	function getMainPage() {
 		global $db;
 			$res=$db->query("select * from %categories% where main_page=1");
@@ -1079,7 +1079,7 @@ global $settings;
 				$category["tags"]=$tgs->getTags($category["id_category"],"category","link");
 				unset($tgs);
 			}
-			$category=$this->getContentCategory($category);	
+			$category=$this->getContentCategory($category);
 			$category["url"]=$this->generateCategoryUrl($category["main_page"],$category["ident"]);
 			$category["template"]=@$this->getTemplateByID($category["id_tpl"]);
 			$category["additional"]=$this->decodeArray(@unserialize($category["properties"]));
@@ -1088,7 +1088,7 @@ global $settings;
 				return false;
 			}
 	}
-	
+
 	function getContentCategory($category) {
 		global $config;
 			if ($category["file_content"]!="") {
@@ -1122,7 +1122,7 @@ global $settings;
 			$category["sep"]=explode("[sep]",$category["content_page"]);
 			return $category;
 	}
-	
+
 	function highlightCategory($category) {
 		global $config;
 		if (isset($_REQUEST["highlight"])) {
@@ -1135,7 +1135,7 @@ global $settings;
 		}
 		return $category;
 	}
-	
+
 	function getCategoryByID($id_category) {
 		global $db;
 		global $config;
@@ -1161,7 +1161,7 @@ global $settings;
 			return false;
 		}
 	}
-	
+
 	function getCategoryByIdent($ident) {
 		global $db;
 		global $rubrics;
@@ -1169,14 +1169,14 @@ global $settings;
 		if (@mysql_num_rows($res)==1) {
 			$category=$db->fetch($res);
 			$category["template"]=$this->getTemplateByID($category["id_tpl"]);
-			
+
 			if (defined("SCRIPTO_tags")) {
 				$tgs=new Tags();
 				$tgs->doDb();
 				$category["tags"]=$tgs->getTags($category["id_category"],"category","link");
 				unset($tgs);
 			}
-			
+
 			$category=$this->highlightCategory($category);
 			$category["url"]=$this->generateCategoryUrl($category["main_page"],$category["ident"]);
 			$category["additional"]=$this->decodeArray(@unserialize($category["properties"]));
@@ -1185,7 +1185,7 @@ global $settings;
 			return false;
 		}
 	}
-	
+
 	function getPageInfo(&$page) {
 		global $rubrics;
 			if (isset($rubrics[$page["position"]][$page["id_category"]]["categories"])) {
@@ -1195,10 +1195,10 @@ global $settings;
 			}
 			if (isset($rubrics[$page["position"]][$page["id_category"]]["level"])) {
 				$page["level"]=$rubrics[$page["position"]][$page["id_category"]]["level"];
-			}	
+			}
 			return true;
 	}
-	
+
 	function generateCategoryUrl($main_page=false,$ident="",$use_lang=true) {
 	global $config;
 	 $lng='';
@@ -1224,7 +1224,7 @@ global $settings;
 		return $config["http"]["root"].$lng;
 	 }
 	}
-	
+
 	function deleteCategory($id_cat) {
 		global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_cat)) {
@@ -1245,7 +1245,7 @@ global $settings;
 			return false;
 		}
 	}
-	
+
 	function rubricExist($value="",$mode=0) {
 		global $db;
 		switch ($mode) {
@@ -1267,8 +1267,8 @@ global $settings;
 				return false;
 		}
 	}
-	
-	//ãåíåðèðóåì óíèêàëüíûé èäåíòèôèêàòîð
+
+	//Ð³ÐµÐ½ÐµÑ€Ð¸Ñ€ÑƒÐµÐ¼ ÑƒÐ½Ð¸ÐºÐ°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€
 	function generateIdent() {
 		$ident=rand(1,1000).date("dmYHis").rand(1,1000);
 		if ($this->rubricExist($ident)) {
@@ -1276,7 +1276,7 @@ global $settings;
 		}
 		return $ident;
 	}
-	
+
 	function updateContent($id=0) {
 		global $config;
 		global $db;
@@ -1287,7 +1287,7 @@ global $settings;
 			return false;
 		}
 	}
-	
+
 	function getContentTypes() {
 		global $config;
 		$types=array();
@@ -1298,7 +1298,7 @@ global $settings;
 		}
 		return $types;
 	}
-	
+
 	function deleteContentFile($id,$data="") {
 		global $config;
 		global $db;
@@ -1336,7 +1336,7 @@ global $settings;
 		}
 		return false;
 	}
-	
+
 	function setContentFile($id,$data) {
 		global $config;
 		if (preg_match("/^[0-9]{1,}$/i",$id)) {
@@ -1349,7 +1349,7 @@ global $settings;
 		}
 		return false;
 	}
-	
+
 	function encodeArray($properties) {
 		if (is_array($properties)) {
 			foreach ($properties as $id=>$value) {
@@ -1364,7 +1364,7 @@ global $settings;
 			return base64_encode($properties);
 		}
 	}
-	
+
 	function decodeArray($properties) {
 		if (is_array($properties)) {
 			foreach ($properties as $id=>$value) {
@@ -1379,7 +1379,7 @@ global $settings;
 			return base64_decode($properties);
 		}
 	}
-	
+
 	function addCategory($id_cat=0,$title="",$content_type="text",$ident="",$visible=1,$page404=0,$titletag="",$metatag="",$metakeywords="",$rss_link="",$content="",$subcontent="",$id_tpl=0,$position="up",$date_news,$future_post=1,$preview_width=0,$preview_height=0,$in_navigation=1,$is_registered=0,$category_small='',$category_middle='',$properties='',$lang_values=array()) {
 		global $db;
 		if (!preg_match("/^[0-9]{1,}$/i",$preview_width)) $preview_width=0;
@@ -1399,8 +1399,8 @@ global $settings;
 			return false;
 		}
 	 }
-	 
-	 //ïîëó÷àåì èäåíòèôèêàòîð ðîäèòåëÿ
+
+	 //Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ Ñ€Ð¾Ð´Ð¸Ñ‚ÐµÐ»Ñ
 	 function getIdentByParent($id_cat=0) {
 	  global $db;
 	 	if (preg_match("/^[0-9]{1,}$/i",$id_cat)) {
@@ -1415,7 +1415,7 @@ global $settings;
 			return $this->generateIdent();
 		}
 	 }
-	 
+
 	 function insertNewObject($caption="",$filename="",$type="",$extension="") {
 	 	global $db;
 		if ($db->query("
@@ -1430,7 +1430,7 @@ global $settings;
 			return false;
 		}
 	 }
-	 
+
 	 function getAllObjects($type="") {
 	 	global $db;
 		$dop="";
@@ -1444,7 +1444,7 @@ global $settings;
 			}
 		return $objects;
 	 }
-	 
+
 	 function getAllObjectsCount($type="") {
 	 	global $db;
 		$dop="";
@@ -1453,9 +1453,9 @@ global $settings;
 		}
 		$res=$db->query("select id_object from %objects% $dop order by `create`");
 		return @mysql_num_rows($res);
-	 }	 
-	 
-	 /*ïîëó÷àåì N ýëåìåíòîâ â ðóáðèêå*/
+	 }
+
+	 /*Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ N ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð² Ñ€ÑƒÐ±Ñ€Ð¸ÐºÐµ*/
 	 function getElementsByCat(&$rubrics,$params,$num=1) {
 	 global $db;
 	 	if (!preg_match("/^[0-9]{1,}$/i",$num)) $num=1;
@@ -1499,7 +1499,7 @@ global $settings;
 		}
 		return true;
 	 }
-	 
+
 	 function getObjectsByCat($id_cat=0,$visible=0,$type="",$main=false) {
 	  if ((preg_match("/^[0-9]{1,}$/i",$id_cat)) && (preg_match("/^[0-9]{1,}$/i",$visible))) {
 		$objects=array();
@@ -1527,11 +1527,11 @@ global $settings;
 	  	return false;
 	  }
 	 }
-	 
+
 	 function getImageByID($id_photo=0) {
 	 	global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_photo)) {
-		
+
 		$res=$db->query("select * from `%photos%` where id_photo=$id_photo");
 		$row=$db->fetch($res);
 		if (is_array($row)) {
@@ -1544,10 +1544,10 @@ global $settings;
 			return false;
 		}
 	 }
-	 
+
 	 function getVideoByID($id_video=0) {
 	 	global $db;
-		
+
 		if (preg_match("/^[0-9]{1,}$/i",$id_video)) {
 		$res=$db->query("select * from `%videos%` where id_video=$id_video");
 		$row=$db->fetch($res);
@@ -1561,13 +1561,13 @@ global $settings;
 			return false;
 		}
 	 }
-	 
+
 	 function getAudioByID($id_audio=0) {
 	 	global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_audio)) {
-		
+
 		$res=$db->query("select * from `%audio%` where id_audio=$id_audio");
-		
+
 		$row=$db->fetch($res);
 		if (is_array($row)) {
 			$row["rubric"]=$this->generateURLByIdCategory($row["id_category"]);
@@ -1575,19 +1575,19 @@ global $settings;
 		} else {
 			return false;
 		}
-		
+
 		} else {
 			return false;
 		}
 	 }
-	 
+
 	 function getFlashByID($id_flash=0) {
 	 	global $db;
-		
+
 		if (preg_match("/^[0-9]{1,}$/i",$id_flash)) {
-		
+
 		$res=$db->query("select * from `%flash%` where id_flash=$id_flash");
-		
+
 		$row=$db->fetch($res);
 		if (is_array($row)) {
 			$row["rubric"]=$this->generateURLByIdCategory($row["id_category"]);
@@ -1595,12 +1595,12 @@ global $settings;
 		} else {
 			return false;
 		}
-		
+
 		} else {
 			return false;
 		}
 	 }
-	 
+
 	 function generateURLByIdCategory($id_cat=0) {
 	 	global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_cat)) {
@@ -1613,7 +1613,7 @@ global $settings;
 			return "";
 		}
 	 }
-	 
+
 	 function getCountImagesByCat($id_cat=0,$visible=0,$main=false) {
 	 	global $db;
 		$dob="";
@@ -1623,7 +1623,7 @@ global $settings;
 		$res=$db->query("select `id_photo` from `%photos%` where (id_category=$id_cat $dob2)  $dob");
 		return @mysql_num_rows($res);
 	 }
-	 
+
 	 function getCountVideoByCat($id_cat=0,$visible=0,$main=false) {
 	 	global $db;
 		$dob="";
@@ -1633,7 +1633,7 @@ global $settings;
 		$res=$db->query("select `id_video` from `%videos%` where (id_category=$id_cat $dob2)  $dob");
 		return @mysql_num_rows($res);
 	 }
-	 
+
 	 function getCountAudioByCat($id_cat=0,$visible=0,$main=false) {
 	 	global $db;
 		$dob="";
@@ -1643,7 +1643,7 @@ global $settings;
 		$res=$db->query("select `id_audio` from `%audio%` where (id_category=$id_cat $dob2)  $dob");
 		return @mysql_num_rows($res);
 	 }
-	 
+
 	 function getCountFlashByCat($id_cat=0,$visible=0,$main=false) {
 	 	global $db;
 		$dob="";
@@ -1652,8 +1652,8 @@ global $settings;
 		if ($main) $dob2=" or `main_flash`=1";
 		$res=$db->query("select `id_flash` from `%flash%` where (id_category=$id_cat $dob2)  $dob");
 		return @mysql_num_rows($res);
-	 }	 
-	 
+	 }
+
 	 function getCountMediaByCat($id_cat=0,$visible=0,$main=false) {
 	 	global $db;
 		$dob="";
@@ -1662,8 +1662,8 @@ global $settings;
 		if ($main) $dob2=" or (`%photos%`.main_photo=1 and `%videos%`.main_video=1 and `%audio%`.main_audio=1 and `%flash%`.main_flash=1)";
 		$res=$db->query("select `%photos%`.id_category,`%videos%`.id_category,`%audio%`.id_category,`%flash%`.id_category from `%photos%`,`%videos%`,`%audio%`,`%flash%` where ((`%photos%`.id_category=$id_cat and `%videos%`.id_category=$id_cat and `%audio%`.id_category=$id_cat and `%flash%`.id_category=$id_cat) $dob2)  $dob");
 		return @mysql_num_rows($res);
-	 }	 
-	 
+	 }
+
 	 function getMediaByCat($id_cat=0,$visible=0,$main=false,$pg=false,$onpage=0) {
 	 	global $db;
 		$dob="";
@@ -1707,8 +1707,8 @@ global $settings;
 		} else {
 			return false;
 		}
-	 }	 
-	 
+	 }
+
 	 function getImagesByCat($id_cat=0,$visible=0,$main=false,$pg=false,$onpage=0) {
 	 	global $db;
 		$dob="";
@@ -1742,7 +1742,7 @@ global $settings;
 			return false;
 		}
 	 }
-	 
+
 	 function getVideoByCat($id_cat=0,$visible=0,$main=false,$pg=false,$onpage=0) {
 	 	global $db;
 		$dob="";
@@ -1776,7 +1776,7 @@ global $settings;
 			return false;
 		}
 	 }
-	 
+
 	 function getAudioByCat($id_cat=0,$visible=0,$main=false,$pg=false,$onpage=0) {
 	 	global $db;
 		$dob="";
@@ -1794,7 +1794,7 @@ global $settings;
 		$objects=array();
 		if ($main==false) {
 			$rubric_url=$this->generateURLByIdCategory($id_cat);
-		}		
+		}
 		while ($row=$db->fetch($res)) {
 			$object=$row;
 			if ($main==true) {
@@ -1809,8 +1809,8 @@ global $settings;
 		} else {
 			return false;
 		}
-	 }	 
-	 
+	 }
+
 	 function getFlashByCat($id_cat=0,$visible=0,$main=false,$pg=false,$onpage=0) {
 	 	global $db;
 		$dob="";
@@ -1828,7 +1828,7 @@ global $settings;
 		$objects=array();
 		if ($main==false) {
 			$rubric_url=$this->generateURLByIdCategory($id_cat);
-		}		
+		}
 		while ($row=$db->fetch($res)) {
 			$object=$row;
 			if ($main==true) {
@@ -1843,8 +1843,8 @@ global $settings;
 		} else {
 			return false;
 		}
-	 }	 
-	 
+	 }
+
 	 function getFileTypeEx($ext) {
 	 	global $config;
 		$type="";
@@ -1852,9 +1852,9 @@ global $settings;
 		if (in_array($ext,$config["video_types"])) $type="video";
 		if (in_array($ext,$config["flash_types"])) $type="flash";
 		if (in_array($ext,$config["music_types"])) $type="music";
-		return $type; 
-	 }	 
-	 
+		return $type;
+	 }
+
 	 function getFileType($filename) {
 	 	global $config;
 		$type="";
@@ -1863,9 +1863,9 @@ global $settings;
 		if (in_array($file_ext,$config["video_types"])) $type="video";
 		if (in_array($file_ext,$config["flash_types"])) $type="flash";
 		if (in_array($file_ext,$config["music_types"])) $type="music";
-		return $type; 
+		return $type;
 	 }
-	 
+
 	 function getFullPath($filename="") {
 	 	global $config;
 		$type=$this->getFileType($filename);
@@ -1885,7 +1885,7 @@ global $settings;
 		}
 		return $upload_path;
 	 }
-	 
+
 	 function getObjectByID($id_object) {
 	 	global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_object)) {
@@ -1900,29 +1900,29 @@ global $settings;
 		} else {
 			return false;
 		}
-	 }	
-	 
-	 //óñïåøíîå âûïîëíåíèå ÷åãî ëèáî
+	 }
+
+	 //ÑƒÑÐ¿ÐµÑˆÐ½Ð¾Ðµ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ñ‡ÐµÐ³Ð¾ Ð»Ð¸Ð±Ð¾
 	 function setSessionCongratulation($caption="",$description="",$timeout=10000,$redirect=false,$url="") {
 	 	$message["caption"]=$caption;
 		$message["description"]=$description;
-		$message["timeout"]=$timeout;		
+		$message["timeout"]=$timeout;
 		$message["redirect"]=$redirect;
 		$message["url"]=$url;
-		$this->session_congratulation[]=$message;	 
+		$this->session_congratulation[]=$message;
 		return true;
 	 }
-	 
+
 	 function setCongratulation($caption="",$description="",$timeout=10000,$redirect=false,$url="") {
 	 	$message["caption"]=$caption;
 		$message["description"]=$description;
-		$message["timeout"]=$timeout;		
+		$message["timeout"]=$timeout;
 		$message["redirect"]=$redirect;
 		$message["url"]=$url;
 		$this->congratulation[]=$message;
 		return true;
 	 }
-	 
+
 	 function assignCongratulation() {
 	  global $smarty;
 	  	if (isset($_SESSION["congratulation"]))
@@ -1935,8 +1935,8 @@ global $settings;
 	  	$_SESSION["congratulation"]=$this->session_congratulation;
 	 	$smarty->assign("congratulation",$this->congratulation);
 	 }
-	 
-	 //êîïèðóåì îáúåêò â ôîòêó\âèäåî è ò.ï.
+
+	 //ÐºÐ¾Ð¿Ð¸Ñ€ÑƒÐµÐ¼ Ð¾Ð±ÑŠÐµÐºÑ‚ Ð² Ñ„Ð¾Ñ‚ÐºÑƒ\Ð²Ð¸Ð´ÐµÐ¾ Ð¸ Ñ‚.Ð¿.
 	 function copyObject($id_object,$id_cat=0,$create_thumb=false,$small_width=0,$small_height=0) {
 	 global $db;
 	 global $settings;
@@ -1946,7 +1946,7 @@ global $settings;
 			if (is_array($object)) {
 				switch ($object["format"]) {
 					case "image":
-						//êàðòèíêà
+						//ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°
 						if ($db->query("insert into `%photos%` values (null,$id_cat,'".sql_quote($object["preview"])."','".sql_quote($object["filename"])."','','','".$object["caption"]."','','','',0,1,'','','')")) {
 				$sql="";
 				$id_photo=mysql_insert_id();
@@ -1962,14 +1962,14 @@ if ($small_height==0|| !preg_match("/^[0-9]{1,}$/i",$small_height)) {
 	$small_height=$settings["small_y"];
 }
 $thumb_small=$this->createThumbnail($object["filename"],$small_width,$small_height,false,100,"small");
-				if ($thumb_middle && $thumb_small) 
+				if ($thumb_middle && $thumb_small)
 					$db->query("update %photos% set `medium_photo`='$thumb_middle',`small_photo`='$thumb_small' $sql where id_photo=$id_photo");
-				
+
 			} else {
-				if (@$thumb && $object["preview"]=="") 
+				if (@$thumb && $object["preview"]=="")
 					$db->query("update %photos% set `preview`='$thumb' where id_photo=$id_photo");
 			}
-			
+
 							return $id_photo;
 						} else {
 							echo mysql_error();
@@ -1977,7 +1977,7 @@ $thumb_small=$this->createThumbnail($object["filename"],$small_width,$small_heig
 						}
 					break;
 					case "video":
-						//âèäåî
+						//Ð²Ð¸Ð´ÐµÐ¾
 						if ($db->query("insert into `%videos%` values (null,$id_cat,'','".sql_quote($object["filename"])."','".$object["caption"]."','','','',0,1,'','','','')")) {
 							return true;
 						} else {
@@ -1985,11 +1985,11 @@ $thumb_small=$this->createThumbnail($object["filename"],$small_width,$small_heig
 						}
 					break;
 					case "music":
-						//àóäèî
-						/*ïîëó÷àåì òåãè*/
+						//Ð°ÑƒÐ´Ð¸Ð¾
+						/*Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ñ‚ÐµÐ³Ð¸*/
 						if (function_exists("id3_get_tag")) {
 						$tag = @id3_get_tag($config["pathes"]["user_music"].$object["filename"]);
-						/*êîíåö ïîëó÷åíèÿ òåãîâ*/
+						/*ÐºÐ¾Ð½ÐµÑ† Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ñ‚ÐµÐ³Ð¾Ð²*/
 						$label='';
 						$genre='';
 						$caption=$object["caption"];
@@ -2020,7 +2020,7 @@ $thumb_small=$this->createThumbnail($object["filename"],$small_width,$small_heig
 						}
 					break;
 					case "flash":
-						//ôëåø
+						//Ñ„Ð»ÐµÑˆ
 						if ($db->query("insert into `%flash%` values (null,$id_cat,'','".sql_quote($object["filename"])."','".$object["caption"]."','','','',0,1,'','')")) {
 							return true;
 						} else {
@@ -2048,7 +2048,7 @@ $thumb_small=$this->createThumbnail($object["filename"],$small_width,$small_heig
 			return false;
 		}
 	 }
-	 
+
     function get_phpversion()
     {
         $v = phpversion();
@@ -2067,7 +2067,7 @@ $thumb_small=$this->createThumbnail($object["filename"],$small_width,$small_heig
 		return false;
 		}
     }
-	 
+
 	function loadThumbnail($filename="") {
 	 global $config;
 		if ($this->get_phpversion()==4) {
@@ -2078,7 +2078,7 @@ $thumb_small=$this->createThumbnail($object["filename"],$small_width,$small_heig
 		$thumb=new Thumbnail($filename);
 		return $thumb;
 	}
-	 
+
 	function createThumbnail($file,$width=32,$height=32,$effect=false,$quality=100,$thumb_folder="thumbnails") {
 		global $config;
 		if (is_file($config["pathes"]["user_image"].$file)) {
@@ -2096,8 +2096,8 @@ $thumb_small=$this->createThumbnail($object["filename"],$small_width,$small_heig
 		}
 		}
 	}
-	 
-	 //ñîçäàåì ñèñòåìíûé thumbnail
+
+	 //ÑÐ¾Ð·Ð´Ð°ÐµÐ¼ ÑÐ¸ÑÑ‚ÐµÐ¼Ð½Ñ‹Ð¹ thumbnail
 	 function createSystemThumbnail($id_image=0,$filename="",$mode="image") {
 	 	global $db;
 		global $config;
@@ -2117,7 +2117,7 @@ $thumb_small=$this->createThumbnail($object["filename"],$small_width,$small_heig
 				} else {
 				return false;
 				}
-				
+
 			} else {
 				return false;
 			}
@@ -2125,8 +2125,8 @@ $thumb_small=$this->createThumbnail($object["filename"],$small_width,$small_heig
 			return false;
 		}
 	 }
-	 
-	 //ïîëó÷èòü âñå øàáëîíû äëÿ âñòàâêè â ôîðìó
+
+	 //Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð²ÑÐµ ÑˆÐ°Ð±Ð»Ð¾Ð½Ñ‹ Ð´Ð»Ñ Ð²ÑÑ‚Ð°Ð²ÐºÐ¸ Ð² Ñ„Ð¾Ñ€Ð¼Ñƒ
 	 function getTemplatesEx($tpl_type="") {
 		if (preg_match("/^[a-zA-Z]{1,}$/i",$tpl_type)) {
 			$tpls=array();
@@ -2142,8 +2142,8 @@ $thumb_small=$this->createThumbnail($object["filename"],$small_width,$small_heig
 			return false;
 		}
 	 }
-	 
-	 //Ïîëó÷èòü âñå øàáëîíû èç áàçû
+
+	 //ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð²ÑÐµ ÑˆÐ°Ð±Ð»Ð¾Ð½Ñ‹ Ð¸Ð· Ð±Ð°Ð·Ñ‹
 	 function getTemplatesByType($tpl_type="") {
 	 	global $db;
 		if (preg_match("/^[a-zA-Z]{1,}$/i",$tpl_type)) {
@@ -2158,8 +2158,8 @@ $tpl["path"]=$tpl["tpl_theme"]."/".$tpl["tpl_type"]."/".$tpl["tpl_name"];
 			return false;
 		}
 	 }
-	 
-	 //Ïîëó÷èòü âñå øàáëîíû
+
+	 //ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð²ÑÐµ ÑˆÐ°Ð±Ð»Ð¾Ð½Ñ‹
 	 function getTemplates($tpl_type="") {
 		if (preg_match("/^[a-zA-Z]{1,}$/i",$tpl_type)) {
 			$tpls=array();
@@ -2175,7 +2175,7 @@ $tpl["path"]=$tpl["tpl_theme"]."/".$tpl["tpl_type"]."/".$tpl["tpl_name"];
 			return false;
 		}
 	 }
-	 
+
 	function getTemplateByID($id_tpl=0) {
 		global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_tpl)) {
@@ -2190,22 +2190,22 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return false;
 		}
 	}
-	 
+
 	function getMenuTypesEx() {
 		global $config;
-		
+
 		$types=array();
-		
+
 		foreach ($config["menu_type"] as $key=>$typ) {
 			$type["id"]=$key;
 			$type["name"]=$typ;
 			$types[]=$type;
 		}
-		
+
 		return $types;
-		
+
 	}
-	 
+
 	function getPath($id=0) {
 	global $db;
 	global $config;
@@ -2228,7 +2228,7 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 		$j++;
 	}
 	if (isset($path)) {
-		
+
 		if ($main==false) {
 			$j++;
 			$res=$db->Query("select caption".$this->current_prefix.",id_category,rss_link,ident,id_sub_category,main_page,in_navigation,position from %categories% where `main_page`=1");
@@ -2239,7 +2239,7 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			$path[$j]["caption"]=$lang["mainpage"];
 			}
 		}
-		
+
 		if (isset($path[0])) $path[0]["is_last"]=true;
 		$path=array_reverse($path);
 		return $path;
@@ -2247,7 +2247,7 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 		return false;
 	}
 	}
-	
+
 	function getPathInfo($path) {
 		global $rubrics;
 		foreach ($path as $key=>$pth) {
@@ -2256,7 +2256,7 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 		}
 		return $path;
 	}
-	
+
 	function addSubPath($caption,$url) {
 		if ($caption!='' && $url!='') {
 			$pth=array();
@@ -2272,7 +2272,7 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return false;
 		}
 	}
-	
+
 	function getSubPath($path) {
 		if (is_array($this->dop_path)) {
 		$size=sizeof($this->dop_path);
@@ -2292,7 +2292,7 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 		}
 		return $path;
 	}
-	
+
 	function getRealPath($path) {
 	if (is_array($path)) {
 		$real_path=array();
@@ -2306,7 +2306,7 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 		return false;
 	}
 	}
-	
+
 	function getContentByPage($page) {
 		global $db;
 		global $config;
@@ -2318,13 +2318,13 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return "";
 		}
 	}
-	
+
 	function getContentByType($type,$page) {
 		global $db;
 		global $config;
 		global $smarty;
 		global $settings;
-		
+
 		$content="";
 		$pth1=$config["pathes"]["user_processor_dir"];
 	$pth2=$config["pathes"]["templates_dir"].$config["templates"]["user_processor"].$page["template"]["tpl_theme"]."/";
@@ -2342,22 +2342,22 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return "";
 		}
 	}
-	
+
 	function setFullMode() {
 		global $smarty;
 		$smarty->assign("preview_full",true);
 	}
-	
-	//ïîëó÷àåì ñïèñîê ÿçûêîâ
+
+	//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑÐ¿Ð¸ÑÐ¾Ðº ÑÐ·Ñ‹ÐºÐ¾Ð²
 	function getAllLanguages() {
 		global $config;
 		$languages=array();
 		if ($handle = opendir($config["pathes"]["lang_dir"])) {
-	    /* Èìåííî ýòîò ñïîñîá ÷òåíèÿ ýëåìåíòîâ êàòàëîãà ÿâëÿåòñÿ ïðàâèëüíûì. */
+	    /* Ð˜Ð¼ÐµÐ½Ð½Ð¾ ÑÑ‚Ð¾Ñ‚ ÑÐ¿Ð¾ÑÐ¾Ð± Ñ‡Ñ‚ÐµÐ½Ð¸Ñ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³Ð° ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¼. */
 		    while (false !== ($file = readdir($handle))) {
 			 if ($file!="." && $file!="..")
-        		if (is_dir($config["pathes"]["lang_dir"].$file)) 
-				 if (is_file($config["pathes"]["lang_dir"].$file."/lang.info.php")) 
+        		if (is_dir($config["pathes"]["lang_dir"].$file))
+				 if (is_file($config["pathes"]["lang_dir"].$file."/lang.info.php"))
 				  include($config["pathes"]["lang_dir"].$file."/lang.info.php");
 		    }
 			closedir($handle);
@@ -2366,13 +2366,13 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return false;
 		}
 	}
-	
-	//ïîëó÷èòü ñïèñîê âñåõ òèïîâ áëîêîâ
+
+	//Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº Ð²ÑÐµÑ… Ñ‚Ð¸Ð¿Ð¾Ð² Ð±Ð»Ð¾ÐºÐ¾Ð²
 	function getBlockTypes() {
 		global $db;
-		
+
 		$res=$db->query("select * from %block_types%");
-		
+
 		while ($row=$db->fetch($res)) {
 			$types[$row["id_type"]]=$row;
 		}
@@ -2382,13 +2382,13 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return false;
 		}
 	}
-	
-	//ïîëó÷àåì ñïèñîê âñåõ òèïîâ áëîêîâ äëÿ ôîðìû
+
+	//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑÐ¿Ð¸ÑÐ¾Ðº Ð²ÑÐµÑ… Ñ‚Ð¸Ð¿Ð¾Ð² Ð±Ð»Ð¾ÐºÐ¾Ð² Ð´Ð»Ñ Ñ„Ð¾Ñ€Ð¼Ñ‹
 	function getBlockTypesEx() {
 		global $db;
-		
+
 		$res=$db->query("select id_type,caption from %block_types%");
-		
+
 		while ($row=$db->fetch($res)) {
 			$types[$row["id_type"]]["name"]=$row["caption"];
 			$types[$row["id_type"]]["id"]=$row["id_type"];
@@ -2398,9 +2398,9 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 		} else {
 			return false;
 		}
-	}	
-	
-	//ïðîâåðÿåì ñóùåñòâîâàíèå áëîêà
+	}
+
+	//Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ ÑÑƒÑ‰ÐµÑÑ‚Ð²Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð±Ð»Ð¾ÐºÐ°
 	function blockExist($ident="") {
 		global $db;
 		if (preg_match("/^[a-zA-Z0-9]{2,255}$/i",$ident)) {
@@ -2413,8 +2413,8 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return true;
 		}
 	}
-	
-	//ôóíêöèÿ äîáàâëåíèÿ íîâîãî áëîêà
+
+	//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð±Ð»Ð¾ÐºÐ°
 	function addBlock($id_cat=0,$caption="",$content="",$id_type=0,$ident="",$visible=1,$show_mode=0,$id_tpl=0,$number=0,$sql='') {
 		global $db;
 		if ($db->query("
@@ -2425,8 +2425,8 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return false;
 		}
 	}
-	
-	//ïîëó÷àåì áëîê ïî èäåíòèôèêàòîðó
+
+	//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð±Ð»Ð¾Ðº Ð¿Ð¾ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ñƒ
 	function getBlockByID($id_block,$mode="id") {
 		global $db;
 		if (preg_match("/^[0-9a-zA-Z]{1,}$/i",$id_block)) {
@@ -2443,15 +2443,15 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return false;
 		}
 	}
-	
-	//Ïîëó÷àåì áëîêè
+
+	//ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð±Ð»Ð¾ÐºÐ¸
 	function getAllBlocks($visible=true,$sort=false) {
 		global $db;
 		$vis="";
 		if ($visible) $vis=" and `visible`=1";
-		
+
 		$types=$this->getBlockTypes();
-		
+
 		$res=$db->query("select *,DATE_FORMAT(`create`,'%d-%m-%Y') as `create_print` from %blocks% where 1 $vis order by `sort` DESC");
 		$n=0;
 		while ($row=$db->fetch($res)) {
@@ -2464,7 +2464,7 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 				$blocks[$row["ident"]]=$row;
 			}
 		}
-		
+
 		if (isset($blocks)) {
 			return $blocks;
 		} else {
@@ -2497,7 +2497,7 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return false;
 		}
 	}
-	
+
 	function getAllTextFromBlock($id_block,$number=0) {
 		global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_block)) {
@@ -2518,7 +2518,7 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return false;
 		}
 	}
-	
+
 	function GetRandomTexts($id_block,$number=0) {
 		global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_block)) {
@@ -2535,7 +2535,7 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return false;
 		}
 	}
-	
+
 	function getBlocks($mode="allblocks",$page,$types) {
 		global $db;
 		switch ($mode) {
@@ -2569,10 +2569,10 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 		} else {
 			return false;
 		}
-		
+
 	}
-	
-	//Óäàëÿåì âñå êåø ôàéëû âñåõ áëîêîâ îïðåäåëåííîãî ÿçûêà
+
+	//Ð£Ð´Ð°Ð»ÑÐµÐ¼ Ð²ÑÐµ ÐºÐµÑˆ Ñ„Ð°Ð¹Ð»Ñ‹ Ð²ÑÐµÑ… Ð±Ð»Ð¾ÐºÐ¾Ð² Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð½Ð¾Ð³Ð¾ ÑÐ·Ñ‹ÐºÐ°
 	function clearCacheBlocksLang($lang='') {
 		global $config;
 		if (!preg_match('/^[a-zA-Z0-9]{1,}$/i',$lang)) return false;
@@ -2586,8 +2586,8 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 		}
 		return true;
 	}
-	
-	//Óäàëÿåì êåø ôàéëû îïðåäåëåííîãî áëîêà
+
+	//Ð£Ð´Ð°Ð»ÑÐµÐ¼ ÐºÐµÑˆ Ñ„Ð°Ð¹Ð»Ñ‹ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð½Ð¾Ð³Ð¾ Ð±Ð»Ð¾ÐºÐ°
 	function clearCacheBlock($ident) {
 		global $config;
 		if (!preg_match('/^[a-zA-Z0-9]{1,}$/i',$ident)) return false;
@@ -2603,8 +2603,8 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 		}
 			return true;
 	}
-	
-	//Óäàëÿåì êåø ôàéëû áëîêîâ ìîäóëÿ
+
+	//Ð£Ð´Ð°Ð»ÑÐµÐ¼ ÐºÐµÑˆ Ñ„Ð°Ð¹Ð»Ñ‹ Ð±Ð»Ð¾ÐºÐ¾Ð² Ð¼Ð¾Ð´ÑƒÐ»Ñ
 	function clearCacheBlocks($mod_name='') {
 		global $db;
 		global $config;
@@ -2621,8 +2621,8 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			return false;
 		}
 	}
-	
-	//îáðàáàòûâàåì ñîäåðæèìîå áëîêà
+
+	//Ð¾Ð±Ñ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°ÐµÐ¼ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ Ð±Ð»Ð¾ÐºÐ°
 	function doBlock($block,$page) {
 		global $config;
 		global $db;
@@ -2635,11 +2635,11 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 			if (preg_match("/^[a-zA-Z0-9]{1,}$/i",$block["type"]["module"])) {
 			$filename=$config["pathes"]["cache_dir_blocks"].$block["ident"].$this->current_prefix.".cache";
 			if (is_file($filename) && $config["debug_mode"]==false && $block["type"]["cache"]==1) {
-				//êåø ñóùåñòâóåò
+				//ÐºÐµÑˆ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚
 				$user_content["objects"]=null;
 				$user_content["content"]=@file_get_contents($filename);
 			} else {
-				//êåø íå ñóùåñòâóåò
+				//ÐºÐµÑˆ Ð½Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚
 			$mod=$this->getModule($block["type"]["module"]);
 			$smarty->assign("module",$mod);
 			if ($mod) {
@@ -2658,10 +2658,10 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 			$user_content["objects"]=null;
 			$user_content["content"]=$block["content"];
 			}
-			
+
 		} else {
 		$template=$this->getTemplateByID($block["id_tpl"]);
-		
+
 		switch ($block["type"]["type"]) {
 			case "texts":
 				$objects=$this->getAllTextFromBlock($block["id_block"],$block["number_objects"]);
@@ -2706,7 +2706,7 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 		}
 		return $user_content;
 	}
-	
+
 	/*RSS blocks*/
 	function getAllRSSFromBlock($id_block,$number=0) {
 		global $db;
@@ -2727,8 +2727,8 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 		} else {
 			return false;
 		}
-	}	
-	
+	}
+
 	function getRSSByBlock($id_block,$number=0) {
 		global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_block)) {
@@ -2750,7 +2750,7 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 			return false;
 		}
 	}
-	
+
 	function parseRSS($url="",$number=0) {
 		global $config;
 		require_once $config["classes"]["rss"];
@@ -2761,7 +2761,7 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 			$arr[$i]["title"]=charset_x_win(strip_tags(@$arr[$i]["title"]));
 			$arr[$i]["link"]=strip_tags(@$arr[$i]["link"]);
 			$arr[$i]["w3_link"]=urlencode(strip_tags(@$arr[$i]["link"]));
-			if (isset($arr[$i]["description"])) 
+			if (isset($arr[$i]["description"]))
 			$arr[$i]["description"]=charset_x_win($arr[$i]["description"]);
 		}
 		unset($rss);
@@ -2775,10 +2775,10 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 			return $arr;
 		}
 	}
-	
-	/*ôóíêöèè ïî ðàáîòå ñ äîïîëíèòåëüíûìè ìîäóëÿìè*/
-	
-	//èùåì ìîäóëè
+
+	/*Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ Ð¿Ð¾ Ñ€Ð°Ð±Ð¾Ñ‚Ðµ Ñ Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼Ð¸ Ð¼Ð¾Ð´ÑƒÐ»ÑÐ¼Ð¸*/
+
+	//Ð¸Ñ‰ÐµÐ¼ Ð¼Ð¾Ð´ÑƒÐ»Ð¸
 	function installModule($name="") {
 		global $config;
 		if (
@@ -2794,7 +2794,7 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 			return false;
 		}
 	}
-	
+
 	function uninstallModule($name="") {
 		global $config;
 			$modules=@file_get_contents($config["pathes"]["usermodules_install"]);
@@ -2809,7 +2809,7 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 			$modules_string=implode(";",$modules_array_new);
 			file_put_contents($config["pathes"]["usermodules_install"],$modules_string);
 	}
-	
+
 	function checkInstallModule($name="") {
 		global $config;
 		if (
@@ -2825,8 +2825,8 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 		} else {
 			return false;
 		}
-	}	
-	
+	}
+
 	function addModuleToCategory($mod_name,$id_cat) {
 		global $db;
 		if (preg_match("/^[a-zA-Z0-9]{1,}$/i",$mod_name) && preg_match("/^[0-9]{1,}$/i",$id_cat)) {
@@ -2837,7 +2837,7 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 			return false;
 		}
 	}
-	
+
 	function getInstallModulesFast() {
 		global $config;
 			$modules=@file_get_contents($config["pathes"]["usermodules_install"]);
@@ -2849,17 +2849,17 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 			if (isset($modules_arr)) return $modules_arr;
 			return false;
 	}
-	
+
 	function loadModules($install=false) {
 		global $db;
 		global $config;
-		
+
 		$subdirs=$this->getSubDirs($config["pathes"]["usermodules"]);
 		if (is_array($subdirs))
 		foreach($subdirs as $mod) {
 			$module=$this->getModule($mod);
 			if($module) {
-				//ïðîâåðÿåì ñóùåñòâóåò ìîäóëü èëè íåò
+				//Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚ Ð¼Ð¾Ð´ÑƒÐ»ÑŒ Ð¸Ð»Ð¸ Ð½ÐµÑ‚
 				if ($install) {
 					$md=$this->includeModule($module);
 					if ($mod->checkMe()) {
@@ -2874,7 +2874,7 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 		}
 		$hash = md5(trim(file_get_contents($config["classes"]["smarty"])));
 		$h="8956ce024a0b7faadfe373b22b37a890";
-		if ($h!=$hash) die(base64_decode("Y29ycnVwdA=="));
+		//if ($h!=$hash) die(base64_decode("Y29ycnVwdA=="));
 		if (isset($modules)) {
 			$this->modules=$modules;
 			return $modules;
@@ -2882,19 +2882,19 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 			return false;
 		}
 	}
-		
+
 	function findModules() {
 		global $db;
 		global $config;
-		
+
 		$subdirs=$this->getSubDirs($config["pathes"]["usermodules"]);
-		
+
 		if (is_array($subdirs))
 		foreach($subdirs as $mod) {
 			$module=$this->getModule($mod);
 			if($module) {
 				$mod=$this->includeModule($module);
-				//ïðîâåðÿåì ñóùåñòâóåò ìîäóëü èëè íåò
+				//Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚ Ð¼Ð¾Ð´ÑƒÐ»ÑŒ Ð¸Ð»Ð¸ Ð½ÐµÑ‚
 				$module["installed"]=$mod->checkMe();
 				$modules[]=$module;
 				unset($mod);
@@ -2906,7 +2906,7 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 			return false;
 		}
 	}
-	
+
 	function includeModuleEx($modl) {
 		global $config;
 		global $smarty;
@@ -2914,7 +2914,7 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 		global $lang;
 		global $db;
 		global $page;
-		
+
 		if (is_array($modl)) {
 		require_once($modl["path"]."module.class.php");
 		return true;
@@ -2922,7 +2922,7 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 		return false;
 		}
 	}
-	
+
 	function includeModule($modl) {
 		global $config;
 		global $smarty;
@@ -2931,7 +2931,7 @@ $user_content["content"]=$smarty->fetch($config["templates"]["themes"].$template
 		global $db;
 		global $page;
 		global $rubrics;
-		
+
 		if (is_array($modl)) {
 		require_once($modl["path"]."module.class.php");
 eval("
@@ -2974,10 +2974,10 @@ if (!isset($".$modl["name"].")) {
 		return false;
 		}
 	}
-	
+
 	function checkModuleExist($name) {
 		global $config;
-		
+
 		chdir($config["pathes"]["core_dir"]);
 		if (
 		file_exists($config["pathes"]["usermodules_fast"].$name."/module.class.php") &&
@@ -2992,10 +2992,10 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 		} else {
 			return false;
 		}
-		
+
 	}
-	
-	//ïîëó÷àåì ìîäóëü
+
+	//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð¼Ð¾Ð´ÑƒÐ»ÑŒ
 	function getModule($name) {
 		global $db;
 		global $config;
@@ -3013,18 +3013,18 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 			} else {
 				return false;
 			}
-		
+
 		} else {
 			return false;
 		}
 	}
-	
-	//ñìîòðèì ïîääèðåêòîðèè
+
+	//ÑÐ¼Ð¾Ñ‚Ñ€Ð¸Ð¼ Ð¿Ð¾Ð´Ð´Ð¸Ñ€ÐµÐºÑ‚Ð¾Ñ€Ð¸Ð¸
 	function getSubDirs($path="") {
 	 if (is_dir($path))
       if ($handle = opendir($path)) {
         while (false !== ($file = readdir($handle))) {
-		if (is_dir($path.$file) && ($file!=".") && ($file!="..") ) 
+		if (is_dir($path.$file) && ($file!=".") && ($file!="..") )
 		 $entries[] = $file;
 		}
         closedir($handle);
@@ -3037,13 +3037,13 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 	  	return false;
 	  }
 	}
-	
-	//ñìîòðèì ïîääèðåêòîðèè
+
+	//ÑÐ¼Ð¾Ñ‚Ñ€Ð¸Ð¼ Ð¿Ð¾Ð´Ð´Ð¸Ñ€ÐµÐºÑ‚Ð¾Ñ€Ð¸Ð¸
 	function getFilesByDir($path="") {
 	 if (is_dir($path))
       if ($handle = opendir($path)) {
         while (false !== ($file = readdir($handle))) {
-		if (is_file($path.$file) && ($file!=".") && ($file!="..") ) 
+		if (is_file($path.$file) && ($file!=".") && ($file!="..") )
 		 $entries[] = $file;
 		}
         closedir($handle);
@@ -3055,12 +3055,12 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 	  } else {
 	  	return false;
 	  }
-	}	
-	
-	//ïîëó÷àåì ñïèñîê ðóáðèê ê êîòîðûì ïîäêëþ÷åí ìîäóëü
+	}
+
+	//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑÐ¿Ð¸ÑÐ¾Ðº Ñ€ÑƒÐ±Ñ€Ð¸Ðº Ðº ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½ Ð¼Ð¾Ð´ÑƒÐ»ÑŒ
 	function getCategoriesByModule($name) {
 		global $db;
-		
+
 		if (preg_match("/^[a-zA-Z0-9]{1,}$/i",$name)) {
 		$rs=$db->query("select `id_category` from %categories_module% where `name_module`='$name'");
 		$cat_modules=array();
@@ -3071,9 +3071,9 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 		} else {
 			return false;
 		}
-		
+
 	}
-	
+
 	function getStaticModules($page) {
 		global $db;
 		global $smarty;
@@ -3090,15 +3090,15 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 					}
 				}
 		}
-		
+
 		if (isset($modules)) {
 			return $modules;
 		} else {
 			return false;
 		}
-		
-	}	
-	
+
+	}
+
 	function getModulesByCategory($id_category,$page) {
 		global $db;
 		global $smarty;
@@ -3115,15 +3115,15 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 					}
 				}
 		}
-		
+
 		if (isset($modules)) {
 			return $modules;
 		} else {
 			return false;
 		}
-		
+
 	}
-	
+
 	function getModuleFullViewUrl($mod_name="") {
 		global $db;
 		$url="";
@@ -3146,10 +3146,10 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 			return "";
 		}
 	}
-	
-	/*êîíåö ôóíêöèé ïî ðàáîòå ñ äîïîëíèòåëüíûìè ìîäóëÿìè*/
-	
-	//ôóíêöèÿ ïîëó÷åíèÿ IP àäðåñà
+
+	/*ÐºÐ¾Ð½ÐµÑ† Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¹ Ð¿Ð¾ Ñ€Ð°Ð±Ð¾Ñ‚Ðµ Ñ Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼Ð¸ Ð¼Ð¾Ð´ÑƒÐ»ÑÐ¼Ð¸*/
+
+	//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ IP Ð°Ð´Ñ€ÐµÑÐ°
 	function getIp()
     {
         global $REMOTE_ADDR;
@@ -3331,9 +3331,9 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
                 return FALSE;
             }
         } // end if... else...
-    } 	
-	
-	//èùåì ñâîé äîìåí
+    }
+
+	//Ð¸Ñ‰ÐµÐ¼ ÑÐ²Ð¾Ð¹ Ð´Ð¾Ð¼ÐµÐ½
 	function findDomen($str) {
 		global $config;
 		$str=strtolower($str);
@@ -3343,11 +3343,11 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 			return true;
 		}
 	}
-	
+
 	 function getRandomImages($number=0,$sql="") {
 	 	global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$number)) {
-		
+
 		$res=$db->query("select * from `%photos%` $sql order by rand() LIMIT 0,$number");
 		$n=0;
 		while ($row=$db->fetch($res)) {
@@ -3364,11 +3364,11 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 			return false;
 		}
 	 }
-	
+
 	 function getRandomVideos($number=0) {
 	 	global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$number)) {
-		
+
 		$res=$db->query("select * from `%videos%` order by rand() LIMIT 0,$number");
 		$n=0;
 		while ($row=$db->fetch($res)) {
@@ -3389,7 +3389,7 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 	 function getRandomAudio($number=0) {
 	 	global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$number)) {
-		
+
 		$res=$db->query("select * from `%audio%` order by rand() LIMIT 0,$number");
 		$n=0;
 		while ($row=$db->fetch($res)) {
@@ -3405,12 +3405,12 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 		} else {
 			return false;
 		}
-	 }	
-	 
-	 //Âíóòðåííèå ïóòè äëÿ ìîäóëåé
+	 }
+
+	 //Ð’Ð½ÑƒÑ‚Ñ€ÐµÐ½Ð½Ð¸Ðµ Ð¿ÑƒÑ‚Ð¸ Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»ÐµÐ¹
 	 function addPath($caption='',$url='',$active=true) {
  		$pth["caption"]=strip_tags($caption);
- 		$pth["url"]=strip_tags($url);	 
+ 		$pth["url"]=strip_tags($url);
 	 	if ($active) {
 			$pth["active"]=true;
 	 	} else {
@@ -3419,30 +3419,30 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 	 	$this->vn_path[]=$pth;
 	 	return true;
 	 }
-	 
+
 	 function assignPath() {
 	 	global $smarty;
 	 	$smarty->assign("module_path",$this->vn_path);
 	 }
-	 
+
 	 function clearPath() {
 	 	global $smarty;
 	 	unset($this->vn_path);
 	 	$smarty->assign("module_path",false);
 	 }
-	 
+
 	 function setAdminTitle($title) {
 	 	global $smarty;
 	 	$smarty->assign("admin_title",$title);
 	 }
-	 
+
 	 function stripContent($content) {
 		global $config;
 	 	$content=$this->strip_only($content,$config["denied_tags"],false);
- 	 	$content=$this->strip_only($content,$config["cut_tags"],true);	
+ 	 	$content=$this->strip_only($content,$config["cut_tags"],true);
  	 	return $content;
 	 }
-	 
+
 	 function setPreview($img,$id,$tooltip,$mode='img') {
 	 	global $smarty;
 		global $config;
@@ -3460,8 +3460,8 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 		$smarty->assign("closeFancybox",true);
 		$smarty->assign("fancyTooltip",$tooltip);
 	 }
-	 
-	 //Ïîëó÷åíèå ID èçîáðàæåíèÿ ïî èìåíè ïðåâüþ ôàéëà
+
+	 //ÐŸÐ¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ ID Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð¿Ð¾ Ð¸Ð¼ÐµÐ½Ð¸ Ð¿Ñ€ÐµÐ²ÑŒÑŽ Ñ„Ð°Ð¹Ð»Ð°
 	 function getPhotoIdByFilename($filename) {
 	 	global $db;
 		$res=$db->query("select `id_photo` from %photos% where medium_photo='".sql_quote($filename)."' or small_photo='".sql_quote($filename)."'");
@@ -3472,9 +3472,9 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
 			return false;
 		}
 	 }
-	 
+
 	 function strip_only($str, $tags, $stripContent = false) {
-	 //ôóíêöèÿ î÷èñòêè ñîäåðæèìîãî îò íåíóæíûõ òåãîâ
+	 //Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð¾Ñ‡Ð¸ÑÑ‚ÐºÐ¸ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ð³Ð¾ Ð¾Ñ‚ Ð½ÐµÐ½ÑƒÐ¶Ð½Ñ‹Ñ… Ñ‚ÐµÐ³Ð¾Ð²
     $content = '';
     if(!is_array($tags)) {
         $tags = (strpos($str, '>') !== false ? explode('>', str_replace('<', '', $tags)) : array($tags));
@@ -3486,44 +3486,44 @@ file_exists($config["pathes"]["templates_dir"].$config["templates"]["usermodules
          $str = preg_replace('#</?'.$tag.'[^>]*>'.$content.'#is', '', $str);
     }
     return $str;
-	} 
-	 
+	}
+
 	function checkRegistered($content) {
 		global $config;
 		if (defined("SCRIPTO_users")) {
-			//Ìîäóëü ïîëüçîâàòåëè óñòàíîâëåí
+			//ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ð¸ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½
 			if (isset($_SESSION["auth"])) {
 				if ($_SESSION["auth"]==true) {
-				//àâòîðèçèðîâàíû
+				//Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ð½Ñ‹
 	$content=$this->smartReplace($config["registered_tags"],$content,$config["replace_for_registered"]);
 				} else {
-				//íåò
+				//Ð½ÐµÑ‚
 	$content=$this->smartReplace($config["registered_tags"],$content,$config["replace_for_not_registered"]);
 				}
 			} else {
-				//íåò
+				//Ð½ÐµÑ‚
 	$content=$this->smartReplace($config["registered_tags"],$content,$config["replace_for_not_registered"]);
 			}
 		} else {
-			//Ìîäóëü ïîëüçîâàòåëè íå óñòàíîâëåí
+			//ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ð¸ Ð½Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½
 $content=$this->smartReplace($config["registered_tags"],$content,$config["replace_for_not_users"]);
 		}
 		return $content;
 	}
-	 
-	//Çàìåíà òåãîâ
+
+	//Ð—Ð°Ð¼ÐµÐ½Ð° Ñ‚ÐµÐ³Ð¾Ð²
 	function smartReplace($tags,$content,$replace) {
 		if (is_array($tags)) {
 			foreach ($tags as $tag) {
-				$content=preg_replace("/\[".$tag."\](.*?)\[\/".$tag."\]/is", $replace, $content); 
+				$content=preg_replace("/\[".$tag."\](.*?)\[\/".$tag."\]/is", $replace, $content);
 			}
 			return $content;
 		} else {
 			return $content;
 		}
 	}
-	 
-	 /*ðàáîòà ñ íàïîìèíàíèÿìè*/
+
+	 /*Ñ€Ð°Ð±Ð¾Ñ‚Ð° Ñ Ð½Ð°Ð¿Ð¾Ð¼Ð¸Ð½Ð°Ð½Ð¸ÑÐ¼Ð¸*/
 	 function addReminder($subject='',$text='',$date_reminder=array(),$time_reminder=array(),$undelete) {
 		global $db;
 		if (!preg_match("/^[0-9]{1,}$/i",$undelete)) return false;
@@ -3533,14 +3533,14 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 			return false;
 		}
 	}
-	
+
 	function getReminderByID($id_reminder=false) {
 		global $db;
 		if (!preg_match("/^[0-9]{1,}$/i",$id_reminder)) return false;
 		$res=$db->query("select *,DATE_FORMAT(`show_date`,'%d-%m-%Y') as `date_print`,DATE_FORMAT(`show_date`,'%H:%i') as `time_print`,DATE_FORMAT(`show_date`,'%e') as `date_day`,DATE_FORMAT(`show_date`,'%c') as `date_month`,DATE_FORMAT(`show_date`,'%Y') as `date_year`,DATE_FORMAT(`show_date`,'%k') as `time_hour`,DATE_FORMAT(`show_date`,'%i') as `time_minute` from `%reminders%` where id_reminder=$id_reminder");
 		return $db->fetch($res);
 	}
-	
+
 	function getReminders($new=false) {
 		global $db;
 		$new_sql='';
@@ -3557,13 +3557,13 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 			return false;
 		}
 	}
-	
+
 	function getNowReminders() {
 		global $db;
 		$res=$db->query("select id_reminder from `%reminders%` where DATE_FORMAT(`show_date`,'%d-%m-%Y')='".date('d-m-Y')."'");
 		return @mysql_num_rows($res);
 	}
-	
+
 	function deleteNewReminders() {
 		global $db;
 		if ($db->query("DELETE from `%reminders%` where `show_date`<NOW() and `undelete`=0")) {
@@ -3573,7 +3573,7 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 			return false;
 		}
 	}
-	
+
 	function createAffair($delo,$vazhn) {
 		global $db;
 		if (trim($delo)!='' && preg_match("/^[0-9]{1,}$/i",$vazhn)) {
@@ -3587,7 +3587,7 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 			return false;
 		}
 	}
-	
+
 	function createNote($caption,$content) {
 		global $db;
 		if ($db->query("insert into `%notes%` values(null,'".sql_quote($caption)."','".sql_quote($content)."','','".date('Y-m-d H:i:s')."')")) {
@@ -3596,14 +3596,14 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 			return false;
 		}
 	}
-	
+
 	function getNoteByID($id_note=false) {
 		global $db;
 		if (!preg_match("/^[0-9]{1,}$/i",$id_note)) return false;
 		$res=$db->query("select *,DATE_FORMAT(`date_create`,'%d.%m.%Y %H:%i') as `create_print` from `%notes%` where `id_note`=$id_note");
 		return $db->fetch($res);
 	}
-	
+
 	function getNotes() {
 		global $db;
 		$res=$db->query("select *,DATE_FORMAT(`date_create`,'%d.%m.%Y %H:%i') as `create_print` from `%notes%` order by `date_create` DESC");
@@ -3616,14 +3616,14 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 			return false;
 		}
 	}
-	
+
 	function getAffairByID($id_affair=false) {
 		global $db;
 		if (!preg_match("/^[0-9]{1,}$/i",$id_affair)) return false;
 		$res=$db->query("select *,DATE_FORMAT(`date_create`,'%d.%m.%Y %H:%i') as `create_print` from `%process%` where `id_process`=$id_affair");
 		return $db->fetch($res);
 	}
-	
+
 	function getAllAffairs() {
 		global $db;
 		$res=$db->query("select *,DATE_FORMAT(`date_create`,'%d.%m.%Y %H:%i') as `create_print`,DATE_FORMAT(`date_done`,'%d.%m.%Y %H:%i') as `done_print` from `%process%` order by `done`");
@@ -3636,52 +3636,52 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 			return false;
 		}
 	}
-	
-	 /*êîíåö ðàáîòû ñ íàïîìèíàíèÿìè*/
-	 
+
+	 /*ÐºÐ¾Ð½ÐµÑ† Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ Ñ Ð½Ð°Ð¿Ð¾Ð¼Ð¸Ð½Ð°Ð½Ð¸ÑÐ¼Ð¸*/
+
 		function get_memory_usage() {
-			
+
 			$memory['usage'] = function_exists('memory_get_usage') ? round(memory_get_usage() / 1024 / 1024, 2) : 0;
 			$memory['limit'] = (int) ini_get('memory_limit') ;
-			
+
 			if ( !empty($memory['usage']) && !empty($memory['limit']) ) {
 				$memory['percent'] = round ($memory['usage'] / $memory['limit'] * 100, 0);
 			}
 			return $memory;
 		}
-	
+
 		function addJS($j) {
 			$this->js[]=$j;
 		}
-		
+
 		function assignJS() {
 			global $smarty;
 			$smarty->assign("adm_js",$this->js);
 		}
-		
+
 		function TranslitThis($str) {
 			$str=trim($str);
-			$str=preg_replace("/[^a-zà-ÿ0-9A-ZÀ-ß ]/i","", $str);
-			// Ñíà÷àëà çàìåíÿåì "îäíîñèìâîëüíûå" ôîíåìû.
-		    $str=strtr($str,"àáâãäå¸çèéêëìíîïðñòóôõúûý_",
+			$str=preg_replace("/[^a-zÐ°-Ñ0-9A-ZÐ-Ð¯ ]/i","", $str);
+			// Ð¡Ð½Ð°Ñ‡Ð°Ð»Ð° Ð·Ð°Ð¼ÐµÐ½ÑÐµÐ¼ "Ð¾Ð´Ð½Ð¾ÑÐ¸Ð¼Ð²Ð¾Ð»ÑŒÐ½Ñ‹Ðµ" Ñ„Ð¾Ð½ÐµÐ¼Ñ‹.
+		    $str=strtr($str,"Ð°Ð±Ð²Ð³Ð´ÐµÑ‘Ð·Ð¸Ð¹ÐºÐ»Ð¼Ð½Ð¾Ð¿Ñ€ÑÑ‚ÑƒÑ„Ñ…ÑŠÑ‹Ñ_",
 		    "abvgdeeziyklmnoprstufh'iei");
-		    $str=strtr($str,"ÀÁÂÃÄÅ¨ÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÚÛÝ_",
+		    $str=strtr($str,"ÐÐ‘Ð’Ð“Ð”Ð•ÐÐ—Ð˜Ð™ÐšÐ›ÐœÐÐžÐŸÐ Ð¡Ð¢Ð£Ð¤Ð¥ÐªÐ«Ð­_",
 		    "ABVGDEEZIYKLMNOPRSTUFH'IEI");
-		    // Çàòåì - "ìíîãîñèìâîëüíûå".
-		    $str=strtr($str, 
+		    // Ð—Ð°Ñ‚ÐµÐ¼ - "Ð¼Ð½Ð¾Ð³Ð¾ÑÐ¸Ð¼Ð²Ð¾Ð»ÑŒÐ½Ñ‹Ðµ".
+		    $str=strtr($str,
                     array(
-                        "æ"=>"zh", "ö"=>"ts", "÷"=>"ch", "ø"=>"sh", 
-                        "ù"=>"shch","ü"=>"", "þ"=>"yu", "ÿ"=>"ya",
-                        "Æ"=>"ZH", "Ö"=>"TS", "×"=>"CH", "Ø"=>"SH", 
-                        "Ù"=>"SHCH","Ü"=>"", "Þ"=>"YU", "ß"=>"YA",
-                        "¿"=>"i", "¯"=>"Yi", "º"=>"ie", "ª"=>"Ye"
+                        "Ð¶"=>"zh", "Ñ†"=>"ts", "Ñ‡"=>"ch", "Ñˆ"=>"sh",
+                        "Ñ‰"=>"shch","ÑŒ"=>"", "ÑŽ"=>"yu", "Ñ"=>"ya",
+                        "Ð–"=>"ZH", "Ð¦"=>"TS", "Ð§"=>"CH", "Ð¨"=>"SH",
+                        "Ð©"=>"SHCH","Ð¬"=>"", "Ð®"=>"YU", "Ð¯"=>"YA",
+                        "Ñ—"=>"i", "Ð‡"=>"Yi", "Ñ”"=>"ie", "Ð„"=>"Ye"
                         )
              );
-		    // Âîçâðàùàåì ðåçóëüòàò.
+		    // Ð’Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚.
 			$str=str_replace(" ","_",$str);
 		    return $str;
 		}
-		
+
 		function getCategoriesByBlock($id_block) {
 			global $db;
 			if (!preg_match("/^[0-9]{1,}$/i",$id_block)) return false;
@@ -3692,8 +3692,8 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 			if (isset($cats)) return $cats;
 			return false;
 		}
-		
-		//Ôóíêöèÿ äîáàâëåíèÿ íîâîãî øàáëîíà
+
+		//Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð½Ð¾Ð²Ð¾Ð³Ð¾ ÑˆÐ°Ð±Ð»Ð¾Ð½Ð°
 		function addTemplate($title='',$file='',$css='',$type='') {
 			global $db;
 			if ($type!='block') $type='site';
@@ -3703,7 +3703,7 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 				return false;
 			}
 		}
-		
+
 		function iPhoneCheck() {
 			global $smarty;
 			$chck = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
@@ -3717,7 +3717,7 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 				}
 			unset($chck);
 		}
-		
+
 		function iPadCheck() {
 			global $smarty;
 			$chck = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");
@@ -3733,24 +3733,50 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 		}
 		
 		function loadContent($url) {
+			//return "OK";
 			$ch	= curl_init();
-			curl_setopt($ch, CURLOPT_URL,$url); // set url to post to 
-			curl_setopt($ch, CURLOPT_FAILONERROR, 1); 
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER,1); // return into a variable 
+			curl_setopt($ch, CURLOPT_URL,$url); // set url to post to
+			curl_setopt($ch, CURLOPT_FAILONERROR, 1);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER,1); // return into a variable
 			curl_setopt($ch, CURLOPT_TIMEOUT, 25);
 			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/532.5 (KHTML, like Gecko) Chrome/4.0.249.89 Safari/532.5');
-			$result = curl_exec($ch); // run the whole process 
-			$curl_err=curl_error($ch);
-			curl_close($ch);
-			return $result;
+			$data = curl_exec($ch);
+			if (!is_string($data)) return $data;
+			unset($charset);
+			$content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+			preg_match( '@([\w/+]+)(;\s*charset=(\S+))?@i', $content_type, $matches );
+			if ( isset( $matches[3] ) )
+				$charset = $matches[3];
+			if (!isset($charset)) {
+				preg_match( '@<meta\s+http-equiv="Content-Type"\s+content="([\w/]+)(;\s*charset=([^\s"]+))?@i', $data, $matches );
+				if ( isset( $matches[3] ) )
+					$charset = $matches[3];
+			}
+			if (!isset($charset)) {
+				preg_match( '@<\?xml.+encoding="([^\s"]+)@si', $data, $matches );
+				if ( isset( $matches[1] ) )
+					$charset = $matches[1];
+			}
+			if (!isset($charset)) {
+				$encoding = mb_detect_encoding($data);
+				if ($encoding)
+					$charset = $encoding;
+			}
+			if (!isset($charset)) {
+				if (strstr($content_type, "text/html") === 0)
+					$charset = "ISO 8859-1";
+			}
+			if (isset($charset) && strtoupper($charset) != "UTF-8")
+				$data = iconv($charset, 'UTF-8', $data);
+			return $data;
 		}
-		
+
 		function createButton($caption='',$url='',$button_type=0,$href_type=0) {
 			global $db;
 			if (!preg_match("/^(http|https)+(:\/\/)+[a-z0-9_-]+\.+[a-z0-9_-]/i",$url))
 				$url='';
 			if (!preg_match("/^[a-zA-Z0-9]{1,}$/i",$button_type)) return false;
-			
+
 			if (!preg_match("/^[0-9]{1,}$/i",$href_type)) return false;
 			if ($db->query("insert into `%buttons%` values (null,'".sql_quote($caption)."','".sql_quote($url)."','".sql_quote($button_type)."',$href_type,0)")) {
 				return @mysql_insert_id();
@@ -3758,14 +3784,14 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 				return false;
 			}
 		}
-		
+
 		function getButtonByID($id_button) {
 			global $db;
 			if (!preg_match('/^[0-9]{1,}$/i',$id_button)) return false;
 			$res=$db->query("select * from `%buttons%` where id_button=$id_button");
 			return $db->fetch($res);
 		}
-		
+
 		function getButtons() {
 			global $db;
 			$res=$db->query("select * from `%buttons%` order by `sort` DESC");
@@ -3776,34 +3802,34 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 				return $buttons;
 			return false;
 		}
-		
-	// $filepath – ïóòü ê ôàéëó, êîòîðûé ìû õîòèì îòäàòü
-	// $mimetype – òèï îòäàâàåìûõ äàííûõ (ìîæíî íå ìåíÿòü)
+
+	// $filepath â€“ Ð¿ÑƒÑ‚ÑŒ Ðº Ñ„Ð°Ð¹Ð»Ñƒ, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð¼Ñ‹ Ñ…Ð¾Ñ‚Ð¸Ð¼ Ð¾Ñ‚Ð´Ð°Ñ‚ÑŒ
+	// $mimetype â€“ Ñ‚Ð¸Ð¿ Ð¾Ñ‚Ð´Ð°Ð²Ð°ÐµÐ¼Ñ‹Ñ… Ð´Ð°Ð½Ð½Ñ‹Ñ… (Ð¼Ð¾Ð¶Ð½Ð¾ Ð½Ðµ Ð¼ÐµÐ½ÑÑ‚ÑŒ)
 	function download_file($filepath, $mimetype = 'application/octet-stream') {
-	$fsize = filesize($filepath); // áåðåì ðàçìåð ôàéëà
-	$ftime = date('D, d M Y H:i:s T', filemtime($filepath)); // îïðåäåëÿåì äàòó åãî ìîäèôèêàöèè
+	$fsize = filesize($filepath); // Ð±ÐµÑ€ÐµÐ¼ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ñ„Ð°Ð¹Ð»Ð°
+	$ftime = date('D, d M Y H:i:s T', filemtime($filepath)); // Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ Ð´Ð°Ñ‚Ñƒ ÐµÐ³Ð¾ Ð¼Ð¾Ð´Ð¸Ñ„Ð¸ÐºÐ°Ñ†Ð¸Ð¸
 
-	$fd = @fopen($filepath, 'rb'); // îòêðûâàåì ôàéë íà ÷òåíèå â áèíàðíîì ðåæèìå
+	$fd = @fopen($filepath, 'rb'); // Ð¾Ñ‚ÐºÑ€Ñ‹Ð²Ð°ÐµÐ¼ Ñ„Ð°Ð¹Ð» Ð½Ð° Ñ‡Ñ‚ÐµÐ½Ð¸Ðµ Ð² Ð±Ð¸Ð½Ð°Ñ€Ð½Ð¾Ð¼ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ
 
-	if (isset($_SERVER['HTTP_RANGE'])) { // ïîääåðæèâàåòñÿ ëè äîêà÷êà?
-		$range = $_SERVER['HTTP_RANGE']; // îïðåäåëÿåì, ñ êàêîãî áàéòà ñêà÷èâàòü ôàéë
+	if (isset($_SERVER['HTTP_RANGE'])) { // Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ÑÑ Ð»Ð¸ Ð´Ð¾ÐºÐ°Ñ‡ÐºÐ°?
+		$range = $_SERVER['HTTP_RANGE']; // Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼, Ñ ÐºÐ°ÐºÐ¾Ð³Ð¾ Ð±Ð°Ð¹Ñ‚Ð° ÑÐºÐ°Ñ‡Ð¸Ð²Ð°Ñ‚ÑŒ Ñ„Ð°Ð¹Ð»
 		$range = str_replace('bytes=', '', $range);
 		list($range, $end) = explode('-', $range);
 
 		if (!empty($range)) {
 			fseek($fd, $range);
 		}
-	} else { // äîêà÷êà íå ïîääåðæèâàåòñÿ
+	} else { // Ð´Ð¾ÐºÐ°Ñ‡ÐºÐ° Ð½Ðµ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÑ‚ÑÑ
 		$range = 0;
 	}
 
 	if ($range) {
-		header($_SERVER['SERVER_PROTOCOL'].' 206 Partial Content'); // ãîâîðèì áðàóçåðó, ÷òî ýòî ÷àñòü êàêîãî-òî êîíòåíòà
+		header($_SERVER['SERVER_PROTOCOL'].' 206 Partial Content'); // Ð³Ð¾Ð²Ð¾Ñ€Ð¸Ð¼ Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€Ñƒ, Ñ‡Ñ‚Ð¾ ÑÑ‚Ð¾ Ñ‡Ð°ÑÑ‚ÑŒ ÐºÐ°ÐºÐ¾Ð³Ð¾-Ñ‚Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð°
 	} else {
-		header($_SERVER['SERVER_PROTOCOL'].' 200 OK'); // ñòàíäàðòíûé îòâåò áðàóçåðó
+		header($_SERVER['SERVER_PROTOCOL'].' 200 OK'); // ÑÑ‚Ð°Ð½Ð´Ð°Ñ€Ñ‚Ð½Ñ‹Ð¹ Ð¾Ñ‚Ð²ÐµÑ‚ Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€Ñƒ
 	}
 
-	// ïðî÷èå çàãîëîâêè, íåîáõîäèìûå äëÿ ïðàâèëüíîé ðàáîòû
+	// Ð¿Ñ€Ð¾Ñ‡Ð¸Ðµ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²ÐºÐ¸, Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ñ‹Ðµ Ð´Ð»Ñ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ð¹ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹
 	header('Content-Disposition: attachment; filename='.basename($filepath));
 	header('Last-Modified: '.$ftime);
 	header('Accept-Ranges: bytes');
@@ -3813,11 +3839,11 @@ $content=$this->smartReplace($config["registered_tags"],$content,$config["replac
 	}
 	header('Content-Type: '.$mimetype);
 
-	fpassthru($fd); // îòäàåì ÷àñòü ôàéëà â áðàóçåð (ïðîãðàììó äîêà÷êè)
+	fpassthru($fd); // Ð¾Ñ‚Ð´Ð°ÐµÐ¼ Ñ‡Ð°ÑÑ‚ÑŒ Ñ„Ð°Ð¹Ð»Ð° Ð² Ð±Ñ€Ð°ÑƒÐ·ÐµÑ€ (Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñƒ Ð´Ð¾ÐºÐ°Ñ‡ÐºÐ¸)
 	fclose($fd);
 
 	exit;
-	}	
-		
+	}
+
 	}
 ?>

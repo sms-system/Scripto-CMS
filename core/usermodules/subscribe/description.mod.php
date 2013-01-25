@@ -1,14 +1,14 @@
 <?
-$moduleinfo["caption"]="Ìîäóëü ðàññûëêè";
+$moduleinfo["caption"]="ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ñ€Ð°ÑÑÑ‹Ð»ÐºÐ¸";
 $moduleinfo["url"]="http://www.scripto-cms.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
 $moduleinfo["icon"]="subscribe.png";
 $moduleinfo["version"]="1.0";
-$moduleinfo["use_in_one_rubric"]=true;//òîëüêî äëÿ îäíîé ðóáðèêè
+$moduleinfo["use_in_one_rubric"]=true;//Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð¾Ð´Ð½Ð¾Ð¹ Ñ€ÑƒÐ±Ñ€Ð¸ÐºÐ¸
 $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/mail/";
 $moduleinfo["use_name"]=false;
-$moduleinfo["onpage"]=100;//Ñêîëüêî âûâîäèòü e-mail â àäìèíêå
-$moduleinfo["onpage_archives"]=20;//Ñêîëüêî âûâîäèòü ðàññûëîê â àäìèíêå
-$moduleinfo["delimiter"]=chr(13);//Ðàçäåëèòåëü ïðè èìïîðòå áàçû e-mail
+$moduleinfo["onpage"]=100;//Ð¡ÐºÐ¾Ð»ÑŒÐºÐ¾ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ e-mail Ð² Ð°Ð´Ð¼Ð¸Ð½ÐºÐµ
+$moduleinfo["onpage_archives"]=20;//Ð¡ÐºÐ¾Ð»ÑŒÐºÐ¾ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ñ€Ð°ÑÑÑ‹Ð»Ð¾Ðº Ð² Ð°Ð´Ð¼Ð¸Ð½ÐºÐµ
+$moduleinfo["delimiter"]=chr(13);//Ð Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÑŒ Ð¿Ñ€Ð¸ Ð¸Ð¼Ð¿Ð¾Ñ€Ñ‚Ðµ Ð±Ð°Ð·Ñ‹ e-mail
 ?>

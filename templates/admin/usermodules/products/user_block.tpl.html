@@ -3,7 +3,7 @@
 {foreach key=key item=blockproduct from=$block_products}
 <p style="padding-top:10px;"><b><a href="{$blockproduct.product_url}?productID={$blockproduct.id_product}">{$blockproduct.caption}</a></b></p>
 <p>{$blockproduct.content}</p>
-<p>{$lang.products.price} {$blockproduct.price1} руб.</p>
+<p>{$lang.products.price} {$blockproduct.price1} СЂСѓР±.</p>
 {/foreach}
 {if $block.type.type=="products_actions"}
 	<p><a href="{$siteurl}{$urls[$block_action.id_category]}">{$lang.products.allspec}</a></p>

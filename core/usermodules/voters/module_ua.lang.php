@@ -1,10 +1,10 @@
 <?
-$lang["voters"]["active"]="Àêòèâíèé îïèò";
-$lang["voters"]["ended"]="Îïèò çàâåðøåíèé";
-$lang["voters"]["all_voted"]="Âñüîãî ïðîãîëîñóâàëè";
-$lang["voters"]["people"]="ëþäåé";
-$lang["voters"]["vote"]="ãîëîñóâàòè";
-$lang["voters"]["view_results"]="ïîäèâèòèñÿ ðåçóëüòàòè";
-$lang["voters"]["archive"]="Àðõ³â îïèò³â";
-$lang["voters"]["vote_button"]="Ãîëîñóâàòè";
+$lang["voters"]["active"]="ÐÐºÑ‚Ð¸Ð²Ð½Ð¸Ð¹ Ð¾Ð¿Ð¸Ñ‚";
+$lang["voters"]["ended"]="ÐžÐ¿Ð¸Ñ‚ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ð¹";
+$lang["voters"]["all_voted"]="Ð’ÑÑŒÐ¾Ð³Ð¾ Ð¿Ñ€Ð¾Ð³Ð¾Ð»Ð¾ÑÑƒÐ²Ð°Ð»Ð¸";
+$lang["voters"]["people"]="Ð»ÑŽÐ´ÐµÐ¹";
+$lang["voters"]["vote"]="Ð³Ð¾Ð»Ð¾ÑÑƒÐ²Ð°Ñ‚Ð¸";
+$lang["voters"]["view_results"]="Ð¿Ð¾Ð´Ð¸Ð²Ð¸Ñ‚Ð¸ÑÑ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ð¸";
+$lang["voters"]["archive"]="ÐÑ€Ñ…Ñ–Ð² Ð¾Ð¿Ð¸Ñ‚Ñ–Ð²";
+$lang["voters"]["vote_button"]="Ð“Ð¾Ð»Ð¾ÑÑƒÐ²Ð°Ñ‚Ð¸";
 ?>

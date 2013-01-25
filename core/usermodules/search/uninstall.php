@@ -1,6 +1,6 @@
 <?
 /*
-Ôàéë óäàëåíèÿ ìîäóëÿ ïîèñê ïî ñàéòó
+Ð¤Ð°Ð¹Ð» ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ð¿Ð¾Ð¸ÑÐº Ð¿Ð¾ ÑÐ°Ð¹Ñ‚Ñƒ
 */
 global $engine;
 $res=$db->query("select * from %block_types% where type='search'");

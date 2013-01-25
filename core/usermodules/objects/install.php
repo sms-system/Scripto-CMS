@@ -1,6 +1,6 @@
 <?
 /*
-Óñòàíîâî÷íûé ôàéë äëÿ ìîäóëÿ îáúåêòû
+Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¾Ñ‡Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ð¾Ð±ÑŠÐµÐºÑ‚Ñ‹
 */
 @mkdir($config["pathes"]["user_files"]."files/");
 $install_sql[]="CREATE TABLE `%TYPES%` (
@@ -177,6 +177,6 @@ $install_sql[]="CREATE TABLE `%OBJECT_CATEGORIES%` (
 );";
 $install_sql[]="CREATE INDEX block_object_categories_id_type USING BTREE ON `%OBJECT_CATEGORIES%` (id_type);";
 $install_sql[]="CREATE INDEX block_object_categories_id_cat USING BTREE ON `%OBJECT_CATEGORIES%` (id_cat);";
-$install_sql[]="insert into `%block_types%` values (null,'Äîáàâëåíèå îáúåêòîâ','addobjects','objects',1);";
-$install_sql[]="insert into `%block_types%` values (null,'Ïîñëåäíèå îáúåêòû','lastobjects','objects',1);";
+$install_sql[]="insert into `%block_types%` values (null,'Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²','addobjects','objects',1);";
+$install_sql[]="insert into `%block_types%` values (null,'ÐŸÐ¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ Ð¾Ð±ÑŠÐµÐºÑ‚Ñ‹','lastobjects','objects',1);";
 ?>

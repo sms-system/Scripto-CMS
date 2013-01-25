@@ -1,8 +1,8 @@
 <?
 /*
-Модуль новости сайта, управление
-Версия модуля - 1.0
-Разработчик - Иванов Дмитрий
+РњРѕРґСѓР»СЊ РЅРѕРІРѕСЃС‚Рё СЃР°Р№С‚Р°, СѓРїСЂР°РІР»РµРЅРёРµ
+Р’РµСЂСЃРёСЏ РјРѕРґСѓР»СЏ - 1.0
+Р Р°Р·СЂР°Р±РѕС‚С‡РёРє - РРІР°РЅРѕРІ Р”РјРёС‚СЂРёР№
 */
 if ($engine->checkInstallModule("products")) {
 $m_action=@$_REQUEST["m_action"];
@@ -14,7 +14,7 @@ switch ($m_action) {
 		$engine->clearPath();
 $engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('50 самых продаваемых товаров','',false);
+		$engine->addPath('50 СЃР°РјС‹С… РїСЂРѕРґР°РІР°РµРјС‹С… С‚РѕРІР°СЂРѕРІ','',false);
 		$engine->assignPath();
 		$p=new Products();
 		$p->doDb();
@@ -25,7 +25,7 @@ $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=
 				$engine->clearPath();
 				$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 				$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-$engine->addPath('Скидочные купоны','/admin/?module=modules&modAction=settings&m_action=discounts&module_name='.$this->thismodule["name"],true);
+$engine->addPath('РЎРєРёРґРѕС‡РЅС‹Рµ РєСѓРїРѕРЅС‹','/admin/?module=modules&modAction=settings&m_action=discounts&module_name='.$this->thismodule["name"],true);
 			$mode=@$_REQUEST["mode"];
 			$modAction=@$_REQUEST["modAction"];
 			$values=$this->thismodule["dicount_type"];
@@ -62,13 +62,13 @@ $engine->addPath('Скидочные купоны','/admin/?module=modules&modAction=settings&m
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 			
-$frm->addField("Название","Неверно заполнено поле название купона","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"",array('size'=>'40'));
+$frm->addField("РќР°Р·РІР°РЅРёРµ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ РЅР°Р·РІР°РЅРёРµ РєСѓРїРѕРЅР°","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"",array('size'=>'40'));
 
-$frm->addField("Код купона (англ.)","Неверно заполнен код купона","text",$code,$code,"/^[a-zA-Z0-9]{2,255}$/i","code",1,"HK834S",array('size'=>'40','ticket'=>'Разрешены только латинские буквы, либо цифры, от 2 до 255 символов'));
+$frm->addField("РљРѕРґ РєСѓРїРѕРЅР° (Р°РЅРіР».)","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ РєРѕРґ РєСѓРїРѕРЅР°","text",$code,$code,"/^[a-zA-Z0-9]{2,255}$/i","code",1,"HK834S",array('size'=>'40','ticket'=>'Р Р°Р·СЂРµС€РµРЅС‹ С‚РѕР»СЊРєРѕ Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹, Р»РёР±Рѕ С†РёС„СЂС‹, РѕС‚ 2 РґРѕ 255 СЃРёРјРІРѕР»РѕРІ'));
 
-$frm->addField("Тип купона","Неверно выбран тип купона","list",$values,$id_type,"/^[0-9]{1}$/i","id_type",0,"",array('size'=>'40'));
+$frm->addField("РўРёРї РєСѓРїРѕРЅР°","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅ С‚РёРї РєСѓРїРѕРЅР°","list",$values,$id_type,"/^[0-9]{1}$/i","id_type",0,"",array('size'=>'40'));
 
-$frm->addField("Скидка","Неверно заполнена скидка","text",$price,$price,"/^[0-9]{1,5}$/i","price",1,"",array('size'=>'40'));
+$frm->addField("РЎРєРёРґРєР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅР° СЃРєРёРґРєР°","text",$price,$price,"/^[0-9]{1,5}$/i","price",1,"",array('size'=>'40'));
 
 $engine->generateLangControls("DISCOUNTS",$lang_values,$frm);
 
@@ -81,42 +81,42 @@ $frm->addField("","","hidden",$id_discount,$id_discount,"/^[^`]{0,}$/i","id_disc
 $smarty->assign("mode",$mode);
 
 if ($mode=="edit") {
-	$engine->addPath('Редактирование скидочного купона','',false);
-	$m_button="Редактировать";
+	$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃРєРёРґРѕС‡РЅРѕРіРѕ РєСѓРїРѕРЅР°','',false);
+	$m_button="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ";
 	if ($code!='')
 	if ($code!=$discount["code"])
 		if ($this->existDiscount($code))
-			$frm->addError("Купон с кодом $code уже существует!");
+			$frm->addError("РљСѓРїРѕРЅ СЃ РєРѕРґРѕРј $code СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!");
 } else {
-	$engine->addPath('Добавление скидочного купона','',false);
-	$m_button="Добавить";
+	$engine->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ СЃРєРёРґРѕС‡РЅРѕРіРѕ РєСѓРїРѕРЅР°','',false);
+	$m_button="Р”РѕР±Р°РІРёС‚СЊ";
 	if ($code!='')
 	if ($this->existDiscount($code))
-		$frm->addError("Купон с кодом $code уже существует!");
+		$frm->addError("РљСѓРїРѕРЅ СЃ РєРѕРґРѕРј $code СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!");
 }
 
 if ($id_type==1 && $price>$this->thismodule["max_percent"])
-	$frm->addError("Максимальная скидка по купону не может быть более 50%");
+	$frm->addError("РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃРєРёРґРєР° РїРѕ РєСѓРїРѕРЅСѓ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ Р±РѕР»РµРµ 50%");
 
 			if (
 $engine->processFormData($frm,$m_button,$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if (isset($id_discount)) {
 				 	if ($db->query("update %DISCOUNTS% set `caption`='".sql_quote($caption)."' , `code`='".sql_quote($code)."',`type`=$id_type, `price`=$price ".$engine->generateUpdateSQL("DISCOUNTS",$lang_values)." where id_discount=$id_discount")) {
-						//отредактировали
-				      $engine->setCongratulation("Интернет магазин","Информация о скидочном купоне отредактирована успешно!",5000);
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
+				      $engine->setCongratulation("РРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅ","РРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃРєРёРґРѕС‡РЅРѕРј РєСѓРїРѕРЅРµ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅР° СѓСЃРїРµС€РЅРѕ!",5000);
 					  $m_action="discounts";
 					}
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
  $add_id=$this->addDiscount($caption,$code,$id_type,$price,$engine->generateInsertSQL("DISCOUNTS",$lang_values));
 				 if ($add_id!=false) {
-				   //добавили успешно!
-				    $engine->setCongratulation("Интернет магазин","Скидочный купон добавлен успешно!",5000);
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
+				    $engine->setCongratulation("РРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅ","РЎРєРёРґРѕС‡РЅС‹Р№ РєСѓРїРѕРЅ РґРѕР±Р°РІР»РµРЅ СѓСЃРїРµС€РЅРѕ!",5000);
 					$m_action="discounts";
 				 }
 				}
@@ -127,7 +127,7 @@ $engine->processFormData($frm,$m_button,$first
 		$id_discount=@$_REQUEST["id_discount"];
 		if (preg_match("/^[0-9]{1,}$/i",$id_discount)) {
 			$db->query("DELETE from `%DISCOUNTS%` where id_discount=$id_discount");
-			$engine->setCongratulation("Интернет магазин","Скидочный купон удален успешно!",5000);
+			$engine->setCongratulation("РРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅ","РЎРєРёРґРѕС‡РЅС‹Р№ РєСѓРїРѕРЅ СѓРґР°Р»РµРЅ СѓСЃРїРµС€РЅРѕ!",5000);
 		}
 		$m_action="discounts";
 	case "discounts":
@@ -137,21 +137,21 @@ $engine->processFormData($frm,$m_button,$first
 		$engine->clearPath();
 $engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Оптовые скидки','',false);
+		$engine->addPath('РћРїС‚РѕРІС‹Рµ СЃРєРёРґРєРё','',false);
 		$engine->assignPath();
 		if (isset($_REQUEST["addnew"])) {
-			//Добавляем новую скидку оптовую
+			//Р”РѕР±Р°РІР»СЏРµРј РЅРѕРІСѓСЋ СЃРєРёРґРєСѓ РѕРїС‚РѕРІСѓСЋ
 			$from=trim(strip_tags(@$_REQUEST["from"]));
 			$percent=trim(strip_tags(@$_REQUEST["percent"]));
 			if (preg_match("/^[0-9]{1,2}$/i",$percent) && preg_match("/^[0-9]{1,}$/i",$from)) {
 				if (!$this->existOpt($from)) {
 					if ($this->addOpt($from,$percent,1)) {
-						$engine->setCongratulation('',"Скидка с порогом $from добавлена!",3000);
+						$engine->setCongratulation('',"РЎРєРёРґРєР° СЃ РїРѕСЂРѕРіРѕРј $from РґРѕР±Р°РІР»РµРЅР°!",3000);
 					} else {
-						$engine->setCongratulation('Ошибка',"При добавлении скидки произошла ошибка!",3000);
+						$engine->setCongratulation('РћС€РёР±РєР°',"РџСЂРё РґРѕР±Р°РІР»РµРЅРёРё СЃРєРёРґРєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!",3000);
 					}
 				} else {
-					$engine->setCongratulation('Ошибка',"Скидка с заданным порогом $from уже существует!",5000);
+					$engine->setCongratulation('РћС€РёР±РєР°',"РЎРєРёРґРєР° СЃ Р·Р°РґР°РЅРЅС‹Рј РїРѕСЂРѕРіРѕРј $from СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!",5000);
 				}
 			}
 		}
@@ -175,14 +175,14 @@ $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=
 					}
 				 }
 				}
-				$engine->setCongratulation('',"Обновлено $u скидок!",3000);
+				$engine->setCongratulation('',"РћР±РЅРѕРІР»РµРЅРѕ $u СЃРєРёРґРѕРє!",3000);
 			}
 		}
 		if (isset($_REQUEST["delete"]) && !isset($_REQUEST["save"])) {
 			$id_opt=@$_REQUEST["id_opt"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_opt)) {
 				if ($db->query("delete from `%OPT%` where `id_opt`=$id_opt")) {
-					$engine->setCongratulation('','Скидка удалена!',3000);
+					$engine->setCongratulation('','РЎРєРёРґРєР° СѓРґР°Р»РµРЅР°!',3000);
 				}
 			}
 		}
@@ -193,7 +193,7 @@ $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=
 				$engine->clearPath();
 				$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 				$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-$engine->addPath('Способы оплаты','/admin/?module=modules&modAction=settings&m_action=payment&module_name='.$this->thismodule["name"],true);
+$engine->addPath('РЎРїРѕСЃРѕР±С‹ РѕРїР»Р°С‚С‹','/admin/?module=modules&modAction=settings&m_action=payment&module_name='.$this->thismodule["name"],true);
 			$mode=@$_REQUEST["mode"];
 			$modAction=@$_REQUEST["modAction"];
 			if (isset($_REQUEST["id_payment"])) {
@@ -223,9 +223,9 @@ $engine->addPath('Способы оплаты','/admin/?module=modules&modAction=settings&m_a
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 			
-$frm->addField("Название","Неверно заполнено поле название","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"",array('size'=>'40'));
+$frm->addField("РќР°Р·РІР°РЅРёРµ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ РЅР°Р·РІР°РЅРёРµ","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"",array('size'=>'40'));
 
-$frm->addField("Описание","Неверно заполнено поле описание","textarea",$description,$description,"/^[^`#]{2,255}$/i","description",0,"",array('size'=>'40'));
+$frm->addField("РћРїРёСЃР°РЅРёРµ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ РѕРїРёСЃР°РЅРёРµ","textarea",$description,$description,"/^[^`#]{2,255}$/i","description",0,"",array('size'=>'40'));
 
 $engine->generateLangControls("PAYMENT",$lang_values,$frm);
 
@@ -238,32 +238,32 @@ $frm->addField("","","hidden",$id_payment,$id_payment,"/^[^`]{0,}$/i","id_paymen
 $smarty->assign("mode",$mode);
 
 if ($mode=="edit") {
-	$engine->addPath('Редактирование способа оплаты','',false);
-	$m_button="Редактировать";
+	$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃРїРѕСЃРѕР±Р° РѕРїР»Р°С‚С‹','',false);
+	$m_button="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ";
 } else {
-	$engine->addPath('Добавление способа оплаты','',false);
-	$m_button="Добавить";
+	$engine->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ СЃРїРѕСЃРѕР±Р° РѕРїР»Р°С‚С‹','',false);
+	$m_button="Р”РѕР±Р°РІРёС‚СЊ";
 }
 			if (
 $engine->processFormData($frm,$m_button,$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if (isset($id_payment)) {
 				 	if ($db->query("update %PAYMENT% set `caption`='".sql_quote($caption)."' , `description`='".sql_quote($description)."' ".$engine->generateUpdateSQL("PAYMENT",$lang_values)." where id_payment=$id_payment")) {
-						//отредактировали
-				   $engine->setCongratulation("Интернет магазин","Информация о способе оплаты отредактирована успешно!",5000);
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
+				   $engine->setCongratulation("РРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅ","РРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃРїРѕСЃРѕР±Рµ РѕРїР»Р°С‚С‹ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅР° СѓСЃРїРµС€РЅРѕ!",5000);
 					$m_action="payment";
 					}
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
  $add_id=$this->addPayment($caption,$description,$engine->generateInsertSQL("PAYMENT",$lang_values));
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				//   $modAction="view";
-				   $engine->setCongratulation("Интернет магазин","Новый способ оплаты добавлен успешно!",5000);
+				   $engine->setCongratulation("РРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅ","РќРѕРІС‹Р№ СЃРїРѕСЃРѕР± РѕРїР»Р°С‚С‹ РґРѕР±Р°РІР»РµРЅ СѓСЃРїРµС€РЅРѕ!",5000);
 					$m_action="payment";
 				 }
 				}
@@ -274,11 +274,11 @@ $engine->processFormData($frm,$m_button,$first
 		$id_payment=@$_REQUEST["id_payment"];
 		if (preg_match("/^[0-9]{1,}$/i",$id_payment)) {
 			$db->query("DELETE from `%PAYMENT%` where id_payment=$id_payment");
-			$engine->setCongratulation("Интернет магазин","Способ оплаты удален успешно!",5000);
+			$engine->setCongratulation("РРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅ","РЎРїРѕСЃРѕР± РѕРїР»Р°С‚С‹ СѓРґР°Р»РµРЅ СѓСЃРїРµС€РЅРѕ!",5000);
 		}
 		$m_action="payment";
 	case "payment":
-		//просмотр способов оплаты
+		//РїСЂРѕСЃРјРѕС‚СЂ СЃРїРѕСЃРѕР±РѕРІ РѕРїР»Р°С‚С‹
 
 	break;
 	case "view_order":
@@ -300,7 +300,7 @@ $engine->processFormData($frm,$m_button,$first
 		$engine->clearPath();
 $engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-$engine->addPath('Способы доставки','/admin/?module=modules&modAction=settings&m_action=delivery&module_name='.$this->thismodule["name"],true);
+$engine->addPath('РЎРїРѕСЃРѕР±С‹ РґРѕСЃС‚Р°РІРєРё','/admin/?module=modules&modAction=settings&m_action=delivery&module_name='.$this->thismodule["name"],true);
 			$mode=@$_REQUEST["mode"];
 			$modAction=@$_REQUEST["modAction"];
 			if (isset($_REQUEST["id_delivery"])) {
@@ -333,11 +333,11 @@ $engine->addPath('Способы доставки','/admin/?module=modules&modAction=settings&m
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 			
-$frm->addField("Название","Неверно заполнено поле название","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"",array('size'=>'40','ticket'=>""));
+$frm->addField("РќР°Р·РІР°РЅРёРµ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ РЅР°Р·РІР°РЅРёРµ","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"",array('size'=>'40','ticket'=>""));
 
-$frm->addField("Стоимость","Неверно заполнено поле стоимость","text",$price,$price,"/^[0-9]{1,25}$/i","price",0,"",array('size'=>'40'));
+$frm->addField("РЎС‚РѕРёРјРѕСЃС‚СЊ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ СЃС‚РѕРёРјРѕСЃС‚СЊ","text",$price,$price,"/^[0-9]{1,25}$/i","price",0,"",array('size'=>'40'));
 
-$frm->addField("Описание","Неверно заполнено поле описание","textarea",$description,$description,"/^[^`#]{2,255}$/i","description",0,"",array('size'=>'40'));
+$frm->addField("РћРїРёСЃР°РЅРёРµ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ РѕРїРёСЃР°РЅРёРµ","textarea",$description,$description,"/^[^`#]{2,255}$/i","description",0,"",array('size'=>'40'));
 
 $engine->generateLangControls("DELIVERY",$lang_values,$frm);
 
@@ -349,35 +349,35 @@ $frm->addField("","","hidden",$id_delivery,$id_delivery,"/^[^`]{0,}$/i","id_deli
 }
 $smarty->assign("mode",$mode);
 if ($mode=="edit") {
-	$engine->addPath('Редактирование способа доставки','',false);
-	$m_button="Редактировать";
+	$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЃРїРѕСЃРѕР±Р° РґРѕСЃС‚Р°РІРєРё','',false);
+	$m_button="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ";
 } else {
-	$engine->addPath('Добавление способа доставки','',false);
-	$m_button="Добавить";
+	$engine->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ СЃРїРѕСЃРѕР±Р° РґРѕСЃС‚Р°РІРєРё','',false);
+	$m_button="Р”РѕР±Р°РІРёС‚СЊ";
 }
 			if (
 $engine->processFormData($frm,$m_button,$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if (isset($id_delivery)) {
 				 	if ($db->query("update %DELIVERY% set `caption`='".sql_quote($caption)."' , `description`='".sql_quote($description)."',`price`=$price ".$engine->generateUpdateSQL("DELIVERY",$lang_values)." where id_delivery=$id_delivery")) {
-						//отредактировали
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
 				//	   $modAction="view";
-				   $engine->setCongratulation("Интернет магазин","Информация о способе доставки отредактирована успешно!",5000);
+				   $engine->setCongratulation("РРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅ","РРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃРїРѕСЃРѕР±Рµ РґРѕСЃС‚Р°РІРєРё РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅР° СѓСЃРїРµС€РЅРѕ!",5000);
 					$m_action="delivery";
 					}
 				 } else {
-				 	//показываем ошибку
+				 	//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
  $add_id=$this->addDelivery($caption,$price,$description,$engine->generateInsertSQL("DELIVERY",$lang_values));
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				//   $modAction="view";
-				   $engine->setCongratulation("Интернет магазин","Новый способ доставки добавлен успешно!",5000);
+				   $engine->setCongratulation("РРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅ","РќРѕРІС‹Р№ СЃРїРѕСЃРѕР± РґРѕСЃС‚Р°РІРєРё РґРѕР±Р°РІР»РµРЅ СѓСЃРїРµС€РЅРѕ!",5000);
 					$m_action="delivery";
 				 }
 				}
@@ -388,11 +388,11 @@ $engine->processFormData($frm,$m_button,$first
 		$id_delivery=@$_REQUEST["id_delivery"];
 		if (preg_match("/^[0-9]{1,}$/i",$id_delivery)) {
 			$db->query("DELETE from `%DELIVERY%` where id_delivery=$id_delivery");
-			$engine->setCongratulation("Интернет магазин","Способ доставки удален успешно!",5000);
+			$engine->setCongratulation("РРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅ","РЎРїРѕСЃРѕР± РґРѕСЃС‚Р°РІРєРё СѓРґР°Р»РµРЅ СѓСЃРїРµС€РЅРѕ!",5000);
 		}
 		$m_action="delivery";
 	case "delivery":
-		//просмотр спообов доставки
+		//РїСЂРѕСЃРјРѕС‚СЂ СЃРїРѕРѕР±РѕРІ РґРѕСЃС‚Р°РІРєРё
 
 	break;
 	default:
@@ -402,7 +402,7 @@ if ($m_action=="discounts") {
 		$engine->clearPath();
 $engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Скидочные купоны','',false);
+		$engine->addPath('РЎРєРёРґРѕС‡РЅС‹Рµ РєСѓРїРѕРЅС‹','',false);
 		$engine->assignPath();
 		if (isset($_REQUEST["savediscounts"])) {
 			$iddisc=@$_REQUEST["iddisc"];
@@ -418,7 +418,7 @@ $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=
 			 	$db->query("update `%DISCOUNTS%` set `active`=0");
 			 }
 			}
-			$engine->setCongratulation("Интернет магазин","Данные сохранены",3000);
+			$engine->setCongratulation("РРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅ","Р”Р°РЅРЅС‹Рµ СЃРѕС…СЂР°РЅРµРЅС‹",3000);
 		}
 		$discount=$this->getDiscounts();
 		$smarty->assign("discount",$discount);
@@ -427,7 +427,7 @@ if ($m_action=="delivery") {
 		$engine->clearPath();
 $engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Способы доставки','',false);
+		$engine->addPath('РЎРїРѕСЃРѕР±С‹ РґРѕСЃС‚Р°РІРєРё','',false);
 		$engine->assignPath();
 		$delivery=$this->getDeliviries();
 		$smarty->assign("delivery",$delivery);
@@ -436,13 +436,13 @@ if ($m_action=="payment") {
 		$engine->clearPath();
 $engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Способы оплаты','',false);
+		$engine->addPath('РЎРїРѕСЃРѕР±С‹ РѕРїР»Р°С‚С‹','',false);
 		$engine->assignPath();
 		$payment=$this->getPayments();
 		$smarty->assign("payment",$payment);
 }
 if ($m_action=="orders") {
-		//Просмотр заказов
+		//РџСЂРѕСЃРјРѕС‚СЂ Р·Р°РєР°Р·РѕРІ
 		$engine->clearPath();
 $engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
@@ -459,16 +459,16 @@ $engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=
 			$smarty->assign("with_user",true);
 			$cuser=$usr->getUserByID($id_user);
 			$smarty->assign("id_user",$cuser["id_user"]);
-			$engine->addPath('Заказы','/admin/?module=modules&modAction=settings&module_name=basket&m_action=orders',true);
-			$engine->addPath('Просмотр заказов пользователя '.$cuser["fio"],'',false);
+			$engine->addPath('Р—Р°РєР°Р·С‹','/admin/?module=modules&modAction=settings&module_name=basket&m_action=orders',true);
+			$engine->addPath('РџСЂРѕСЃРјРѕС‚СЂ Р·Р°РєР°Р·РѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ '.$cuser["fio"],'',false);
 			} else {
-			$engine->addPath('Заказы','',false);
+			$engine->addPath('Р—Р°РєР°Р·С‹','',false);
 			}
 		} else {
 			$id_user=0;
-			$engine->addPath('Заказы','',false);
+			$engine->addPath('Р—Р°РєР°Р·С‹','',false);
 		}
-		//проверяем поисковый запрос
+		//РїСЂРѕРІРµСЂСЏРµРј РїРѕРёСЃРєРѕРІС‹Р№ Р·Р°РїСЂРѕСЃ
 		if (isset($_REQUEST["str"])) {
 			$str_real=trim($_REQUEST["str"]);
 			if (trim($str_real)!='') {

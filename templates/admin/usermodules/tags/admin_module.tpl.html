@@ -1,8 +1,8 @@
-<h2>Существующие теги</h2>
+<h2>РЎСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ С‚РµРіРё</h2>
 <div class="body">
 {if $tags}
 <p align="right">
-Выберите страницу:
+Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂР°РЅРёС†Сѓ:
 {foreach key=key item=p from=$pages}
 	{if $p==$pagenumber}
 		<b>{$p+1}</b>
@@ -15,9 +15,9 @@
 <form action="{$siteurl}admin?module=modules&modAction=settings&module_name=tags&save=yes" method="post" id="tags_form">
 <table width="100%">
 <tr>
-	<td class="objects_header" width="70%">Тег</td>
-	<td class="objects_header" width="20%">Полулярность</td>
-	<td class="objects_header" width="10%">Удалить</td>
+	<td class="objects_header" width="70%">РўРµРі</td>
+	<td class="objects_header" width="20%">РџРѕР»СѓР»СЏСЂРЅРѕСЃС‚СЊ</td>
+	<td class="objects_header" width="10%">РЈРґР°Р»РёС‚СЊ</td>
 </tr>
 {foreach key=key item=tag from=$tags}
 <tr height="25" class="{cycle values="objects_cell_light,objects_cell_bold"}" id="tag{$tag.id_tag}">
@@ -31,11 +31,11 @@
 	<td class="selectall" align="center"><input type="checkbox" class="deletecheckbox" numb="0"></td>
 </tr>
 <tr id="save_submit">
-	<td colspan="3" align="center"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="3" align="center"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 </table>
 </form>
 {else}
-<p>На данный момент не было создано ни одного тега</p>
+<p>РќР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РЅРµ Р±С‹Р»Рѕ СЃРѕР·РґР°РЅРѕ РЅРё РѕРґРЅРѕРіРѕ С‚РµРіР°</p>
 {/if}
 </div>

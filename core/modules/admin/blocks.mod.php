@@ -1,6 +1,6 @@
 <?
 /*
-модуль блоков
+РјРѕРґСѓР»СЊ Р±Р»РѕРєРѕРІ
 */
 global $page;
 
@@ -83,7 +83,7 @@ if ($modAction=="") $modAction="view";
 							$vis=0;
 						}
 						$ident_str='';
-						if (preg_match("/^[-а-яА-Яa-zA-Z0-9_\/]{2,255}$/i",$ident[$key])) {
+						if (preg_match("/^[-Р°-СЏРђ-РЇa-zA-Z0-9_\/]{2,255}$/i",$ident[$key])) {
 							if (!in_array($ident[$key],$idents)) {
 								$ident_str=", `ident`='".$ident[$key]."'";
 							}
@@ -109,7 +109,7 @@ if ($modAction=="") $modAction="view";
 					$n++;
 				}
 			$modAction="view";
-			$this->setCongratulation("","Информация о блоках обновлена!",5000);
+			$this->setCongratulation("","РРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р±Р»РѕРєР°С… РѕР±РЅРѕРІР»РµРЅР°!",5000);
 		break;
 		case "rss_block":
 			$mode=@$_REQUEST["mode"];
@@ -179,7 +179,7 @@ if ($modAction=="") $modAction="view";
 					$smarty->assign("rss",$rss);
 			}
 			} else {
-				//показываем ошибку
+				//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 			}
 		break;
 		case "random_photo":
@@ -266,7 +266,7 @@ if ($modAction=="") $modAction="view";
 					$smarty->assign("texts",$texts);
 			}
 			} else {
-				//показываем ошибку
+				//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 			}
 		break;
 		case "add":
@@ -275,11 +275,11 @@ if ($modAction=="") $modAction="view";
 			$templates=$this->getTemplatesEx("block");
 			$types=$this->getBlockTypesEx();
 			$mode=@$_REQUEST["mode"];
-			$this->addPath('Менеджер блоков','/admin?module=blocks',true);
+			$this->addPath('РњРµРЅРµРґР¶РµСЂ Р±Р»РѕРєРѕРІ','/admin?module=blocks',true);
 			if ($mode=="edit") {
-			$this->addPath('Редактирование блока','',false);
+			$this->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р±Р»РѕРєР°','',false);
 			} else {
-			$this->addPath('Добавление нового блока','',false);	
+			$this->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ Р±Р»РѕРєР°','',false);	
 			}
 			$this->assignPath();
 			if (isset($_REQUEST["id_block"])) {
@@ -334,7 +334,7 @@ if ($modAction=="") $modAction="view";
 			
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
-$frm->addField("Основные настройки блока","","caption","","","/^[a-zA-Z0-9]{2,10}$/i","s01",0);
+$frm->addField("РћСЃРЅРѕРІРЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё Р±Р»РѕРєР°","","caption","","","/^[a-zA-Z0-9]{2,10}$/i","s01",0);
 			
 $frm->addField($lang["forms"]["block"]["title"]["caption"],$lang["forms"]["block"]["title"]["error"],"text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",0,$lang["forms"]["block"]["title"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["block"]["title"]["rules"]));
 
@@ -344,13 +344,13 @@ $frm->addField($lang["forms"]["block"]["template"]["caption"],$lang["forms"]["bl
 
 $frm->addField($lang["forms"]["block"]["type"]["caption"],$lang["forms"]["block"]["type"]["error"],"list",$types,$block_type,"/^[0-9]{1,}$/i","block_type",1,$lang["forms"]["block"]["type"]["sample"],array('size'=>'30'));
 
-$frm->addField("Опции вывода блока","","caption","","","/^[a-zA-Z0-9]{2,10}$/i","s01",0);
+$frm->addField("РћРїС†РёРё РІС‹РІРѕРґР° Р±Р»РѕРєР°","","caption","","","/^[a-zA-Z0-9]{2,10}$/i","s01",0);
 
 $frm->addField($lang["forms"]["block"]["show_mode"]["caption"],$lang["forms"]["block"]["show_mode"]["error"],"list",@$config["block_show_mode"],$show_mode,"/^[0-9]{1,}$/i","show_mode",1,$lang["forms"]["block"]["show_mode"]["sample"],array('size'=>'30'));
 
 $frm->addField($lang["forms"]["block"]["razdel"]["caption"],$lang["forms"]["block"]["razdel"]["error"],"list",$values,$id_cat,"/^[0-9]{1,}$/i","id_cat",1,$lang["forms"]["block"]["razdel"]["sample"],array('size'=>'30','ticket'=>$lang["forms"]["block"]["razdel"]["rules"]));
 
-$frm->addField("Прочее","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","other",0,'',array('hidden'=>true));
+$frm->addField("РџСЂРѕС‡РµРµ","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","other",0,'',array('hidden'=>true));
 
 $frm->addField($lang["forms"]["block"]["visible"]["caption"],$lang["forms"]["block"]["visible"]["error"],"check",$visible,$visible,"/^[0-9]{1}$/i","visible",1);
 
@@ -383,12 +383,12 @@ if ($this->blockExist($ident))
 			if (
 $this->processFormData($frm,$s_name,$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if (isset($id_block)) {
 				 	if ($db->query("update %blocks% set `caption`='".sql_quote($caption)."' , `id_category`=$id_cat , `visible`=$visible , `ident`='".sql_quote($ident)."' , content='".sql_quote($content)."' , `id_type`=$block_type , `show_mode`=$show_mode , id_tpl=$id_tpl , `number_objects` = $number ".$this->generateUpdateSQL("blocks",$lang_values)."  where id_block=$id_block")) {
-						//отредактировали
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
 				//	   $modAction="view";
 				   $this->setCongratulation('',$lang["congratulation"]["block_edit"],3000);
 				   $modAction="view";
@@ -396,13 +396,13 @@ $this->processFormData($frm,$s_name,$first
 				   $this->clearCacheBlock($ident);
 					}
 				 } else {
-				 	//показываем ошибку
+				 	//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
  $add_id=$this->addBlock($id_cat,$caption,$content,$block_type,$ident,$visible,$show_mode,$id_tpl,$number,$this->generateInsertSQL("blocks",$lang_values));
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				//   $modAction="view";
 				   $this->setCongratulation('',$lang["congratulation"]["block_add"],3000);
 				   $modAction="view";
@@ -413,14 +413,14 @@ $this->processFormData($frm,$s_name,$first
 			
 		break;
 		case "delete":
-			//удаление
+			//СѓРґР°Р»РµРЅРёРµ
 			$id_block=@$_REQUEST["id_block"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_block)) {
 				$this->deleteBlock($id_block);
 				$modAction="view";
 				$this->setCongratulation('',$lang["congratulation"]["block_delete"],3000);
 			} else {
-				//выдаем ошибку
+				//РІС‹РґР°РµРј РѕС€РёР±РєСѓ
 			}
 		break;
 	}

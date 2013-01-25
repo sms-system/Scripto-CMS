@@ -1,6 +1,6 @@
 <?
 /*
-Ôàéë óäàëåíèÿ ìîäóëÿ Íîâîñòè ñàéòà
+Ð¤Ð°Ð¹Ð» ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ ÐÐ¾Ð²Ð¾ÑÑ‚Ð¸ ÑÐ°Ð¹Ñ‚Ð°
 */
 global $engine;
 $res=$db->query("select * from %block_types% where type='lastnews'");

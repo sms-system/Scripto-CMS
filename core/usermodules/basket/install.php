@@ -64,7 +64,7 @@ $install_sql[]="CREATE TABLE `%OPT%` (
 PRIMARY KEY ( `id_opt` )
 ) ENGINE=MyISAM;";
 /*
-Ïîëó÷àåì èäåíòèôèêàòîð ãëàâíîãî ðàçäåëà
+ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ Ð³Ð»Ð°Ð²Ð½Ð¾Ð³Ð¾ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°
 */
 $m_page=$engine->getMainpage();
 $date_category=array();
@@ -72,18 +72,18 @@ $date_category[0]=(int)date("d");
 $date_category[1]=(int)date("m");
 $date_category[2]=(int)date("Y");
 /*
-Äîáàâëÿåì ðàçäåë êîðçèíà
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» ÐºÐ¾Ñ€Ð·Ð¸Ð½Ð°
 */
 if (!$engine->rubricExist($m->thismodule["basket_url"],0)) {
-$engine->addCategory($m_page["id_category"],"Êîðçèíà","text",$m->thismodule["basket_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
+$engine->addCategory($m_page["id_category"],"ÐšÐ¾Ñ€Ð·Ð¸Ð½Ð°","text",$m->thismodule["basket_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
 $engine->addModuleToCategory("basket",mysql_insert_id());
 }
 /*
-Äîáàâëÿåì ðàçäåë îôîðìëåíèå çàêàçà
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» Ð¾Ñ„Ð¾Ñ€Ð¼Ð»ÐµÐ½Ð¸Ðµ Ð·Ð°ÐºÐ°Ð·Ð°
 */
 if (!$engine->rubricExist($m->thismodule["order_url"],0)) {
-$engine->addCategory($m_page["id_category"],"Îôîðìëåíèå çàêàçà","text",$m->thismodule["order_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
+$engine->addCategory($m_page["id_category"],"ÐžÑ„Ð¾Ñ€Ð¼Ð»ÐµÐ½Ð¸Ðµ Ð·Ð°ÐºÐ°Ð·Ð°","text",$m->thismodule["order_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
 $engine->addModuleToCategory("basket",mysql_insert_id());
 }
-$install_sql[]="insert into `%block_types%` values (null,'Êîðçèíà','basket','basket',0);";
+$install_sql[]="insert into `%block_types%` values (null,'ÐšÐ¾Ñ€Ð·Ð¸Ð½Ð°','basket','basket',0);";
 ?>

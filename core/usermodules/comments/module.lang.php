@@ -1,11 +1,11 @@
 <?
-$lang["comments"]["caption"]="Êîììåíòàðèè";
-$lang["comments"]["add"]="Äîáàâèòü êîììåíòàðèé";
-$lang["comments"]["wrote"]="ïèñàë";
-$lang["comments"]["congratulation"]="Âàø êîììåíòàðèé óñïåøíî äîáàâëåí";
-$lang["comments"]["nickname"]="Íèê";
-$lang["comments"]["comment"]="Êîììåíòàðèé";
-$lang["comments"]["button"]="Äîáàâèòü";
-$lang["comments"]["captcha"]="Ââåäèòå öèôðû, óêàçàííûå íà êàðòèíêå";
-$lang["comments"]["kcaptha_error"]="Âû óêàçàëè íåâåðíûå öèôðû, óêàçàííûå íà êàðòèíêå";
+$lang["comments"]["caption"]="ÐšÐ¾Ð¼Ð¼ÐµÐ½Ñ‚Ð°Ñ€Ð¸Ð¸";
+$lang["comments"]["add"]="Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÐºÐ¾Ð¼Ð¼ÐµÐ½Ñ‚Ð°Ñ€Ð¸Ð¹";
+$lang["comments"]["wrote"]="Ð¿Ð¸ÑÐ°Ð»";
+$lang["comments"]["congratulation"]="Ð’Ð°Ñˆ ÐºÐ¾Ð¼Ð¼ÐµÐ½Ñ‚Ð°Ñ€Ð¸Ð¹ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½";
+$lang["comments"]["nickname"]="ÐÐ¸Ðº";
+$lang["comments"]["comment"]="ÐšÐ¾Ð¼Ð¼ÐµÐ½Ñ‚Ð°Ñ€Ð¸Ð¹";
+$lang["comments"]["button"]="Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ";
+$lang["comments"]["captcha"]="Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ†Ð¸Ñ„Ñ€Ñ‹, ÑƒÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ðµ Ð½Ð° ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ";
+$lang["comments"]["kcaptha_error"]="Ð’Ñ‹ ÑƒÐºÐ°Ð·Ð°Ð»Ð¸ Ð½ÐµÐ²ÐµÑ€Ð½Ñ‹Ðµ Ñ†Ð¸Ñ„Ñ€Ñ‹, ÑƒÐºÐ°Ð·Ð°Ð½Ð½Ñ‹Ðµ Ð½Ð° ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐµ";
 ?>

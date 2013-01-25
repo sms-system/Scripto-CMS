@@ -1,5 +1,5 @@
 <?
-//ÏÓ‰ÛÎ¸ Á‡„ÛÁÍË Ù‡ÈÎÓ‚ ‰Îˇ ÏÓ‰ÛÎˇ Ó·˙ÂÍÚ˚
+//–º–æ–¥—É–ª—å –∑–∞–≥—Ä—É–∑–∫–∏ —Ñ–∞–π–ª–æ–≤ –¥–ª—è –º–æ–¥—É–ª—è –æ–±—ä–µ–∫—Ç—ã
 if (defined("SCRIPTO_GALLERY")) {
 	$smarty->assign("doUpload",true);
 if (isset($_FILES['photoupload']))
@@ -29,7 +29,7 @@ if (isset($_FILES['photoupload']))
 	if (!is_dir($upload_path)) {
 		die("not exist");
 	}
-	if (!preg_match("/^[^‡-ˇ¿-ﬂ]{1,}$/i",$filename)) {
+	if (!preg_match("/^[^–∞-—è–ê-–Ø]{1,}$/i",$filename)) {
 		$filename=rand(1,10000000).rand(1,10000000).rand(1,10000000).'.'.$file_ext;
 	}
 		while (is_file($upload_path.$filename)==true) {

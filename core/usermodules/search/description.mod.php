@@ -1,10 +1,10 @@
 <?
-$moduleinfo["caption"]="Поиск по сайту";
+$moduleinfo["caption"]="РџРѕРёСЃРє РїРѕ СЃР°Р№С‚Сѓ";
 $moduleinfo["url"]="http://www.scripto-cms.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
 $moduleinfo["version"]="1.0";
-$moduleinfo["use_in_one_rubric"]=true;//только для одной рубрики
+$moduleinfo["use_in_one_rubric"]=true;//С‚РѕР»СЊРєРѕ РґР»СЏ РѕРґРЅРѕР№ СЂСѓР±СЂРёРєРё
 $moduleinfo["search_url"]="search";
 $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/search/";
 ?>

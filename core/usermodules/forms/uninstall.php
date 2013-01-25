@@ -1,6 +1,6 @@
 <?
 /*
-Ôàéë óäàëåíèÿ ìîäóëÿ ôîðìû
+Ð¤Ð°Ð¹Ð» ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ñ„Ð¾Ñ€Ð¼Ñ‹
 */
 $uninstall_sql[]="DELETE FROM %FORMS%";
 $uninstall_sql[]="DROP TABLE %FORMS%";

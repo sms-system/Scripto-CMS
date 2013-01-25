@@ -407,7 +407,7 @@ class Image_Toolbox {
             // set default type jpg.
             $this->_img['operator']['type'] = 2;
             if (isset($args[2]) && is_string($args[2])) {
-            	//neues bild mit farbe f�llen
+            	//neues bild mit farbe fпїЅllen
             	$fillcolor = $this->_hexToPHPColor($args[2]);
             	imagefill($this->_img['operator']['resource'], 0, 0, $fillcolor);
             	$this->_img['operator']['color'] = $fillcolor;
@@ -415,7 +415,7 @@ class Image_Toolbox {
             	$this->_img['operator']['color'] = 0;
 			}
 		} elseif ($argc == 1 && is_string($args[0])) {
-			//bild aus datei laden. width und height original gr�sse
+			//bild aus datei laden. width und height original grпїЅsse
 			$this->_img['operator'] = $this->_loadFile($args[0]);
 			$this->_img['operator']['indexedcolors'] = imagecolorstotal($this->_img['operator']['resource']);
 			$this->_img['operator']['color'] = -1;

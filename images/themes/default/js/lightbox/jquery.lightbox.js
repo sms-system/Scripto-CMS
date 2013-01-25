@@ -362,11 +362,11 @@
 			// For translating
 			image:		'Image',
 			of:			'of',
-			close:		'Закрыть',
+			close:		'Р—Р°РєСЂС‹С‚СЊ',
 			closeInfo:	'You can also click anywhere outside the image to close.',
 			download:	'Download.',
 			help: {
-				close:		'Нажмите, чтобы закрыть окно',
+				close:		'РќР°Р¶РјРёС‚Рµ, С‡С‚РѕР±С‹ Р·Р°РєСЂС‹С‚СЊ РѕРєРЅРѕ',
 				interact:	''
 			},
 			about: {

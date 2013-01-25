@@ -1,6 +1,6 @@
 <?
 /*
-Модуль товары
+РњРѕРґСѓР»СЊ С‚РѕРІР°СЂС‹
 */
 
 define("SCRIPTO_publications",true);
@@ -25,7 +25,7 @@ class publications {
 		global $db;
 		global $engine;
 		$type_id=mysql_insert_id();
-		if ($db->query("insert into `%blocks%` values (null,0,'Последние публикации','',$type_id,'lastpubl',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
+		if ($db->query("insert into `%blocks%` values (null,0,'РџРѕСЃР»РµРґРЅРёРµ РїСѓР±Р»РёРєР°С†РёРё','',$type_id,'lastpubl',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
 			return true;
 		}  else {
 			return false;
@@ -86,7 +86,7 @@ class publications {
 	}
 	
 	function checkMe() {
-	//проверяем существуют ли уже таблицы модуля
+	//РїСЂРѕРІРµСЂСЏРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‚ Р»Рё СѓР¶Рµ С‚Р°Р±Р»РёС†С‹ РјРѕРґСѓР»СЏ
 		global $engine;
 		if ($engine->checkInstallModule("publications")) {
 			return true;
@@ -107,7 +107,7 @@ class publications {
 		
 		if (is_file($this->thismodule["path"]."user_module.mod.php")) {
 			include($this->thismodule["path"]."user_module.mod.php");
-			//здесь получаем товары для рубрик
+			//Р·РґРµСЃСЊ РїРѕР»СѓС‡Р°РµРј С‚РѕРІР°СЂС‹ РґР»СЏ СЂСѓР±СЂРёРє
 $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path"]."user_module".$this->engine->current_prefix.".tpl.html";
 		if (is_file($fname)) {
 		$content=$smarty->fetch($this->thismodule["template_path"]."user_module".$this->engine->current_prefix.".tpl.html");
@@ -161,7 +161,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		}
 	}
 	
-	/*добавление товаров*/
+	/*РґРѕР±Р°РІР»РµРЅРёРµ С‚РѕРІР°СЂРѕРІ*/
 	function addPublication($date_news="",$caption="",$content="",$content_full="",$meta="",$keywords="",$url="",$author="",$id_cat,$visible=1,$sql='') {
 		global $db;
 		if (
@@ -218,7 +218,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 			return $publication;
 	}	
 	
-	//получаем товар по идентификатору
+	//РїРѕР»СѓС‡Р°РµРј С‚РѕРІР°СЂ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
 	function getPublicationByID($id_publication) {
 		global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_publication)) {
@@ -232,7 +232,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 	}
 	
 	
-	//получить общее количество товаров
+	//РїРѕР»СѓС‡РёС‚СЊ РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРІР°СЂРѕРІ
 	function getCountAllPublications() {
 		global $db;
 		global $rubrics;

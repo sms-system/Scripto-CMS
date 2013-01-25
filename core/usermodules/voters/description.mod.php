@@ -1,47 +1,47 @@
 <?
-$moduleinfo["caption"]="Ìîäóëü îïðîñû";
+$moduleinfo["caption"]="ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð¾Ð¿Ñ€Ð¾ÑÑ‹";
 $moduleinfo["url"]="http://www.scripto-cms.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
 $moduleinfo["icon"]="vote.png";
 $moduleinfo["version"]="1.0";
-$moduleinfo["use_in_one_rubric"]=true;//òîëüêî äëÿ îäíîé ðóáðèêè
+$moduleinfo["use_in_one_rubric"]=true;//Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð¾Ð´Ð½Ð¾Ð¹ Ñ€ÑƒÐ±Ñ€Ð¸ÐºÐ¸
 $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/voters/";
 $moduleinfo["voters_url"]="voters";
 
-$moduleinfo["1dayvote"]=false;//óäàëÿòü ðåçóëüòàòû îïðîñîâ åæåäíåâíî
+$moduleinfo["1dayvote"]=false;//ÑƒÐ´Ð°Ð»ÑÑ‚ÑŒ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñ‹ Ð¾Ð¿Ñ€Ð¾ÑÐ¾Ð² ÐµÐ¶ÐµÐ´Ð½ÐµÐ²Ð½Ð¾
 $moduleinfo["onpage"]=1;
 
-/*Íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 $moduleinfo["tables"]["VOTERS"]["vopros"]["type"]="text";
-$moduleinfo["tables"]["VOTERS"]["vopros"]["caption"]="Âîïðîñ îïðîñà";
+$moduleinfo["tables"]["VOTERS"]["vopros"]["caption"]="Ð’Ð¾Ð¿Ñ€Ð¾Ñ Ð¾Ð¿Ñ€Ð¾ÑÐ°";
 $moduleinfo["tables"]["VOTERS"]["vopros"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["VOTERS"]["vopros"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["VOTERS"]["otvet1"]["type"]="text";
-$moduleinfo["tables"]["VOTERS"]["otvet1"]["caption"]="Âàðèàíò îòâåòà 1";
+$moduleinfo["tables"]["VOTERS"]["otvet1"]["caption"]="Ð’Ð°Ñ€Ð¸Ð°Ð½Ñ‚ Ð¾Ñ‚Ð²ÐµÑ‚Ð° 1";
 $moduleinfo["tables"]["VOTERS"]["otvet1"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["VOTERS"]["otvet1"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["VOTERS"]["otvet2"]["type"]="text";
-$moduleinfo["tables"]["VOTERS"]["otvet2"]["caption"]="Âàðèàíò îòâåòà 2";
+$moduleinfo["tables"]["VOTERS"]["otvet2"]["caption"]="Ð’Ð°Ñ€Ð¸Ð°Ð½Ñ‚ Ð¾Ñ‚Ð²ÐµÑ‚Ð° 2";
 $moduleinfo["tables"]["VOTERS"]["otvet2"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["VOTERS"]["otvet2"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["VOTERS"]["otvet3"]["type"]="text";
-$moduleinfo["tables"]["VOTERS"]["otvet3"]["caption"]="Âàðèàíò îòâåòà 3";
+$moduleinfo["tables"]["VOTERS"]["otvet3"]["caption"]="Ð’Ð°Ñ€Ð¸Ð°Ð½Ñ‚ Ð¾Ñ‚Ð²ÐµÑ‚Ð° 3";
 $moduleinfo["tables"]["VOTERS"]["otvet3"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["VOTERS"]["otvet3"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["VOTERS"]["otvet4"]["type"]="text";
-$moduleinfo["tables"]["VOTERS"]["otvet4"]["caption"]="Âàðèàíò îòâåòà 4";
+$moduleinfo["tables"]["VOTERS"]["otvet4"]["caption"]="Ð’Ð°Ñ€Ð¸Ð°Ð½Ñ‚ Ð¾Ñ‚Ð²ÐµÑ‚Ð° 4";
 $moduleinfo["tables"]["VOTERS"]["otvet4"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["VOTERS"]["otvet4"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["VOTERS"]["otvet5"]["type"]="text";
-$moduleinfo["tables"]["VOTERS"]["otvet5"]["caption"]="Âàðèàíò îòâåòà 5";
+$moduleinfo["tables"]["VOTERS"]["otvet5"]["caption"]="Ð’Ð°Ñ€Ð¸Ð°Ð½Ñ‚ Ð¾Ñ‚Ð²ÐµÑ‚Ð° 5";
 $moduleinfo["tables"]["VOTERS"]["otvet5"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["VOTERS"]["otvet5"]["sql_type"]="VARCHAR(255) NULL";
 
-/*Êîíåö íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐšÐ¾Ð½ÐµÑ† Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 ?>

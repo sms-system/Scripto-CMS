@@ -1,9 +1,9 @@
 <?
-$lang["search"]["newsearch"]="Íîâèé ñïèñîê";
-$lang["search"]["search_button"]="ïîøóê";
-$lang["search"]["search_result"]="Ðåçóëüòàòè ïîøóêó";
-$lang["search"]["categories"]="Ñòîð³íêè ñàéòó";
-$lang["search"]["objects"]="Îá’ºêòè";
-$lang["search"]["searchonsite"]="Ïîøóê ïî ñàéòó";
-$lang["search"]["empty_string"]="Çàäàíèé ïîðîæí³é ïîøóêîâèé çàïèò";
+$lang["search"]["newsearch"]="ÐÐ¾Ð²Ð¸Ð¹ ÑÐ¿Ð¸ÑÐ¾Ðº";
+$lang["search"]["search_button"]="Ð¿Ð¾ÑˆÑƒÐº";
+$lang["search"]["search_result"]="Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ð¸ Ð¿Ð¾ÑˆÑƒÐºÑƒ";
+$lang["search"]["categories"]="Ð¡Ñ‚Ð¾Ñ€Ñ–Ð½ÐºÐ¸ ÑÐ°Ð¹Ñ‚Ñƒ";
+$lang["search"]["objects"]="ÐžÐ±â€™Ñ”ÐºÑ‚Ð¸";
+$lang["search"]["searchonsite"]="ÐŸÐ¾ÑˆÑƒÐº Ð¿Ð¾ ÑÐ°Ð¹Ñ‚Ñƒ";
+$lang["search"]["empty_string"]="Ð—Ð°Ð´Ð°Ð½Ð¸Ð¹ Ð¿Ð¾Ñ€Ð¾Ð¶Ð½Ñ–Ð¹ Ð¿Ð¾ÑˆÑƒÐºÐ¾Ð²Ð¸Ð¹ Ð·Ð°Ð¿Ð¸Ñ‚";
 ?>

@@ -1,5 +1,5 @@
 <?
-//Óïðàâëåíèå îáúåêòàìè CMS
+//Ð£Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°Ð¼Ð¸ CMS
 if (defined("SCRIPTO_GALLERY")) {
 	$page["title"]=$lang["modules"]["objects"];
 	$smarty->assign("module_documentation","http://scripto-cms.ru/documentation/standart/gallery/");
@@ -14,12 +14,12 @@ if (defined("SCRIPTO_GALLERY")) {
 			$multiple=@$_REQUEST["multiple"];
 			if ($multiple!='yes') $multiple='no';
 			$smarty->assign("multiple",$multiple);
-			//îòêóäà ïðèøåë ïîëüçîâàòåëü
+			//Ð¾Ñ‚ÐºÑƒÐ´Ð° Ð¿Ñ€Ð¸ÑˆÐµÐ» Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒ
 			if (!isset($_REQUEST["ref"])) {
 				$ref=getenv("HTTP_REFERER");
 				$smarty->assign("ref",$ref);
 			}
-			//ïîëó÷àåì ìîäèôèêàòîð, åñëè îí íóæåí
+			//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð¼Ð¾Ð´Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€, ÐµÑÐ»Ð¸ Ð¾Ð½ Ð½ÑƒÐ¶ÐµÐ½
 			if (isset($_REQUEST["mode"])) {
 				$mode=$_REQUEST["mode"];
 				if (preg_match("/^[a-zA-Z0-9_-]{1,}$/i",$mode))
@@ -45,7 +45,7 @@ if (defined("SCRIPTO_GALLERY")) {
 			}
 			$secretkey=md5($config["secretkey"]."scripto_gallery".$settings["login"]);
 			$smarty->assign("secretkey",$secretkey);
-			//ïîëó÷àåì êàòåãîðèè
+			//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸
 			$obj=array();
 			if ($type=="video") {
 				$res2=$db->query("select count(*) as cnt,id_category from %video% group by id_category");
@@ -86,7 +86,7 @@ if (defined("SCRIPTO_GALLERY")) {
 			$mode=@$_REQUEST["mode"];
 			$save=@$_REQUEST["save"];
 			if ($save=="yes") {
-				//ñîõðàíÿåì
+				//ÑÐ¾Ñ…Ñ€Ð°Ð½ÑÐµÐ¼
 				$small_preview=sql_quote(@$_REQUEST["small_preview"]);
 				$middle_preview=sql_quote(@$_REQUEST["middle_preview"]);
 				switch ($mode) {
@@ -131,7 +131,7 @@ if (defined("SCRIPTO_GALLERY")) {
 			$id_object=@$_REQUEST["id_object"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_object)) {
 			$mode=@$_REQUEST["mode"];
-				/*èçìåíåíèå ïðåâüþ*/
+				/*Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ*/
 				if (isset($_REQUEST["setPreview"])) {
 					$previewMode=@$_REQUEST["previewMode"];
 					$id_image=@$_REQUEST["id_image"];
@@ -162,18 +162,18 @@ if (defined("SCRIPTO_GALLERY")) {
 							case "small":
 								if (trim($obj)!='' && trim($id_obj)!='')
 								if ($db->query("update `$obj` set preview='".$img["small_photo"]."' where $id_obj=$id_object")) {
-									$this->setPreview($img["small_photo"],$previewMode,'Ìàëîå ïðåâüþ óñòàíîâëåíî');
+									$this->setPreview($img["small_photo"],$previewMode,'ÐœÐ°Ð»Ð¾Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾');
 								}
 							break;
 							case "medium":
 								if ($db->query("update `$obj` set big_preview='".$img["medium_photo"]."' where $id_obj=$id_object")) {
-									$this->setPreview($img["medium_photo"],$previewMode,'Ñðåäíåå ïðåâüþ óñòàíîâëåíî');
+									$this->setPreview($img["medium_photo"],$previewMode,'Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾');
 								}
 							break;
 						}
 					}
 				}
-				/*êîíåö èçìåíåíèÿ ïðåâüþ*/
+				/*ÐºÐ¾Ð½ÐµÑ† Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð¿Ñ€ÐµÐ²ÑŒÑŽ*/
 				switch ($mode) {
 					case "photo":
 						$object=$this->getImageByID($id_object);
@@ -263,16 +263,16 @@ if (defined("SCRIPTO_GALLERY")) {
 				$this->addPath($page["title"],'/admin/?module=objects&modAction=edit&id_cat='.$id_cat,true);
 				switch ($mode) {
 					case "photo":
-						$this->addPath('Ðåäàêòèðîâàíèå èçîáðàæåíèÿ '.$title,'',false);
+						$this->addPath('Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ '.$title,'',false);
 					break;
 					case "video":
-						$this->addPath('Ðåäàêòèðîâàíèå âèäåî '.$title,'',false);
+						$this->addPath('Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð²Ð¸Ð´ÐµÐ¾ '.$title,'',false);
 					break;
 					case "music":
-						$this->addPath('Ðåäàêòèðîâàíèå àóäèî '.$title,'',false);
+						$this->addPath('Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð°ÑƒÐ´Ð¸Ð¾ '.$title,'',false);
 					break;
 					case "flash":
-						$this->addPath('Ðåäàêòèðîâàíèå ôëåøðîëèêà '.$title,'',false);
+						$this->addPath('Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ñ„Ð»ÐµÑˆÑ€Ð¾Ð»Ð¸ÐºÐ° '.$title,'',false);
 					break;
 				}				
 				
@@ -290,12 +290,12 @@ $frm->addField($lang["forms"]["object"]["visible"]["caption"],$lang["forms"]["ob
 $frm->addField($lang["forms"]["object"]["main"]["caption"],$lang["forms"]["object"]["main"]["error"],"check",$main,$main,"/^[0-9]{1,}$/i","main",1);
 
 if ($mode=="video" || $mode=="music" || $mode=="flash") {
-$frm->addField('Ïðåâüþ äëÿ îáúåêòà',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('hidden'=>true));	
+$frm->addField('ÐŸÑ€ÐµÐ²ÑŒÑŽ Ð´Ð»Ñ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('hidden'=>true));	
 
-$frm->addField('Ìàëîå èçîáðàæåíèå ïðåâüþ','',"preview",$object["preview"],$object["preview"],"/^[0-9]{0,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true,'id_cat'=>$id_cat));
-$frm->addField('Áîëüøîå èçîáðàæåíèå ïðåâüþ','',"preview",$object["big_preview"],$object["big_preview"],"/^[0-9]{0,}$/i","big_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true,'id_cat'=>$id_cat));
+$frm->addField('ÐœÐ°Ð»Ð¾Ðµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ','',"preview",$object["preview"],$object["preview"],"/^[0-9]{0,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true,'id_cat'=>$id_cat));
+$frm->addField('Ð‘Ð¾Ð»ÑŒÑˆÐ¾Ðµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ','',"preview",$object["big_preview"],$object["big_preview"],"/^[0-9]{0,}$/i","big_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true,'id_cat'=>$id_cat));
 
-$frm->addField('Ïðåâüþ äëÿ îáúåêòà',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('end'=>true));
+$frm->addField('ÐŸÑ€ÐµÐ²ÑŒÑŽ Ð´Ð»Ñ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('end'=>true));
 }
 
 $fck_editor1=$this->createFCKEditor("fck1",$content);
@@ -340,7 +340,7 @@ $frm->addField("","","hidden",$uniq,$uniq,"/^[^`]{0,}$/i","uniq",1);
 			if (
 $this->processFormData($frm,$lang["forms"]["object"]["submit_name"],$first
 			)) {
-				//äîáàâëÿåì èëè ðåäàêòèðóåì
+				//Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ð¸Ð»Ð¸ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€ÑƒÐµÐ¼
 				$sql="";
 				$id_ob="";
 				$main_obj="";
@@ -371,12 +371,12 @@ $dob=",`external_url`='".sql_quote($external_url)."'";
 					break;
 					default:
 				}
-				 //ðåäàêòèðóåì
+				 //Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€ÑƒÐµÐ¼
 				 if ($sql!="" && $id_ob!="") {
 				 	if ($db->query("update $sql set caption='".sql_quote($title)."', title='".sql_quote($titletag)."',meta='".sql_quote($metatag)."',description='".sql_quote($content)."',`visible`=$visible,id_category=$id_cat,$main_obj=$main $dob where $id_ob=$id_object")) {
-						//îòðåäàêòèðîâàëè
+						//Ð¾Ñ‚Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð»Ð¸
 					   $modAction="edit";
-					   $this->setCongratulation('','Äàííûå ñîõðàíåíû',5000);
+					   $this->setCongratulation('','Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ñ‹',5000);
 				   $smarty->assign("saved",true);
 				   $smarty->assign("uniq",$uniq);
 				   $smarty->assign("id_cat",$id_cat);
@@ -774,7 +774,7 @@ $dob=",`external_url`='".sql_quote($external_url)."'";
 				$smarty->assign("files",$files_new);
 				$smarty->assign("files_count",sizeof($files_new));
 				}
-				$this->setCongratulation("Çàãðóçêà ñ ôòï","Ôàéëû, çàãðóæåííûå íà ôòï ñêîïèðîâàíû â ãàëåðåþ",5000);
+				$this->setCongratulation("Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° Ñ Ñ„Ñ‚Ð¿","Ð¤Ð°Ð¹Ð»Ñ‹, Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð½Ñ‹Ðµ Ð½Ð° Ñ„Ñ‚Ð¿ ÑÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ñ‹ Ð² Ð³Ð°Ð»ÐµÑ€ÐµÑŽ",5000);
 				$modAction="seenew";
 			} else {
 				$smarty->assign("go",false);
@@ -848,7 +848,7 @@ $dob=",`external_url`='".sql_quote($external_url)."'";
 			die();
 		break;
 		case "upload":
-			//ïîêàçûâàåì ôîðìó çàãðóçêè ôàéëîâ
+			//Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÐ¼ Ñ„Ð¾Ñ€Ð¼Ñƒ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ Ñ„Ð°Ð¹Ð»Ð¾Ð²
 			$secretkey=md5($config["secretkey"]."scripto_gallery".$settings["login"]);
 			$smarty->assign("secretkey",$secretkey);
 			$smarty->assign("doUpload",true);
@@ -857,7 +857,7 @@ $dob=",`external_url`='".sql_quote($external_url)."'";
 			$modAction="seenew";
 	}
 	if ($modAction=="seenew") {
-		//ïîêàçàòü íåñîðòèðîâàííîå
+		//Ð¿Ð¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð½ÐµÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ
 		$modType=@$_REQUEST["modType"];
 		 if (!in_array($modType,$config["types"])) {
 		 	$modType="";
@@ -866,7 +866,7 @@ $dob=",`external_url`='".sql_quote($external_url)."'";
 		$categories=$this->getRubricsTree(0,0,false,'',$modType,"sort",true);
 		$smarty->assign("categories",$categories);
 		$smarty->assign("objects",$objects);
-		//ïîêàçûâàåì ôîðìó çàãðóçêè ôàéëîâ
+		//Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÐ¼ Ñ„Ð¾Ñ€Ð¼Ñƒ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ Ñ„Ð°Ð¹Ð»Ð¾Ð²
 		$secretkey=md5($config["secretkey"]."scripto_gallery".$settings["login"]);
 		$smarty->assign("secretkey",$secretkey);
 		$smarty->assign("doUpload",true);

@@ -1,5 +1,5 @@
 <?
-//модуль загрузки фотографий в скрипт
+//РјРѕРґСѓР»СЊ Р·Р°РіСЂСѓР·РєРё С„РѕС‚РѕРіСЂР°С„РёР№ РІ СЃРєСЂРёРїС‚
 if (defined("SCRIPTO_GALLERY")) {
 	$module["title"]=$lang["modules"]["upload"];
 	$smarty->assign("doUpload",true);
@@ -22,7 +22,7 @@ if (isset($_FILES['photoupload']))
 	$filename=charset_x_win(strtolower($_FILES['photoupload']['name']));
 	$pos=0;
 	$file_ext=getFileExt($filename, $pos);
-	if (!preg_match("/^[^а-яА-Я]{1,}$/i",$filename)) {
+	if (!preg_match("/^[^Р°-СЏРђ-РЇ]{1,}$/i",$filename)) {
 		$filename=rand(1,10000000).rand(1,10000000).rand(1,10000000).'.'.$file_ext;
 	}
 	$error = false;

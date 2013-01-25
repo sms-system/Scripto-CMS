@@ -1,4 +1,4 @@
 <?
 $languages["ua"]["id"]="ua";
-$languages["ya"]["name"]="Óêðàèíñêèé ÿçûê";
+$languages["ya"]["name"]="Ð£ÐºÑ€Ð°Ð¸Ð½ÑÐºÐ¸Ð¹ ÑÐ·Ñ‹Ðº";
 ?>

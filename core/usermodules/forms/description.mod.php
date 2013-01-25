@@ -1,121 +1,121 @@
 <?
 global $settings;
 
-$moduleinfo["caption"]="Ìîäóëü ôîðìû";
+$moduleinfo["caption"]="ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ñ„Ð¾Ñ€Ð¼Ñ‹";
 $moduleinfo["url"]="http://www.scripto.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
 $moduleinfo["version"]="1.0";
 $moduleinfo["icon"]="forms.png";
 $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/forms/";
-$moduleinfo["use_in_one_rubric"]=false;//âûâîäèòü âî âñåõ ðàçäåëàõ ñàéòà
-$moduleinfo["mailadmin"]=$settings["mailadmin"];//e-mail àäìèíèñòðàòîðà
+$moduleinfo["use_in_one_rubric"]=false;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð²Ð¾ Ð²ÑÐµÑ… Ñ€Ð°Ð·Ð´ÐµÐ»Ð°Ñ… ÑÐ°Ð¹Ñ‚Ð°
+$moduleinfo["mailadmin"]=$settings["mailadmin"];//e-mail Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€Ð°
 
 $moduleinfo["inputs"][0]["id"]=0;
-$moduleinfo["inputs"][0]["name"]="Òåêñòîâîå ïîëå";
+$moduleinfo["inputs"][0]["name"]="Ð¢ÐµÐºÑÑ‚Ð¾Ð²Ð¾Ðµ Ð¿Ð¾Ð»Ðµ";
 $moduleinfo["inputs"][0]["type"]="text";
 $moduleinfo["inputs"][1]["id"]=1;
-$moduleinfo["inputs"][1]["name"]="Ïàðîëü";
+$moduleinfo["inputs"][1]["name"]="ÐŸÐ°Ñ€Ð¾Ð»ÑŒ";
 $moduleinfo["inputs"][1]["type"]="password";
 $moduleinfo["inputs"][2]["id"]=2;
-$moduleinfo["inputs"][2]["name"]="Áîëüøîå òåêñòîâîå ïîëå (textarea)";
+$moduleinfo["inputs"][2]["name"]="Ð‘Ð¾Ð»ÑŒÑˆÐ¾Ðµ Ñ‚ÐµÐºÑÑ‚Ð¾Ð²Ð¾Ðµ Ð¿Ð¾Ð»Ðµ (textarea)";
 $moduleinfo["inputs"][2]["type"]="textarea";
 $moduleinfo["inputs"][3]["id"]=3;
-$moduleinfo["inputs"][3]["name"]="Âèçóàëüíûé ðåäàêòîð";
+$moduleinfo["inputs"][3]["name"]="Ð’Ð¸Ð·ÑƒÐ°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¾Ñ€";
 $moduleinfo["inputs"][3]["type"]="solmetra";
 $moduleinfo["inputs"][4]["id"]=4;
-$moduleinfo["inputs"][4]["name"]="×åêáîêñ (checkbox)";
+$moduleinfo["inputs"][4]["name"]="Ð§ÐµÐºÐ±Ð¾ÐºÑ (checkbox)";
 $moduleinfo["inputs"][4]["type"]="check";
 $moduleinfo["inputs"][5]["id"]=5;
-$moduleinfo["inputs"][5]["name"]="Ðàäèî êíîïêà (radio button)";
+$moduleinfo["inputs"][5]["name"]="Ð Ð°Ð´Ð¸Ð¾ ÐºÐ½Ð¾Ð¿ÐºÐ° (radio button)";
 $moduleinfo["inputs"][5]["type"]="optionbutton";
 $moduleinfo["inputs"][6]["id"]=6;
-$moduleinfo["inputs"][6]["name"]="Âûïàäàþùèé ñïèñîê";
+$moduleinfo["inputs"][6]["name"]="Ð’Ñ‹Ð¿Ð°Ð´Ð°ÑŽÑ‰Ð¸Ð¹ ÑÐ¿Ð¸ÑÐ¾Ðº";
 $moduleinfo["inputs"][6]["type"]="list";
 $moduleinfo["inputs"][7]["id"]=7;
-$moduleinfo["inputs"][7]["name"]="Ðàçäåëèòåëü";
+$moduleinfo["inputs"][7]["name"]="Ð Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÑŒ";
 $moduleinfo["inputs"][7]["type"]="caption";
 $moduleinfo["inputs"][8]["id"]=8;
-$moduleinfo["inputs"][8]["name"]="Êàï÷à";
+$moduleinfo["inputs"][8]["name"]="ÐšÐ°Ð¿Ñ‡Ð°";
 $moduleinfo["inputs"][8]["type"]="kcaptcha";
 $moduleinfo["inputs"][9]["id"]=9;
-$moduleinfo["inputs"][9]["name"]="Äàòà";
+$moduleinfo["inputs"][9]["name"]="Ð”Ð°Ñ‚Ð°";
 $moduleinfo["inputs"][9]["type"]="date";
 $moduleinfo["inputs"][10]["id"]=10;
-$moduleinfo["inputs"][10]["name"]="Âðåìÿ";
+$moduleinfo["inputs"][10]["name"]="Ð’Ñ€ÐµÐ¼Ñ";
 $moduleinfo["inputs"][10]["type"]="time";
 $moduleinfo["inputs"][11]["id"]=11;
-$moduleinfo["inputs"][11]["name"]="Ôàéë";
+$moduleinfo["inputs"][11]["name"]="Ð¤Ð°Ð¹Ð»";
 $moduleinfo["inputs"][11]["type"]="file";
 
 $moduleinfo["types"][0]["eregi"]="/^[^`#]{1,}$/i";
 $moduleinfo["types"][0]["id"]=0;
-$moduleinfo["types"][0]["name"]="Ëþáîé òåêñò";
+$moduleinfo["types"][0]["name"]="Ð›ÑŽÐ±Ð¾Ð¹ Ñ‚ÐµÐºÑÑ‚";
 $moduleinfo["types"][1]["eregi"]="/^[a-zA-Z]{1,}$/i";
 $moduleinfo["types"][1]["id"]=1;
-$moduleinfo["types"][1]["name"]="Àíãëèéñêèå ñèìâîëû";
+$moduleinfo["types"][1]["name"]="ÐÐ½Ð³Ð»Ð¸Ð¹ÑÐºÐ¸Ðµ ÑÐ¸Ð¼Ð²Ð¾Ð»Ñ‹";
 $moduleinfo["types"][2]["eregi"]="/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i";
 $moduleinfo["types"][2]["id"]=2;
 $moduleinfo["types"][2]["name"]="E-mail";
 $moduleinfo["types"][3]["eregi"]="/^(http|https)+(:\/\/)+[a-z0-9_-]+\.+[a-z0-9_-]/i";
 $moduleinfo["types"][3]["id"]=3;
-$moduleinfo["types"][3]["name"]="Àäðåñ ñàéòà";
+$moduleinfo["types"][3]["name"]="ÐÐ´Ñ€ÐµÑ ÑÐ°Ð¹Ñ‚Ð°";
 $moduleinfo["types"][4]["eregi"]="/^[+]?[0-9]?[ -]?[(]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[)]?[- .]?[0-9]{3}[- .]?[0-9]{2,4}[- .]?[0-9]{2,4}$/i";
 $moduleinfo["types"][4]["id"]=4;
-$moduleinfo["types"][4]["name"]="Íîìåð òåëåôîíà";
+$moduleinfo["types"][4]["name"]="ÐÐ¾Ð¼ÐµÑ€ Ñ‚ÐµÐ»ÐµÑ„Ð¾Ð½Ð°";
 $moduleinfo["types"][5]["eregi"]="/^[0-9]{1,}$/i";
 $moduleinfo["types"][5]["id"]=5;
-$moduleinfo["types"][5]["name"]="Òîëüêî öèôðû";
+$moduleinfo["types"][5]["name"]="Ð¢Ð¾Ð»ÑŒÐºÐ¾ Ñ†Ð¸Ñ„Ñ€Ñ‹";
 $moduleinfo["types"][6]["eregi"]="/^[^`#]{1,}$/i";
 $moduleinfo["types"][6]["id"]=6;
-$moduleinfo["types"][6]["name"]="ÔÈÎ";
+$moduleinfo["types"][6]["name"]="Ð¤Ð˜Ðž";
 
 
-/*Íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 $moduleinfo["tables"]["FORMS"]["caption"]["type"]="text";
-$moduleinfo["tables"]["FORMS"]["caption"]["caption"]="Íàçâàíèå ôîðìû";
+$moduleinfo["tables"]["FORMS"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ„Ð¾Ñ€Ð¼Ñ‹";
 $moduleinfo["tables"]["FORMS"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["FORMS"]["caption"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["FORMS"]["caption_mail_admin"]["type"]="text";
-$moduleinfo["tables"]["FORMS"]["caption_mail_admin"]["caption"]="Òåìà ïèñüìà äëÿ àäìèíèñòðàòîðà";
+$moduleinfo["tables"]["FORMS"]["caption_mail_admin"]["caption"]="Ð¢ÐµÐ¼Ð° Ð¿Ð¸ÑÑŒÐ¼Ð° Ð´Ð»Ñ Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€Ð°";
 $moduleinfo["tables"]["FORMS"]["caption_mail_admin"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["FORMS"]["caption_mail_admin"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["FORMS"]["caption_mail_user"]["type"]="text";
-$moduleinfo["tables"]["FORMS"]["caption_mail_user"]["caption"]="Òåìà ïèñüìà äëÿ ïîëüçîâàòåëÿ";
+$moduleinfo["tables"]["FORMS"]["caption_mail_user"]["caption"]="Ð¢ÐµÐ¼Ð° Ð¿Ð¸ÑÑŒÐ¼Ð° Ð´Ð»Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ";
 $moduleinfo["tables"]["FORMS"]["caption_mail_user"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["FORMS"]["caption_mail_user"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["FORMS"]["content"]["type"]="solmetra";
-$moduleinfo["tables"]["FORMS"]["content"]["caption"]="Êðàòêîå îïèñàíèå ôîðìû";
+$moduleinfo["tables"]["FORMS"]["content"]["caption"]="ÐšÑ€Ð°Ñ‚ÐºÐ¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ñ„Ð¾Ñ€Ð¼Ñ‹";
 $moduleinfo["tables"]["FORMS"]["content"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["FORMS"]["content"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["FORMS"]["success_admin"]["type"]="solmetra";
-$moduleinfo["tables"]["FORMS"]["success_admin"]["caption"]="Ñîîáùåíèå îá óñïåøíîé îòïðàâêå ôîðìû àäìèíèñòðàòîðó";
+$moduleinfo["tables"]["FORMS"]["success_admin"]["caption"]="Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð¾Ð± ÑƒÑÐ¿ÐµÑˆÐ½Ð¾Ð¹ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐµ Ñ„Ð¾Ñ€Ð¼Ñ‹ Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€Ñƒ";
 $moduleinfo["tables"]["FORMS"]["success_admin"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["FORMS"]["success_admin"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["FORMS"]["success_user"]["type"]="solmetra";
-$moduleinfo["tables"]["FORMS"]["success_user"]["caption"]="Ñîîáùåíèå îá óñïåøíîé îòïðàâêå ôîðìû ïîëüçîâàòåëþ";
+$moduleinfo["tables"]["FORMS"]["success_user"]["caption"]="Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð¾Ð± ÑƒÑÐ¿ÐµÑˆÐ½Ð¾Ð¹ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐµ Ñ„Ð¾Ñ€Ð¼Ñ‹ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŽ";
 $moduleinfo["tables"]["FORMS"]["success_user"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["FORMS"]["success_user"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["FORMS_INPUT"]["caption"]["type"]="text";
-$moduleinfo["tables"]["FORMS_INPUT"]["caption"]["caption"]="Íàçâàíèå ýëåìåíòà";
+$moduleinfo["tables"]["FORMS_INPUT"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°";
 $moduleinfo["tables"]["FORMS_INPUT"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["FORMS_INPUT"]["caption"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["FORMS_INPUT"]["error_text"]["type"]="textarea";
-$moduleinfo["tables"]["FORMS_INPUT"]["error_text"]["caption"]="Òåêñò, ïðè íåïðàâèëüíîì ââîäå çíà÷åíèÿ";
+$moduleinfo["tables"]["FORMS_INPUT"]["error_text"]["caption"]="Ð¢ÐµÐºÑÑ‚, Ð¿Ñ€Ð¸ Ð½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ð¼ Ð²Ð²Ð¾Ð´Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ";
 $moduleinfo["tables"]["FORMS_INPUT"]["error_text"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["FORMS_INPUT"]["error_text"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["FORMS_INPUT"]["tooltip"]["type"]="textarea";
-$moduleinfo["tables"]["FORMS_INPUT"]["tooltip"]["caption"]="Ïðèìåð ïðàâèëüíîãî çíà÷åíèÿ";
+$moduleinfo["tables"]["FORMS_INPUT"]["tooltip"]["caption"]="ÐŸÑ€Ð¸Ð¼ÐµÑ€ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ";
 $moduleinfo["tables"]["FORMS_INPUT"]["tooltip"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["FORMS_INPUT"]["tooltip"]["sql_type"]="VARCHAR(255) NULL";
 
-/*Êîíåö íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐšÐ¾Ð½ÐµÑ† Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 ?>

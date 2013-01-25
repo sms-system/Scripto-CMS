@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<META http-equiv="content-type" content="text/html; charset=windows-1251">
+	<META http-equiv="content-type" content="text/html; charset=utf-8">
 	<title>Scripto CMS | {$admin_title}</title>
 	<script type="text/javascript" src="{$js}jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="{$js}fancybox/jquery.fancybox-1.3.1.pack.js"></script>
@@ -14,10 +14,10 @@ $(document).ready(function(){
 	var button = $('#button1'), interval;
 
 	$('#urldownload').click(function() {
-	var url=prompt('Укажите URL к файлу, который необходимо загрузить.');
+	var url=prompt('РЈРєР°Р¶РёС‚Рµ URL Рє С„Р°Р№Р»Сѓ, РєРѕС‚РѕСЂС‹Р№ РЅРµРѕР±С…РѕРґРёРјРѕ Р·Р°РіСЂСѓР·РёС‚СЊ.');
 			if (url!='' && url!=null) {	
-			setLoadProcess('Скачиваю файл с URL ' + url);
-			showLoad('загрузка объектов');	
+			setLoadProcess('РЎРєР°С‡РёРІР°СЋ С„Р°Р№Р» СЃ URL ' + url);
+			showLoad('Р·Р°РіСЂСѓР·РєР° РѕР±СЉРµРєС‚РѕРІ');	
 			var idcat=$(this).attr("idcat");
 			var str_cat='';
 			if (idcat>0) {
@@ -25,29 +25,29 @@ $(document).ready(function(){
 			}
 			$.post('/admin/?module=objects&modAction=geturl&url=' + url + str_cat, function(response, status, xhr) {
 			  if (status == "error") {
-			    var msg = "В процессе загрузки произошла ошибка: ";
+			    var msg = "Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
 				hideLoad();
 			 } else {
 			 	hideLoad();
 			 	switch(response) {
 					case 'error_download':
-						tooltip('Произошла ошибка','В процессе загрузки произошла ошибка! Невозможно загрузить файл с удаленного сервера, возможно загрузка файлов отключена у Вашего хостинг провайдера, либо сайт недоступен.',0);
+						tooltip('РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°','Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°! РќРµРІРѕР·РјРѕР¶РЅРѕ Р·Р°РіСЂСѓР·РёС‚СЊ С„Р°Р№Р» СЃ СѓРґР°Р»РµРЅРЅРѕРіРѕ СЃРµСЂРІРµСЂР°, РІРѕР·РјРѕР¶РЅРѕ Р·Р°РіСЂСѓР·РєР° С„Р°Р№Р»РѕРІ РѕС‚РєР»СЋС‡РµРЅР° Сѓ Р’Р°С€РµРіРѕ С…РѕСЃС‚РёРЅРі РїСЂРѕРІР°Р№РґРµСЂР°, Р»РёР±Рѕ СЃР°Р№С‚ РЅРµРґРѕСЃС‚СѓРїРµРЅ.',0);
 					break;
 					case 'url_error':
-						tooltip('Произошла ошибка','Вы неверно указали URL!',5000);
+						tooltip('РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°','Р’С‹ РЅРµРІРµСЂРЅРѕ СѓРєР°Р·Р°Р»Рё URL!',5000);
 					break;
 					case 'wrong_format':
-						tooltip('Произошла ошибка','Загружаемый формат файла не поддерживается!',0);
+						tooltip('РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°','Р—Р°РіСЂСѓР¶Р°РµРјС‹Р№ С„РѕСЂРјР°С‚ С„Р°Р№Р»Р° РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ!',0);
 					break;
 					default:
 						try {
 						var object = jQuery.parseJSON(response);
 						} catch(e) {};
 if (object==null) {
-						tooltip("Произошла ошибка","Возможно размер загружаемого файла  больше, чем максимально допустимый на сервере, либо при передаче файла произошла ошибка.",0);
+						tooltip("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°","Р’РѕР·РјРѕР¶РЅРѕ СЂР°Р·РјРµСЂ Р·Р°РіСЂСѓР¶Р°РµРјРѕРіРѕ С„Р°Р№Р»Р°  Р±РѕР»СЊС€Рµ, С‡РµРј РјР°РєСЃРёРјР°Р»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјС‹Р№ РЅР° СЃРµСЂРІРµСЂРµ, Р»РёР±Рѕ РїСЂРё РїРµСЂРµРґР°С‡Рµ С„Р°Р№Р»Р° РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°.",0);
 					} else {
-					tooltip("Файл загружен","Файл загружен успешно!",3000);					
+					tooltip("Р¤Р°Р№Р» Р·Р°РіСЂСѓР¶РµРЅ","Р¤Р°Р№Р» Р·Р°РіСЂСѓР¶РµРЅ СѓСЃРїРµС€РЅРѕ!",3000);					
 					switch (object.format) {
 						case "image":
 							var preview_src='{/literal}{$user_thumbnails}{literal}' + object.preview;
@@ -71,7 +71,7 @@ if (object==null) {
 			 		 
 			});	
 			} else {
-				tooltip('Ошибка!','Вы не указали URL!',5000);
+				tooltip('РћС€РёР±РєР°!','Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё URL!',5000);
 			}
 	});		
 
@@ -80,7 +80,7 @@ if (object==null) {
 		name: 'photoupload',
 		onSubmit : function(file, ext){
 			// change button text, when user selects file			
-			button.text('Загрузка');
+			button.text('Р—Р°РіСЂСѓР·РєР°');
 			
 			// If you want to allow uploading only 1 file at time,
 			// you can disable upload button
@@ -92,12 +92,12 @@ if (object==null) {
 				if (text.length < 13){
 					button.text(text + '.');					
 				} else {
-					button.text('Загрузка');				
+					button.text('Р—Р°РіСЂСѓР·РєР°');				
 				}
 			}, 200);
 		},
 		onComplete: function(file, response){
-			button.text('Загрузить файл');
+			button.text('Р—Р°РіСЂСѓР·РёС‚СЊ С„Р°Р№Р»');
 						
 			window.clearInterval(interval);
 						
@@ -107,22 +107,22 @@ if (object==null) {
 			// add file to the list
 			switch (response) {
 				case 'error':
-					tooltip("Ошибка при загрузке файла","При загрузке файла произошла ошибка",3000);
+					tooltip("РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ С„Р°Р№Р»Р°","РџСЂРё Р·Р°РіСЂСѓР·РєРµ С„Р°Р№Р»Р° РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°",3000);
 				break;
 				case 'wrong_format':
-					tooltip("Неверный формат файла","Загружаемый формат файла не поддерживается",3000);
+					tooltip("РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚ С„Р°Р№Р»Р°","Р—Р°РіСЂСѓР¶Р°РµРјС‹Р№ С„РѕСЂРјР°С‚ С„Р°Р№Р»Р° РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ",3000);
 				break;
 				case 'wrong_name':
-					tooltip("Файл неверно назван","Загружаемые файлы должны быть названы латинскими буквами и цифрами, например s8934.jpg",3000);
+					tooltip("Р¤Р°Р№Р» РЅРµРІРµСЂРЅРѕ РЅР°Р·РІР°РЅ","Р—Р°РіСЂСѓР¶Р°РµРјС‹Рµ С„Р°Р№Р»С‹ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РЅР°Р·РІР°РЅС‹ Р»Р°С‚РёРЅСЃРєРёРјРё Р±СѓРєРІР°РјРё Рё С†РёС„СЂР°РјРё, РЅР°РїСЂРёРјРµСЂ s8934.jpg",3000);
 				break
 				default:
 					try {
 					var object = jQuery.parseJSON(response);
 					} catch(e) {};
 					if (object==null) {
-						tooltip("Произошла ошибка!","Возможно размер загружаемого файла " + file + " , больше чем максимально допустимый на сервере, либо при передаче файла произошла ошибка.",0);
+						tooltip("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!","Р’РѕР·РјРѕР¶РЅРѕ СЂР°Р·РјРµСЂ Р·Р°РіСЂСѓР¶Р°РµРјРѕРіРѕ С„Р°Р№Р»Р° " + file + " , Р±РѕР»СЊС€Рµ С‡РµРј РјР°РєСЃРёРјР°Р»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјС‹Р№ РЅР° СЃРµСЂРІРµСЂРµ, Р»РёР±Рѕ РїСЂРё РїРµСЂРµРґР°С‡Рµ С„Р°Р№Р»Р° РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°.",0);
 					} else {
-					tooltip("Файл загружен","Файл " + file + " загружен успешно!",3000);					
+					tooltip("Р¤Р°Р№Р» Р·Р°РіСЂСѓР¶РµРЅ","Р¤Р°Р№Р» " + file + " Р·Р°РіСЂСѓР¶РµРЅ СѓСЃРїРµС€РЅРѕ!",3000);					
 					switch (object.format) {
 						case "image":
 							var preview_src='{/literal}{$user_thumbnails}{literal}' + object.preview;
@@ -219,11 +219,11 @@ if (object==null) {
 </div>
 <div id="visible_tooltips"></div>
 </div>
-	<div id="logo"><a href="{$siteurl}admin" title="Scripto CMS | Система управления сайтом"><img src="{$admin_images}logo.gif" border="0" alt="Scripto CMS | Система управления сайтом"></a></div>
+	<div id="logo"><a href="{$siteurl}admin" title="Scripto CMS | РЎРёСЃС‚РµРјР° СѓРїСЂР°РІР»РµРЅРёСЏ СЃР°Р№С‚РѕРј"><img src="{$admin_images}logo.gif" border="0" alt="Scripto CMS | РЎРёСЃС‚РµРјР° СѓРїСЂР°РІР»РµРЅРёСЏ СЃР°Р№С‚РѕРј"></a></div>
 	<div id="headerbar">
 		<table width="100%" cellpadding="0" cellspacing="0">
 			<tr>
-				<td width="50%">{$config.version} [<a href="http://scripto-cms.ru/updates" target="_blank">обновления</a> | <a href="http://scripto-cms.ru/support" target="_blank">техническая поддержка</a>]</td>
+				<td width="50%">{$config.version} [<a href="http://scripto-cms.ru/updates" target="_blank">РѕР±РЅРѕРІР»РµРЅРёСЏ</a> | <a href="http://scripto-cms.ru/support" target="_blank">С‚РµС…РЅРёС‡РµСЃРєР°СЏ РїРѕРґРґРµСЂР¶РєР°</a>]</td>
 				<td width="50%">
 					<div id="date"></div>				
 					<div id="time"></div>				
@@ -238,7 +238,7 @@ if (object==null) {
 				<tr>
 					<td width="15%" align="center"><img src="{$admin_images}userinfo.jpg" border="0"></td>
 					<td width="75%">{$user.login}</td>
-					<td width="10%" align="center"><a href="{$siteurl}admin?exit=yes" title="Завершить сеанс {$user.login}"><img src="{$admin_icons}logout.png" border="0" alt="Завершить сеанс {$user.login}"></a></td>
+					<td width="10%" align="center"><a href="{$siteurl}admin?exit=yes" title="Р—Р°РІРµСЂС€РёС‚СЊ СЃРµР°РЅСЃ {$user.login}"><img src="{$admin_icons}logout.png" border="0" alt="Р—Р°РІРµСЂС€РёС‚СЊ СЃРµР°РЅСЃ {$user.login}"></a></td>
 				</tr>
 			</table>
 		</div>
@@ -268,8 +268,8 @@ if (object==null) {
 			{if $page.is_error}
 			{if $denied}
 				<div class="body">
-					<h2>Доступ к модулю закрыт</h2>
-					<p>Вам необходимо связаться с администратором ресурса для предоставления Вам доступа.</p>
+					<h2>Р”РѕСЃС‚СѓРї Рє РјРѕРґСѓР»СЋ Р·Р°РєСЂС‹С‚</h2>
+					<p>Р’Р°Рј РЅРµРѕР±С…РѕРґРёРјРѕ СЃРІСЏР·Р°С‚СЊСЃСЏ СЃ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРѕРј СЂРµСЃСѓСЂСЃР° РґР»СЏ РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅРёСЏ Р’Р°Рј РґРѕСЃС‚СѓРїР°.</p>
 				</div>
 			{else}
 			<table class="moduletable">
@@ -278,7 +278,7 @@ if (object==null) {
 							<div id="module_caption">
 								<table>
 									<tr>
-										<td width="5%" nowrap class="module_caption">Непредвиденная ошибка (модуль: {$page.title}.mod.php)</td>
+										<td width="5%" nowrap class="module_caption">РќРµРїСЂРµРґРІРёРґРµРЅРЅР°СЏ РѕС€РёР±РєР° (РјРѕРґСѓР»СЊ: {$page.title}.mod.php)</td>
 										<td width="55%" nowrap class="module_settings"></td>
 										<td width="40%" nowrap class="module_info"></td>
 									</tr>
@@ -286,7 +286,7 @@ if (object==null) {
 							</div>
 							<div class="body">
 								<p>{$page.content}</p>
-								<p><b>детальное описание:</b></p>
+								<p><b>РґРµС‚Р°Р»СЊРЅРѕРµ РѕРїРёСЃР°РЅРёРµ:</b></p>
 								<p>{$page.help}</p>								
 							</div>					
 					</td>

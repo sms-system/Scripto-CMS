@@ -1,6 +1,6 @@
 <?
 /*
-Ìîäóëü ïîèñêà ïî ñàéòó
+ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð¿Ð¾Ð¸ÑÐºÐ° Ð¿Ð¾ ÑÐ°Ð¹Ñ‚Ñƒ
 */
 
 define("SCRIPTO_search",true);
@@ -24,7 +24,7 @@ class search {
 		global $db;
 		global $engine;
 		$type_id=mysql_insert_id();
-		if ($db->query("insert into `%blocks%` values (null,0,'Ôîðìà ïîèñêà ïî ñàéòó','',$type_id,'search',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
+		if ($db->query("insert into `%blocks%` values (null,0,'Ð¤Ð¾Ñ€Ð¼Ð° Ð¿Ð¾Ð¸ÑÐºÐ° Ð¿Ð¾ ÑÐ°Ð¹Ñ‚Ñƒ','',$type_id,'search',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
 			return true;
 		}  else {
 			return false;
@@ -55,7 +55,7 @@ class search {
 	}
 	
 	function checkMe() {
-	//ïðîâåðÿåì ñóùåñòâóþò ëè óæå òàáëèöû ìîäóëÿ
+	//Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‚ Ð»Ð¸ ÑƒÐ¶Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ Ð¼Ð¾Ð´ÑƒÐ»Ñ
 		global $engine;
 		if ($engine->checkInstallModule("search")) {
 			return true;

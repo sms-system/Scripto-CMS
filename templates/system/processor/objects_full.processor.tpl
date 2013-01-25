@@ -9,7 +9,7 @@
 		{/if}
 		{foreach key=key item=text from=$object.values.texts}
 		{if $text.type=="pricerub"}
-			{if $text.value}<p>{$text.caption}: <b>{$text.value} руб.</b></p>{/if}
+			{if $text.value}<p>{$text.caption}: <b>{$text.value} СЂСѓР±.</b></p>{/if}
 		{elseif $text.type=="priceusd"}
 			{if $text.value}<p>{$text.caption}: <b>{$text.value}$</b> </p>{/if}
 		{elseif $text.type=="link"}

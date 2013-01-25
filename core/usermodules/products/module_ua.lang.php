@@ -1,29 +1,29 @@
 <?
-//Языковой файл для модуля каталог товаров
-$lang["forms"]["products"]["visible"]["caption"]="Зробити товар видимим";
-$lang["forms"]["products"]["visible"]["error"]="Вказано невірне значення видимості товару";
-$lang["interface"]["edit_product"]="Редагувати товар";
-$lang["interface"]["change_picture_product"]="Вибрати зображення для товару";
-$lang["interface"]["change_options"]="Заповнити додаткові поля для товару";
-$lang["dialog"]["delete_product"]="Видалити товар?";
-$lang["product_no"]="Ні";
-$lang["products"]["code"]="Код товару";
-$lang["products"]["price"]="Вартість";
-$lang["products"]["options"]="Додаткові параметри заказу";
-$lang["products"]["inbasket"]="В корзину";
-$lang["products"]["sort"]="Сортувати товари по";
-$lang["products"]["sort_price"]="ціні";
-$lang["products"]["sort_caption"]="назві";
-$lang["products"]["up"]="повер.";
-$lang["products"]["down"]="спад.";
-$lang["products"]["choosepage"]="Оберіть сторінку";
-$lang["products"]["prev"]="<< назад";
-$lang["products"]["next"]="вперед >>";
-$lang["products"]["addtofavorite"]="Додати до порівняння";
-$lang["products"]["no_favorite_products"]="Ви не додали жодного товару до порівняння";
-$lang["products"]["remove_favorites"]="Убрати товар із порівняння";
-$lang["products"]["no_favorite"]="У Вас немає товарів для порівняння";
-$lang["products"]["favorite_products"]="Порівняння товарів";
-$lang["products"]["allspec"]="Всі спец пропозиції";
-$lang["collections"]["not_change"]="Оберіть";
+//РЇР·С‹РєРѕРІРѕР№ С„Р°Р№Р» РґР»СЏ РјРѕРґСѓР»СЏ РєР°С‚Р°Р»РѕРі С‚РѕРІР°СЂРѕРІ
+$lang["forms"]["products"]["visible"]["caption"]="Р—СЂРѕР±РёС‚Рё С‚РѕРІР°СЂ РІРёРґРёРјРёРј";
+$lang["forms"]["products"]["visible"]["error"]="Р’РєР°Р·Р°РЅРѕ РЅРµРІС–СЂРЅРµ Р·РЅР°С‡РµРЅРЅСЏ РІРёРґРёРјРѕСЃС‚С– С‚РѕРІР°СЂСѓ";
+$lang["interface"]["edit_product"]="Р РµРґР°РіСѓРІР°С‚Рё С‚РѕРІР°СЂ";
+$lang["interface"]["change_picture_product"]="Р’РёР±СЂР°С‚Рё Р·РѕР±СЂР°Р¶РµРЅРЅСЏ РґР»СЏ С‚РѕРІР°СЂСѓ";
+$lang["interface"]["change_options"]="Р—Р°РїРѕРІРЅРёС‚Рё РґРѕРґР°С‚РєРѕРІС– РїРѕР»СЏ РґР»СЏ С‚РѕРІР°СЂСѓ";
+$lang["dialog"]["delete_product"]="Р’РёРґР°Р»РёС‚Рё С‚РѕРІР°СЂ?";
+$lang["product_no"]="РќС–";
+$lang["products"]["code"]="РљРѕРґ С‚РѕРІР°СЂСѓ";
+$lang["products"]["price"]="Р’Р°СЂС‚С–СЃС‚СЊ";
+$lang["products"]["options"]="Р”РѕРґР°С‚РєРѕРІС– РїР°СЂР°РјРµС‚СЂРё Р·Р°РєР°Р·Сѓ";
+$lang["products"]["inbasket"]="Р’ РєРѕСЂР·РёРЅСѓ";
+$lang["products"]["sort"]="РЎРѕСЂС‚СѓРІР°С‚Рё С‚РѕРІР°СЂРё РїРѕ";
+$lang["products"]["sort_price"]="С†С–РЅС–";
+$lang["products"]["sort_caption"]="РЅР°Р·РІС–";
+$lang["products"]["up"]="РїРѕРІРµСЂ.";
+$lang["products"]["down"]="СЃРїР°Рґ.";
+$lang["products"]["choosepage"]="РћР±РµСЂС–С‚СЊ СЃС‚РѕСЂС–РЅРєСѓ";
+$lang["products"]["prev"]="<< РЅР°Р·Р°Рґ";
+$lang["products"]["next"]="РІРїРµСЂРµРґ >>";
+$lang["products"]["addtofavorite"]="Р”РѕРґР°С‚Рё РґРѕ РїРѕСЂС–РІРЅСЏРЅРЅСЏ";
+$lang["products"]["no_favorite_products"]="Р’Рё РЅРµ РґРѕРґР°Р»Рё Р¶РѕРґРЅРѕРіРѕ С‚РѕРІР°СЂСѓ РґРѕ РїРѕСЂС–РІРЅСЏРЅРЅСЏ";
+$lang["products"]["remove_favorites"]="РЈР±СЂР°С‚Рё С‚РѕРІР°СЂ С–Р· РїРѕСЂС–РІРЅСЏРЅРЅСЏ";
+$lang["products"]["no_favorite"]="РЈ Р’Р°СЃ РЅРµРјР°С” С‚РѕРІР°СЂС–РІ РґР»СЏ РїРѕСЂС–РІРЅСЏРЅРЅСЏ";
+$lang["products"]["favorite_products"]="РџРѕСЂС–РІРЅСЏРЅРЅСЏ С‚РѕРІР°СЂС–РІ";
+$lang["products"]["allspec"]="Р’СЃС– СЃРїРµС† РїСЂРѕРїРѕР·РёС†С–С—";
+$lang["collections"]["not_change"]="РћР±РµСЂС–С‚СЊ";
 ?>

@@ -7,11 +7,11 @@ $type="";
 				 $usr->doDb();
 switch ($page["ident"]) {
 	case $this->thismodule["basket_url"]:
-		//корзина
+		//РєРѕСЂР·РёРЅР°
 		$type="basket";
 		switch ($m_action) {
 			case "add":
-				//добавление в корзину
+				//РґРѕР±Р°РІР»РµРЅРёРµ РІ РєРѕСЂР·РёРЅСѓ
 				$products=@$_REQUEST["products"];
 				$variants=@$_REQUEST["variants"];
 				$options=@$_REQUEST["options"];
@@ -84,7 +84,7 @@ switch ($page["ident"]) {
 			$basket=$this->calculateBasket($_SESSION["basket"]);
 			$smarty->assign("basket",$basket);
 		}
-		/*определяем url для добавления товаров к сравнению*/
+		/*РѕРїСЂРµРґРµР»СЏРµРј url РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ С‚РѕРІР°СЂРѕРІ Рє СЃСЂР°РІРЅРµРЅРёСЋ*/
 		 $lng='';
 		 if (isset($engine->languages[$engine->current_language])) {
 	 		if ($engine->languages[$engine->current_language]["default"]==0) {
@@ -96,11 +96,11 @@ switch ($page["ident"]) {
 		$smarty->assign("favorite_url",$prod["favorite_url"]);
 	break;
 	case $this->thismodule["order_url"]:
-		//оформление заказа
+		//РѕС„РѕСЂРјР»РµРЅРёРµ Р·Р°РєР°Р·Р°
 		$type="order";
 		switch ($m_action) {
 			case "step2":
-			//регистрация и оформление заказа
+			//СЂРµРіРёСЃС‚СЂР°С†РёСЏ Рё РѕС„РѕСЂРјР»РµРЅРёРµ Р·Р°РєР°Р·Р°
 		if (isset($_SESSION["basket"])) {
 			$basket=$this->calculateBasket($_SESSION["basket"]);
 			$smarty->assign("basket",$basket);
@@ -167,7 +167,7 @@ switch ($page["ident"]) {
 			$del_array=array();
 			foreach ($deliveries as $del) {
 				$d=array();
-				$d["name"]=$del["caption"]." (".$del["price"]." руб.)";
+				$d["name"]=$del["caption"]." (".$del["price"]." СЂСѓР±.)";
 				$d["id"]=$del["id_delivery"];
 				$d["description"]=$del["description"];
 				$del_array[]=$d;
@@ -190,16 +190,16 @@ switch ($page["ident"]) {
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 if ($mode=="new") {
-$frm->addField($lang["users"]["login"]["caption"],$lang["users"]["login"]["error"],"text",$login,$login,"/^[a-zA-Z0-9]{5,}$/i","login",1,"dmitry991984",array('size'=>'40','ticket'=>"Цифры и латинские буквы, от 5 до 10 символов"));
+$frm->addField($lang["users"]["login"]["caption"],$lang["users"]["login"]["error"],"text",$login,$login,"/^[a-zA-Z0-9]{5,}$/i","login",1,"dmitry991984",array('size'=>'40','ticket'=>"Р¦РёС„СЂС‹ Рё Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹, РѕС‚ 5 РґРѕ 10 СЃРёРјРІРѕР»РѕРІ"));
 }
 
-$frm->addField($lang["users"]["family"]["caption"],$lang["users"]["family"]["error"],"text",$family,$family,"/^[^`#]{2,255}$/i","family",0,$lang["users"]["family"]["sample"],array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField($lang["users"]["family"]["caption"],$lang["users"]["family"]["error"],"text",$family,$family,"/^[^`#]{2,255}$/i","family",0,$lang["users"]["family"]["sample"],array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField($lang["users"]["name"]["caption"],$lang["users"]["name"]["error"],"text",$name,$name,"/^[^`#]{2,255}$/i","name",1,$lang["users"]["name"]["sample"],array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField($lang["users"]["name"]["caption"],$lang["users"]["name"]["error"],"text",$name,$name,"/^[^`#]{2,255}$/i","name",1,$lang["users"]["name"]["sample"],array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField($lang["users"]["otch"]["caption"],$lang["users"]["otch"]["error"],"text",$otch,$otch,"/^[^`#]{2,255}$/i","otch",0,$lang["users"]["otch"]["sample"],array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField($lang["users"]["otch"]["caption"],$lang["users"]["otch"]["error"],"text",$otch,$otch,"/^[^`#]{2,255}$/i","otch",0,$lang["users"]["otch"]["sample"],array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField($lang["users"]["city"]["caption"],$lang["users"]["city"]["error"],"text",$city,$city,"/^[^`#]{2,255}$/i","city",0,$lang["users"]["city"]["sample"],array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField($lang["users"]["city"]["caption"],$lang["users"]["city"]["error"],"text",$city,$city,"/^[^`#]{2,255}$/i","city",0,$lang["users"]["city"]["sample"],array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
 $frm->addField($lang["users"]["email"]["caption"],$lang["users"]["email"]["error"],"text",$email,$email,"/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i","email",1,$lang["users"]["email"]["sample"],array('size'=>'40','ticket'=>""));
 
@@ -250,7 +250,7 @@ $engine->processFormData($frm,$lang["users"]["next"],$first,$tpl_form
 				 $smarty->assign("password",$password);
  $add_id=$usr->addUser($login,$password,$family,$name,$otch,$city,$email,$phone1,$phone2,1,'');
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				//   $modAction="view";
 				   $user=$this->getUserByID($add_id);
 				   $smarty->assign("user",$user);
@@ -259,7 +259,7 @@ $engine->processFormData($frm,$lang["users"]["next"],$first,$tpl_form
 					$subscribe->doDb();
 					$subscribe->addToSubscribe($user["email"],$user["fio"]);
 				   }
-				   $this->mailMe($email,$this->thismodule["mailadmin"],"Регистрация в интернет магазине",0);
+				   $this->mailMe($email,$this->thismodule["mailadmin"],"Р РµРіРёСЃС‚СЂР°С†РёСЏ РІ РёРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅРµ",0);
 					if (is_array($user)) {
 						$_SESSION["user_login"]=$user["login"];
 						$_SESSION["user_password"]=$user["password"];
@@ -289,9 +289,9 @@ $engine->processFormData($frm,$lang["users"]["next"],$first,$tpl_form
 				$basket["final"]=$final;
 			if (!isset($delivery)) $delivery=array();
 			if (!isset($payment)) $payment=array();
-			//Считаем скидки
+			//РЎС‡РёС‚Р°РµРј СЃРєРёРґРєРё
 			if ($this->existActiveDiscount($coupon)) {
-				//купон существует
+				//РєСѓРїРѕРЅ СЃСѓС‰РµСЃС‚РІСѓРµС‚
 				$coup=$this->getUserDiscount($coupon,$user["login"],true);
 			} else {
 				$coup=$this->getEmptyDiscount();
@@ -302,11 +302,11 @@ $engine->processFormData($frm,$lang["users"]["next"],$first,$tpl_form
 				if ($coup["price"]>0) {
 					switch($coup["type"]) {
 						case 0:
-						//скидка в рублях
+						//СЃРєРёРґРєР° РІ СЂСѓР±Р»СЏС…
 							$max=$coup["price"];
 						break;
 						case 1:
-						//скидка в процентах
+						//СЃРєРёРґРєР° РІ РїСЂРѕС†РµРЅС‚Р°С…
 						if ($coup["price"]<=$this->thismodule["max_percent"]) {
 							$disc=round($basket["final"]*($coup["price"]/100),2);
 							$max=$disc;
@@ -328,7 +328,7 @@ $engine->processFormData($frm,$lang["users"]["next"],$first,$tpl_form
 						$discount["price"]=$value;
 					}
 				}
-				//вычисляем оптовую скидку
+				//РІС‹С‡РёСЃР»СЏРµРј РѕРїС‚РѕРІСѓСЋ СЃРєРёРґРєСѓ
 				$opts=$this->getAllOpts(1);
 				$id_opt=0;
 				if (is_array($opts))
@@ -356,7 +356,7 @@ $engine->processFormData($frm,$lang["users"]["next"],$first,$tpl_form
 			break;
 			default:
 			if (!isset($_SESSION["user_login"]) && !isset($_SESSION["user_password"])) {
-				//неавторизированы
+				//РЅРµР°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹
 				$smarty->assign("not_authorized",true);
 				$user_type=@$_REQUEST["user_type"];
 				if ($user_type=="new") {
@@ -375,7 +375,7 @@ $engine->processFormData($frm,$lang["users"]["next"],$first,$tpl_form
 					}
 				}
 			} else {
-				//проверка зарегистрированного
+				//РїСЂРѕРІРµСЂРєР° Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅРѕРіРѕ
 				if ($usr->authUser($_SESSION["user_login"],$_SESSION["user_password"])) {
 					header("location:".$page["url"]."?m_action=step2&mode=auth");
 				} else {

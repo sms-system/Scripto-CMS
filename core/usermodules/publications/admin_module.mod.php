@@ -1,8 +1,8 @@
 <?
 /*
-Ìîäóëü íîâîñòè ñàéòà, óïðàâëåíèå
-Âåðñèÿ ìîäóëÿ - 1.0
-Ðàçðàáîò÷èê - Èâàíîâ Äìèòðèé
+ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸ ÑÐ°Ð¹Ñ‚Ð°, ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ
+Ð’ÐµÑ€ÑÐ¸Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ - 1.0
+Ð Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸Ðº - Ð˜Ð²Ð°Ð½Ð¾Ð² Ð”Ð¼Ð¸Ñ‚Ñ€Ð¸Ð¹
 */
 $m_action=@$_REQUEST["m_action"];
 			
@@ -109,27 +109,27 @@ switch ($m_action) {
 			$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&id_category='.$id_cat.'&module_name='.$this->thismodule["name"],true);
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
-$frm->addField('Ðàçäåë','Íåïðàâèëüíî âûáðàí ðàçäåë',"list",$values,$id_cat,"/^[0-9]{1,}$/i","id_category",1,$lang["forms"]["catalog"]["razdel"]["sample"],array('size'=>'30'));
+$frm->addField('Ð Ð°Ð·Ð´ÐµÐ»','ÐÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾ Ð²Ñ‹Ð±Ñ€Ð°Ð½ Ñ€Ð°Ð·Ð´ÐµÐ»',"list",$values,$id_cat,"/^[0-9]{1,}$/i","id_category",1,$lang["forms"]["catalog"]["razdel"]["sample"],array('size'=>'30'));
 			
-$frm->addField("Íàçâàíèå ïóáëèêàöèè","Íåâåðíî çàïîëíåíî íàçâàíèå ïóáëèêàöèè","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Îòêðûòèå ñàéòà",array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+$frm->addField("ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"ÐžÑ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ ÑÐ°Ð¹Ñ‚Ð°",array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 
-$frm->addField("Äàòà ñîçäàíèÿ ïóáëèêàöèè","Íåâåðíî çàïîëíåíà äàòà ñîçäàíèÿ ïóáëèêàöèè","date",$date_news,$date_news,"/^[0-9]{1,}$/i","date_news",1,"19.01.2008",array('size'=>'40','ticket'=>"Öèôðû è òî÷êè"));
+$frm->addField("Ð”Ð°Ñ‚Ð° ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð° Ð´Ð°Ñ‚Ð° ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸","date",$date_news,$date_news,"/^[0-9]{1,}$/i","date_news",1,"19.01.2008",array('size'=>'40','ticket'=>"Ð¦Ð¸Ñ„Ñ€Ñ‹ Ð¸ Ñ‚Ð¾Ñ‡ÐºÐ¸"));
 
 $fck_editor1=$engine->createFCKEditor("fck1",$content);
-$frm->addField("Êðàòêîå îïèñàíèå ïóáëèêàöèè","Íåâåðíî çàïîëíåíî êðàòêîå îïèñàíèå ïóáëèêàöèè","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+$frm->addField("ÐšÑ€Ð°Ñ‚ÐºÐ¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ ÐºÑ€Ð°Ñ‚ÐºÐ¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
 
 $fck_editor2=$engine->createFCKEditor("fck2",$content_full);
-$frm->addField("Ïîëíîå îïèñàíèå ïóáëèêàöèè","Íåâåðíî çàïîëíåíî ïîëíîå îïèñàíèå ïóáëèêàöèè","solmetra",$fck_editor2,$fck_editor2,"/^[[:print:][:allnum:]]{1,}$/i","content_full",1,"");
+$frm->addField("ÐŸÐ¾Ð»Ð½Ð¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Ð¿Ð¾Ð»Ð½Ð¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸","solmetra",$fck_editor2,$fck_editor2,"/^[[:print:][:allnum:]]{1,}$/i","content_full",1,"");
 
-$frm->addField("Òåã meta description","Íåâåðíî çàïîëíåí òåã meta description","textarea",$meta,$meta,"/^[^`#]{2,255}$/i","meta",0,"",array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+$frm->addField("Ð¢ÐµÐ³ meta description","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½ Ñ‚ÐµÐ³ meta description","textarea",$meta,$meta,"/^[^`#]{2,255}$/i","meta",0,"",array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 
-$frm->addField("Òåã meta keywords","Íåâåðíî çàïîëíåí òåã meta keywords","textarea",$keywords,$keywords,"/^[^`#]{2,255}$/i","keywords",0,"",array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+$frm->addField("Ð¢ÐµÐ³ meta keywords","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½ Ñ‚ÐµÐ³ meta keywords","textarea",$keywords,$keywords,"/^[^`#]{2,255}$/i","keywords",0,"",array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 
 $engine->generateLangControls("PUBLICATIONS",$lang_values,$frm);
 
-$frm->addField("Àâòîð","Íåâåðíî çàïîëíåíî ïîëå àâòîð","text",$author,$author,"/^[^`#]{2,255}$/i","author",0,"Pentax",array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû , âêëþ÷àÿ èìåíà è àäðåñà ñàéòîâ"));
+$frm->addField("ÐÐ²Ñ‚Ð¾Ñ€","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Ð¿Ð¾Ð»Ðµ Ð°Ð²Ñ‚Ð¾Ñ€","text",$author,$author,"/^[^`#]{2,255}$/i","author",0,"Pentax",array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹ , Ð²ÐºÐ»ÑŽÑ‡Ð°Ñ Ð¸Ð¼ÐµÐ½Ð° Ð¸ Ð°Ð´Ñ€ÐµÑÐ° ÑÐ°Ð¹Ñ‚Ð¾Ð²"));
 
-$frm->addField("Ñàéò àâòîðà","Íåâåðíî çàïîëíåí URL àâòîðà","text",$url,$url,"/^(http|https)+(:\/\/)+[a-z0-9_-]+\.+[a-z0-9_-]/i","url",0,"http://www.lenta.ru/18/08/2008/12.html",array('size'=>'40','ticket'=>"Àäðåñ ñàéòà"));
+$frm->addField("Ð¡Ð°Ð¹Ñ‚ Ð°Ð²Ñ‚Ð¾Ñ€Ð°","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½ URL Ð°Ð²Ñ‚Ð¾Ñ€Ð°","text",$url,$url,"/^(http|https)+(:\/\/)+[a-z0-9_-]+\.+[a-z0-9_-]/i","url",0,"http://www.lenta.ru/18/08/2008/12.html",array('size'=>'40','ticket'=>"ÐÐ´Ñ€ÐµÑ ÑÐ°Ð¹Ñ‚Ð°"));
 
 
 $frm->addField($lang["forms"]["publications"]["visible"]["caption"],$lang["forms"]["publications"]["visible"]["error"],"check",$visible,$visible,"/^[0-9]{1}$/i","visible",1);
@@ -142,42 +142,42 @@ $frm->addField("","","hidden",$id_publication,$id_publication,"/^[^`]{0,}$/i","i
 }
 
 if ($mode=="edit") {
-	$engine->addPath('Ðåäàêòèðîâàíèå ïóáëèêàöèè','',false);
+	$engine->addPath('Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸','',false);
 } else {
-	$engine->addPath('Äîáàâëåíèå ïóáëèêàöèè','',false);
+	$engine->addPath('Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸','',false);
 }
 
 if (checkdate($date_news[1],$date_news[0],$date_news[2])==false)
-	$frm->addError("Âûáðàííîé äàòû íå ñóùåñòâóåò!");
+	$frm->addError("Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ð¾Ð¹ Ð´Ð°Ñ‚Ñ‹ Ð½Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚!");
 	
 			if (
-$engine->processFormData($frm,"Ñîõðàíèòü",$first
+$engine->processFormData($frm,"Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ",$first
 			)) {
-				//äîáàâëÿåì èëè ðåäàêòèðóåì
+				//Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ð¸Ð»Ð¸ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€ÑƒÐµÐ¼
 				if ($mode=="edit") {
-				 //ðåäàêòèðóåì
+				 //Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€ÑƒÐµÐ¼
 				 if (isset($id_publication)) {
 				 	if ($db->query("update %PUBLICATIONS% set `caption`='".sql_quote($caption)."' , author='".sql_quote($author)."' , `meta`='".sql_quote($meta)."' , `keywords`='".sql_quote($keywords)."' , `url`='".sql_quote($url)."',`date`='".sql_quote($date_news[2])."-".sql_quote($date_news[1])."-".sql_quote($date_news[0])."',content='".sql_quote($content)."',`content_full`='',visible=$visible,id_category=$id_cat ".$engine->generateUpdateSQL("PUBLICATIONS",$lang_values)." where id_publication=$id_publication")) {
-						//îòðåäàêòèðîâàëè
+						//Ð¾Ñ‚Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð»Ð¸
 				//	   $modAction="view";
 				$engine->setContentFileEx($id_publication,$content_full,"publications");
-				   $engine->setCongratulation("","Ïóáëèêàöèÿ îòðåäàêòèðîâàíà óñïåøíî!",3000);
+				   $engine->setCongratulation("","ÐŸÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ñ Ð¾Ñ‚Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð° ÑƒÑÐ¿ÐµÑˆÐ½Ð¾!",3000);
 					$engine->clearCacheBlocks($this->thismodule["name"]);
 				   $m_action="view";
 					}
 				 } else {
-				 	//ïîêàçûâàåì îøèáêó
+				 	//Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÐ¼ Ð¾ÑˆÐ¸Ð±ÐºÑƒ
 				 }
 				} else {
-				 //äîáàâëÿåì
+				 //Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼
  $add_id=$this->addPublication($date_news,$caption,$content,'',$meta,$keywords,$url,$author,$id_cat,$visible,$engine->generateInsertSQL("PUBLICATIONS",$lang_values));
 				 if ($add_id!=false) {
-				   //äîáàâèëè óñïåøíî!
+				   //Ð´Ð¾Ð±Ð°Ð²Ð¸Ð»Ð¸ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾!
 				//   $modAction="view";
 	$engine->setContentFileEx($add_id,$content_full,"publications");
 	$engine->clearCacheBlocks($this->thismodule["name"]);
 	$engine->addModuleToCategory($this->thismodule["name"],$id_cat);
-				   $engine->setCongratulation("","Ïóáëèêàöèÿ äîáàâëåíà óñïåøíî!",3000);
+				   $engine->setCongratulation("","ÐŸÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð° ÑƒÑÐ¿ÐµÑˆÐ½Ð¾!",3000);
 				   $m_action="view";
 				 }
 				}
@@ -190,7 +190,7 @@ $engine->processFormData($frm,"Ñîõðàíèòü",$first
 			$publication=$this->getpublicationByID($id_publication);
 			if ($db->query("delete from %PUBLICATIONS% where id_publication=$id_publication")) {
 				$engine->clearCacheBlocks($this->thismodule["name"]);
-				$engine->setCongratulation("","Ïóáëèêàöèÿ óäàëåíà!",5000);
+				$engine->setCongratulation("","ÐŸÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ñ ÑƒÐ´Ð°Ð»ÐµÐ½Ð°!",5000);
 			}
 		}
 		$m_action="view";
@@ -227,7 +227,7 @@ $engine->processFormData($frm,"Ñîõðàíèòü",$first
 			}
 		}
 			$engine->clearCacheBlocks($this->thismodule["name"]);
-			$engine->setCongratulation("","Óäàëåíî $d ïóáëèêàöèè(èé), îáíîâëåíî $n ïóáëèêàöèè(èé)",3000);
+			$engine->setCongratulation("","Ð£Ð´Ð°Ð»ÐµÐ½Ð¾ $d Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸(Ð¸Ð¹), Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ $n Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸(Ð¸Ð¹)",3000);
 			$m_action="view";
 	break;	
 	default:
@@ -238,7 +238,7 @@ if ($m_action=="view") {
 	$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 	$engine->addPath($this->thismodule["caption"],'',false);
 	$engine->assignPath();
-		//ïîëó÷àåì âñå ðóáðèêè
+		//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð²ÑÐµ Ñ€ÑƒÐ±Ñ€Ð¸ÐºÐ¸
 		$rubrics=$this->getCountAllpublications();
 		if (isset($_REQUEST["view_publications"])) $smarty->assign("view_publications",true);
 		if (isset($_REQUEST["id_category"])) {

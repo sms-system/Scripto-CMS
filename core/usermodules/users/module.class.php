@@ -1,6 +1,6 @@
 <?
 /*
-Ìîäóëü òîâàðû
+ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ñ‚Ð¾Ð²Ð°Ñ€Ñ‹
 */
 
 define("SCRIPTO_users",true);
@@ -27,7 +27,7 @@ class users {
 		global $db;
 		global $engine;
 		$type_id=mysql_insert_id();
-		if ($db->query("insert into `%blocks%` values (null,0,'Àâòîðèçàöèÿ','',$type_id,'authform',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
+		if ($db->query("insert into `%blocks%` values (null,0,'ÐÐ²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ñ','',$type_id,'authform',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
 			return true;
 		}  else {
 			return false;
@@ -59,7 +59,7 @@ class users {
 	}
 	
 	function checkMe() {
-	//ïðîâåðÿåì ñóùåñòâóþò ëè óæå òàáëèöû ìîäóëÿ
+	//Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‚ Ð»Ð¸ ÑƒÐ¶Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ Ð¼Ð¾Ð´ÑƒÐ»Ñ
 		global $engine;
 		if ($engine->checkInstallModule("users")) {
 			return true;
@@ -80,7 +80,7 @@ class users {
 		
 		if (is_file($this->thismodule["path"]."user_module.mod.php")) {
 			include($this->thismodule["path"]."user_module.mod.php");
-			//çäåñü ïîëó÷àåì òîâàðû äëÿ ðóáðèê
+			//Ð·Ð´ÐµÑÑŒ Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ñ‚Ð¾Ð²Ð°Ñ€Ñ‹ Ð´Ð»Ñ Ñ€ÑƒÐ±Ñ€Ð¸Ðº
 $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path"]."user_module".$this->engine->current_prefix.".tpl.html";
 		if (is_file($fname)) {
 		$content=$smarty->fetch($this->thismodule["template_path"]."user_module".$this->engine->current_prefix.".tpl.html");
@@ -140,7 +140,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		$count=@mysql_num_rows($res);
 		if ($count>0) {
 			$reminder['subject']=ToUTF8($this->thismodule["caption"]);
-			$reminder['content']=ToUTF8(@mysql_num_rows($res).' íîâûõ ïîëüçîâàòåëÿ');
+			$reminder['content']=ToUTF8(@mysql_num_rows($res).' Ð½Ð¾Ð²Ñ‹Ñ… Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ');
 			$reminder['count']=$count;
 			return $reminder;
 		} else {
@@ -255,19 +255,19 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		global $smarty;
 		switch ($mail_type) {
 			case 0:
-			//ðåãèñòðàöèÿ
+			//Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸Ñ
 	$mailtext=$smarty->fetch($this->thismodule["template_path"]."register.mail.tpl");
 			break;
 			case 1:
-			//èçìåíåíèå
+			//Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ðµ
 	$mailtext=$smarty->fetch($this->thismodule["template_path"]."edit.mail.tpl");
 			break;
 			case 2:
-			//çàïðîñ íà ãåíåðàöèþ íîâîãî ïàðîëÿ
+			//Ð·Ð°Ð¿Ñ€Ð¾Ñ Ð½Ð° Ð³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸ÑŽ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð¿Ð°Ñ€Ð¾Ð»Ñ
 	$mailtext=$smarty->fetch($this->thismodule["template_path"]."newpassword.mail.tpl");
 			break;
 			case 3:
-			//íîâûé ïàðîëü äëÿ âõîäà
+			//Ð½Ð¾Ð²Ñ‹Ð¹ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ð´Ð»Ñ Ð²Ñ…Ð¾Ð´Ð°
 	$mailtext=$smarty->fetch($this->thismodule["template_path"]."recovery.mail.tpl");
 			break;
 		}
@@ -444,7 +444,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		global $db;
 		$res=$db->query("select * from `%GROUPS%` group by `caption` DESC");
 		$group["id"]=0;
-		$group["name"]="Íå óêàçàíî";
+		$group["name"]="ÐÐµ ÑƒÐºÐ°Ð·Ð°Ð½Ð¾";
 		$groups[]=$group;
 		while ($row=@$db->fetch($res)) {
 			$group["id"]=$row["id_group"];

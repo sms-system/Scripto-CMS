@@ -1,8 +1,8 @@
 <?
 /*
-Ìîäóëü íîâîñòè ñàéòà, óïðàâëåíèå
-Âåðñèÿ ìîäóëÿ - 1.0
-Ðàçðàáîò÷èê - Èâàíîâ Äìèòðèé
+ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸ ÑÐ°Ð¹Ñ‚Ð°, ÑƒÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ
+Ð’ÐµÑ€ÑÐ¸Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ - 1.0
+Ð Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸Ðº - Ð˜Ð²Ð°Ð½Ð¾Ð² Ð”Ð¼Ð¸Ñ‚Ñ€Ð¸Ð¹
 */
 $m_action=@$_REQUEST["m_action"];
 switch ($m_action) {
@@ -56,7 +56,7 @@ switch ($m_action) {
 			}
 			$engine->clearCacheBlocks($this->thismodule["name"]);
 			$m_action="view";
-			$engine->setCongratulation("","Îáíîâëåíî $n íîâîñòåé!",5000);
+			$engine->setCongratulation("","ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ $n Ð½Ð¾Ð²Ð¾ÑÑ‚ÐµÐ¹!",5000);
 	break;
 	case "add":
 	$engine->clearPath();
@@ -72,7 +72,7 @@ switch ($m_action) {
 				$tgs=new Tags();
 				$tgs->doDb();
 			}
-			//óñòàíàâëèâàåì ïðåâüþ
+			//ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÐ¼ Ð¿Ñ€ÐµÐ²ÑŒÑŽ
 				if (isset($_REQUEST["setPreview"])) {
 					$previewMode=@$_REQUEST["previewMode"];
 					$id_image=@$_REQUEST["id_image"];
@@ -86,21 +86,21 @@ switch ($m_action) {
 						switch ($previewMode) {
 							case "small":
 								if ($mode!="edit") {
-$engine->setPreview($img["small_photo"],$previewMode,'Ìàëîå ïðåâüþ óñòàíîâëåíî');
+$engine->setPreview($img["small_photo"],$previewMode,'ÐœÐ°Ð»Ð¾Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾');
 $_SESSION["news_small"]=$img["small_photo"];
 								} else {
 								if ($db->query("update `%NEWS%` set `small_preview`='".$img["small_photo"]."' where id_news=$id_news")) {
-$engine->setPreview($img["small_photo"],$previewMode,'Ìàëîå ïðåâüþ óñòàíîâëåíî');
+$engine->setPreview($img["small_photo"],$previewMode,'ÐœÐ°Ð»Ð¾Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾');
 								}
 								}
 							break;
 							case "medium":
 								if ($mode!="edit") {
-$engine->setPreview($img["medium_photo"],$previewMode,'Ñðåäíåå ïðåâüþ óñòàíîâëåíî');
+$engine->setPreview($img["medium_photo"],$previewMode,'Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾');
 $_SESSION["news_middle"]=$img["medium_photo"];
 								} else {
 								if ($db->query("update `%NEWS%` set `middle_preview`='".$img["medium_photo"]."' where id_news=$id_news")) {
-									$engine->setPreview($img["medium_photo"],$previewMode,'Ñðåäíåå ïðåâüþ óñòàíîâëåíî');
+									$engine->setPreview($img["medium_photo"],$previewMode,'Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾');
 								}
 								}
 							break;
@@ -166,30 +166,30 @@ $_SESSION["news_middle"]=$img["medium_photo"];
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 			
-$frm->addField("Íàçâàíèå íîâîñòè","Íåâåðíî çàïîëíåíî íàçâàíèå íîâîñòè","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Îòêðûòèå ñàéòà",array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+$frm->addField("ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"ÐžÑ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ ÑÐ°Ð¹Ñ‚Ð°",array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 
 if (defined("SCRIPTO_tags")) {
 $frm->addField($lang["forms"]["catalog"]["tags"]["caption"],$lang["forms"]["catalog"]["tags"]["error"],"text",$tags,$tags,"/^[^`#]{2,255}$/i","tags",0,$lang["forms"]["catalog"]["tags"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["catalog"]["tags"]["rules"]));
 }
 
-$frm->addField("Äàòà íîâîñòè","Íåâåðíî çàïîëíåíà äàòà íîâîñòè","date",$date_news,$date_news,"/^[0-9]{1,}$/i","date_news",1,"19.01.2008",array('size'=>'40','ticket'=>"Öèôðû è òî÷êè"));
+$frm->addField("Ð”Ð°Ñ‚Ð° Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð° Ð´Ð°Ñ‚Ð° Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸","date",$date_news,$date_news,"/^[0-9]{1,}$/i","date_news",1,"19.01.2008",array('size'=>'40','ticket'=>"Ð¦Ð¸Ñ„Ñ€Ñ‹ Ð¸ Ñ‚Ð¾Ñ‡ÐºÐ¸"));
 
 $fck_editor1=$engine->createFCKEditor("fck1",$content);
-$frm->addField("Êðàòêîå îïèñàíèå íîâîñòè","Íåâåðíî çàïîëíåíî êðàòêîå îïèñàíèå íîâîñòè","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+$frm->addField("ÐšÑ€Ð°Ñ‚ÐºÐ¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ ÐºÑ€Ð°Ñ‚ÐºÐ¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
 
 $fck_editor2=$engine->createFCKEditor("fck2",$content_full);
-$frm->addField("Ïîëíîå îïèñàíèå íîâîñòè","Íåâåðíî çàïîëíåíî ïîëíîå îïèñàíèå íîâîñòè","solmetra",$fck_editor2,$fck_editor2,"/^[[:print:][:allnum:]]{1,}$/i","content_full",1,"");
+$frm->addField("ÐŸÐ¾Ð»Ð½Ð¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Ð¿Ð¾Ð»Ð½Ð¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸","solmetra",$fck_editor2,$fck_editor2,"/^[[:print:][:allnum:]]{1,}$/i","content_full",1,"");
 
-$frm->addField("Òåã meta description","Íåâåðíî çàïîëíåí òåã meta description","textarea",$meta,$meta,"/^[^`#]{2,255}$/i","meta",0,"",array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+$frm->addField("Ð¢ÐµÐ³ meta description","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½ Ñ‚ÐµÐ³ meta description","textarea",$meta,$meta,"/^[^`#]{2,255}$/i","meta",0,"",array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 
-$frm->addField("Òåã meta keywords","Íåâåðíî çàïîëíåí òåã meta keywords","textarea",$keywords,$keywords,"/^[^`#]{2,255}$/i","keywords",0,"",array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+$frm->addField("Ð¢ÐµÐ³ meta keywords","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½ Ñ‚ÐµÐ³ meta keywords","textarea",$keywords,$keywords,"/^[^`#]{2,255}$/i","keywords",0,"",array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 
 $engine->generateLangControls("NEWS",$lang_values,$frm);
 
-$frm->addField('Ïðåâüþ äëÿ íîâîñòè',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('hidden'=>true));
+$frm->addField('ÐŸÑ€ÐµÐ²ÑŒÑŽ Ð´Ð»Ñ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('hidden'=>true));
 if ($mode=="edit") {
-$frm->addField('Ìàëîå èçîáðàæåíèå ïðåâüþ','',"preview",$news["small_preview"],$news["small_preview"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true));
-$frm->addField('Ñðåäíåå èçîáðàæåíèå ïðåâüþ','',"preview",$news["middle_preview"],$news["middle_preview"],"/^[0-9]{1,}$/i","big_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true));
+$frm->addField('ÐœÐ°Ð»Ð¾Ðµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ','',"preview",$news["small_preview"],$news["small_preview"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true));
+$frm->addField('Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ','',"preview",$news["middle_preview"],$news["middle_preview"],"/^[0-9]{1,}$/i","big_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true));
 } else {
 if (isset($_SESSION["news_small"])) {
 $news["small_preview"]=$_SESSION["news_small"];
@@ -201,14 +201,14 @@ $news["middle_preview"]=$_SESSION["news_middle"];
 } else {
 $news["middle_preview"]='';
 }
-$frm->addField('Ìàëîå èçîáðàæåíèå ïðåâüþ','',"preview",$news["small_preview"],$news["small_preview"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true));
-$frm->addField('Ñðåäíåå èçîáðàæåíèå ïðåâüþ','',"preview",$news["middle_preview"],$news["middle_preview"],"/^[0-9]{1,}$/i","big_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true));
+$frm->addField('ÐœÐ°Ð»Ð¾Ðµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ','',"preview",$news["small_preview"],$news["small_preview"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true));
+$frm->addField('Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð¿Ñ€ÐµÐ²ÑŒÑŽ','',"preview",$news["middle_preview"],$news["middle_preview"],"/^[0-9]{1,}$/i","big_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true));
 }
-$frm->addField('Ïðåâüþ äëÿ íîâîñòè',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('end'=>true));
+$frm->addField('ÐŸÑ€ÐµÐ²ÑŒÑŽ Ð´Ð»Ñ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('end'=>true));
 
-$frm->addField("Èñòî÷íèê","Íåâåðíî çàïîëíåí èñòî÷íèê íîâîñòè","text",$author,$author,"/^[^`#]{2,255}$/i","author",0,"http://www.lenta.ru",array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû , âêëþ÷àÿ èìåíà è àäðåñà ñàéòîâ"));
+$frm->addField("Ð˜ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸","text",$author,$author,"/^[^`#]{2,255}$/i","author",0,"http://www.lenta.ru",array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹ , Ð²ÐºÐ»ÑŽÑ‡Ð°Ñ Ð¸Ð¼ÐµÐ½Ð° Ð¸ Ð°Ð´Ñ€ÐµÑÐ° ÑÐ°Ð¹Ñ‚Ð¾Ð²"));
 
-$frm->addField("URL äëÿ ïåðåõîäà íà íîâîñòü","Íåâåðíî çàïîëíåí URL äëÿ ïåðåõîäà íà íîâîñòü","text",$url,$url,"/^(http|https)+(:\/\/)+[a-z0-9_-]+\.+[a-z0-9_-]/i","url",0,"http://www.lenta.ru/18/08/2008/12.html",array('size'=>'40','ticket'=>"Àäðåñ ñàéòà"));
+$frm->addField("URL Ð´Ð»Ñ Ð¿ÐµÑ€ÐµÑ…Ð¾Ð´Ð° Ð½Ð° Ð½Ð¾Ð²Ð¾ÑÑ‚ÑŒ","ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½ URL Ð´Ð»Ñ Ð¿ÐµÑ€ÐµÑ…Ð¾Ð´Ð° Ð½Ð° Ð½Ð¾Ð²Ð¾ÑÑ‚ÑŒ","text",$url,$url,"/^(http|https)+(:\/\/)+[a-z0-9_-]+\.+[a-z0-9_-]/i","url",0,"http://www.lenta.ru/18/08/2008/12.html",array('size'=>'40','ticket'=>"ÐÐ´Ñ€ÐµÑ ÑÐ°Ð¹Ñ‚Ð°"));
 
 $frm->addField("","","hidden",$mode,$mode,"/^[^`]{0,}$/i","mode",1);
 $frm->addField("","","hidden",$modAction,$modAction,"/^[^`]{0,}$/i","modAction",1);
@@ -218,36 +218,36 @@ $frm->addField("","","hidden",$id_news,$id_news,"/^[^`]{0,}$/i","id_news",1);
 }
 
 if ($mode=="edit") {
-	$engine->addPath('Ðåäàêòèðîâàíèå íîâîñòè','',false);
+	$engine->addPath('Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸','',false);
 } else {
-	$engine->addPath('Äîáàâëåíèå íîâîñòè','',false);
+	$engine->addPath('Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸','',false);
 }
 
 if (checkdate($date_news[1],$date_news[0],$date_news[2])==false)
-	$frm->addError("Âûáðàííîé äàòû íå ñóùåñòâóåò!");
+	$frm->addError("Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ð¾Ð¹ Ð´Ð°Ñ‚Ñ‹ Ð½Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚!");
 
 			if (
-$engine->processFormData($frm,"Ñîõðàíèòü",$first
+$engine->processFormData($frm,"Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ",$first
 			)) {
-				//äîáàâëÿåì èëè ðåäàêòèðóåì
+				//Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ð¸Ð»Ð¸ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€ÑƒÐµÐ¼
 				if ($mode=="edit") {
-				 //ðåäàêòèðóåì
+				 //Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€ÑƒÐµÐ¼
 				 if (isset($id_news)) {
 				 	if ($db->query("update %NEWS% set `caption`='".sql_quote($caption)."' , author='".sql_quote($author)."', `meta`='".sql_quote($meta)."', `keywords`='".sql_quote($keywords)."' , `url`='".sql_quote($url)."',`date_news`='".sql_quote($date_news[2])."-".sql_quote($date_news[1])."-".sql_quote($date_news[0])."',content='".sql_quote($content)."',`content_full`='".$content_full."' ".$engine->generateUpdateSQL("NEWS",$lang_values)." where id_news=$id_news")) {
-						//îòðåäàêòèðîâàëè
+						//Ð¾Ñ‚Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð»Ð¸
 				//	   $modAction="view";
 				  		if (defined("SCRIPTO_tags")) {
 							$tgs->addTags($tags,$id_news,'news');
 						}
-				   $engine->setCongratulation("","Íîâîñòü îòðåäàêòèðîâàíà óñïåøíî!",3000);
+				   $engine->setCongratulation("","ÐÐ¾Ð²Ð¾ÑÑ‚ÑŒ Ð¾Ñ‚Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð° ÑƒÑÐ¿ÐµÑˆÐ½Ð¾!",3000);
 				   $m_action="view";
 				   $engine->clearCacheBlocks($this->thismodule["name"]);
 					}
 				 } else {
-				 	//ïîêàçûâàåì îøèáêó
+				 	//Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÐ¼ Ð¾ÑˆÐ¸Ð±ÐºÑƒ
 				 }
 				} else {
-				 //äîáàâëÿåì
+				 //Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼
 				 if (isset($_SESSION["news_small"])) {
 				 	$news_small=$_SESSION["news_small"];
 					unset($_SESSION["news_small"]);
@@ -262,12 +262,12 @@ $engine->processFormData($frm,"Ñîõðàíèòü",$first
 				 }
  $add_id=$this->addNews($date_news,$caption,$content,$content_full,$meta,$keywords,$url,$author,$news_small,$news_middle,$engine->generateInsertSQL("NEWS",$lang_values));
 				 if ($add_id!=false) {
-				   //äîáàâèëè óñïåøíî!
+				   //Ð´Ð¾Ð±Ð°Ð²Ð¸Ð»Ð¸ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾!
 				//   $modAction="view";
 				  		if (defined("SCRIPTO_tags")) {
 							$tgs->addTags($tags,$add_id,'news');
 						}
-				   $engine->setCongratulation("","Íîâîñòü ñîçäàíà óñïåøíî!",3000);
+				   $engine->setCongratulation("","ÐÐ¾Ð²Ð¾ÑÑ‚ÑŒ ÑÐ¾Ð·Ð´Ð°Ð½Ð° ÑƒÑÐ¿ÐµÑˆÐ½Ð¾!",3000);
 				   $m_action="view";
 				   $engine->clearCacheBlocks($this->thismodule["name"]);
 				 }
@@ -279,7 +279,7 @@ $engine->processFormData($frm,"Ñîõðàíèòü",$first
 		$id_news=@$_REQUEST["id_news"];
 		if (preg_match("/^[0-9]{1,}$/i",$id_news)) {
 			if ($db->query("delete from %NEWS% where id_news=$id_news")) {
-				$engine->setCongratulation("","Íîâîñòü óäàëåíà!",3000);
+				$engine->setCongratulation("","ÐÐ¾Ð²Ð¾ÑÑ‚ÑŒ ÑƒÐ´Ð°Ð»ÐµÐ½Ð°!",3000);
 		  		if (defined("SCRIPTO_tags")) {
 					$tgs=new Tags();
 					$tgs->doDb();

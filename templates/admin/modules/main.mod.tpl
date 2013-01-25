@@ -1,14 +1,14 @@
 {include file='admin/module_header.tpl.html'}
 <div class="body">
 {if $modAction=="edit"}
-	<h2>Добавить элемент управления</h2>
+	<h2>Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ СѓРїСЂР°РІР»РµРЅРёСЏ</h2>
 	<form action="{$siteurl}admin?modAction=edit" method="post">
 	<table width="100%">
 		<tr>
-			<td class="objects_header" width="30%">Название</td>
+			<td class="objects_header" width="30%">РќР°Р·РІР°РЅРёРµ</td>
 			<td class="objects_header" width="20%">URL</td>
-			<td class="objects_header" width="30%">Тип</td>
-			<td class="objects_header" width="20%">Способ открытия</td>
+			<td class="objects_header" width="30%">РўРёРї</td>
+			<td class="objects_header" width="20%">РЎРїРѕСЃРѕР± РѕС‚РєСЂС‹С‚РёСЏ</td>
 		</tr>
 		<tr height="30">
 			<td><input type="text" name="caption"></td>
@@ -17,22 +17,22 @@
 			<td><select name="href_type">{foreach key=key item=type from=$config.open_types}<option value="{$type.id}">{$type.name}</option>{/foreach}</select></td>
 		</tr>
 		<tr>
-			<td colspan="4" align="center" class="bigbutton"><input type="submit" value="Добавить"></td>
+			<td colspan="4" align="center" class="bigbutton"><input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ"></td>
 		</tr>
 	</table>
 	<input type="hidden" name="add" value="1">
 	</form>
 	{if $buttons}
-	<h2>Существующие элементы управления</h2>
+	<h2>РЎСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ СЌР»РµРјРµРЅС‚С‹ СѓРїСЂР°РІР»РµРЅРёСЏ</h2>
 	<form action="{$siteurl}admin?modAction=edit" method="post">
 	<table width="100%">
 		<tr>
-			<td class="objects_header editable_header" width="20%"><span>Название</span></td>
+			<td class="objects_header editable_header" width="20%"><span>РќР°Р·РІР°РЅРёРµ</span></td>
 			<td class="objects_header editable_header" width="20%"><span>URL</span></td>
-			<td class="objects_header editable_header" width="20%"><span>Тип</span></td>
-			<td class="objects_header editable_header" width="20%"><span>Способ открытия</span></td>
-			<td class="objects_header editable_header" width="10%"><span>Сортировка</span></td>
-			<td class="objects_header editable_header" width="10%"><span>Удалить</span></td>
+			<td class="objects_header editable_header" width="20%"><span>РўРёРї</span></td>
+			<td class="objects_header editable_header" width="20%"><span>РЎРїРѕСЃРѕР± РѕС‚РєСЂС‹С‚РёСЏ</span></td>
+			<td class="objects_header editable_header" width="10%"><span>РЎРѕСЂС‚РёСЂРѕРІРєР°</span></td>
+			<td class="objects_header editable_header" width="10%"><span>РЈРґР°Р»РёС‚СЊ</span></td>
 		</tr>
 		{foreach key=key item=button from=$buttons}
 		<tr height="30" class="{cycle values="objects_cell_light,objects_cell_bold"}" id="button{$button.id_button}">
@@ -52,52 +52,52 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td colspan="6" align="center" class="bigbutton"><input type="submit" value="Сохранить" class="button"></td>
+				<td colspan="6" align="center" class="bigbutton"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 			</tr>	
 	</table>
 	</form>
 	{else}
-	<p>Вы не создали ни одного элемента управления</p>
+	<p>Р’С‹ РЅРµ СЃРѕР·РґР°Р»Рё РЅРё РѕРґРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° СѓРїСЂР°РІР»РµРЅРёСЏ</p>
 	{/if}
 {elseif $modAction=="requirements"}
-		<h2>Отчет об установленных необходимых библиотеках PHP и Apache</h2>
+		<h2>РћС‚С‡РµС‚ РѕР± СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… РЅРµРѕР±С…РѕРґРёРјС‹С… Р±РёР±Р»РёРѕС‚РµРєР°С… PHP Рё Apache</h2>
 		<table width="100%">
 		<tr>
-			<td width="80%" class="header"><b>Библиотека</b></td>
-			<td width="20%" class="header" align="center"><b>Статус</b></td>
+			<td width="80%" class="header"><b>Р‘РёР±Р»РёРѕС‚РµРєР°</b></td>
+			<td width="20%" class="header" align="center"><b>РЎС‚Р°С‚СѓСЃ</b></td>
 		</tr>
 			{foreach key=key item=lib from=$report}
 				<tr height="30" class="{cycle values="objects_cell_light,objects_cell_bold"}">
 					<td>{$lib.value}</td>
-					<td align="center">{if $lib.install}<img src="/images/admin/ok.png" alt="Установлено">{else}<img src="/images/admin/error.png" alt="Не установлено">{/if}</td>
+					<td align="center">{if $lib.install}<img src="/images/admin/ok.png" alt="РЈСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{else}<img src="/images/admin/error.png" alt="РќРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{/if}</td>
 				</tr>
 			{/foreach}
 		</table>
-		<h2>Проверка рекомендуемых настроек сервера</h2>
-		<p>В данной таблице приведены рекомендуемые настройки сервера, настройки Вашего сервера могут отличаться от рекомендуемых.</p>
+		<h2>РџСЂРѕРІРµСЂРєР° СЂРµРєРѕРјРµРЅРґСѓРµРјС‹С… РЅР°СЃС‚СЂРѕРµРє СЃРµСЂРІРµСЂР°</h2>
+		<p>Р’ РґР°РЅРЅРѕР№ С‚Р°Р±Р»РёС†Рµ РїСЂРёРІРµРґРµРЅС‹ СЂРµРєРѕРјРµРЅРґСѓРµРјС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё СЃРµСЂРІРµСЂР°, РЅР°СЃС‚СЂРѕР№РєРё Р’Р°С€РµРіРѕ СЃРµСЂРІРµСЂР° РјРѕРіСѓС‚ РѕС‚Р»РёС‡Р°С‚СЊСЃСЏ РѕС‚ СЂРµРєРѕРјРµРЅРґСѓРµРјС‹С….</p>
 		<table width="100%" class="objects">
 		<tr>
-			<td width="80%" class="header"><b>Параметр</b></td>
-			<td width="20%" class="header" align="center"><b>Статус</b></td>
+			<td width="80%" class="header"><b>РџР°СЂР°РјРµС‚СЂ</b></td>
+			<td width="20%" class="header" align="center"><b>РЎС‚Р°С‚СѓСЃ</b></td>
 		</tr>
 			{foreach key=key item=lb from=$setups}
 				<tr height="30" class="{cycle values="objects_cell_light,objects_cell_bold"}">
 					<td>{$lb.value}</td>
-					<td align="center">{if $lb.install}<img src="/images/admin/ok.png" alt="Установлено">{else}<img src="/images/admin/alarm.png" alt="Не установлено">{/if}</td>
+					<td align="center">{if $lb.install}<img src="/images/admin/ok.png" alt="РЈСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{else}<img src="/images/admin/alarm.png" alt="РќРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{/if}</td>
 				</tr>
 			{/foreach}		
 		</table>
-		<h2>Проверка установки необходимых прав на файлы и папки</h2>
-		<p>В данной таблице приведен отчет о проверки доступности файлов и папок <b>на запись</b>, если некоторые файлы или папки недоступны для записи, Вам необходимо вручную установить права, достаточные для записи (обычно это 755,775).</p>
+		<h2>РџСЂРѕРІРµСЂРєР° СѓСЃС‚Р°РЅРѕРІРєРё РЅРµРѕР±С…РѕРґРёРјС‹С… РїСЂР°РІ РЅР° С„Р°Р№Р»С‹ Рё РїР°РїРєРё</h2>
+		<p>Р’ РґР°РЅРЅРѕР№ С‚Р°Р±Р»РёС†Рµ РїСЂРёРІРµРґРµРЅ РѕС‚С‡РµС‚ Рѕ РїСЂРѕРІРµСЂРєРё РґРѕСЃС‚СѓРїРЅРѕСЃС‚Рё С„Р°Р№Р»РѕРІ Рё РїР°РїРѕРє <b>РЅР° Р·Р°РїРёСЃСЊ</b>, РµСЃР»Рё РЅРµРєРѕС‚РѕСЂС‹Рµ С„Р°Р№Р»С‹ РёР»Рё РїР°РїРєРё РЅРµРґРѕСЃС‚СѓРїРЅС‹ РґР»СЏ Р·Р°РїРёСЃРё, Р’Р°Рј РЅРµРѕР±С…РѕРґРёРјРѕ РІСЂСѓС‡РЅСѓСЋ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РїСЂР°РІР°, РґРѕСЃС‚Р°С‚РѕС‡РЅС‹Рµ РґР»СЏ Р·Р°РїРёСЃРё (РѕР±С‹С‡РЅРѕ СЌС‚Рѕ 755,775).</p>
 		<table width="100%" class="objects">
 		<tr>
-			<td width="80%" class="header"><b>Файл\папка</b></td>
-			<td width="20%" class="header" align="center"><b>Статус</b></td>
+			<td width="80%" class="header"><b>Р¤Р°Р№Р»\РїР°РїРєР°</b></td>
+			<td width="20%" class="header" align="center"><b>РЎС‚Р°С‚СѓСЃ</b></td>
 		</tr>
 			{foreach key=key item=file from=$files}
 				<tr height="30" class="{cycle values="objects_cell_light,objects_cell_bold"}">
 					<td>{$file.value}</td>
-					<td align="center">{if $file.install}<img src="/images/admin/ok.png" alt="Установлено">{else}<img src="/images/admin/error.png" alt="Не установлено">{/if}</td>
+					<td align="center">{if $file.install}<img src="/images/admin/ok.png" alt="РЈСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{else}<img src="/images/admin/error.png" alt="РќРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{/if}</td>
 				</tr>
 			{/foreach}		
 		</table>
@@ -105,21 +105,21 @@
 <table class="moduletable">
 	<tr>
 		<td class="module_left">
-			<h3>Новости Scripto CMS</h3>
+			<h3>РќРѕРІРѕСЃС‚Рё Scripto CMS</h3>
 			{if $scripto_news}
 			{$scripto_news}
 			{else}
 			<div class="news_item">
-				<h3>Ошибка связи</h3>
-				<p>К сожалению на данный момент сайт Scripto CMS не доступен</p>
+				<h3>РћС€РёР±РєР° СЃРІСЏР·Рё</h3>
+				<p>Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ СЃР°Р№С‚ Scripto CMS РЅРµ РґРѕСЃС‚СѓРїРµРЅ</p>
 			</div>
 			{/if}
-			<h2>Проверить совместимость хостинга</h2>
-			<p>Вы можете проверить удовлетворяют ли текущие настройки хостинга требованиям скрипта, нажав на кнопку "проверить совместимость".</p>
-			<p><div class="actionbutton"><a href="{$siteurl}admin/?modAction=requirements">Проверить совместимость</a></div></p>
+			<h2>РџСЂРѕРІРµСЂРёС‚СЊ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ С…РѕСЃС‚РёРЅРіР°</h2>
+			<p>Р’С‹ РјРѕР¶РµС‚Рµ РїСЂРѕРІРµСЂРёС‚СЊ СѓРґРѕРІР»РµС‚РІРѕСЂСЏСЋС‚ Р»Рё С‚РµРєСѓС‰РёРµ РЅР°СЃС‚СЂРѕР№РєРё С…РѕСЃС‚РёРЅРіР° С‚СЂРµР±РѕРІР°РЅРёСЏРј СЃРєСЂРёРїС‚Р°, РЅР°Р¶Р°РІ РЅР° РєРЅРѕРїРєСѓ "РїСЂРѕРІРµСЂРёС‚СЊ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ".</p>
+			<p><div class="actionbutton"><a href="{$siteurl}admin/?modAction=requirements">РџСЂРѕРІРµСЂРёС‚СЊ СЃРѕРІРјРµСЃС‚РёРјРѕСЃС‚СЊ</a></div></p>
 		</td>
 		<td class="module_right">
-			<p class="module_info"><a href="{$siteurl}admin/?modAction=edit">редактировать элементы</a></p>
+			<p class="module_info"><a href="{$siteurl}admin/?modAction=edit">СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЌР»РµРјРµРЅС‚С‹</a></p>
 			<div class="body">
 				{if $buttons}
 				{foreach key=key item=button from=$buttons}

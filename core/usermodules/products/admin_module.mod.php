@@ -1,8 +1,8 @@
 <?
 /*
-Модуль новости сайта, управление
-Версия модуля - 1.0
-Разработчик - Иванов Дмитрий
+РњРѕРґСѓР»СЊ РЅРѕРІРѕСЃС‚Рё СЃР°Р№С‚Р°, СѓРїСЂР°РІР»РµРЅРёРµ
+Р’РµСЂСЃРёСЏ РјРѕРґСѓР»СЏ - 1.0
+Р Р°Р·СЂР°Р±РѕС‚С‡РёРє - РРІР°РЅРѕРІ Р”РјРёС‚СЂРёР№
 */
 $m_action=@$_REQUEST["m_action"];
 switch ($m_action) {
@@ -11,7 +11,7 @@ switch ($m_action) {
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 		$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Настройки рекомендуемых товаров','',false);
+		$engine->addPath('РќР°СЃС‚СЂРѕР№РєРё СЂРµРєРѕРјРµРЅРґСѓРµРјС‹С… С‚РѕРІР°СЂРѕРІ','',false);
 		$types=$this->getProductTypes();
 		$smarty->assign("types",$types);
 	break;
@@ -69,7 +69,7 @@ switch ($m_action) {
 						}
 					}
 					$smarty->assign("saved",true);
-					$smarty->assign("mess","Удалено $d коллекций, обновлено $u коллекций");
+					$smarty->assign("mess","РЈРґР°Р»РµРЅРѕ $d РєРѕР»Р»РµРєС†РёР№, РѕР±РЅРѕРІР»РµРЅРѕ $u РєРѕР»Р»РµРєС†РёР№");
 				}
 			}
 			$collections=$this->getAllCollections($id_firm);
@@ -80,7 +80,7 @@ switch ($m_action) {
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 		$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Типы товаров','/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"].'&m_action=types',true);
+		$engine->addPath('РўРёРїС‹ С‚РѕРІР°СЂРѕРІ','/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"].'&m_action=types',true);
 			$mode=@$_REQUEST["mode"];
 			$modAction=@$_REQUEST["modAction"];
 			if (isset($_REQUEST["id_type"])) {
@@ -107,7 +107,7 @@ switch ($m_action) {
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 			
-$frm->addField("Название типа","Неверно заполнено название типа","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Ноутбуки",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РќР°Р·РІР°РЅРёРµ С‚РёРїР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РЅР°Р·РІР°РЅРёРµ С‚РёРїР°","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"РќРѕСѓС‚Р±СѓРєРё",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
 $engine->generateLangControls("PRODUCT_TYPES",$lang_values,$frm);
 
@@ -119,35 +119,35 @@ $frm->addField("","","hidden",$id_type,$id_type,"/^[^`]{0,}$/i","id_type",1);
 }
 
 if ($mode=="edit") {
-$engine->addPath('Редактирование типа '.$type["caption"],'',false);
+$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° '.$type["caption"],'',false);
 } else {
-$engine->addPath('Добавление типа ','',false);
+$engine->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ С‚РёРїР° ','',false);
 }
 $engine->assignPath();
 			if (
-$engine->processFormData($frm,"Сохранить",$first
+$engine->processFormData($frm,"РЎРѕС…СЂР°РЅРёС‚СЊ",$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if (isset($id_type)) {
 				 	if ($db->query("update %PRODUCT_TYPES% set `caption`='".sql_quote($caption)."'  ".$engine->generateUpdateSQL("PRODUCT_TYPES",$lang_values)." where `id_type`=$id_type")) {
-						//отредактировали
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
 				//	   $modAction="view";
-				   $engine->setCongratulation("","Тип отредактирован успешно!",3000);
+				   $engine->setCongratulation("","РўРёРї РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅ СѓСЃРїРµС€РЅРѕ!",3000);
 				   $engine->clearCacheBlocks($this->thismodule["name"]);
 				   $m_action="types";
 					}
 				 } else {
-				 	//показываем ошибку
+				 	//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
 				 $add_id=$this->addType($caption,$engine->generateInsertSQL("PRODUCT_TYPES",$lang_values));
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				//   $modAction="view";
-				    $engine->setCongratulation("","Тип добавлен успешно!",3000);
+				    $engine->setCongratulation("","РўРёРї РґРѕР±Р°РІР»РµРЅ СѓСЃРїРµС€РЅРѕ!",3000);
 				    $engine->clearCacheBlocks($this->thismodule["name"]);
 				    $m_action="types";
 				 }
@@ -159,7 +159,7 @@ $engine->processFormData($frm,"Сохранить",$first
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 		$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Акции и спецпредложения','/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"].'&m_action=actions',true);
+		$engine->addPath('РђРєС†РёРё Рё СЃРїРµС†РїСЂРµРґР»РѕР¶РµРЅРёСЏ','/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"].'&m_action=actions',true);
 		$values=array();
 		$engine->getRubricsTreeEx($values,0,0,true,"",false);
 			$mode=@$_REQUEST["mode"];
@@ -195,10 +195,10 @@ $engine->processFormData($frm,"Сохранить",$first
 			$frm=new Form($smarty);
 $frm->addField($lang["forms"]["catalog"]["razdel"]["caption"],$lang["forms"]["catalog"]["razdel"]["error"],"list",$values,$id_category,"/^[0-9]{1,}$/i","id_category",1,$lang["forms"]["catalog"]["razdel"]["sample"],array('size'=>'30'));
 
-$frm->addField("Название акции","Неверно заполнено название акции","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Apple",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РќР°Р·РІР°РЅРёРµ Р°РєС†РёРё","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РЅР°Р·РІР°РЅРёРµ Р°РєС†РёРё","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Apple",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
 $fck_editor1=$engine->createFCKEditor("fck1",$content);
-$frm->addField("Описание акции","Неверно заполнено описание акции","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+$frm->addField("РћРїРёСЃР°РЅРёРµ Р°РєС†РёРё","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РѕРїРёСЃР°РЅРёРµ Р°РєС†РёРё","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
 
 $engine->generateLangControls("ACTIONS",$lang_values,$frm);
 
@@ -210,27 +210,27 @@ $frm->addField("","","hidden",$id_action,$id_action,"/^[^`]{0,}$/i","id_action",
 }
 
 if ($mode=="edit") {
-$engine->addPath('Редактирование акции '.$action["caption"],'',false);
+$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ Р°РєС†РёРё '.$action["caption"],'',false);
 if ($id_category!=$action["id_category"])
 	if ($this->existCategoryAction($id_category))
-		$frm->addError('В выбранном разделе уже выводится акция');
+		$frm->addError('Р’ РІС‹Р±СЂР°РЅРЅРѕРј СЂР°Р·РґРµР»Рµ СѓР¶Рµ РІС‹РІРѕРґРёС‚СЃСЏ Р°РєС†РёСЏ');
 } else {
 if ($this->existCategoryAction($id_category))
-	$frm->addError('В выбранном разделе уже выводится акция');
-$engine->addPath('Добавление акции','',false);
+	$frm->addError('Р’ РІС‹Р±СЂР°РЅРЅРѕРј СЂР°Р·РґРµР»Рµ СѓР¶Рµ РІС‹РІРѕРґРёС‚СЃСЏ Р°РєС†РёСЏ');
+$engine->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ Р°РєС†РёРё','',false);
 }
 $engine->assignPath();
 			if (
-$engine->processFormData($frm,"Сохранить",$first
+$engine->processFormData($frm,"РЎРѕС…СЂР°РЅРёС‚СЊ",$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 $cat=$engine->getCategoryByID($id_category);
 				 $val=$cat["additional"];
 				 $val["actions_page"]=true;
 				 $engine->setCategoryAdditional($id_category,$val);
 				 $engine->addModuleToCategory($this->thismodule["name"],$id_category);
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 
 				 if ($id_category!=$action["id_category"]) {
 					 $cat=$engine->getCategoryByID($action["id_category"]);
@@ -243,22 +243,22 @@ $engine->processFormData($frm,"Сохранить",$first
 				 }
 				 if (isset($id_action)) {
 				 	if ($db->query("update `%ACTIONS%` set `id_category`=$id_category,`caption`='".sql_quote($caption)."' , `content`='".sql_quote($content)."' ".$engine->generateUpdateSQL("ACTIONS",$lang_values)." where `id_action`=$id_action")) {
-						//отредактировали
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
 				//	   $modAction="view";
-				   $engine->setCongratulation("","Акция отредактирована успешно!",3000);
+				   $engine->setCongratulation("","РђРєС†РёСЏ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅР° СѓСЃРїРµС€РЅРѕ!",3000);
 				   $engine->clearCacheBlocks($this->thismodule["name"]);
 				   $m_action="actions";
 					}
 				 } else {
-				 	//показываем ошибку
+				 	//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
 				 $add_id=$this->addAction($id_category,$caption,$content,$engine->generateInsertSQL("ACTIONS",$lang_values));
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				//   $modAction="view";
-				   $engine->setCongratulation("","Акция добавлена успешно!",3000);
+				   $engine->setCongratulation("","РђРєС†РёСЏ РґРѕР±Р°РІР»РµРЅР° СѓСЃРїРµС€РЅРѕ!",3000);
 				   $engine->clearCacheBlocks($this->thismodule["name"]);
 				   $m_action="actions";
 				 }
@@ -270,7 +270,7 @@ $engine->processFormData($frm,"Сохранить",$first
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 		$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Фирмы и коллекции','/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"].'&m_action=firms',true);
+		$engine->addPath('Р¤РёСЂРјС‹ Рё РєРѕР»Р»РµРєС†РёРё','/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"].'&m_action=firms',true);
 			$mode=@$_REQUEST["mode"];
 			$modAction=@$_REQUEST["modAction"];
 			if (isset($_REQUEST["id_firm"])) {
@@ -300,10 +300,10 @@ $engine->processFormData($frm,"Сохранить",$first
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 			
-$frm->addField("Название фирмы","Неверно заполнено название фирмы","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Apple",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РќР°Р·РІР°РЅРёРµ С„РёСЂРјС‹","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РЅР°Р·РІР°РЅРёРµ С„РёСЂРјС‹","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Apple",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
 $fck_editor1=$engine->createFCKEditor("fck1",$content);
-$frm->addField("Описание фирмы","Неверно заполнено описание фирмы","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+$frm->addField("РћРїРёСЃР°РЅРёРµ С„РёСЂРјС‹","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РѕРїРёСЃР°РЅРёРµ С„РёСЂРјС‹","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
 
 $engine->generateLangControls("FIRMS",$lang_values,$frm);
 
@@ -315,40 +315,40 @@ $frm->addField("","","hidden",$id_firm,$id_firm,"/^[^`]{0,}$/i","id_firm",1);
 }
 
 if ($mode=="edit") {
-$engine->addPath('Редактирование фирмы '.$firm["caption"],'',false);
+$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С„РёСЂРјС‹ '.$firm["caption"],'',false);
 	if ($firm["caption"]!=$caption)
 		if ($this->existFirm($caption))
-			$frm->addError("Фирма $caption уже существует");
+			$frm->addError("Р¤РёСЂРјР° $caption СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
 } else {
-$engine->addPath('Добавление фирмы','',false);
+$engine->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ С„РёСЂРјС‹','',false);
 		if ($this->existFirm($caption))
-			$frm->addError("Фирма $caption уже существует");
+			$frm->addError("Р¤РёСЂРјР° $caption СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
 }
 $engine->assignPath();
 			if (
-$engine->processFormData($frm,"Сохранить",$first
+$engine->processFormData($frm,"РЎРѕС…СЂР°РЅРёС‚СЊ",$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if (isset($id_firm)) {
 				 	if ($db->query("update %FIRMS% set `caption`='".sql_quote($caption)."' , `description`='".sql_quote($content)."' ".$engine->generateUpdateSQL("FIRMS",$lang_values)." where `id_firm`=$id_firm")) {
-						//отредактировали
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
 				//	   $modAction="view";
-				   $engine->setCongratulation("","Фирма отредактирована успешно!",3000);
+				   $engine->setCongratulation("","Р¤РёСЂРјР° РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅР° СѓСЃРїРµС€РЅРѕ!",3000);
 				   $engine->clearCacheBlocks($this->thismodule["name"]);
 				   $m_action="firms";
 					}
 				 } else {
-				 	//показываем ошибку
+				 	//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
 				 $add_id=$this->addFirm($caption,$content,$engine->generateInsertSQL("FIRMS",$lang_values));
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				//   $modAction="view";
-				   $engine->setCongratulation("","Фирма добавлена успешно!",3000);
+				   $engine->setCongratulation("","Р¤РёСЂРјР° РґРѕР±Р°РІР»РµРЅР° СѓСЃРїРµС€РЅРѕ!",3000);
 				   $engine->clearCacheBlocks($this->thismodule["name"]);
 				   $m_action="firms";
 				 }
@@ -358,14 +358,14 @@ $engine->processFormData($frm,"Сохранить",$first
 	break;
 	case "pricing":
 		if (isset($_REQUEST["do_pricing"])) {
-			//наценка в действии
+			//РЅР°С†РµРЅРєР° РІ РґРµР№СЃС‚РІРёРё
 			$mode=@$_REQUEST["mode"];
 			$err=false;
 			$err_text='';
 			$filter=array();
 			$price_value=@$_REQUEST["price_value"];
 			if (!preg_match('/^[0-9]{1,}$/i',$price_value)) {
-				$err_text='Величина наценки должна быть числом';
+				$err_text='Р’РµР»РёС‡РёРЅР° РЅР°С†РµРЅРєРё РґРѕР»Р¶РЅР° Р±С‹С‚СЊ С‡РёСЃР»РѕРј';
 				$err=true;
 			} else {
 				$price_mode=@$_REQUEST["price_mode"];
@@ -410,12 +410,12 @@ $engine->processFormData($frm,"Сохранить",$first
 				break;
 				default:
 					$err=true;
-					$err_text='Неверно задан тип экспорта';
+					$err_text='РќРµРІРµСЂРЅРѕ Р·Р°РґР°РЅ С‚РёРї СЌРєСЃРїРѕСЂС‚Р°';
 			}
-			//Определяем объекты наценки
+			//РћРїСЂРµРґРµР»СЏРµРј РѕР±СЉРµРєС‚С‹ РЅР°С†РµРЅРєРё
 			if ($err==false) {
-			//Устанавливаем наценки
-			//генерируем выборку mysql
+			//РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РЅР°С†РµРЅРєРё
+			//РіРµРЅРµСЂРёСЂСѓРµРј РІС‹Р±РѕСЂРєСѓ mysql
 			$where=$this->generatePricingSQL($filter);
 			if ($mode>=0 && $mode<3) {
 				if (isset($_REQUEST["old_price_set"])) {
@@ -454,32 +454,32 @@ $engine->processFormData($frm,"Сохранить",$first
 			switch ($mode) {
 				case 0:
 					$db->query("update `%PRODUCTS%` set $price1 $where");
-					$engine->setCongratulation('','Розничные цены изменены',3000);
+					$engine->setCongratulation('','Р РѕР·РЅРёС‡РЅС‹Рµ С†РµРЅС‹ РёР·РјРµРЅРµРЅС‹',3000);
 				break;
 				case 1:
 					$db->query("update `%PRODUCTS%` set $price2 $where");
-					$engine->setCongratulation('','Закупочные цены изменены',3000);
+					$engine->setCongratulation('','Р—Р°РєСѓРїРѕС‡РЅС‹Рµ С†РµРЅС‹ РёР·РјРµРЅРµРЅС‹',3000);
 				break;
 				case 2:
 					$db->query("update `%PRODUCTS%` set $price2 $where");
 					$db->query("update `%PRODUCTS%` set $price1 $where");
-					$engine->setCongratulation('','Розничные и закупочные цены изменены',3000);
+					$engine->setCongratulation('','Р РѕР·РЅРёС‡РЅС‹Рµ Рё Р·Р°РєСѓРїРѕС‡РЅС‹Рµ С†РµРЅС‹ РёР·РјРµРЅРµРЅС‹',3000);
 				break;
 				case 3:
-					//Возвращаем старые цены
+					//Р’РѕР·РІСЂР°С‰Р°РµРј СЃС‚Р°СЂС‹Рµ С†РµРЅС‹
 					$filter[]="`price2`>0";
 					$where=$this->generatePricingSQL($filter);
 					$db->query("update `%PRODUCTS%` set `price1`=`price2` $where");
 					$db->query("update `%PRODUCTS%` set `price2`=0 $where");
-					$engine->setCongratulation('','Розничные цены изменены',3000);
+					$engine->setCongratulation('','Р РѕР·РЅРёС‡РЅС‹Рµ С†РµРЅС‹ РёР·РјРµРЅРµРЅС‹',3000);
 				break;
 				case 4:
 					$db->query("update `%PRODUCTS%` set `price2`=0 $where");
-					$engine->setCongratulation('','Старые цены обнулены',3000);
+					$engine->setCongratulation('','РЎС‚Р°СЂС‹Рµ С†РµРЅС‹ РѕР±РЅСѓР»РµРЅС‹',3000);
 				break;
 			}
 			} else {
-				$engine->setCongratulation('Ошибка',$err_text,5000);
+				$engine->setCongratulation('РћС€РёР±РєР°',$err_text,5000);
 			}
 		}
 		$firms=$this->getFirmsAndCollections();
@@ -533,7 +533,7 @@ $engine->processFormData($frm,"Сохранить",$first
 			foreach ($options[0] as $id_option=>$option) {
 			if (!isset($values[$id_option])) $values[$id_option]='';
 			if (!isset($option["values_list"])) {
-			$frm->addField($option["caption"],"Неверно заполнено поле ".$option["caption"],"text",$values[$id_option],$values[$id_option],"/^[^`#]{1,255}$/i","values[$id_option]",1,"",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+			$frm->addField($option["caption"],"РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ ".$option["caption"],"text",$values[$id_option],$values[$id_option],"/^[^`#]{1,255}$/i","values[$id_option]",1,"",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 			} else {
 			if (is_array($option["values_list"])) {
 			$vals=array();
@@ -541,19 +541,19 @@ $engine->processFormData($frm,"Сохранить",$first
 				$vals[$key]["id"]=trim($value);
 				$vals[$key]["name"]=trim($value);
 			}
-			$frm->addField($option["caption"],'Неверно выбрано поле  '.$option["caption"],"list",$vals,$values[$id_option],"/^[^`#]{1,255}$/i","values[$id_option]",1,'',array('size'=>'30'));
+			$frm->addField($option["caption"],'РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ РїРѕР»Рµ  '.$option["caption"],"list",$vals,$values[$id_option],"/^[^`#]{1,255}$/i","values[$id_option]",1,'',array('size'=>'30'));
 			unset($vals);
 			} else {
-			$frm->addField($option["caption"],"Неверно заполнено поле ".$option["caption"],"text",$values[$id_option],$values[$id_option],"/^[^`#]{2,255}$/i","values[$id_option]",1,"",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+			$frm->addField($option["caption"],"РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ ".$option["caption"],"text",$values[$id_option],$values[$id_option],"/^[^`#]{2,255}$/i","values[$id_option]",1,"",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 			}
 			}
 			}
 			
 		$frm->addField("","","hidden",$id_product,$id_product,"/^[0-9]{1,}$/i","id_product",1);
 			if (
-$engine->processFormData($frm,"Сохранить",$first
+$engine->processFormData($frm,"РЎРѕС…СЂР°РЅРёС‚СЊ",$first
 			)) {
-				//Генерация массива
+				//Р“РµРЅРµСЂР°С†РёСЏ РјР°СЃСЃРёРІР°
 				$product_massive["id_type"]=$product["id_type"];
 				foreach ($options[0] as $id_option=>$option) {
 					$v["caption"]=base64_encode($option["caption"]);
@@ -613,7 +613,7 @@ $engine->processFormData($frm,"Сохранить",$first
 							}
 						}
 						$smarty->assign("saved",true);
-						$smarty->assign("mess","Обновлено $u характеристик, удалено $d характеристик.");
+						$smarty->assign("mess","РћР±РЅРѕРІР»РµРЅРѕ $u С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє, СѓРґР°Р»РµРЅРѕ $d С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє.");
 					}
 				}
 			}
@@ -622,7 +622,7 @@ $engine->processFormData($frm,"Сохранить",$first
 		}
 	break;
 	case "add_type":
-		//добавить новый тип товара
+		//РґРѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ С‚РёРї С‚РѕРІР°СЂР°
 		if (isset($_REQUEST["caption"])) {
 			$caption=UTF8(@$_REQUEST["caption"]);
 			$lang_values=array();
@@ -647,7 +647,7 @@ $engine->processFormData($frm,"Сохранить",$first
 			$id_product=$_REQUEST["id_product"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_product)) {
 				if (isset($_REQUEST["sort_me"])) {
-					//сортировка
+					//СЃРѕСЂС‚РёСЂРѕРІРєР°
 					$del=@$_REQUEST["del"];
 					$sort=@$_REQUEST["sort"];
 					if (is_array($sort)) {
@@ -664,7 +664,7 @@ $engine->processFormData($frm,"Сохранить",$first
 								}
 							}
 						}
-						$engine->setCongratulation("","Изменения сохранены (Удалено $d изображений , обновлено $u изображений)");
+						$engine->setCongratulation("","РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹ (РЈРґР°Р»РµРЅРѕ $d РёР·РѕР±СЂР°Р¶РµРЅРёР№ , РѕР±РЅРѕРІР»РµРЅРѕ $u РёР·РѕР±СЂР°Р¶РµРЅРёР№)");
 					}
 				}
 				$product=$this->getProductByID($id_product);
@@ -672,7 +672,7 @@ $engine->processFormData($frm,"Сохранить",$first
 				$engine->clearPath();
 				$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 				$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&id_category='.$product["id_category"].'&module_name='.$this->thismodule["name"],true);
-				$engine->addPath('Просмотр галереи изображений товара '.$product["caption"],'',false);
+				$engine->addPath('РџСЂРѕСЃРјРѕС‚СЂ РіР°Р»РµСЂРµРё РёР·РѕР±СЂР°Р¶РµРЅРёР№ С‚РѕРІР°СЂР° '.$product["caption"],'',false);
 				$engine->assignPath();
 				if (isset($_REQUEST["setPreview"])) {
 					$previewMode=@$_REQUEST["previewMode"];
@@ -689,12 +689,12 @@ $engine->processFormData($frm,"Сохранить",$first
 								case "new":
 								if (isset($image["caption"])) {
 									if ($this->addImageToProduct($id_img,$id_product)) {
-						$smarty->assign("fancyTooltip","Изображение добавлено успешно");
+						$smarty->assign("fancyTooltip","РР·РѕР±СЂР°Р¶РµРЅРёРµ РґРѕР±Р°РІР»РµРЅРѕ СѓСЃРїРµС€РЅРѕ");
 									} else {
-						$smarty->assign("fancyTooltip","В процессе добавления изображения произошла ошибка");
+						$smarty->assign("fancyTooltip","Р’ РїСЂРѕС†РµСЃСЃРµ РґРѕР±Р°РІР»РµРЅРёСЏ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°");
 									}
 								} else {
-						$smarty->assign("fancyTooltip","Изображение не добавлено, т.к. Вы его не выбрали");
+						$smarty->assign("fancyTooltip","РР·РѕР±СЂР°Р¶РµРЅРёРµ РЅРµ РґРѕР±Р°РІР»РµРЅРѕ, С‚.Рє. Р’С‹ РµРіРѕ РЅРµ РІС‹Р±СЂР°Р»Рё");
 								}
 								$smarty->assign("addObjects",true);
 								$smarty->assign("closeFancybox",true);
@@ -715,12 +715,12 @@ $engine->processFormData($frm,"Сохранить",$first
 							case "new":
 								if (isset($image["caption"])) {
 									if ($this->addImageToProduct($id_image,$id_product)) {
-						$smarty->assign("fancyTooltip","Изображение добавлено успешно");
+						$smarty->assign("fancyTooltip","РР·РѕР±СЂР°Р¶РµРЅРёРµ РґРѕР±Р°РІР»РµРЅРѕ СѓСЃРїРµС€РЅРѕ");
 									} else {
-						$smarty->assign("fancyTooltip","В процессе добавления изображения произошла ошибка");
+						$smarty->assign("fancyTooltip","Р’ РїСЂРѕС†РµСЃСЃРµ РґРѕР±Р°РІР»РµРЅРёСЏ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°");
 									}
 								} else {
-						$smarty->assign("fancyTooltip","Изображение не добавлено, т.к. Вы его не выбрали");
+						$smarty->assign("fancyTooltip","РР·РѕР±СЂР°Р¶РµРЅРёРµ РЅРµ РґРѕР±Р°РІР»РµРЅРѕ, С‚.Рє. Р’С‹ РµРіРѕ РЅРµ РІС‹Р±СЂР°Р»Рё");
 								}
 								$smarty->assign("addObject",true);
 								$smarty->assign("closeFancybox",true);
@@ -729,10 +729,10 @@ $engine->processFormData($frm,"Сохранить",$first
 								if (preg_match("/^[0-9]{1,}$/i",$previewMode)) {
 									if (isset($image["caption"])) {
 										$db->query("update `%PRODUCT_PICTURES%` set id_image=".$image["id_photo"].",`small_filename`='".$image["small_photo"]."',`medium_filename`='".$image["medium_photo"]."',`big_filename`='".$image["big_photo"]."' where id_product=$id_product and id_image=$previewMode");
-										$engine->setPreview($image["small_photo"],$previewMode,'Изображение изменено успешно');
+										$engine->setPreview($image["small_photo"],$previewMode,'РР·РѕР±СЂР°Р¶РµРЅРёРµ РёР·РјРµРЅРµРЅРѕ СѓСЃРїРµС€РЅРѕ');
 									} else {
 										$db->query("delete from `%PRODUCT_PICTURES%` where id_product=$id_product and id_image=$previewMode");
-										$smarty->assign("fancyTooltip","Изображение удалено успешно");
+										$smarty->assign("fancyTooltip","РР·РѕР±СЂР°Р¶РµРЅРёРµ СѓРґР°Р»РµРЅРѕ СѓСЃРїРµС€РЅРѕ");
 										$smarty->assign("id_image",$previewMode);
 										$smarty->assign("deleteObject",true);
 									}
@@ -746,7 +746,7 @@ $engine->processFormData($frm,"Сохранить",$first
 		}
 	break;
 	case "actions":
-		//акции
+		//Р°РєС†РёРё
 		
 	break;
 	case "upload_csv":
@@ -775,7 +775,7 @@ $engine->processFormData($frm,"Сохранить",$first
 			$sheet=@$_REQUEST["sheet"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_cat)) {
 				if (is_array($csv) && is_array($sheet)) {
-					//Создаем рубрики
+					//РЎРѕР·РґР°РµРј СЂСѓР±СЂРёРєРё
 					$row = 1;
 					if (($handle = fopen($config["pathes"]["user_files"]."products.csv", "r")) !== FALSE) {
 		$rubrs=$engine->getRubricsTree(0);
@@ -785,7 +785,7 @@ $engine->processFormData($frm,"Сохранить",$first
 		$date_news[1]=(int)date("m");
 		$date_news[2]=(int)date("Y");
 					    while (($data = fgetcsv($handle, 2000,chr(13))) !== FALSE) {
-						//определение переменных для csv
+						//РѕРїСЂРµРґРµР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅС‹С… РґР»СЏ csv
 						$code='';
 						$caption='';
 						$product_caption='';
@@ -852,11 +852,11 @@ $engine->processFormData($frm,"Сохранить",$first
 							}
 							}
 						}
-						//Данные получены, проверяем рубрика это или товар
+						//Р”Р°РЅРЅС‹Рµ РїРѕР»СѓС‡РµРЅС‹, РїСЂРѕРІРµСЂСЏРµРј СЂСѓР±СЂРёРєР° СЌС‚Рѕ РёР»Рё С‚РѕРІР°СЂ
 						$level[0]=$id_cat;
 						if (substr($caption,0,1)=='!') {
-							//рубрика
-							//получаем уровень рубрики
+							//СЂСѓР±СЂРёРєР°
+							//РїРѕР»СѓС‡Р°РµРј СѓСЂРѕРІРµРЅСЊ СЂСѓР±СЂРёРєРё
 							$lev=$this->getCSVLevel($caption);
 							if ($lev>0) {
 								$parent=$lev-1;
@@ -864,9 +864,9 @@ $engine->processFormData($frm,"Сохранить",$first
 								$parent=0;
 								$lev=0;
 							}
-							//проверяем существование нужной категории
+							//РїСЂРѕРІРµСЂСЏРµРј СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ РЅСѓР¶РЅРѕР№ РєР°С‚РµРіРѕСЂРёРё
 							if (isset($level[$parent])) {
-								//ищем родителя
+								//РёС‰РµРј СЂРѕРґРёС‚РµР»СЏ
 								$found=false;
 								foreach ($rubrs as $id_pos=>$rubr) {
 										if ($rubr["id_category"]==$level[$parent]) {
@@ -896,13 +896,13 @@ $engine->addModuleToCategory($this->thismodule["name"],$level[$lev]);
 									die("error");
 								}
 								} else {
-								//найден раздел
+								//РЅР°Р№РґРµРЅ СЂР°Р·РґРµР»
 								$level[$lev]=$n_rubric["id_category"];
 								}
 							}
 						} else {
-							//товар
-							//Обновляются только те товары, которые с кодом.
+							//С‚РѕРІР°СЂ
+							//РћР±РЅРѕРІР»СЏСЋС‚СЃСЏ С‚РѕР»СЊРєРѕ С‚Рµ С‚РѕРІР°СЂС‹, РєРѕС‚РѕСЂС‹Рµ СЃ РєРѕРґРѕРј.
 							$do_update=false;
 							if (!empty($code)) {
 								if (isset($products[$code])) {
@@ -914,7 +914,7 @@ $engine->addModuleToCategory($this->thismodule["name"],$level[$lev]);
 								$do_update=false;
 							}
 							if ($do_update) {
-								//обновление
+								//РѕР±РЅРѕРІР»РµРЅРёРµ
 								if (isset($lev))
 								if (trim($code)!='')
 								$db->query("update `%PRODUCTS%` set caption='".sql_quote($product_caption)."',`price1`=$price1, `price2`=$price2,`price_default`=$price_default, `kolvo`=$sklad , `id_category`=".$level[$lev].",`url`='".sql_quote($link)."' where id_product=".$products[$code]["id_product"]);
@@ -929,7 +929,7 @@ $date_news,$product_caption,$short_content,$full_content,$link,0,0,$level[$lev],
 						}
 						}
 					   $engine->clearCacheBlocks($this->thismodule["name"]);
-					   //Все ок
+					   //Р’СЃРµ РѕРє
 						die("ok");
 				    } else {
 						die("error");
@@ -949,7 +949,7 @@ $date_news,$product_caption,$short_content,$full_content,$link,0,0,$level[$lev],
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 	$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Загрузка товаров из CSV','',false);
+		$engine->addPath('Р—Р°РіСЂСѓР·РєР° С‚РѕРІР°СЂРѕРІ РёР· CSV','',false);
 		$engine->assignPath();
 		$engine->addJS("/core/usermodules/products/csv.js");
 		$engine->assignJS();
@@ -960,7 +960,7 @@ $date_news,$product_caption,$short_content,$full_content,$link,0,0,$level[$lev],
 		$smarty->assign("csv",$this->thismodule["csv"]);
 		$sheets=array();
 			for ($x=0;$x<=20;$x++)
-				$sheets[$x]="Ячейка".($x+1);
+				$sheets[$x]="РЇС‡РµР№РєР°".($x+1);
 		$smarty->assign("sheets",$sheets);
 	break;
 	case "product_products":
@@ -997,7 +997,7 @@ $date_news,$product_caption,$short_content,$full_content,$link,0,0,$level[$lev],
 				}
 				$engine->clearCacheBlocks($this->thismodule["name"]);
 				$engine->addModuleToCategory($this->thismodule["name"],$id_category);
-				$engine->setCongratulation('','Было создано '.$number.' объектов',3000);
+				$engine->setCongratulation('','Р‘С‹Р»Рѕ СЃРѕР·РґР°РЅРѕ '.$number.' РѕР±СЉРµРєС‚РѕРІ',3000);
 			}
 		}
 		$m_action="view";
@@ -1151,52 +1151,52 @@ $date_news,$product_caption,$short_content,$full_content,$link,0,0,$level[$lev],
 			$frm=new Form($smarty);
 $frm->addField($lang["forms"]["catalog"]["razdel"]["caption"],$lang["forms"]["catalog"]["razdel"]["error"],"list",$values,$id_cat,"/^[0-9]{1,}$/i","id_category",1,$lang["forms"]["catalog"]["razdel"]["sample"],array('size'=>'30'));
 
-$frm->addField('Тип товара','Неверно выбран тип товара',"list",$types,$id_type,"/^[0-9]{1,}$/i","id_type",1,'Телевизоры',array('size'=>'30'));
+$frm->addField('РўРёРї С‚РѕРІР°СЂР°','РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅ С‚РёРї С‚РѕРІР°СЂР°',"list",$types,$id_type,"/^[0-9]{1,}$/i","id_type",1,'РўРµР»РµРІРёР·РѕСЂС‹',array('size'=>'30'));
 			
-$frm->addField("Название товара","Неверно заполнено название товара","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Ноутбук ASUS",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РќР°Р·РІР°РЅРёРµ С‚РѕРІР°СЂР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РЅР°Р·РІР°РЅРёРµ С‚РѕРІР°СЂР°","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"РќРѕСѓС‚Р±СѓРє ASUS",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Код товара","Неверно заполнен код товара","text",$code,$code,"/^[^`#]{2,255}$/i","code",0,"VZX-98944",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РљРѕРґ С‚РѕРІР°СЂР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ РєРѕРґ С‚РѕРІР°СЂР°","text",$code,$code,"/^[^`#]{2,255}$/i","code",0,"VZX-98944",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Дата создания товара","Неверно заполнена дата создания товара","date",$date_news,$date_news,"/^[0-9]{1,}$/i","date_news",1,"19.01.2008",array('size'=>'40','ticket'=>"Цифры и точки"));
+$frm->addField("Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ С‚РѕРІР°СЂР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅР° РґР°С‚Р° СЃРѕР·РґР°РЅРёСЏ С‚РѕРІР°СЂР°","date",$date_news,$date_news,"/^[0-9]{1,}$/i","date_news",1,"19.01.2008",array('size'=>'40','ticket'=>"Р¦РёС„СЂС‹ Рё С‚РѕС‡РєРё"));
 
-$frm->addField("Описание товара","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","productcontent",0,'',array('hidden'=>true));
+$frm->addField("РћРїРёСЃР°РЅРёРµ С‚РѕРІР°СЂР°","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","productcontent",0,'',array('hidden'=>true));
 
 $fck_editor2=$engine->createFCKEditor("fck2",$content_full);
-$frm->addField("Полное описание товара","Неверно заполнено полное описание товара","solmetra",$fck_editor2,$fck_editor2,"/^[[:print:][:allnum:]]{1,}$/i","content_full",1,"");
+$frm->addField("РџРѕР»РЅРѕРµ РѕРїРёСЃР°РЅРёРµ С‚РѕРІР°СЂР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»РЅРѕРµ РѕРїРёСЃР°РЅРёРµ С‚РѕРІР°СЂР°","solmetra",$fck_editor2,$fck_editor2,"/^[[:print:][:allnum:]]{1,}$/i","content_full",1,"");
 
 $fck_editor1=$engine->createFCKEditor("fck1",$content);
-$frm->addField("Краткое описание товара","Неверно заполнено краткое описание товара","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+$frm->addField("РљСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ С‚РѕРІР°СЂР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РєСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ С‚РѕРІР°СЂР°","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
 
-$frm->addField("Описание товара","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","productcontent",0,'',array('end'=>true));
+$frm->addField("РћРїРёСЃР°РЅРёРµ С‚РѕРІР°СЂР°","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","productcontent",0,'',array('end'=>true));
 
 if ($this->thismodule["show_price1"]) {
-$frm->addField("Стоимость","Неверно заполнено поле стоимость","text",$price1,$price1,"/^[0-9]{1,}$/i","price1",0,"1000",array('size'=>'5','ticket'=>"Цифры"));
-$frm->addField("Закупочная стоимость","Неверно заполнено поле закупочная стоимость","text",$price_default,$price_default,"/^[0-9]{1,}$/i","price_default",0,"1000",array('size'=>'5','ticket'=>"Цифры"));
+$frm->addField("РЎС‚РѕРёРјРѕСЃС‚СЊ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ СЃС‚РѕРёРјРѕСЃС‚СЊ","text",$price1,$price1,"/^[0-9]{1,}$/i","price1",0,"1000",array('size'=>'5','ticket'=>"Р¦РёС„СЂС‹"));
+$frm->addField("Р—Р°РєСѓРїРѕС‡РЅР°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ Р·Р°РєСѓРїРѕС‡РЅР°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ","text",$price_default,$price_default,"/^[0-9]{1,}$/i","price_default",0,"1000",array('size'=>'5','ticket'=>"Р¦РёС„СЂС‹"));
 } else {
-$frm->addField("Стоимость","Неверно заполнено поле стоимость","hidden",$price1,$price1,"/^[0-9]{1,}$/i","price1",0,"1000",array('size'=>'5','ticket'=>"Цифры"));
-$frm->addField("Закупочная стоимость","Неверно заполнено поле закупочная стоимость","hidden",$price_default,$price_default,"/^[0-9]{1,}$/i","price_default",0,"1000",array('size'=>'5','ticket'=>"Цифры"));
+$frm->addField("РЎС‚РѕРёРјРѕСЃС‚СЊ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ СЃС‚РѕРёРјРѕСЃС‚СЊ","hidden",$price1,$price1,"/^[0-9]{1,}$/i","price1",0,"1000",array('size'=>'5','ticket'=>"Р¦РёС„СЂС‹"));
+$frm->addField("Р—Р°РєСѓРїРѕС‡РЅР°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ Р·Р°РєСѓРїРѕС‡РЅР°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ","hidden",$price_default,$price_default,"/^[0-9]{1,}$/i","price_default",0,"1000",array('size'=>'5','ticket'=>"Р¦РёС„СЂС‹"));
 }
 
 if ($this->thismodule["show_price2"]) {
-$frm->addField("Старая цена","Неверно заполнено поле старая цена","text",$price2,$price2,"/^[0-9]{1,}$/i","price2",0,"1000",array('size'=>'5','ticket'=>"Цифры"));
+$frm->addField("РЎС‚Р°СЂР°СЏ С†РµРЅР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ СЃС‚Р°СЂР°СЏ С†РµРЅР°","text",$price2,$price2,"/^[0-9]{1,}$/i","price2",0,"1000",array('size'=>'5','ticket'=>"Р¦РёС„СЂС‹"));
 } else {
-$frm->addField("Старая цена","Неверно заполнено поле старая цена","hidden",$price2,$price2,"/^[0-9]{1,}$/i","price2",0,"1000",array('size'=>'5','ticket'=>"Цифры"));
+$frm->addField("РЎС‚Р°СЂР°СЏ С†РµРЅР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ СЃС‚Р°СЂР°СЏ С†РµРЅР°","hidden",$price2,$price2,"/^[0-9]{1,}$/i","price2",0,"1000",array('size'=>'5','ticket'=>"Р¦РёС„СЂС‹"));
 }
 if ($this->thismodule["show_count"]) {
-$frm->addField("Количество","Неверно заполнено поле количество","text",$kolvo,$kolvo,"/^[0-9]{1,}$/i","kolvo",0,"12",array('size'=>'5','ticket'=>"Цифры"));
+$frm->addField("РљРѕР»РёС‡РµСЃС‚РІРѕ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ","text",$kolvo,$kolvo,"/^[0-9]{1,}$/i","kolvo",0,"12",array('size'=>'5','ticket'=>"Р¦РёС„СЂС‹"));
 } else {
-$frm->addField("Количество","Неверно заполнено поле количество","hidden",$kolvo,$kolvo,"/^[0-9]{1,}$/i","kolvo",0,"12",array('size'=>'5','ticket'=>"Цифры"));
+$frm->addField("РљРѕР»РёС‡РµСЃС‚РІРѕ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ","hidden",$kolvo,$kolvo,"/^[0-9]{1,}$/i","kolvo",0,"12",array('size'=>'5','ticket'=>"Р¦РёС„СЂС‹"));
 }
 
 $collections=$this->getFirmsAndCollections();
-$frm->addField('Фирма / Коллекция товара','Неверно выбрана фирма / коллекция товара',"list",$collections,$collection_id,"/^[0-9:0-9]{1,}$/i","collection_id",1,'Apple / MacBook',array('size'=>'30'));
+$frm->addField('Р¤РёСЂРјР° / РљРѕР»Р»РµРєС†РёСЏ С‚РѕРІР°СЂР°','РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅР° С„РёСЂРјР° / РєРѕР»Р»РµРєС†РёСЏ С‚РѕРІР°СЂР°',"list",$collections,$collection_id,"/^[0-9:0-9]{1,}$/i","collection_id",1,'Apple / MacBook',array('size'=>'30'));
 
-$frm->addField("Сайт производителя","Неверно заполнен URL производителя","text",$url,$url,"/^(http|https)+(:\/\/)+[a-z0-9_-]+\.+[a-z0-9_-]/i","url",0,"http://www.lenta.ru/18/08/2008/12.html",array('size'=>'40','ticket'=>"Адрес сайта"));
+$frm->addField("РЎР°Р№С‚ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЏ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ URL РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЏ","text",$url,$url,"/^(http|https)+(:\/\/)+[a-z0-9_-]+\.+[a-z0-9_-]/i","url",0,"http://www.lenta.ru/18/08/2008/12.html",array('size'=>'40','ticket'=>"РђРґСЂРµСЃ СЃР°Р№С‚Р°"));
 
 $actions=$this->getActions();
 
 if (is_Array($actions)) {
-$frm->addField('Товар учавствует в акциях',"","caption",0,0,"/^[0-9]{1}$/i","acts",0,'',array('hidden'=>true));
+$frm->addField('РўРѕРІР°СЂ СѓС‡Р°РІСЃС‚РІСѓРµС‚ РІ Р°РєС†РёСЏС…',"","caption",0,0,"/^[0-9]{1}$/i","acts",0,'',array('hidden'=>true));
 
 
 
@@ -1206,17 +1206,17 @@ if (isset($product_actions[$action["id_action"]])) {
 } else {
 	$v=false;
 }
-$frm->addField($action["caption"],"Неверно выбрано свойство ".$action["caption"],"check",$v,$v,"/^[^`#]{1,255}$/i","actions[".$action["id_action"]."]",0);
+$frm->addField($action["caption"],"РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ ".$action["caption"],"check",$v,$v,"/^[^`#]{1,255}$/i","actions[".$action["id_action"]."]",0);
 }
 
-$frm->addField('Товар учавствует в акциях',"","caption",0,0,"/^[0-9]{1}$/i","acts",0,'',array('end'=>true));
+$frm->addField('РўРѕРІР°СЂ СѓС‡Р°РІСЃС‚РІСѓРµС‚ РІ Р°РєС†РёСЏС…',"","caption",0,0,"/^[0-9]{1}$/i","acts",0,'',array('end'=>true));
 
 }
 
 
-$frm->addField("Тег meta description","Неверно заполнен тег meta description","textarea",$meta,$meta,"/^[^`#]{2,255}$/i","meta",0,"",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РўРµРі meta description","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ С‚РµРі meta description","textarea",$meta,$meta,"/^[^`#]{2,255}$/i","meta",0,"",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Тег meta keywords","Неверно заполнен тег meta keywords","textarea",$keywords,$keywords,"/^[^`#]{2,255}$/i","keywords",0,"",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РўРµРі meta keywords","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ С‚РµРі meta keywords","textarea",$keywords,$keywords,"/^[^`#]{2,255}$/i","keywords",0,"",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
 $engine->generateLangControls("PRODUCTS",$lang_values,$frm);
 
@@ -1230,51 +1230,51 @@ $frm->addField("","","hidden",$id_product,$id_product,"/^[^`]{0,}$/i","id_produc
 }
 
 if (checkdate($date_news[1],$date_news[0],$date_news[2])==false)
-	$frm->addError("Выбранной даты не существует!");
+	$frm->addError("Р’С‹Р±СЂР°РЅРЅРѕР№ РґР°С‚С‹ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!");
 if ($mode=="edit") {
-$engine->addPath('Редактирование товара','',false);
+$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РѕРІР°СЂР°','',false);
 if ($code!=$product["code"])
 if (trim($code)!='')
  if ($this->existProduct($code))
-	$frm->addError("Товар с кодом <b>$code</b> существует!");
+	$frm->addError("РўРѕРІР°СЂ СЃ РєРѕРґРѕРј <b>$code</b> СЃСѓС‰РµСЃС‚РІСѓРµС‚!");
 } else {
-$engine->addPath('Добавление товара','',false);
+$engine->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ С‚РѕРІР°СЂР°','',false);
 if (trim($code)!='')
  if ($this->existProduct($code))
-	$frm->addError("Товар с кодом <b>$code</b> существует!");
+	$frm->addError("РўРѕРІР°СЂ СЃ РєРѕРґРѕРј <b>$code</b> СЃСѓС‰РµСЃС‚РІСѓРµС‚!");
 }
 $engine->assignPath();
 			if (
-$engine->processFormData($frm,"Сохранить",$first
+$engine->processFormData($frm,"РЎРѕС…СЂР°РЅРёС‚СЊ",$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				$item=$this->parseCollection($collection_id);
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if (isset($id_product)) {
 				 	if (!preg_match("/^[0-9.]{1,}$/i",$price1)) $price1=0;
 				 	if (!preg_match("/^[0-9.]{1,}$/i",$price2)) $price2=0;
 				 	if (!preg_match("/^[0-9.]{1,}$/i",$price_default)) $price_default=0;
 				 	if ($db->query("update %PRODUCTS% set `caption`='".sql_quote($caption)."' , `url`='".sql_quote($url)."',`date`='".sql_quote($date_news[2])."-".sql_quote($date_news[1])."-".sql_quote($date_news[0])."',content='".sql_quote($content)."',`content_full`='".sql_quote($content_full)."',visible=$visible,price1=$price1,price2=$price2,price_default=$price_default,kolvo=$kolvo,code='".sql_quote($code)."',id_category=$id_cat,`id_type`=$id_type,`id_firm`=".$item[0].",`id_collection`=".$item[1].", `meta`='".sql_quote($meta)."', `keywords`='".sql_quote($keywords)."' ".$engine->generateUpdateSQL("PRODUCTS",$lang_values)." where id_product=$id_product")) {
-						//отредактировали
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
 				//	   $modAction="view";
-				   $engine->setCongratulation("","Товар отредактирован успешно!",3000);
+				   $engine->setCongratulation("","РўРѕРІР°СЂ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅ СѓСЃРїРµС€РЅРѕ!",3000);
 				   $engine->clearCacheBlocks($this->thismodule["name"]);
 				   $m_action="view";
-	   				//Удаляем акции
+	   				//РЈРґР°Р»СЏРµРј Р°РєС†РёРё
 					$this->clearProductActions($product["id_product"]);
 					$this->addActionsToProduct($product_actions,$product["id_product"]);
 					}
 				 } else {
-				 	//показываем ошибку
+				 	//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
  $add_id=$this->addProduct($date_news,$caption,$content,$content_full,$url,$item[0],$item[1],$id_cat,$id_type,$price1,$price2,$price_default,$kolvo,$visible,$code,$engine->generateInsertSQL("PRODUCTS",$lang_values),$meta,$keywords);
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				//   $modAction="view";
-				   $engine->setCongratulation("","Товар добавлен успешно!",3000);
+				   $engine->setCongratulation("","РўРѕРІР°СЂ РґРѕР±Р°РІР»РµРЅ СѓСЃРїРµС€РЅРѕ!",3000);
 				   $engine->addModuleToCategory($this->thismodule["name"],$id_cat);
 				   $engine->clearCacheBlocks($this->thismodule["name"]);
 				   $this->addActionsToProduct($product_actions,$add_id);
@@ -1313,7 +1313,7 @@ $engine->processFormData($frm,"Сохранить",$first
 			$product=$this->getProductByID($id_product);
 			if ($db->query("delete from %PRODUCTS% where id_product=$id_product")) {
 				$db->query("delete from %PRODUCT_PICTURES% where id_product=$id_product");
-				$engine->setCongratulation("Товар удален!");
+				$engine->setCongratulation("РўРѕРІР°СЂ СѓРґР°Р»РµРЅ!");
 				$smarty->assign("id_category",$product["id_category"]);
 				$engine->clearCacheBlocks($this->thismodule["name"]);
 			}
@@ -1343,17 +1343,17 @@ $engine->processFormData($frm,"Сохранить",$first
 			}
 		}
 		$engine->clearCacheBlocks($this->thismodule["name"]);
-		$engine->setCongratulation('','Информация о товарах изменена',3000);
+		$engine->setCongratulation('','РРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРІР°СЂР°С… РёР·РјРµРЅРµРЅР°',3000);
 		$m_action="view";
 	break;
 	default: $m_action="view";
 }
 if ($m_action=="types") {
-		//типы товаров
+		//С‚РёРїС‹ С‚РѕРІР°СЂРѕРІ
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 		$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Просмотр типов товаров','',false);
+		$engine->addPath('РџСЂРѕСЃРјРѕС‚СЂ С‚РёРїРѕРІ С‚РѕРІР°СЂРѕРІ','',false);
 		$engine->assignPath();
 		$engine->addJS("/core/usermodules/products/types.js");
 		$engine->assignJS();
@@ -1375,7 +1375,7 @@ if ($m_action=="types") {
 				}
 			}
 			$engine->clearCacheBlocks($this->thismodule["name"]);
-			$engine->setCongratulation('Данные сохранены','Обновлено '.$u.' типов, удалено '.$d.' типов.',3000);
+			$engine->setCongratulation('Р”Р°РЅРЅС‹Рµ СЃРѕС…СЂР°РЅРµРЅС‹','РћР±РЅРѕРІР»РµРЅРѕ '.$u.' С‚РёРїРѕРІ, СѓРґР°Р»РµРЅРѕ '.$d.' С‚РёРїРѕРІ.',3000);
 		}
 		$types=$this->getProductTypes();
 		$smarty->assign("types",$types);
@@ -1384,7 +1384,7 @@ if ($m_action=="actions") {
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 		$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Акции и спецпредложения','',false);
+		$engine->addPath('РђРєС†РёРё Рё СЃРїРµС†РїСЂРµРґР»РѕР¶РµРЅРёСЏ','',false);
 		$engine->assignPath();
 		if (isset($_REQUEST["idaction"])) {
 			$idaction=@$_REQUEST["idaction"];
@@ -1405,38 +1405,38 @@ if ($m_action=="actions") {
 					 }
 				}
 			}
-			$engine->setCongratulation('Данные сохранены',"Обновлено $u акций, удалено $d акций",3000);
+			$engine->setCongratulation('Р”Р°РЅРЅС‹Рµ СЃРѕС…СЂР°РЅРµРЅС‹',"РћР±РЅРѕРІР»РµРЅРѕ $u Р°РєС†РёР№, СѓРґР°Р»РµРЅРѕ $d Р°РєС†РёР№",3000);
 		}
 		$actions=$this->getActions();
 		$smarty->assign("actions",$actions);
 }
 if ($m_action=="pricing") {
-	//Работа с наценками
+	//Р Р°Р±РѕС‚Р° СЃ РЅР°С†РµРЅРєР°РјРё
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 		$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Управление наценками','',false);
+		$engine->addPath('РЈРїСЂР°РІР»РµРЅРёРµ РЅР°С†РµРЅРєР°РјРё','',false);
 		$engine->assignPath();
 }
 if ($m_action=="firms") {
-	//Работа с фирмами
+	//Р Р°Р±РѕС‚Р° СЃ С„РёСЂРјР°РјРё
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 		$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-		$engine->addPath('Фирмы и коллекции','',false);
+		$engine->addPath('Р¤РёСЂРјС‹ Рё РєРѕР»Р»РµРєС†РёРё','',false);
 		$engine->assignPath();
 		if (isset($_REQUEST["add"])) {
 			$firmcaption=@$_REQUEST["firmcaption"];
 			if (!$this->existFirm($firmcaption)) {
 				$lang_values=array();
 				if ($this->addFirm($firmcaption,'',$engine->generateInsertSQL("FIRMS",$lang_values))) {
-					$engine->setCongratulation('',"Фирма $firmcaption добавлена",3000);
+					$engine->setCongratulation('',"Р¤РёСЂРјР° $firmcaption РґРѕР±Р°РІР»РµРЅР°",3000);
 				 	$engine->clearCacheBlocks($this->thismodule["name"]);
 				} else {
-					$engine->setCongratulation('Ошибка',"При добавлении фирмы $firmcaption произошла ошибка",3000);
+					$engine->setCongratulation('РћС€РёР±РєР°',"РџСЂРё РґРѕР±Р°РІР»РµРЅРёРё С„РёСЂРјС‹ $firmcaption РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°",3000);
 				}
 			} else {
-				$engine->setCongratulation('Ошибка',"Фирма уже $firmcaption уже создана",3000);
+				$engine->setCongratulation('РћС€РёР±РєР°',"Р¤РёСЂРјР° СѓР¶Рµ $firmcaption СѓР¶Рµ СЃРѕР·РґР°РЅР°",3000);
 			}
 		}
 		if (isset($_REQUEST["save"])) {
@@ -1459,14 +1459,14 @@ if ($m_action=="firms") {
 					}
 				}
 				$engine->clearCacheBlocks($this->thismodule["name"]);
-				$engine->setCongratulation('',"Обновлено $u фирм, удалено $d фирм",3000);
+				$engine->setCongratulation('',"РћР±РЅРѕРІР»РµРЅРѕ $u С„РёСЂРј, СѓРґР°Р»РµРЅРѕ $d С„РёСЂРј",3000);
 			}
 		}
 		$firms=$this->getAllFirms();
 		$smarty->assign("firms",$firms);
 }
 if ($m_action=="view") {
-		//получаем все рубрики
+		//РїРѕР»СѓС‡Р°РµРј РІСЃРµ СЂСѓР±СЂРёРєРё
 		$engine->clearPath();
 		$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 		$engine->addPath($this->thismodule["caption"],'',false);

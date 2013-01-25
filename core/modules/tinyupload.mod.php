@@ -12,7 +12,7 @@ if (isset($_FILES['image']))
 	if (in_array(strtolower($file_ext),$exts)) {
 		die("wrong_format");
 	}
-	if (!preg_match("/^[^‡-ˇ¿-ﬂ]{1,}$/i",$filename)) {
+	if (!preg_match("/^[^–∞-—è–ê-–Ø]{1,}$/i",$filename)) {
 		$filename=rand(1,10000000).rand(1,10000000).rand(1,10000000).'.'.$file_ext;
 	}
 	$error = false;

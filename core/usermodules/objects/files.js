@@ -24,7 +24,7 @@ new AjaxUpload(button,{
 		name: 'photoupload',
 		onSubmit : function(file, ext){
 			// change button text, when user selects file			
-			button.text('Загрузка');
+			button.text('Р—Р°РіСЂСѓР·РєР°');
 			
 			// If you want to allow uploading only 1 file at time,
 			// you can disable upload button
@@ -36,12 +36,12 @@ new AjaxUpload(button,{
 				if (text.length < 13){
 					button.text(text + '.');					
 				} else {
-					button.text('Загрузка');				
+					button.text('Р—Р°РіСЂСѓР·РєР°');				
 				}
 			}, 200);
 		},
 		onComplete: function(file, response){
-			button.text('Загрузить файл');
+			button.text('Р—Р°РіСЂСѓР·РёС‚СЊ С„Р°Р№Р»');
 						
 			window.clearInterval(interval);
 						
@@ -51,19 +51,19 @@ new AjaxUpload(button,{
 			// add file to the list
 			switch (response) {
 				case 'wrong_id_object':
-					tooltip("Ошибка при загрузке файла","Неверно передан идентификатор объекта",3000);
+					tooltip("РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ С„Р°Р№Р»Р°","РќРµРІРµСЂРЅРѕ РїРµСЂРµРґР°РЅ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕР±СЉРµРєС‚Р°",3000);
 				break;
 				case 'wrong_format':
-					tooltip("Ошибка при загрузке файла","Данный формат файлов запрещен к загрузке",3000);
+					tooltip("РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ С„Р°Р№Р»Р°","Р”Р°РЅРЅС‹Р№ С„РѕСЂРјР°С‚ С„Р°Р№Р»РѕРІ Р·Р°РїСЂРµС‰РµРЅ Рє Р·Р°РіСЂСѓР·РєРµ",3000);
 				break;
 				default:
 					try {
 					var object = jQuery.parseJSON(response);
 					} catch(e) {};
 					if (object==null) {
-						tooltip("Произошла ошибка!","Возможно размер загружаемого файла " + file + " , больше чем максимально допустимый на сервере, либо при передаче файла произошла ошибка.",0);
+						tooltip("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!","Р’РѕР·РјРѕР¶РЅРѕ СЂР°Р·РјРµСЂ Р·Р°РіСЂСѓР¶Р°РµРјРѕРіРѕ С„Р°Р№Р»Р° " + file + " , Р±РѕР»СЊС€Рµ С‡РµРј РјР°РєСЃРёРјР°Р»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјС‹Р№ РЅР° СЃРµСЂРІРµСЂРµ, Р»РёР±Рѕ РїСЂРё РїРµСЂРµРґР°С‡Рµ С„Р°Р№Р»Р° РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°.",0);
 					} else {
-					tooltip("Файл загружен","Файл " + file + " загружен успешно!",3000);					
+					tooltip("Р¤Р°Р№Р» Р·Р°РіСЂСѓР¶РµРЅ","Р¤Р°Р№Р» " + file + " Р·Р°РіСЂСѓР¶РµРЅ СѓСЃРїРµС€РЅРѕ!",3000);					
 					setFile(object.filename,object.id_file);	
 					}				
 			}		

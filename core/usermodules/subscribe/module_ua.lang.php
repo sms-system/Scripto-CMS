@@ -1,8 +1,8 @@
 <?
-$lang["subscribe"]["email"]="Âàø e-mail:";
-$lang["subscribe"]["name"]="Âàøå ³ì’ÿ:";
-$lang["subscribe"]["subscribe"]="Ïîñòàâèòè ï³äïèñ";
-$lang["subscribe"]["email_add"]="Âàø e-mail äîäàíèé äî ñïèñêó ðîçñèëîê";
-$lang["subscribe"]["email_exist"]="Âàø e-mail äîäàíèé äî ñïèñêó ðîçñèëîê";
-$lang["subscribe"]["email_error"]="Âè íåâ³ðíî âêàçàëè e-mail";
+$lang["subscribe"]["email"]="Ð’Ð°Ñˆ e-mail:";
+$lang["subscribe"]["name"]="Ð’Ð°ÑˆÐµ Ñ–Ð¼â€™Ñ:";
+$lang["subscribe"]["subscribe"]="ÐŸÐ¾ÑÑ‚Ð°Ð²Ð¸Ñ‚Ð¸ Ð¿Ñ–Ð´Ð¿Ð¸Ñ";
+$lang["subscribe"]["email_add"]="Ð’Ð°Ñˆ e-mail Ð´Ð¾Ð´Ð°Ð½Ð¸Ð¹ Ð´Ð¾ ÑÐ¿Ð¸ÑÐºÑƒ Ñ€Ð¾Ð·ÑÐ¸Ð»Ð¾Ðº";
+$lang["subscribe"]["email_exist"]="Ð’Ð°Ñˆ e-mail Ð´Ð¾Ð´Ð°Ð½Ð¸Ð¹ Ð´Ð¾ ÑÐ¿Ð¸ÑÐºÑƒ Ñ€Ð¾Ð·ÑÐ¸Ð»Ð¾Ðº";
+$lang["subscribe"]["email_error"]="Ð’Ð¸ Ð½ÐµÐ²Ñ–Ñ€Ð½Ð¾ Ð²ÐºÐ°Ð·Ð°Ð»Ð¸ e-mail";
 ?>

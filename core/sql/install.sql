@@ -35,13 +35,13 @@ FULLTEXT ( `caption` )
 CREATE INDEX category_id_category USING BTREE ON `%prefix%categories` (id_category);
 CREATE INDEX category_id_sub_category USING BTREE ON `%prefix%categories` (id_sub_category);
 
-INSERT into `%prefix%categories` values(null,0,'Главная страница','Благодарим Вас за установку Scripto CMS','','','','','text','','main',1,0,0,CURRENT_TIMESTAMP,1,1,'up',0,'','',0,'',0,0,1,0,'');
+INSERT into `%prefix%categories` values(null,0,'Р“Р»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°','Р‘Р»Р°РіРѕРґР°СЂРёРј Р’Р°СЃ Р·Р° СѓСЃС‚Р°РЅРѕРІРєСѓ Scripto CMS','','','','','text','','main',1,0,0,CURRENT_TIMESTAMP,1,1,'up',0,'','',0,'',0,0,1,0,'');
 
-INSERT into `%prefix%categories` values(null,1,'О компании','','','','','','text','','about',1,0,0,CURRENT_TIMESTAMP,1,0,'up',0,'','',0,'',0,0,1,0,'');
-INSERT into `%prefix%categories` values(null,1,'Партнеры','','','','','','text','','partners',1,0,0,CURRENT_TIMESTAMP,1,0,'up',0,'','',0,'',0,0,1,0,'');
-INSERT into `%prefix%categories` values(null,1,'Контакты','','','','','','text','','contacts',1,0,0,CURRENT_TIMESTAMP,1,0,'up',0,'','',0,'',0,0,1,0,'');
+INSERT into `%prefix%categories` values(null,1,'Рћ РєРѕРјРїР°РЅРёРё','','','','','','text','','about',1,0,0,CURRENT_TIMESTAMP,1,0,'up',0,'','',0,'',0,0,1,0,'');
+INSERT into `%prefix%categories` values(null,1,'РџР°СЂС‚РЅРµСЂС‹','','','','','','text','','partners',1,0,0,CURRENT_TIMESTAMP,1,0,'up',0,'','',0,'',0,0,1,0,'');
+INSERT into `%prefix%categories` values(null,1,'РљРѕРЅС‚Р°РєС‚С‹','','','','','','text','','contacts',1,0,0,CURRENT_TIMESTAMP,1,0,'up',0,'','',0,'',0,0,1,0,'');
 
-INSERT into `%prefix%categories` values(null,1,'404 ошибка','','','','','','text','','404',0,1,0,CURRENT_TIMESTAMP,1,0,'up',0,'','',0,'',0,0,1,0,'');
+INSERT into `%prefix%categories` values(null,1,'404 РѕС€РёР±РєР°','','','','','','text','','404',0,1,0,CURRENT_TIMESTAMP,1,0,'up',0,'','',0,'',0,0,1,0,'');
 
 CREATE TABLE `%prefix%photos` (
 `id_photo` BIGINT NOT NULL  AUTO_INCREMENT ,
@@ -191,12 +191,12 @@ CREATE INDEX templates_id_template USING BTREE ON `%prefix%templates` (id_tpl);
 
 INSERT INTO `%prefix%templates` ( `id_tpl` , `tpl_name` , `tpl_type` , `tpl_caption` , `tpl_theme` , `tpl_css`)
 VALUES (
-null, 'index.tpl.html', 'site', 'Шаблон главной страницы', 'default' ,'style.css'
+null, 'index.tpl.html', 'site', 'РЁР°Р±Р»РѕРЅ РіР»Р°РІРЅРѕР№ СЃС‚СЂР°РЅРёС†С‹', 'default' ,'style.css'
 );
 
 INSERT INTO `%prefix%templates` ( `id_tpl` , `tpl_name` , `tpl_type` , `tpl_caption` , `tpl_theme`, `tpl_css` )
 VALUES (
-null, 'standart.tpl.html', 'block', 'Стандартный шаблон блока', 'default',''
+null, 'standart.tpl.html', 'block', 'РЎС‚Р°РЅРґР°СЂС‚РЅС‹Р№ С€Р°Р±Р»РѕРЅ Р±Р»РѕРєР°', 'default',''
 );
 
 CREATE TABLE `%prefix%blocks` (
@@ -230,10 +230,10 @@ PRIMARY KEY ( `id_type` ) ,
 FULLTEXT ( `caption` )
 ) ENGINE=MyISAM;
 
-insert into `%prefix%block_types` values(null,'Текстовая информация','text','',0);
-insert into `%prefix%block_types` values(null,'Текстовые блоки','texts','',0);
-insert into `%prefix%block_types` values(null,'Текстовые блоки (random)','random','',0);
-insert into `%prefix%block_types` values(null,'Случайное фото','random_photo','',0);
+insert into `%prefix%block_types` values(null,'РўРµРєСЃС‚РѕРІР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ','text','',0);
+insert into `%prefix%block_types` values(null,'РўРµРєСЃС‚РѕРІС‹Рµ Р±Р»РѕРєРё','texts','',0);
+insert into `%prefix%block_types` values(null,'РўРµРєСЃС‚РѕРІС‹Рµ Р±Р»РѕРєРё (random)','random','',0);
+insert into `%prefix%block_types` values(null,'РЎР»СѓС‡Р°Р№РЅРѕРµ С„РѕС‚Рѕ','random_photo','',0);
 
 CREATE INDEX blocktypes_id_type USING BTREE ON `%prefix%block_types` (id_type);
 
@@ -326,4 +326,4 @@ PRIMARY KEY ( `id_language` )
 
 CREATE INDEX languages_id_language USING BTREE ON `%prefix%languages` (id_language);
 
-insert into `%prefix%languages` values(null,1,'ru','Русский язык');
+insert into `%prefix%languages` values(null,1,'ru','Р СѓСЃСЃРєРёР№ СЏР·С‹Рє');

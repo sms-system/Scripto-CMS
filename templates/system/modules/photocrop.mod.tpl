@@ -1,5 +1,5 @@
 <div class="body">
-<h1>Пожалуйста выберите фрагмент изображения</h1>
+<h1>РџРѕР¶Р°Р»СѓР№СЃС‚Р° РІС‹Р±РµСЂРёС‚Рµ С„СЂР°РіРјРµРЅС‚ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ</h1>
 <div class="body">
 {if $image}
 {if $cropSave}
@@ -43,12 +43,12 @@ parent.$.fancybox.close();
 <div class="body">
 <table width="100%">
 <tr>
-	<td width="50%"><div class="body min">Размер изображения: {$size.0}x{$size.1}</div></td>
-	<td width="50%" align="right"><input type="button" id="previewcreate" value="Создать превью"></td>
+	<td width="50%"><div class="body min">Р Р°Р·РјРµСЂ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ: {$size.0}x{$size.1}</div></td>
+	<td width="50%" align="right"><input type="button" id="previewcreate" value="РЎРѕР·РґР°С‚СЊ РїСЂРµРІСЊСЋ"></td>
 </tr>
 </table>
 </div>
 {else}
-<p><b>Ошибка загрузки изображения</b></p>
+<p><b>РћС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё РёР·РѕР±СЂР°Р¶РµРЅРёСЏ</b></p>
 {/if}
 </div>

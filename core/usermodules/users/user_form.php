@@ -1,13 +1,13 @@
 <?
-$frm->addField($lang["users"]["login"]["caption"],$lang["users"]["login"]["error"],"text",$login,$login,"/^[a-zA-Z0-9]{5,10}$/i","login",1,"dmitry991984",array('size'=>'40','ticket'=>"Öèôðû è ëàòèíñêèå áóêâû, îò 5 äî 10 ñèìâîëîâ"));
+$frm->addField($lang["users"]["login"]["caption"],$lang["users"]["login"]["error"],"text",$login,$login,"/^[a-zA-Z0-9]{5,10}$/i","login",1,"dmitry991984",array('size'=>'40','ticket'=>"Ð¦Ð¸Ñ„Ñ€Ñ‹ Ð¸ Ð»Ð°Ñ‚Ð¸Ð½ÑÐºÐ¸Ðµ Ð±ÑƒÐºÐ²Ñ‹, Ð¾Ñ‚ 5 Ð´Ð¾ 10 ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¾Ð²"));
 
-$frm->addField($lang["users"]["family"]["caption"],$lang["users"]["family"]["error"],"text",$family,$family,"/^[^`#]{2,255}$/i","family",0,$lang["users"]["family"]["sample"],array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+$frm->addField($lang["users"]["family"]["caption"],$lang["users"]["family"]["error"],"text",$family,$family,"/^[^`#]{2,255}$/i","family",0,$lang["users"]["family"]["sample"],array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 
-$frm->addField($lang["users"]["name"]["caption"],$lang["users"]["name"]["error"],"text",$name,$name,"/^[^`#]{2,255}$/i","name",1,$lang["users"]["name"]["sample"],array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+$frm->addField($lang["users"]["name"]["caption"],$lang["users"]["name"]["error"],"text",$name,$name,"/^[^`#]{2,255}$/i","name",1,$lang["users"]["name"]["sample"],array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 
-$frm->addField($lang["users"]["otch"]["caption"],$lang["users"]["otch"]["error"],"text",$otch,$otch,"/^[^`#]{2,255}$/i","otch",0,$lang["users"]["otch"]["sample"],array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+$frm->addField($lang["users"]["otch"]["caption"],$lang["users"]["otch"]["error"],"text",$otch,$otch,"/^[^`#]{2,255}$/i","otch",0,$lang["users"]["otch"]["sample"],array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 
-$frm->addField($lang["users"]["city"]["caption"],$lang["users"]["city"]["error"],"text",$city,$city,"/^[^`#]{2,255}$/i","city",0,$lang["users"]["city"]["sample"],array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+$frm->addField($lang["users"]["city"]["caption"],$lang["users"]["city"]["error"],"text",$city,$city,"/^[^`#]{2,255}$/i","city",0,$lang["users"]["city"]["sample"],array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 
 $frm->addField($lang["users"]["email"]["caption"],$lang["users"]["email"]["error"],"text",$email,$email,"/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i","email",1,$lang["users"]["email"]["sample"],array('size'=>'40','ticket'=>""));
 

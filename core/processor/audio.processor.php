@@ -24,7 +24,7 @@ global $page;
 	if ($page["main_page"]) {
 	$audios=$this->getAudioByCat($page["id_category"],true,true);
 	} else {
-	//ñòðàíèöû
+	//ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹
 	$onpage=$config["category"]["onpage_tracks"];
 	$max=$this->getCountAudioByCat($page["id_category"],true);
 	if (isset($_REQUEST["pg"])) {

@@ -1,6 +1,6 @@
 <?
 /*
-Ôàéë óäàëåíèÿ ìîäóëÿ ãîëîñîâàíèÿ
+Ð¤Ð°Ð¹Ð» ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ð³Ð¾Ð»Ð¾ÑÐ¾Ð²Ð°Ð½Ð¸Ñ
 */
 global $engine;
 $res=$db->query("select * from %block_types% where type='voters'");

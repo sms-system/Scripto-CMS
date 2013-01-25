@@ -1,5 +1,5 @@
 <?
-//Ìîäóëü êîììåíòàðèåâ, ïîëüçîâàòåëüñêàÿ ÷àñòü
+//ÐœÐ¾Ð´ÑƒÐ»ÑŒ ÐºÐ¾Ð¼Ð¼ÐµÐ½Ñ‚Ð°Ñ€Ð¸ÐµÐ², Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ°Ñ Ñ‡Ð°ÑÑ‚ÑŒ
 global $page;
 if (isset($_SESSION["auth"]) && isset($_SESSION["user_login"])) {
 	if ($_SESSION["auth"]) {
@@ -11,7 +11,7 @@ if (isset($_REQUEST["submit_comment"])) {
 	if (preg_match("/^[a-zA-Z0-9]{1,}$/i",$comment_type)) {
 		$comment_object=@$_REQUEST["comment_object"];
 		if (preg_match("/^[0-9]{1,}$/i",$comment_object)) {
-			//äîáàâëÿåì êîììåíòàðèé
+			//Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ ÐºÐ¾Ð¼Ð¼ÐµÐ½Ñ‚Ð°Ñ€Ð¸Ð¹
 			if (isset($_SESSION["auth"]) && isset($_SESSION["user_login"])) {
 				if ($_SESSION["auth"]) {
 					$nickname=$_SESSION["user_login"];

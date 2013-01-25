@@ -1,6 +1,6 @@
 <?
 /*
-Ôàéë óäàëåíèÿ ìîäóëÿ îáúåêòû
+Ð¤Ð°Ð¹Ð» ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ð¾Ð±ÑŠÐµÐºÑ‚Ñ‹
 */
 @delTree($config["pathes"]["user_files"]."files/");
 $res=$db->query("select * from %block_types% where type='lastobjects'");

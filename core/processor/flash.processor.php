@@ -26,7 +26,7 @@ if (isset($_REQUEST["flash_id"])) {
 	if ($page["main_page"]) {
 	$flashes=$this->getFlashByCat($page["id_category"],true,true);
 	} else {
-	//ñòðàíèöû
+	//ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹
 	$onpage=$config["category"]["onpage_flash"];
 	$max=$this->getCountFlashByCat($page["id_category"],true);
 	if (isset($_REQUEST["pg"])) {

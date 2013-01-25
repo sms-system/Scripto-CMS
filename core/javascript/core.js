@@ -1,5 +1,5 @@
 /*
-Библиотека javascript функций для Scripto CMS
+Р‘РёР±Р»РёРѕС‚РµРєР° javascript С„СѓРЅРєС†РёР№ РґР»СЏ Scripto CMS
 */
 	var tchk=true;
 	var show_close_dialog=true;
@@ -13,11 +13,11 @@
 	function selectImage() {
 		var all=$('.selected').length;
 		if ($("#type").val()=='video') {
-			var confirm_text='Сохранить видео?';
+			var confirm_text='РЎРѕС…СЂР°РЅРёС‚СЊ РІРёРґРµРѕ?';
 		} else if ($("#type").val()=='object') {
-			var confirm_text='Выбрать объект?';
+			var confirm_text='Р’С‹Р±СЂР°С‚СЊ РѕР±СЉРµРєС‚?';
 		} else {
-			var confirm_text='Выбрать превью?';
+			var confirm_text='Р’С‹Р±СЂР°С‚СЊ РїСЂРµРІСЊСЋ?';
 		}
 		if (all>0) {
 			if (confirm(confirm_text)) {
@@ -29,7 +29,7 @@
 				if (all==1) {
 					var url=$("#ref").val() + '&ajax=true&previewMode=' + $("#mode").val() + '&setPreview=yes&id_image=' + $('.selected:first').find("input").attr("idobject");
 				} else {
-					//множественный выбор
+					//РјРЅРѕР¶РµСЃС‚РІРµРЅРЅС‹Р№ РІС‹Р±РѕСЂ
 					var id_str='';
 					$('.selected').each(function(index) {
 						id_str=id_str + '&id_image[]=' + $(this).find("input").attr("idobject");
@@ -41,11 +41,11 @@
 			}
 		} else {
 			if ($("#type").val()=='video') {
-				alert('Вы не выбрали ни одного видео!');
+				alert('Р’С‹ РЅРµ РІС‹Р±СЂР°Р»Рё РЅРё РѕРґРЅРѕРіРѕ РІРёРґРµРѕ!');
 			} else if ($("#type").val()=='object') {
-				alert('Вы не выбрали ни одного объекта!');
+				alert('Р’С‹ РЅРµ РІС‹Р±СЂР°Р»Рё РЅРё РѕРґРЅРѕРіРѕ РѕР±СЉРµРєС‚Р°!');
 			} else {
-				alert('Вы не выбрали ни одного изображения!');
+				alert('Р’С‹ РЅРµ РІС‹Р±СЂР°Р»Рё РЅРё РѕРґРЅРѕРіРѕ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ!');
 			}
 		}	
 	}
@@ -63,15 +63,15 @@
 		var dl= el.value.length;
 		var el2=document.getElementById(id2);
 		if ((dl>=mmin) && (dl<=mmax)) {
-			el2.innerHTML='<font style=color:#99cc00;>Вы ввели ' + dl + ' символов</font>';
+			el2.innerHTML='<font style=color:#99cc00;>Р’С‹ РІРІРµР»Рё ' + dl + ' СЃРёРјРІРѕР»РѕРІ</font>';
 		} else {
 			 if ((mmin==0) && (mmax==0)) {
-		  el2.innerHTML='<font style=color:#99cc00;>Вы ввели ' + dl + ' символов</font>';
+		  el2.innerHTML='<font style=color:#99cc00;>Р’С‹ РІРІРµР»Рё ' + dl + ' СЃРёРјРІРѕР»РѕРІ</font>';
 		 } else {
 		  if (dl<mmin) {
-		   el2.innerHTML='<font style=color:#cc3300;<>Вы ввели ' + dl + ' символов (недобор - ' + (mmin-dl) + ' символа(ов))</font>';	
+		   el2.innerHTML='<font style=color:#cc3300;<>Р’С‹ РІРІРµР»Рё ' + dl + ' СЃРёРјРІРѕР»РѕРІ (РЅРµРґРѕР±РѕСЂ - ' + (mmin-dl) + ' СЃРёРјРІРѕР»Р°(РѕРІ))</font>';	
 		  } else {
-		   el2.innerHTML='<font style=color:#cc3300;<>Вы ввели ' + dl + ' символов (перебор - ' + (dl-mmax) + ' символа(ов))</font>';		  
+		   el2.innerHTML='<font style=color:#cc3300;<>Р’С‹ РІРІРµР»Рё ' + dl + ' СЃРёРјРІРѕР»РѕРІ (РїРµСЂРµР±РѕСЂ - ' + (dl-mmax) + ' СЃРёРјРІРѕР»Р°(РѕРІ))</font>';		  
 		  }
 		 }
 		}
@@ -147,7 +147,7 @@
 			} else {
 				clss='objects_cell_bold';
 			}
-			var img_html='<tr class="' + clss + '" id="obj' + id_object2 + '"><td id="preview' + id_object2 + '">' + caption + '</td><td align="center"><input type="text" class="textbox" name="sort[' + id_object2 + ']" value="0" size="3"></td><td align="center"><input type="checkbox" name="del[' + id_object2 + ']" class="deletecheckbox" numb="0"></td><td align="center"><a href="/admin/?module=modules&module_name=objects&modAction=settings&m_action=dialogobject&id_object=' + id_object + '&ajax=true&get_rubrics=true&mode=' + id_object2 + '" class="change">изменить</a></td></tr>';
+			var img_html='<tr class="' + clss + '" id="obj' + id_object2 + '"><td id="preview' + id_object2 + '">' + caption + '</td><td align="center"><input type="text" class="textbox" name="sort[' + id_object2 + ']" value="0" size="3"></td><td align="center"><input type="checkbox" name="del[' + id_object2 + ']" class="deletecheckbox" numb="0"></td><td align="center"><a href="/admin/?module=modules&module_name=objects&modAction=settings&m_action=dialogobject&id_object=' + id_object + '&ajax=true&get_rubrics=true&mode=' + id_object2 + '" class="change">РёР·РјРµРЅРёС‚СЊ</a></td></tr>';
 			$(".toDel").empty();
 			$(".toDel").die();	
 			$(".pictures").append(img_html);
@@ -164,7 +164,7 @@
 			} else {
 				clss='objects_cell_bold';
 			}
-			var img_html='<tr class="' + clss + '" id="obj' + id_object2 + '"><td id="preview' + id_object2 + '">' + caption + '</td><td align="center"><input type="text" class="textbox" name="sort[' + id_object2 + ']" value="0" size="3"></td><td align="center"><input type="checkbox" name="del[' + id_object2 + ']" class="deletecheckbox" numb="0"></td><td align="center"><a href="/admin/?module=modules&module_name=objects&modAction=settings&m_action=dialogobject&id_object=' + id_object + '&ajax=true&get_rubrics=true&mode=' + id_object2 + '" class="change">изменить</a></td></tr>';
+			var img_html='<tr class="' + clss + '" id="obj' + id_object2 + '"><td id="preview' + id_object2 + '">' + caption + '</td><td align="center"><input type="text" class="textbox" name="sort[' + id_object2 + ']" value="0" size="3"></td><td align="center"><input type="checkbox" name="del[' + id_object2 + ']" class="deletecheckbox" numb="0"></td><td align="center"><a href="/admin/?module=modules&module_name=objects&modAction=settings&m_action=dialogobject&id_object=' + id_object + '&ajax=true&get_rubrics=true&mode=' + id_object2 + '" class="change">РёР·РјРµРЅРёС‚СЊ</a></td></tr>';
 			$(".toDel").empty();
 			$(".toDel").die();	
 			$(".pictures").append(img_html);
@@ -181,7 +181,7 @@
 			} else {
 				clss='objects_cell_bold';
 			}
-			var img_html='<tr class="' + clss + '" id="img' + id_image + '"><td id="preview' + id_image + '"><a href="/admin/?module=objects&amp;modAction=crop&amp;filename_photo=' + img + '&amp;ajax=true" class="crop"><img src="' + path +  img + '" border="0"></a></td><td align="center"><input type="text" class="textbox" name="sort[' + id_image + ']" value="0" size="3"></td><td align="center"><input type="checkbox" name="del[' + id_image + ']" class="deletecheckbox" numb="0"></td><td align="center"><a href="/admin/?module=objects&modAction=changepreview&ajax=true&mode=' + id_image + '&id_category=' + id_category + '&get_rubrics=true" class="change">изменить</a></td></tr>';
+			var img_html='<tr class="' + clss + '" id="img' + id_image + '"><td id="preview' + id_image + '"><a href="/admin/?module=objects&amp;modAction=crop&amp;filename_photo=' + img + '&amp;ajax=true" class="crop"><img src="' + path +  img + '" border="0"></a></td><td align="center"><input type="text" class="textbox" name="sort[' + id_image + ']" value="0" size="3"></td><td align="center"><input type="checkbox" name="del[' + id_image + ']" class="deletecheckbox" numb="0"></td><td align="center"><a href="/admin/?module=objects&modAction=changepreview&ajax=true&mode=' + id_image + '&id_category=' + id_category + '&get_rubrics=true" class="change">РёР·РјРµРЅРёС‚СЊ</a></td></tr>';
 			$(".toDel").empty();
 			$(".toDel").die();	
 			$(".pictures").append(img_html);
@@ -198,7 +198,7 @@
 			} else {
 				clss='objects_cell_bold';
 			}
-			var img_html='<tr class="' + clss + '" id="video' + id_video + '"><td id="preview' + id_video + '"><a href="' + path + id_video + '&ajax=true" class="video">' + caption + '</a></td><td align="center"><input type="text" class="textbox" name="sort[' + id_video + ']" value="0" size="3"></td><td align="center"><input type="checkbox" name="del[' + id_video + ']" class="deletecheckbox" numb="0"></td><td align="center"><a href="/admin/?module=objects&modAction=changepreview&ajax=true&mode=' + id_video + '&id_category=' + id_category + '&get_rubrics=true&type=video" class="change">изменить</a></td></tr>';
+			var img_html='<tr class="' + clss + '" id="video' + id_video + '"><td id="preview' + id_video + '"><a href="' + path + id_video + '&ajax=true" class="video">' + caption + '</a></td><td align="center"><input type="text" class="textbox" name="sort[' + id_video + ']" value="0" size="3"></td><td align="center"><input type="checkbox" name="del[' + id_video + ']" class="deletecheckbox" numb="0"></td><td align="center"><a href="/admin/?module=objects&modAction=changepreview&ajax=true&mode=' + id_video + '&id_category=' + id_category + '&get_rubrics=true&type=video" class="change">РёР·РјРµРЅРёС‚СЊ</a></td></tr>';
 			$(".toDel").empty();
 			$(".toDel").die();	
 			$(".pictures").append(img_html);
@@ -235,7 +235,7 @@ if (max_obj>count_obj) {
  copy_object(objects[count_obj]);
  count_obj++;
 } else {
- alert('копирование завершено!');
+ alert('РєРѕРїРёСЂРѕРІР°РЅРёРµ Р·Р°РІРµСЂС€РµРЅРѕ!');
 }
 }
 
@@ -283,25 +283,25 @@ function promptUrl(mess,url,v) {
 }
 
 function goTo(url) {
-	//переходит на нужный url
+	//РїРµСЂРµС…РѕРґРёС‚ РЅР° РЅСѓР¶РЅС‹Р№ url
 	location.href=url;
 	return false;
 }
 
 function YesNo(message,url) {
-	//спрашивает да или нет и совершает действие
+	//СЃРїСЂР°С€РёРІР°РµС‚ РґР° РёР»Рё РЅРµС‚ Рё СЃРѕРІРµСЂС€Р°РµС‚ РґРµР№СЃС‚РІРёРµ
 	if (confirm(message)) location.href=url;
 	return false;
 }
 
 function YesNoAjax(message,url,object) {
-	//спрашивает да или нет и совершает действие
+	//СЃРїСЂР°С€РёРІР°РµС‚ РґР° РёР»Рё РЅРµС‚ Рё СЃРѕРІРµСЂС€Р°РµС‚ РґРµР№СЃС‚РІРёРµ
 	if (confirm(message)) loadContent(url,object);
 	return false;
 }
 
 function YesNoAjaxForm(message,url,object,frm) {
-	//спрашивает да или нет и совершает действие
+	//СЃРїСЂР°С€РёРІР°РµС‚ РґР° РёР»Рё РЅРµС‚ Рё СЃРѕРІРµСЂС€Р°РµС‚ РґРµР№СЃС‚РІРёРµ
 	if (confirm(message)) loadContentForm(url,object,frm,null);
 	return false;
 }
@@ -359,7 +359,7 @@ function cropMe(v) {
 function loadContent(url,object,effect_id) {
 new Ajax.Request(url,
   {
-  	encoding:'windows-1251',
+  	encoding:'utf-8',
     method:'get',
 	contentType:'application/x-www-form-urlencoded',
 	onCreate: function() {
@@ -367,12 +367,12 @@ new Ajax.Request(url,
 	notice2.update('<table style=\"height:250px;width:100%;\"><tr><td valign=middle align=center><img src=\"../images/admin/ajax-loader.gif\"></td></tr></table>');
 	 },	
     onSuccess: function(transport) {
-      var response = transport.responseText || "Не получено ответа от сервера";
+      var response = transport.responseText || "РќРµ РїРѕР»СѓС‡РµРЅРѕ РѕС‚РІРµС‚Р° РѕС‚ СЃРµСЂРІРµСЂР°";
 		var notice = $(object);
 		notice.update(response);
     },	 
     onComplete: function(transport) {
-      var response = transport.responseText || "Ошибка загрузки";
+      var response = transport.responseText || "РћС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё";
 		var notice = $(object);
 		notice.update(response);
 		
@@ -391,7 +391,7 @@ new Ajax.Request(url,
 function loadContentForm(url,object,form,effect_id) {
 new Ajax.Request(url,
   {
-  	encoding:'windows-1251',
+  	encoding:'utf-8',
     method:'post',
 	parameters: $(form).serialize(true),
 	contentType:'application/x-www-form-urlencoded',
@@ -400,12 +400,12 @@ new Ajax.Request(url,
 	notice2.update('<table style=\"height:250px;width:100%;\"><tr><td valign=middle align=center><img src=\"../images/admin/ajax-loader.gif\"></td></tr></table>');
 	 },	
     onSuccess: function(transport) {
-      var response = transport.responseText || "Не получено ответа от сервера";
+      var response = transport.responseText || "РќРµ РїРѕР»СѓС‡РµРЅРѕ РѕС‚РІРµС‚Р° РѕС‚ СЃРµСЂРІРµСЂР°";
 		var notice = $(object);
 		notice.update(response);
     },
     onComplete: function(transport) {
-      var response = transport.responseText || "Не получено ответа от сервера";
+      var response = transport.responseText || "РќРµ РїРѕР»СѓС‡РµРЅРѕ РѕС‚РІРµС‚Р° РѕС‚ СЃРµСЂРІРµСЂР°";
 		var notice = $(object);
 		notice.update(response);
 		try {
@@ -415,11 +415,11 @@ new Ajax.Request(url,
 		highlightMe(effect_id);
 		} catch(e) {}		
     },	
-    onFailure: function(){ alert('Ошибка загрузки') }
+    onFailure: function(){ alert('РћС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё') }
   });
 }
 
-//открыть ссылку в новом окне
+//РѕС‚РєСЂС‹С‚СЊ СЃСЃС‹Р»РєСѓ РІ РЅРѕРІРѕРј РѕРєРЅРµ
 	function open_window(link,w,h) 
 	{
 		var win = "width="+w+",height="+h+",menubar=no,location=no,resizable=yes,scrollbars=yes";
@@ -427,28 +427,28 @@ new Ajax.Request(url,
 		newWin.focus();
 	}
 
-//показать диалог загрузки
+//РїРѕРєР°Р·Р°С‚СЊ РґРёР°Р»РѕРі Р·Р°РіСЂСѓР·РєРё
 	function showLoad(capt) {
 		$("#load_caption").html(capt);
 		$("#load").fadeIn(700);
 	}
 	
-//устанавливаем название текущего процесса
+//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РЅР°Р·РІР°РЅРёРµ С‚РµРєСѓС‰РµРіРѕ РїСЂРѕС†РµСЃСЃР°
 	function setLoadProcess	(mess) {
 		$("#load_message").html(mess);
 	}
 	
-//скрыть диалог загрузки
+//СЃРєСЂС‹С‚СЊ РґРёР°Р»РѕРі Р·Р°РіСЂСѓР·РєРё
 	function hideLoad(capt) {
 		$("#load").fadeOut(700);
 	}	
 
-//сменить название у объекта галереи
+//СЃРјРµРЅРёС‚СЊ РЅР°Р·РІР°РЅРёРµ Сѓ РѕР±СЉРµРєС‚Р° РіР°Р»РµСЂРµРё
 	function renameItem(obj,value) {
 		$('#' + obj).find('.preview_caption').html(value);
 	}
 
-//получить напоминания и известия о новых событиях в системе
+//РїРѕР»СѓС‡РёС‚СЊ РЅР°РїРѕРјРёРЅР°РЅРёСЏ Рё РёР·РІРµСЃС‚РёСЏ Рѕ РЅРѕРІС‹С… СЃРѕР±С‹С‚РёСЏС… РІ СЃРёСЃС‚РµРјРµ
 	function getReminders() {
 		$.ajax({
 		  url: '/admin/?module=notes&modAction=get_new',
@@ -489,56 +489,56 @@ has_reminders=true;
 	function setProcess(btn) {
 	var id_process=$(btn).attr("id_process");
 	 	if (id_process>0) {
-			setLoadProcess('Пожалуйста подождите');
-			showLoad('Органайзер');
+			setLoadProcess('РџРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРґРѕР¶РґРёС‚Рµ');
+			showLoad('РћСЂРіР°РЅР°Р№Р·РµСЂ');
 			$.post('/admin/?module=notes&modAction=setDoAffair&id_process=' + id_process,function(response, status, xhr) {
 			  if (status == "error") {
-			    var msg = "В процессе загрузки произошла ошибка: ";
+			    var msg = "Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
 				hideLoad();
 			 } else {
 				hideLoad();
 				switch (response) {
 					case 'ERROR':
-						tooltip('Ошибка','При обновлении информации о деле произошла ошибка, пожалуйста попробуйте повторить запрос',0);
+						tooltip('РћС€РёР±РєР°','РџСЂРё РѕР±РЅРѕРІР»РµРЅРёРё РёРЅС„РѕСЂРјР°С†РёРё Рѕ РґРµР»Рµ РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°, РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїСЂРѕР±СѓР№С‚Рµ РїРѕРІС‚РѕСЂРёС‚СЊ Р·Р°РїСЂРѕСЃ',0);
 					break;
 					default:
-						$('#btn_' + id_process).html('Выполнено <b>' + response + '</b>');
+						$('#btn_' + id_process).html('Р’С‹РїРѕР»РЅРµРЅРѕ <b>' + response + '</b>');
 				}
 			 }
 			});
 		} else {
-			tooltip('Ошибка','Неверно указан идентификатор дела',5000);
+			tooltip('РћС€РёР±РєР°','РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РґРµР»Р°',5000);
 		}	
 	}
 	
 	function delProcess(btn) {
 	var id_process=$(btn).attr("id_process");
 	 	if (id_process>0) {
-			setLoadProcess('Пожалуйста подождите');
-			showLoad('Органайзер');
+			setLoadProcess('РџРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРґРѕР¶РґРёС‚Рµ');
+			showLoad('РћСЂРіР°РЅР°Р№Р·РµСЂ');
 			$.post('/admin/?module=notes&modAction=setDelAffair&id_process=' + id_process,function(response, status, xhr) {
 			  if (status == "error") {
-			    var msg = "В процессе загрузки произошла ошибка: ";
+			    var msg = "Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
 				hideLoad();
 			 } else {
 				hideLoad();
 				switch (response) {
 					case 'ERROR':
-						tooltip('Ошибка','При удалении дела произошла ошибка, пожалуйста попробуйте повторить запрос',0);
+						tooltip('РћС€РёР±РєР°','РџСЂРё СѓРґР°Р»РµРЅРёРё РґРµР»Р° РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°, РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїСЂРѕР±СѓР№С‚Рµ РїРѕРІС‚РѕСЂРёС‚СЊ Р·Р°РїСЂРѕСЃ',0);
 					break;
 					case 'DEL':
 						$("#affair" + id_process).empty();
 						$("#affair" + id_process).detach();
 					break;
 					default:
-						tooltip('Ошибка','При удалении дела произошла ошибка',5000);
+						tooltip('РћС€РёР±РєР°','РџСЂРё СѓРґР°Р»РµРЅРёРё РґРµР»Р° РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°',5000);
 				}
 			 }
 			});
 		} else {
-			tooltip('Ошибка','Неверно указан идентификатор дела',5000);
+			tooltip('РћС€РёР±РєР°','РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РґРµР»Р°',5000);
 		}	
 	}	
 	
@@ -562,7 +562,7 @@ has_reminders=true;
 		  success: function(data) {
 		    switch (data) {
 				case 'error':
-					tooltip('','При обновлении данных произошла ошибка',5000);
+					tooltip('','РџСЂРё РѕР±РЅРѕРІР»РµРЅРёРё РґР°РЅРЅС‹С… РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°',5000);
 				break;
 				default:
 					try {
@@ -570,9 +570,9 @@ has_reminders=true;
 					} catch(e) {};
 					$("#properties").fadeOut(500);
 					if (object==null) {
-						tooltip("Ошибка","При обновлении произошла ошибка, данные не сохранены",0);
+						tooltip("РћС€РёР±РєР°","РџСЂРё РѕР±РЅРѕРІР»РµРЅРёРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°, РґР°РЅРЅС‹Рµ РЅРµ СЃРѕС…СЂР°РЅРµРЅС‹",0);
 					} else {
-						tooltip('','Кнопка добавлена',2000);
+						tooltip('','РљРЅРѕРїРєР° РґРѕР±Р°РІР»РµРЅР°',2000);
 					}				
 			}
 		  }
@@ -596,7 +596,7 @@ has_reminders=true;
 			var n = $(".deletecheckbox:checked").length;
 			var m = $(".selectall .deletecheckbox:checked").length;
 			if (n>0) {
-				if (!confirm('Вы отметили ' + (n-m) + ' элемент(ов) для удаления. При нажатии кнопки да все они будут удалены. Продолжить?')) {
+				if (!confirm('Р’С‹ РѕС‚РјРµС‚РёР»Рё ' + (n-m) + ' СЌР»РµРјРµРЅС‚(РѕРІ) РґР»СЏ СѓРґР°Р»РµРЅРёСЏ. РџСЂРё РЅР°Р¶Р°С‚РёРё РєРЅРѕРїРєРё РґР° РІСЃРµ РѕРЅРё Р±СѓРґСѓС‚ СѓРґР°Р»РµРЅС‹. РџСЂРѕРґРѕР»Р¶РёС‚СЊ?')) {
 					return false;
 				}
 			}
@@ -678,7 +678,7 @@ has_reminders=true;
 		},
 		'onCleanup'	:	function() {
 			if (show_close_dialog) {
-				if (!confirm('Закрыть диалог? Все внесенные Вами изменения могут быть потеряны!')) {
+				if (!confirm('Р—Р°РєСЂС‹С‚СЊ РґРёР°Р»РѕРі? Р’СЃРµ РІРЅРµСЃРµРЅРЅС‹Рµ Р’Р°РјРё РёР·РјРµРЅРµРЅРёСЏ РјРѕРіСѓС‚ Р±С‹С‚СЊ РїРѕС‚РµСЂСЏРЅС‹!')) {
 					return false;
 				}
 			}
@@ -714,7 +714,7 @@ has_reminders=true;
 		'transitionOut'		: 'none',
 		'type'				: 'iframe',
 		'onCleanup'	:	function() {
-			if (!confirm('Прервать воспроизведение?')) {
+			if (!confirm('РџСЂРµСЂРІР°С‚СЊ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ?')) {
 				return false;
 			}
 		}		
@@ -726,7 +726,7 @@ has_reminders=true;
 		  hideTooltip(this);
 		});
 		
-	/*настройка fancybox*/
+	/*РЅР°СЃС‚СЂРѕР№РєР° fancybox*/
 	$("a.editor").fancybox({
 		'width'				: '70%',
 		'height'			: 520,
@@ -741,25 +741,25 @@ has_reminders=true;
 		},
 		'onCleanup'	:	function() {
 			if (show_close_dialog) {
-				if (!confirm('Закрыть диалог? Все внесенные Вами изменения могут быть потеряны!')) {
+				if (!confirm('Р—Р°РєСЂС‹С‚СЊ РґРёР°Р»РѕРі? Р’СЃРµ РІРЅРµСЃРµРЅРЅС‹Рµ Р’Р°РјРё РёР·РјРµРЅРµРЅРёСЏ РјРѕРіСѓС‚ Р±С‹С‚СЊ РїРѕС‚РµСЂСЏРЅС‹!')) {
 					return false;
 				}
 			}
 		}
 	});	
 	
-	/*функции галереи*/
+	/*С„СѓРЅРєС†РёРё РіР°Р»РµСЂРµРё*/
 	$('#selectImage').click(function() {
 		selectImage();
 	});
 
 	$('#deleteImage').click(function() {
 		if ($("#type").val()=='video') {
-			var confirm_text='Удалить видео?';
+			var confirm_text='РЈРґР°Р»РёС‚СЊ РІРёРґРµРѕ?';
 		} else if ($("#type").val()=='object') {
-			var confirm_text='Удалить объект?';
+			var confirm_text='РЈРґР°Р»РёС‚СЊ РѕР±СЉРµРєС‚?';
 		} else {
-			var confirm_text='Удалить превью?';
+			var confirm_text='РЈРґР°Р»РёС‚СЊ РїСЂРµРІСЊСЋ?';
 		}	
 			if (confirm(confirm_text)) {
 				if ($("#type").val()=='video') {
@@ -774,26 +774,26 @@ has_reminders=true;
 	});		
 	
 	$('#previewcreate').click(function() {
-		if (confirm('Сохранить превью?')) {
+		if (confirm('РЎРѕС…СЂР°РЅРёС‚СЊ РїСЂРµРІСЊСЋ?')) {
 			$("#frm").submit();
 		}
 	});
 	
 	$('#previewcreate2').click(function() {
-		if (confirm('Сохранить превью?')) {
+		if (confirm('РЎРѕС…СЂР°РЅРёС‚СЊ РїСЂРµРІСЊСЋ?')) {
 			$("#frm").submit();
 		}
 	});	
 		
 	$('#previewlist').change(function() {
-	  if (confirm('Изменить размер превью? Все сделанные на данный момент изменения будут потеряны!')) {
+	  if (confirm('РР·РјРµРЅРёС‚СЊ СЂР°Р·РјРµСЂ РїСЂРµРІСЊСЋ? Р’СЃРµ СЃРґРµР»Р°РЅРЅС‹Рµ РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РёР·РјРµРЅРµРЅРёСЏ Р±СѓРґСѓС‚ РїРѕС‚РµСЂСЏРЅС‹!')) {
 	  	var v=$('#previewlist option:selected').val();
 		cropMe(v);
 	  }
 	});	
 
 	$('#setrandomsize').click(function() {
-	  if (confirm('Изменить размер превью? Все сделанные на данный момент изменения будут потеряны!')) {
+	  if (confirm('РР·РјРµРЅРёС‚СЊ СЂР°Р·РјРµСЂ РїСЂРµРІСЊСЋ? Р’СЃРµ СЃРґРµР»Р°РЅРЅС‹Рµ РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РёР·РјРµРЅРµРЅРёСЏ Р±СѓРґСѓС‚ РїРѕС‚РµСЂСЏРЅС‹!')) {
 		var w=$("#width").val();
 		var h=$("#height").val();
 		var x=0;
@@ -831,12 +831,12 @@ has_reminders=true;
 	$('#deletebutton').click(function() {	
 		function doDelete() {
 			if (current<all) {
-			setLoadProcess('Перенос ' + (current+1) + ' из ' + all + ' объектов');	
+			setLoadProcess('РџРµСЂРµРЅРѕСЃ ' + (current+1) + ' РёР· ' + all + ' РѕР±СЉРµРєС‚РѕРІ');	
 			var idobject=$('.selected:first').find("input").attr("idobject");
 			
 			$.post('/admin/?module=objects&modAction=delete&objects[' + idobject + ']=1', function(response, status, xhr) {
 			  if (status == "error") {
-			    var msg = "В процессе загрузки произошла ошибка: ";
+			    var msg = "Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
 				hideLoad();
 			 } else {
@@ -849,31 +849,31 @@ has_reminders=true;
 			});	
 			} else {
 				hideLoad();
-				tooltip('Удаление завершено','Было удалено ' + current + ' объектов',5000);
+				tooltip('РЈРґР°Р»РµРЅРёРµ Р·Р°РІРµСЂС€РµРЅРѕ','Р‘С‹Р»Рѕ СѓРґР°Р»РµРЅРѕ ' + current + ' РѕР±СЉРµРєС‚РѕРІ',5000);
 			}
 		}
 		var all=$('.selected').length;
 		var current=0;
 		var id_category=$(this).attr("idcat");
 		if (all>0) {
-			if (confirm('ВНИМАНИЕ! Удаляемые данные в случае согласия будут потеряны навсегда!\nУдалить выделенные объекты?')) {
-				showLoad('удаление объектов');
+			if (confirm('Р’РќРРњРђРќРР•! РЈРґР°Р»СЏРµРјС‹Рµ РґР°РЅРЅС‹Рµ РІ СЃР»СѓС‡Р°Рµ СЃРѕРіР»Р°СЃРёСЏ Р±СѓРґСѓС‚ РїРѕС‚РµСЂСЏРЅС‹ РЅР°РІСЃРµРіРґР°!\nРЈРґР°Р»РёС‚СЊ РІС‹РґРµР»РµРЅРЅС‹Рµ РѕР±СЉРµРєС‚С‹?')) {
+				showLoad('СѓРґР°Р»РµРЅРёРµ РѕР±СЉРµРєС‚РѕРІ');
 				doDelete();
 			}
 		} else {
-			tooltip('Ошибка','Вы не выделили ни одного объекта для удаления!',5000);
+			tooltip('РћС€РёР±РєР°','Р’С‹ РЅРµ РІС‹РґРµР»РёР»Рё РЅРё РѕРґРЅРѕРіРѕ РѕР±СЉРµРєС‚Р° РґР»СЏ СѓРґР°Р»РµРЅРёСЏ!',5000);
 		}
 	});
 	
 	$('.copy_objects').click(function() {	
 		function doLoad() {
 			if (current<all) {
-			setLoadProcess('Копирование ' + (current+1) + ' из ' + all + ' объектов');	
+			setLoadProcess('РљРѕРїРёСЂРѕРІР°РЅРёРµ ' + (current+1) + ' РёР· ' + all + ' РѕР±СЉРµРєС‚РѕРІ');	
 			var idobject=$('.selected:first').find("input").attr("idobject");
 			
 			$.post("/admin/?module=objects&modAction=move&create_thumbnails=yes&delete_files=yes&id_cat="+id_category + "&objects[" + idobject + "]=1", function(response, status, xhr) {
 			  if (status == "error") {
-			    var msg = "В процессе загрузки произошла ошибка: ";
+			    var msg = "Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
 				hideLoad();
 			 } else {
@@ -886,32 +886,32 @@ has_reminders=true;
 			});	
 			} else {
 				hideLoad();
-				tooltip('Копирование завершено','Было скопировано ' + current + ' объектов',5000);
+				tooltip('РљРѕРїРёСЂРѕРІР°РЅРёРµ Р·Р°РІРµСЂС€РµРЅРѕ','Р‘С‹Р»Рѕ СЃРєРѕРїРёСЂРѕРІР°РЅРѕ ' + current + ' РѕР±СЉРµРєС‚РѕРІ',5000);
 			}
 		}
 		var all=$('.selected').length;
 		var current=0;
 		var id_category=$(this).attr("idcat");
 		if (all>0) {
-			if (confirm('Перенести выделенные объекты?')) {
-				showLoad('конвертация объектов');
+			if (confirm('РџРµСЂРµРЅРµСЃС‚Рё РІС‹РґРµР»РµРЅРЅС‹Рµ РѕР±СЉРµРєС‚С‹?')) {
+				showLoad('РєРѕРЅРІРµСЂС‚Р°С†РёСЏ РѕР±СЉРµРєС‚РѕРІ');
 				doLoad();
 			}
 		} else {
-			tooltip('Ошибка','Вы не выделили ни одного объекта для копирования в галерею!',5000);
+			tooltip('РћС€РёР±РєР°','Р’С‹ РЅРµ РІС‹РґРµР»РёР»Рё РЅРё РѕРґРЅРѕРіРѕ РѕР±СЉРµРєС‚Р° РґР»СЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РІ РіР°Р»РµСЂРµСЋ!',5000);
 		}
 	});	
 
 	$('#deleteitemsbutton').click(function() {	
 		function doLoad() {
 			if (current<all) {
-			setLoadProcess('Удаление ' + (current+1) + ' из ' + all + ' объектов');	
+			setLoadProcess('РЈРґР°Р»РµРЅРёРµ ' + (current+1) + ' РёР· ' + all + ' РѕР±СЉРµРєС‚РѕРІ');	
 			var idobject=$('.selected:first').find("input").attr("idobject");
 			var mass=$('.selected:first').find("input").attr("objtype");
 			
 			$.post("/admin/?module=objects&modAction=delete_objects&id_cat="+id_category + "&" + mass + "[" + idobject + "]=1", function(response, status, xhr) {
 			  if (status == "error") {
-			    var msg = "В процессе загрузки произошла ошибка: ";
+			    var msg = "Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
 				hideLoad();
 			 } else {
@@ -924,32 +924,32 @@ has_reminders=true;
 			});	
 			} else {
 				hideLoad();
-				tooltip('Удаление завершено','Было удалено ' + current + ' объектов',5000);
+				tooltip('РЈРґР°Р»РµРЅРёРµ Р·Р°РІРµСЂС€РµРЅРѕ','Р‘С‹Р»Рѕ СѓРґР°Р»РµРЅРѕ ' + current + ' РѕР±СЉРµРєС‚РѕРІ',5000);
 			}
 		}
 		var all=$('.selected').length;
 		var current=0;
 		var id_category=$(this).attr("idcat");
 		if (all>0) {
-			if (confirm('ВНИМАНИЕ! Удаляемые данные в случае согласия будут потеряны навсегда!\nУдалить выделенные объекты?')) {
-				showLoad('удаление объектов');
+			if (confirm('Р’РќРРњРђРќРР•! РЈРґР°Р»СЏРµРјС‹Рµ РґР°РЅРЅС‹Рµ РІ СЃР»СѓС‡Р°Рµ СЃРѕРіР»Р°СЃРёСЏ Р±СѓРґСѓС‚ РїРѕС‚РµСЂСЏРЅС‹ РЅР°РІСЃРµРіРґР°!\nРЈРґР°Р»РёС‚СЊ РІС‹РґРµР»РµРЅРЅС‹Рµ РѕР±СЉРµРєС‚С‹?')) {
+				showLoad('СѓРґР°Р»РµРЅРёРµ РѕР±СЉРµРєС‚РѕРІ');
 				doLoad();
 			}
 		} else {
-			tooltip('Ошибка','Вы не выделили ни одного объекта для удаления!',5000);
+			tooltip('РћС€РёР±РєР°','Р’С‹ РЅРµ РІС‹РґРµР»РёР»Рё РЅРё РѕРґРЅРѕРіРѕ РѕР±СЉРµРєС‚Р° РґР»СЏ СѓРґР°Р»РµРЅРёСЏ!',5000);
 		}
 	});	
 
 	$('.move_objects').click(function() {	
 		function doLoad() {
 			if (current<all) {
-			setLoadProcess('Перемещение ' + (current+1) + ' из ' + all + ' объектов');	
+			setLoadProcess('РџРµСЂРµРјРµС‰РµРЅРёРµ ' + (current+1) + ' РёР· ' + all + ' РѕР±СЉРµРєС‚РѕРІ');	
 			var idobject=$('.selected:first').find("input").attr("idobject");
 			var mass=$('.selected:first').find("input").attr("objtype");
 			
 			$.post("/admin/?module=objects&modAction=move_id_cat&id_cat="+id_category + "&" + mass + "[" + idobject + "]=1", function(response, status, xhr) {
 			  if (status == "error") {
-			    var msg = "В процессе загрузки произошла ошибка: ";
+			    var msg = "Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
 				hideLoad();
 			 } else {
@@ -962,19 +962,19 @@ has_reminders=true;
 			});	
 			} else {
 				hideLoad();
-				tooltip('Перемещение завершено','Было перемещено ' + current + ' объектов',5000);
+				tooltip('РџРµСЂРµРјРµС‰РµРЅРёРµ Р·Р°РІРµСЂС€РµРЅРѕ','Р‘С‹Р»Рѕ РїРµСЂРµРјРµС‰РµРЅРѕ ' + current + ' РѕР±СЉРµРєС‚РѕРІ',5000);
 			}
 		}
 		var all=$('.selected').length;
 		var current=0;
 		var id_category=$(this).attr("idcat");
 		if (all>0) {
-			if (confirm('Переместить выделенные объекты?')) {
-				showLoad('перемещение объектов');
+			if (confirm('РџРµСЂРµРјРµСЃС‚РёС‚СЊ РІС‹РґРµР»РµРЅРЅС‹Рµ РѕР±СЉРµРєС‚С‹?')) {
+				showLoad('РїРµСЂРµРјРµС‰РµРЅРёРµ РѕР±СЉРµРєС‚РѕРІ');
 				doLoad();
 			}
 		} else {
-			tooltip('Ошибка','Вы не выделили ни одного объекта для перемещения!',5000);
+			tooltip('РћС€РёР±РєР°','Р’С‹ РЅРµ РІС‹РґРµР»РёР»Рё РЅРё РѕРґРЅРѕРіРѕ РѕР±СЉРµРєС‚Р° РґР»СЏ РїРµСЂРµРјРµС‰РµРЅРёСЏ!',5000);
 		}
 	});	
 	
@@ -988,7 +988,7 @@ has_reminders=true;
 	});
 	
 	$('.preview').live('click', function() {
-		//если нужно выделить только 1 объект, остальные убираем
+		//РµСЃР»Рё РЅСѓР¶РЅРѕ РІС‹РґРµР»РёС‚СЊ С‚РѕР»СЊРєРѕ 1 РѕР±СЉРµРєС‚, РѕСЃС‚Р°Р»СЊРЅС‹Рµ СѓР±РёСЂР°РµРј
 		if ($("#multiple").val()=='no') {
 			$(".icons").find(".preview").removeClass('selected');
 			$(".icons").find("input").val('0');		
@@ -1032,12 +1032,12 @@ has_reminders=true;
 	});				
 	
 	$('.ch').click(function() {	
-		if (!confirm('Перейти к выбору превью? Все текущие изменения будут потеряны!')) {
+		if (!confirm('РџРµСЂРµР№С‚Рё Рє РІС‹Р±РѕСЂСѓ РїСЂРµРІСЊСЋ? Р’СЃРµ С‚РµРєСѓС‰РёРµ РёР·РјРµРЅРµРЅРёСЏ Р±СѓРґСѓС‚ РїРѕС‚РµСЂСЏРЅС‹!')) {
 			return false;
 		}
 	});	
 	
-	/*конец функций галереи*/
+	/*РєРѕРЅРµС† С„СѓРЅРєС†РёР№ РіР°Р»РµСЂРµРё*/
 	
 	$("a.external").fancybox({
 		'width'				: '90%',
@@ -1081,7 +1081,7 @@ has_reminders=true;
 		},
 		'onCleanup'	:	function() {
 			if (show_close_dialog) {
-				if (!confirm('Закрыть диалог? Все внесенные Вами изменения могут быть потеряны!')) {
+				if (!confirm('Р—Р°РєСЂС‹С‚СЊ РґРёР°Р»РѕРі? Р’СЃРµ РІРЅРµСЃРµРЅРЅС‹Рµ Р’Р°РјРё РёР·РјРµРЅРµРЅРёСЏ РјРѕРіСѓС‚ Р±С‹С‚СЊ РїРѕС‚РµСЂСЏРЅС‹!')) {
 					return false;
 				}
 			}
@@ -1097,7 +1097,7 @@ has_reminders=true;
 		'transitionOut'		: 'none',
 		'type'				: 'iframe',
 		'onCleanup'	:	function() {
-			if (!confirm('Прервать воспроизведение?')) {
+			if (!confirm('РџСЂРµСЂРІР°С‚СЊ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ?')) {
 				return false;
 			}
 		}		
@@ -1112,7 +1112,7 @@ has_reminders=true;
 		'transitionOut'		: 'none',
 		'type'				: 'iframe',
 		'onCleanup'	:	function() {
-			if (!confirm('Прервать воспроизведение?')) {
+			if (!confirm('РџСЂРµСЂРІР°С‚СЊ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ?')) {
 				return false;
 			}
 		}		
@@ -1125,7 +1125,7 @@ has_reminders=true;
 		'speedOut'		:	200, 
 		'overlayShow'	:	false
 	});	
-	/*конец настройки fancybox*/			
+	/*РєРѕРЅРµС† РЅР°СЃС‚СЂРѕР№РєРё fancybox*/			
 
 		$('.show_hidden').change(function() {
 			var ident=$(this).attr("ident");
@@ -1154,11 +1154,11 @@ has_reminders=true;
 				break;
 				case 'rubrics':
 					if ($(this).val()=='razd') {
-						var n=prompt('Пожалуйста укажите уровень от 0 и больше');
+						var n=prompt('РџРѕР¶Р°Р»СѓР№СЃС‚Р° СѓРєР°Р¶РёС‚Рµ СѓСЂРѕРІРµРЅСЊ РѕС‚ 0 Рё Р±РѕР»СЊС€Рµ');
 						if (n>=0) {
 						str='<ul>\n\t{foreach key=key item=cat from=$rubrics.up}\n\t\t{if $cat.level==' + n + '}\n\t\t\t{if $cat.caption}\n\t\t\t\t<li><a href="{if $cat.rss_link}{$cat.rss_link}{else}{$cat.url}{/if}" {if $cat.selected && !$cat.main_page}class="selected"{/if}>{$cat.caption}</a></li>\n\t\t\t{/if}\n\t\t{/if}\n\t{/foreach}\n</ul>';
 						} else {
-						tooltip('Ошибка','Вы неверно указали уровень',3000);
+						tooltip('РћС€РёР±РєР°','Р’С‹ РЅРµРІРµСЂРЅРѕ СѓРєР°Р·Р°Р»Рё СѓСЂРѕРІРµРЅСЊ',3000);
 						}
 					}
 					if ($(this).val()=='podrazd') {
@@ -1182,35 +1182,35 @@ has_reminders=true;
 		/*notes*/
 	$('#delo').keyup (function() {
 		var str=$("#delo").val();
-		$("#symbols").html('Вы ввели ' + str.length + ' символов');
+		$("#symbols").html('Р’С‹ РІРІРµР»Рё ' + str.length + ' СЃРёРјРІРѕР»РѕРІ');
 	});
 	
 	$('#createAffair').click(function() {	
 		if ($("#delo").val()!='' && $("#vazhn").val()!='') {
-			setLoadProcess('Добавление нового дела');
-			showLoad('Органайзер');
+			setLoadProcess('Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ РґРµР»Р°');
+			showLoad('РћСЂРіР°РЅР°Р№Р·РµСЂ');
 			$.post('/admin/?module=notes&modAction=createAffair&vazhn=' + $("#vazhn").val() + '&delo=' + $("#delo").val(),function(response, status, xhr) {
 			  if (status == "error") {
-			    var msg = "В процессе загрузки произошла ошибка: ";
+			    var msg = "Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
 				hideLoad();
 			 } else {
 				hideLoad();
 			 	switch (response) {
 					case 'WRONGDATA':
-						tooltip('Ошибка','Переданы неверные параметры',5000);
+						tooltip('РћС€РёР±РєР°','РџРµСЂРµРґР°РЅС‹ РЅРµРІРµСЂРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹',5000);
 					break;
 					case 'ERROR':
-						tooltip('Ошибка','Ошибка добавления нового дела',0);
+						tooltip('РћС€РёР±РєР°','РћС€РёР±РєР° РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕРіРѕ РґРµР»Р°',0);
 					break;
 					default:
 					try {
 						var object = jQuery.parseJSON(response);
 					} catch(e) {};
 					if (object==null) {
-						tooltip("Ошибка","При добавлении дела произошла непредвиденная ошибка, пожалуйста повторите попытку добавления еще раз",0);
+						tooltip("РћС€РёР±РєР°","РџСЂРё РґРѕР±Р°РІР»РµРЅРёРё РґРµР»Р° РїСЂРѕРёР·РѕС€Р»Р° РЅРµРїСЂРµРґРІРёРґРµРЅРЅР°СЏ РѕС€РёР±РєР°, РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ РґРѕР±Р°РІР»РµРЅРёСЏ РµС‰Рµ СЂР°Р·",0);
 					} else {
-					var s_object='<div id="affair' + object.id_process + '"><table><tr><td width="45%" class="proc">' + object.content + '</td><td width="10%" align="center"><input type="button" class="del_btn" id_process="' + object.id_process + '" value="удалить"></td><td width="20%" align="center">' + object.create_print + '</td><td width="25%" align="right" class="bigbutton" id="btn_' + object.id_process + '"><input type="button" class="subm_btn" id_process="' + object.id_process + '" value="Готово!"></td></tr></table></div>';
+					var s_object='<div id="affair' + object.id_process + '"><table><tr><td width="45%" class="proc">' + object.content + '</td><td width="10%" align="center"><input type="button" class="del_btn" id_process="' + object.id_process + '" value="СѓРґР°Р»РёС‚СЊ"></td><td width="20%" align="center">' + object.create_print + '</td><td width="25%" align="right" class="bigbutton" id="btn_' + object.id_process + '"><input type="button" class="subm_btn" id_process="' + object.id_process + '" value="Р“РѕС‚РѕРІРѕ!"></td></tr></table></div>';
 						$('.process[vazhn=' + object.vazhn + ']').append(s_object);
 						$("#delo").val('');
 						$("#symbols").html('');
@@ -1221,7 +1221,7 @@ has_reminders=true;
 			 }
 			 });	
 		} else {
-			tooltip('Ошибка','Вы не ввели описание дела!',5000);
+			tooltip('РћС€РёР±РєР°','Р’С‹ РЅРµ РІРІРµР»Рё РѕРїРёСЃР°РЅРёРµ РґРµР»Р°!',5000);
 		}
 	});		
 
@@ -1230,7 +1230,7 @@ has_reminders=true;
 	});
 	
 	$('.del_btn').live('click', function() {
-		if (confirm('Удалить дело?'))
+		if (confirm('РЈРґР°Р»РёС‚СЊ РґРµР»Рѕ?'))
 			delProcess(this);
 	});	
 		/*end of notes*/
@@ -1240,13 +1240,13 @@ has_reminders=true;
 			var idcat=$(this).attr("idcat");
 			var parent=$(this).attr("idcat");
 			  if ($(this).attr("mode")==1) {
-			  	//если минус
+			  	//РµСЃР»Рё РјРёРЅСѓСЃ
 				$(this).attr("src","/images/admin/icons/plus.png");
 				$(this).attr("mode",0);
 				$('.divblock[parent=' + idcat + ']').removeClass('category_float');
 				$('.divblock[parent=' + idcat + ']').addClass('invisible_category');
 			  } else {
-			  	//если плюс
+			  	//РµСЃР»Рё РїР»СЋСЃ
 				$(this).attr("src","/images/admin/icons/minus.png");
 				$(this).attr("mode",1);
 				$('.divblock[parent=' + idcat + ']').removeClass('invisible_category');				
@@ -1274,7 +1274,7 @@ has_reminders=true;
 	
 	$('.new_button').live('click', function() {
 		var cls=$(this).attr("addclass");
-		$('#sortable').append('<li class="ui-state-default ' + cls + '">Укажите название</li>');
+		$('#sortable').append('<li class="ui-state-default ' + cls + '">РЈРєР°Р¶РёС‚Рµ РЅР°Р·РІР°РЅРёРµ</li>');
 	});
 	
 
@@ -1285,14 +1285,14 @@ has_reminders=true;
 			$(this).draggable();
 			var n = $(".drag_button").length;
 			$(this).attr("id","button_" + (n+1));
-			$(this).html('Кнопка ' + (n+1));
-			$(this).attr("caption",'Кнопка ' + (n+1));
+			$(this).html('РљРЅРѕРїРєР° ' + (n+1));
+			$(this).attr("caption",'РљРЅРѕРїРєР° ' + (n+1));
 		});
 	});
 
 	$('#sortable li').live('click', function() {
 		if (mainMode==1) {
-		//редактирование
+		//СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ
 		$("#caption").val($(this).html());
 		if ($(this).attr("url")==null) {
 		$("#url").val('http://');
@@ -1311,7 +1311,7 @@ has_reminders=true;
 		$("#properties").css(cssObj);
 		$("#properties").fadeIn(500);
 		} else {
-		//обработка клика
+		//РѕР±СЂР°Р±РѕС‚РєР° РєР»РёРєР°
 		}
 	});		
 	*/
@@ -1321,16 +1321,16 @@ has_reminders=true;
 	activeClass: 'edit_hover',
 	hoverClass: 'edit_hover',	
 	out: function(event,ui) {
-		if (confirm('Удалить кнопку ' + ui.draggable.attr("caption") + '?')) {
+		if (confirm('РЈРґР°Р»РёС‚СЊ РєРЅРѕРїРєСѓ ' + ui.draggable.attr("caption") + '?')) {
 		  $.ajax({
 		  url: '/admin/?delete=yes&idobject=' + ui.draggable.attr("idobject"),
 		  success: function(data) {
 		    switch (data) {
 				case 'error':
-					tooltip('','При удалении произошла ошибка',5000);
+					tooltip('','РџСЂРё СѓРґР°Р»РµРЅРёРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°',5000);
 				break;
 				case 'ok':
-					tooltip('','Кнопка удалена',5000);
+					tooltip('','РљРЅРѕРїРєР° СѓРґР°Р»РµРЅР°',5000);
 				break;
 			}
 			ui.draggable.fadeOut(300);

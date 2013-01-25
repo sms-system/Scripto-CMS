@@ -1,7 +1,7 @@
 <?
 global $page;
 if (isset($_REQUEST["publicationID"])) {
-	//просмотр товара
+	//РїСЂРѕСЃРјРѕС‚СЂ С‚РѕРІР°СЂР°
 	$publicationID=$_REQUEST["publicationID"];
 	if (preg_match("/^[0-9]{1,}$/i",$publicationID)) {
 		$publication=$this->getPublicationByID($publicationID);
@@ -20,7 +20,7 @@ if (isset($_REQUEST["publicationID"])) {
 		}
 	}
 } else {
-	//просмотр товаров
+	//РїСЂРѕСЃРјРѕС‚СЂ С‚РѕРІР°СЂРѕРІ
 					//$rubrics=$this->getCountAllProducts();
 					$onpage=$this->thismodule["onpage"];
 					$count=$this->getPublicationsCount($page["id_category"],true);

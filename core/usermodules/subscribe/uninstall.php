@@ -1,6 +1,6 @@
 <?
 /*
-Ôàéë óäàëåíèÿ ìîäóëÿ Ğàññûëêè
+Ğ¤Ğ°Ğ¹Ğ» ÑƒĞ´Ğ°Ğ»ĞµĞ½Ğ¸Ñ Ğ¼Ğ¾Ğ´ÑƒĞ»Ñ Ğ Ğ°ÑÑÑ‹Ğ»ĞºĞ¸
 */
 $res=$db->query("select * from %block_types% where type='subscribe'");
 $row=$db->fetch($res);

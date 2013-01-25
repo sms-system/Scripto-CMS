@@ -9,7 +9,7 @@
 	s1.write("videocontainer");
 </script>
 {else}
-<p>Ошибка в запросе, либо некорректное видео</p>
+<p>РћС€РёР±РєР° РІ Р·Р°РїСЂРѕСЃРµ, Р»РёР±Рѕ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРµ РІРёРґРµРѕ</p>
 {/if}
 {elseif $modAction=="changepreview"}
 {if !$get_rubrics}
@@ -47,15 +47,15 @@
 	{if $type=="video"}
 	<table width="100%">
 		<tr>
-			<td width="50%" align="left"><input type="button" value="удалить текущее видео" id="deleteImage"></td>
-			<td width="50%" align="right"><input type="button" value="выбрать видео" id="selectImage" class="bigbutton"></td>
+			<td width="50%" align="left"><input type="button" value="СѓРґР°Р»РёС‚СЊ С‚РµРєСѓС‰РµРµ РІРёРґРµРѕ" id="deleteImage"></td>
+			<td width="50%" align="right"><input type="button" value="РІС‹Р±СЂР°С‚СЊ РІРёРґРµРѕ" id="selectImage" class="bigbutton"></td>
 		</tr>
 	</table>	
 	{else}
 	<table width="100%">
 		<tr>
-			<td width="50%" align="left"><input type="button" value="удалить текущее изображение" id="deleteImage"></td>
-			<td width="50%" align="right"><input type="button" value="выбрать изображение" id="selectImage" class="bigbutton"></td>
+			<td width="50%" align="left"><input type="button" value="СѓРґР°Р»РёС‚СЊ С‚РµРєСѓС‰РµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ" id="deleteImage"></td>
+			<td width="50%" align="right"><input type="button" value="РІС‹Р±СЂР°С‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ" id="selectImage" class="bigbutton"></td>
 		</tr>
 	</table>
 	{/if}
@@ -70,7 +70,7 @@
 {if $image}
 {if $cropSave}
 <script>
-parent.tooltip("Превью создано","Объект сохранен успешно!",7000);
+parent.tooltip("РџСЂРµРІСЊСЋ СЃРѕР·РґР°РЅРѕ","РћР±СЉРµРєС‚ СЃРѕС…СЂР°РЅРµРЅ СѓСЃРїРµС€РЅРѕ!",7000);
 parent.show_close_dialog=false;
 parent.$.fancybox.close();
 </script>
@@ -101,12 +101,12 @@ parent.$.fancybox.close();
 <input type="hidden" name="h" id="h" value="{$height}">
 <table width="100%" class="croptable">
 	<tr>
-		<td width="50%">Сохранить выделенный элемент как: &nbsp;
+		<td width="50%">РЎРѕС…СЂР°РЅРёС‚СЊ РІС‹РґРµР»РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚ РєР°Рє: &nbsp;
 		<select name="previewlist" id="previewlist">
-			<option value="medium">Среднее превью</option>
-			<option value="small" selected>Малое превью</option>
+			<option value="medium">РЎСЂРµРґРЅРµРµ РїСЂРµРІСЊСЋ</option>
+			<option value="small" selected>РњР°Р»РѕРµ РїСЂРµРІСЊСЋ</option>
 		</select></td>
-		<td align="right"><input type="button" id="previewcreate2" value="Создать превью"></td>
+		<td align="right"><input type="button" id="previewcreate2" value="РЎРѕР·РґР°С‚СЊ РїСЂРµРІСЊСЋ"></td>
 	</tr>
 </table>
 <div id="editablearena">
@@ -115,15 +115,15 @@ parent.$.fancybox.close();
 <div class="body">
 <table width="100%">
 <tr>
-	<td width="25%"><div class="body min">Размер изображения: {$size.0}x{$size.1}</div></td>
-	<td width="50%" align="center">Размеры блока: <input type="text" id="width" name="width" value="{$width}" size="3">x<input type="text" name="height" id="height" value="{$height}" size="3">&nbsp;<input type="button" value="установить иной размер" id="setrandomsize"></td>
-	<td width="25%" align="right"><input type="button" id="previewcreate" value="Создать превью" class="bigbutton"></td>
+	<td width="25%"><div class="body min">Р Р°Р·РјРµСЂ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ: {$size.0}x{$size.1}</div></td>
+	<td width="50%" align="center">Р Р°Р·РјРµСЂС‹ Р±Р»РѕРєР°: <input type="text" id="width" name="width" value="{$width}" size="3">x<input type="text" name="height" id="height" value="{$height}" size="3">&nbsp;<input type="button" value="СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РёРЅРѕР№ СЂР°Р·РјРµСЂ" id="setrandomsize"></td>
+	<td width="25%" align="right"><input type="button" id="previewcreate" value="РЎРѕР·РґР°С‚СЊ РїСЂРµРІСЊСЋ" class="bigbutton"></td>
 </tr>
 </table>
 </form>
 </div>
 {else}
-<p><b>Ошибка загрузки изображения</b></p>
+<p><b>РћС€РёР±РєР° Р·Р°РіСЂСѓР·РєРё РёР·РѕР±СЂР°Р¶РµРЅРёСЏ</b></p>
 {/if}
 </div>
 {elseif $modAction=="viewflash"}
@@ -136,7 +136,7 @@ parent.$.fancybox.close();
 	s1.write("videocontainer");
 </script>
 {else}
-<p>Ошибка в запросе, либо некорректный flash</p>
+<p>РћС€РёР±РєР° РІ Р·Р°РїСЂРѕСЃРµ, Р»РёР±Рѕ РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ flash</p>
 {/if}
 {elseif $modAction=="viewaudio"}
 {if $audio}
@@ -149,7 +149,7 @@ parent.$.fancybox.close();
 	s1.write("videocontainer");
 </script>
 {else}
-<p>Ошибка в запросе, либо некорректное аудио</p>
+<p>РћС€РёР±РєР° РІ Р·Р°РїСЂРѕСЃРµ, Р»РёР±Рѕ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРµ Р°СѓРґРёРѕ</p>
 {/if}
 {elseif $modAction=="edit_object"}
 {include file='admin/module_header.tpl.html'}
@@ -158,12 +158,12 @@ parent.$.fancybox.close();
 {if $saved}
 <script>
 	parent.renameItem('{$uniq}','{$object.caption|truncate:17}');
-	parent.tooltip('Редактирование объекта','Данные успешно сохранены!',5000);
+	parent.tooltip('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°','Р”Р°РЅРЅС‹Рµ СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅС‹!',5000);
 	parent.show_close_dialog=false;
 	parent.$.fancybox.close();
 </script>
 {else}
-<h1>Редактирование объекта</h1>
+<h1>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°</h1>
 {$form_html}
 {/if}
 {/if}
@@ -182,48 +182,48 @@ parent.$.fancybox.close();
 		<td class="module_right">
 		<div class="body">
 {if $modAction=="change"}
-<h1>Установка свойств для объектов</h1>
-<p>Для <font style="font-size:18px;">{$objects_count}</font> объектов были установлены свойства {if $do_visible}<b>видимость</b>{/if} {if $do_main}, <b>показывать на главной</b>{/if} {if $do_title} , <b>установлено значение для тэга title</b>{/if}</p>
-<input onclick="loadContent('{$siteurl}admin/?module=objects&modAction=edit&modType={$modType}&id_cat={$id_cat}&ajax=true&white=true','module','change');" type="button" value="Просмотреть скопированные объекты" class="button">
+<h1>РЈСЃС‚Р°РЅРѕРІРєР° СЃРІРѕР№СЃС‚РІ РґР»СЏ РѕР±СЉРµРєС‚РѕРІ</h1>
+<p>Р”Р»СЏ <font style="font-size:18px;">{$objects_count}</font> РѕР±СЉРµРєС‚РѕРІ Р±С‹Р»Рё СѓСЃС‚Р°РЅРѕРІР»РµРЅС‹ СЃРІРѕР№СЃС‚РІР° {if $do_visible}<b>РІРёРґРёРјРѕСЃС‚СЊ</b>{/if} {if $do_main}, <b>РїРѕРєР°Р·С‹РІР°С‚СЊ РЅР° РіР»Р°РІРЅРѕР№</b>{/if} {if $do_title} , <b>СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ С‚СЌРіР° title</b>{/if}</p>
+<input onclick="loadContent('{$siteurl}admin/?module=objects&modAction=edit&modType={$modType}&id_cat={$id_cat}&ajax=true&white=true','module','change');" type="button" value="РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ СЃРєРѕРїРёСЂРѕРІР°РЅРЅС‹Рµ РѕР±СЉРµРєС‚С‹" class="button">
 {elseif $modAction=="ftp"}
-<h2>Файлы, загруженные на фтп</h2>
+<h2>Р¤Р°Р№Р»С‹, Р·Р°РіСЂСѓР¶РµРЅРЅС‹Рµ РЅР° С„С‚Рї</h2>
 {if !$go}
-<p>Внимание! Будут загружены только файлы, поддерживаемые системой</p>
-<p>В Вашей папке <b>upload/new</b> были найдены следующие файлы:</p>
+<p>Р’РЅРёРјР°РЅРёРµ! Р‘СѓРґСѓС‚ Р·Р°РіСЂСѓР¶РµРЅС‹ С‚РѕР»СЊРєРѕ С„Р°Р№Р»С‹, РїРѕРґРґРµСЂР¶РёРІР°РµРјС‹Рµ СЃРёСЃС‚РµРјРѕР№</p>
+<p>Р’ Р’Р°С€РµР№ РїР°РїРєРµ <b>upload/new</b> Р±С‹Р»Рё РЅР°Р№РґРµРЅС‹ СЃР»РµРґСѓСЋС‰РёРµ С„Р°Р№Р»С‹:</p>
 {/if}
 {if $files}
 <ul style="padding-left:20px;">
 {foreach key=key item=file from=$files}
-<li>{$file} {if !$go}[<a href="{$config.pathes.user_upload_http}{$file}" class="group" rel="group">просмотреть</a>]{/if}</li>
+<li>{$file} {if !$go}[<a href="{$config.pathes.user_upload_http}{$file}" class="group" rel="group">РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ</a>]{/if}</li>
 {/foreach}
 </ul>
 {else}
-<b>Файлы не загружены!</b>
+<b>Р¤Р°Р№Р»С‹ РЅРµ Р·Р°РіСЂСѓР¶РµРЅС‹!</b>
 {/if}
 {if !$go}
 <div class="body">
 {if $files}
-<div class="actionbutton" onclick="YesNo('Скопировать загруженные файлы с фтп?','{$siteurl}admin/?module=objects&modAction=ftp&go=true');">Скопировать с фтп</div>
+<div class="actionbutton" onclick="YesNo('РЎРєРѕРїРёСЂРѕРІР°С‚СЊ Р·Р°РіСЂСѓР¶РµРЅРЅС‹Рµ С„Р°Р№Р»С‹ СЃ С„С‚Рї?','{$siteurl}admin/?module=objects&modAction=ftp&go=true');">РЎРєРѕРїРёСЂРѕРІР°С‚СЊ СЃ С„С‚Рї</div>
 {else}
-<h2>На данный момент в папке upload/new нет ни одного файла</h2>
+<h2>РќР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РІ РїР°РїРєРµ upload/new РЅРµС‚ РЅРё РѕРґРЅРѕРіРѕ С„Р°Р№Р»Р°</h2>
 {/if}
 </div>
 {/if}
 {elseif $modAction=="seenew"}
-<h2>Просмотр несортированных объектов</h2>
+<h2>РџСЂРѕСЃРјРѕС‚СЂ РЅРµСЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹С… РѕР±СЉРµРєС‚РѕРІ</h2>
 <div class="body">
-<p>Для того, чтобы перенести загруженные файлы в галерею выделите файлы и выберите в какой раздел их скопировать в списке слева.</p>
+<p>Р”Р»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РїРµСЂРµРЅРµСЃС‚Рё Р·Р°РіСЂСѓР¶РµРЅРЅС‹Рµ С„Р°Р№Р»С‹ РІ РіР°Р»РµСЂРµСЋ РІС‹РґРµР»РёС‚Рµ С„Р°Р№Р»С‹ Рё РІС‹Р±РµСЂРёС‚Рµ РІ РєР°РєРѕР№ СЂР°Р·РґРµР» РёС… СЃРєРѕРїРёСЂРѕРІР°С‚СЊ РІ СЃРїРёСЃРєРµ СЃР»РµРІР°.</p>
 </div>
-<h2>Операции с объектами</h2>
+<h2>РћРїРµСЂР°С†РёРё СЃ РѕР±СЉРµРєС‚Р°РјРё</h2>
 <div class="body">			
-<div id="button1" class="actionbutton">Загрузить файл</div>
-<div id="urldownload" class="actionbutton">Загрузить из URL</div>
-<div class="actionbutton" onclick="YesNo('Просмотреть загруженные файлы на фтп?','{$siteurl}admin/?module=objects&modAction=ftp');">Просмотреть файлы на фтп</div>
-<div id="deletebutton" class="actionbutton">Удалить файлы</div>
+<div id="button1" class="actionbutton">Р—Р°РіСЂСѓР·РёС‚СЊ С„Р°Р№Р»</div>
+<div id="urldownload" class="actionbutton">Р—Р°РіСЂСѓР·РёС‚СЊ РёР· URL</div>
+<div class="actionbutton" onclick="YesNo('РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р·Р°РіСЂСѓР¶РµРЅРЅС‹Рµ С„Р°Р№Р»С‹ РЅР° С„С‚Рї?','{$siteurl}admin/?module=objects&modAction=ftp');">РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ С„Р°Р№Р»С‹ РЅР° С„С‚Рї</div>
+<div id="deletebutton" class="actionbutton">РЈРґР°Р»РёС‚СЊ С„Р°Р№Р»С‹</div>
 </div>
 <form id="frm">
 {if $modType=="" || $modType=="image"}
-<h2>Изображения [<a href="javascript:void(0);" class="select_all_objects" type="image">выделить все</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="image">отменить все</a>]</h2>
+<h2>РР·РѕР±СЂР°Р¶РµРЅРёСЏ [<a href="javascript:void(0);" class="select_all_objects" type="image">РІС‹РґРµР»РёС‚СЊ РІСЃРµ</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="image">РѕС‚РјРµРЅРёС‚СЊ РІСЃРµ</a>]</h2>
 <div class="icons" type="image">
 {foreach key=key item=object from=$objects.image}
 <div class="preview" id="obj{$object.id_object}">
@@ -235,7 +235,7 @@ parent.$.fancybox.close();
 </div>
 {/if}
 {if $modType=="" || $modType=="video"}
-<h2>Видео файлы [<a href="javascript:void(0);" class="select_all_objects" type="video">выделить все</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="video">отменить все</a>]</h2>
+<h2>Р’РёРґРµРѕ С„Р°Р№Р»С‹ [<a href="javascript:void(0);" class="select_all_objects" type="video">РІС‹РґРµР»РёС‚СЊ РІСЃРµ</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="video">РѕС‚РјРµРЅРёС‚СЊ РІСЃРµ</a>]</h2>
 <div class="icons" type="video">
 {foreach key=key item=object from=$objects.video}
 <div class="preview" id="obj{$object.id_object}">
@@ -247,7 +247,7 @@ parent.$.fancybox.close();
 </div>
 {/if}
 {if $modType=="" || $modType=="music"}
-<h2>Аудио файлы [<a href="javascript:void(0);" class="select_all_objects" type="music">выделить все</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="music">отменить все</a>]</h2>
+<h2>РђСѓРґРёРѕ С„Р°Р№Р»С‹ [<a href="javascript:void(0);" class="select_all_objects" type="music">РІС‹РґРµР»РёС‚СЊ РІСЃРµ</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="music">РѕС‚РјРµРЅРёС‚СЊ РІСЃРµ</a>]</h2>
 <div class="icons" type="music">
 {foreach key=key item=object from=$objects.music}
 <div class="preview" id="obj{$object.id_object}">
@@ -259,7 +259,7 @@ parent.$.fancybox.close();
 </div>
 {/if}
 {if $modType=="" || $modType=="flash"}
-<h2>Flash [<a href="javascript:void(0);" class="select_all_objects" type="flash">выделить все</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="flash">отменить все</a>]</h2>
+<h2>Flash [<a href="javascript:void(0);" class="select_all_objects" type="flash">РІС‹РґРµР»РёС‚СЊ РІСЃРµ</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="flash">РѕС‚РјРµРЅРёС‚СЊ РІСЃРµ</a>]</h2>
 <div class="icons" type="flash">
 {foreach key=key item=object from=$objects.flash}
 <div class="preview" id="obj{$object.id_object}">
@@ -274,15 +274,15 @@ parent.$.fancybox.close();
 </form>
 </div>
 {elseif $modAction=="edit"}
-<h2>Объекты раздела {$this_cat.caption}</h2>
+<h2>РћР±СЉРµРєС‚С‹ СЂР°Р·РґРµР»Р° {$this_cat.caption}</h2>
 <div class="body">			
-<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=objects');">Несортированные файлы</div>
-<div class="actionbutton" onclick="YesNo('Просмотреть загруженные файлы на фтп?','{$siteurl}admin/?module=objects&modAction=ftp');">Просмотреть файлы на фтп</div>
-<div id="deleteitemsbutton" class="actionbutton">Удалить файлы</div>
+<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=objects');">РќРµСЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Рµ С„Р°Р№Р»С‹</div>
+<div class="actionbutton" onclick="YesNo('РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р·Р°РіСЂСѓР¶РµРЅРЅС‹Рµ С„Р°Р№Р»С‹ РЅР° С„С‚Рї?','{$siteurl}admin/?module=objects&modAction=ftp');">РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ С„Р°Р№Р»С‹ РЅР° С„С‚Рї</div>
+<div id="deleteitemsbutton" class="actionbutton">РЈРґР°Р»РёС‚СЊ С„Р°Р№Р»С‹</div>
 </div>
 {assign var="k" value=0}
 {if $modType=="" || $modType=="image"}
-<h2>Изображения [<a href="javascript:void(0);" class="select_all_objects" type="image">выделить все</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="image">отменить все</a>]</h2>
+<h2>РР·РѕР±СЂР°Р¶РµРЅРёСЏ [<a href="javascript:void(0);" class="select_all_objects" type="image">РІС‹РґРµР»РёС‚СЊ РІСЃРµ</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="image">РѕС‚РјРµРЅРёС‚СЊ РІСЃРµ</a>]</h2>
 <div class="icons" type="image">
 {foreach key=key item=object from=$objects.image}
 {if $object.preview}
@@ -290,9 +290,9 @@ parent.$.fancybox.close();
 <div class="preview_container">
 	<div class="preview_bar">
 		<ul>
-			<li><a href="{$siteurl}admin/?module=objects&modAction=edit_object&mode=photo&id_object={$object.id_photo}&uniq=photos{$object.id_photo}" title="Редактировать свойства изображения {$object.caption}"><img src="{$img}admin/edit_image.png" border="0"></a></li>
-			<li><a href="{$user_images}{$object.big_photo}" class="group" rel="group" title="Просмотреть изображение {$object.caption}" class="dialog"><img src="{$img}admin/view.png" border="0"></a></li>	
-			<li><a href="{$siteurl}admin/?module=objects&modAction=crop&id_photo={$object.id_photo}&ajax=true" title="Вырезать маленькое, либо большое preview {$object.caption}" class="crop"><img src="{$img}admin/crop.png" border="0"></a></li>			
+			<li><a href="{$siteurl}admin/?module=objects&modAction=edit_object&mode=photo&id_object={$object.id_photo}&uniq=photos{$object.id_photo}" title="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЃРІРѕР№СЃС‚РІР° РёР·РѕР±СЂР°Р¶РµРЅРёСЏ {$object.caption}"><img src="{$img}admin/edit_image.png" border="0"></a></li>
+			<li><a href="{$user_images}{$object.big_photo}" class="group" rel="group" title="РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ {$object.caption}" class="dialog"><img src="{$img}admin/view.png" border="0"></a></li>	
+			<li><a href="{$siteurl}admin/?module=objects&modAction=crop&id_photo={$object.id_photo}&ajax=true" title="Р’С‹СЂРµР·Р°С‚СЊ РјР°Р»РµРЅСЊРєРѕРµ, Р»РёР±Рѕ Р±РѕР»СЊС€РѕРµ preview {$object.caption}" class="crop"><img src="{$img}admin/crop.png" border="0"></a></li>			
 		</ul>
 	</div>
 	<div class="preview_picture" style="background:url('{$user_thumbnails}{$object.preview}') center no-repeat;"><img src="{$img}admin/blank.gif" border="0" width="120" height="130" alt="{$object.caption}"></div>
@@ -305,15 +305,15 @@ parent.$.fancybox.close();
 </div>
 {/if}
 {if $modType=="" || $modType=="video"}
-<h2>Видео файлы [<a href="javascript:void(0);" class="select_all_objects" type="video">выделить все</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="video">отменить все</a>]</h2>
+<h2>Р’РёРґРµРѕ С„Р°Р№Р»С‹ [<a href="javascript:void(0);" class="select_all_objects" type="video">РІС‹РґРµР»РёС‚СЊ РІСЃРµ</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="video">РѕС‚РјРµРЅРёС‚СЊ РІСЃРµ</a>]</h2>
 <div class="icons" type="video">
 {foreach key=key item=object from=$objects.video}
 <div class="preview" id="videos{$object.id_video}">
 <div class="preview_container">
 	<div class="preview_bar">
 		<ul>
-			<li><a href="{$siteurl}admin/?module=objects&modAction=edit_object&mode=video&id_object={$object.id_video}&uniq=videos{$object.id_video}" title="Редактировать свойства видеозаписи {$object.caption}"><img src="{$img}admin/edit_image.png" border="0"></a></li>
-			<li><a href="{$siteurl}admin/?module=objects&modAction=viewvideo&id_video={$object.id_video}&ajax=true" title="Просмотреть видеозапись {$object.caption}" class="video"><img src="{$img}admin/view.png" border="0"></a></li>	
+			<li><a href="{$siteurl}admin/?module=objects&modAction=edit_object&mode=video&id_object={$object.id_video}&uniq=videos{$object.id_video}" title="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЃРІРѕР№СЃС‚РІР° РІРёРґРµРѕР·Р°РїРёСЃРё {$object.caption}"><img src="{$img}admin/edit_image.png" border="0"></a></li>
+			<li><a href="{$siteurl}admin/?module=objects&modAction=viewvideo&id_video={$object.id_video}&ajax=true" title="РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РІРёРґРµРѕР·Р°РїРёСЃСЊ {$object.caption}" class="video"><img src="{$img}admin/view.png" border="0"></a></li>	
 		</ul>
 	</div>
 	<div class="preview_picture" style="background:url('{$img}admin/icons/video.png') center no-repeat;"><img src="{$img}admin/blank.gif" border="0" width="120" height="130" alt="{$object.caption}"></div>
@@ -325,15 +325,15 @@ parent.$.fancybox.close();
 </div>
 {/if}
 {if $modType=="" || $modType=="music"}
-<h2>Аудио файлы [<a href="javascript:void(0);" class="select_all_objects" type="music">выделить все</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="music">отменить все</a>]</h2>
+<h2>РђСѓРґРёРѕ С„Р°Р№Р»С‹ [<a href="javascript:void(0);" class="select_all_objects" type="music">РІС‹РґРµР»РёС‚СЊ РІСЃРµ</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="music">РѕС‚РјРµРЅРёС‚СЊ РІСЃРµ</a>]</h2>
 <div class="icons" type="music">
 {foreach key=key item=object from=$objects.music}
 <div class="preview" id="audio{$object.id_audio}">
 <div class="preview_container">
 	<div class="preview_bar">
 		<ul>
-			<li><a href="{$siteurl}admin/?module=objects&modAction=edit_object&mode=music&id_object={$object.id_audio}&uniq=audio{$object.id_audio}" title="Редактировать свойства аудиозаписи {$object.caption}"><img src="{$img}admin/edit_image.png" border="0"></a></li>
-			<li><a href="{$siteurl}admin/?module=objects&modAction=viewaudio&id_audio={$object.id_audio}&ajax=true" title="Прослушать аудиозапись {$object.caption}" class="audio"><img src="{$img}admin/view.png" border="0"></a></li>
+			<li><a href="{$siteurl}admin/?module=objects&modAction=edit_object&mode=music&id_object={$object.id_audio}&uniq=audio{$object.id_audio}" title="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЃРІРѕР№СЃС‚РІР° Р°СѓРґРёРѕР·Р°РїРёСЃРё {$object.caption}"><img src="{$img}admin/edit_image.png" border="0"></a></li>
+			<li><a href="{$siteurl}admin/?module=objects&modAction=viewaudio&id_audio={$object.id_audio}&ajax=true" title="РџСЂРѕСЃР»СѓС€Р°С‚СЊ Р°СѓРґРёРѕР·Р°РїРёСЃСЊ {$object.caption}" class="audio"><img src="{$img}admin/view.png" border="0"></a></li>
 		</ul>
 	</div>
 	<div class="preview_picture" style="background:url('{$img}admin/icons/audio.png') center no-repeat;"><img src="{$img}admin/blank.gif" border="0" width="120" height="130" alt="{$object.caption}"></div>
@@ -345,15 +345,15 @@ parent.$.fancybox.close();
 </div>
 {/if}
 {if $modType=="" || $modType=="flash"}
-<h2>Flash [<a href="javascript:void(0);" class="select_all_objects" type="flash">выделить все</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="flash">отменить все</a>]</h2>
+<h2>Flash [<a href="javascript:void(0);" class="select_all_objects" type="flash">РІС‹РґРµР»РёС‚СЊ РІСЃРµ</a>&nbsp;/&nbsp;<a href="javascript:void(0);" class="deselect_all_objects" type="flash">РѕС‚РјРµРЅРёС‚СЊ РІСЃРµ</a>]</h2>
 <div class="icons" type="flash">
 {foreach key=key item=object from=$objects.flash}
 <div class="preview" id="flash{$object.id_flash}">
 <div class="preview_container">
 	<div class="preview_bar">
 		<ul>
-			<li><a href="{$siteurl}admin/?module=objects&modAction=edit_object&mode=flash&id_object={$object.id_flash}&uniq=flash{$object.id_flash}" title="Редактировать свойства флешролика {$object.caption}"><img src="{$img}admin/edit_image.png" border="0"></a></li>
-			<li><a href="{$siteurl}admin/?module=objects&modAction=viewflash&id_flash={$object.id_flash}&ajax=true" title="Просмотреть флешролик {$object.caption}" class="video"><img src="{$img}admin/view.png" border="0"></a></li>	
+			<li><a href="{$siteurl}admin/?module=objects&modAction=edit_object&mode=flash&id_object={$object.id_flash}&uniq=flash{$object.id_flash}" title="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЃРІРѕР№СЃС‚РІР° С„Р»РµС€СЂРѕР»РёРєР° {$object.caption}"><img src="{$img}admin/edit_image.png" border="0"></a></li>
+			<li><a href="{$siteurl}admin/?module=objects&modAction=viewflash&id_flash={$object.id_flash}&ajax=true" title="РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ С„Р»РµС€СЂРѕР»РёРє {$object.caption}" class="video"><img src="{$img}admin/view.png" border="0"></a></li>	
 		</ul>
 	</div>
 	<div class="preview_picture" style="background:url('{$img}admin/icons/flash.png') center no-repeat;"><img src="{$img}admin/blank.gif" border="0" width="120" height="130" alt="{$object.caption}"></div>

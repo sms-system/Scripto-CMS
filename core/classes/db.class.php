@@ -1,5 +1,5 @@
 <?
-//êëàññ äëÿ ðàáîòû ñ ÁÄ
+//ÐºÐ»Ð°ÑÑ Ð´Ð»Ñ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ Ñ Ð‘Ð”
 class Db {
 var $config;
 var $categories;
@@ -161,7 +161,7 @@ global $config;
 }
 
 function SQLConnect() {
-//ôóíêöèÿ äëÿ ïîäêëþ÷åíèÿ ê MySQL áàçå. false - íå ïîäêëþ÷èëèñü, true- ïîäêëþ÷èëèñü
+//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð´Ð»Ñ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ Ðº MySQL Ð±Ð°Ð·Ðµ. false - Ð½Ðµ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð¸Ð»Ð¸ÑÑŒ, true- Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð¸Ð»Ð¸ÑÑŒ
 if (!$link = @mysql_connect($this->config["db"]["host"],$this->config["db"]["user"],$this->config["db"]["password"])) { 
 	die("not connect");
 	return false;

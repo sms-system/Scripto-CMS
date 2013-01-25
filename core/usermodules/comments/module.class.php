@@ -1,6 +1,6 @@
 <?
 /*
-Модуль новостей
+РњРѕРґСѓР»СЊ РЅРѕРІРѕСЃС‚РµР№
 */
 
 define("SCRIPTO_comments",true);
@@ -73,7 +73,7 @@ class comments {
 	}
 	
 	function checkMe() {
-	//проверяем существуют ли уже таблицы модуля
+	//РїСЂРѕРІРµСЂСЏРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‚ Р»Рё СѓР¶Рµ С‚Р°Р±Р»РёС†С‹ РјРѕРґСѓР»СЏ
 		global $engine;
 		if ($engine->checkInstallModule("comments")) {
 			return true;
@@ -129,7 +129,7 @@ class comments {
 		$count=@mysql_num_rows($res);
 		if ($count>0) {
 			$reminder['subject']=ToUTF8($this->thismodule["caption"]);
-			$reminder['content']=ToUTF8('У Вас '.@mysql_num_rows($res).' новых комментаря(ев)');
+			$reminder['content']=ToUTF8('РЈ Р’Р°СЃ '.@mysql_num_rows($res).' РЅРѕРІС‹С… РєРѕРјРјРµРЅС‚Р°СЂСЏ(РµРІ)');
 			$reminder['count']=$count;
 			return $reminder;
 		} else {

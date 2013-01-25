@@ -1,43 +1,43 @@
 <?
-$moduleinfo["caption"]="Ìîäóëü ïóáëèêàöèè";
+$moduleinfo["caption"]="ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸";
 $moduleinfo["url"]="http://www.scripto.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
 $moduleinfo["icon"]="articles.png";
 $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/publications/";
 $moduleinfo["version"]="1.0";
-$moduleinfo["use_in_one_rubric"]=false;//âûâîäèòü âî âñåõ ðàçäåëàõ ñàéòà
+$moduleinfo["use_in_one_rubric"]=false;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð²Ð¾ Ð²ÑÐµÑ… Ñ€Ð°Ð·Ð´ÐµÐ»Ð°Ñ… ÑÐ°Ð¹Ñ‚Ð°
 $moduleinfo["publications_url"]="publications";
 
-$moduleinfo["onpage"]=10;//âûâîäèòü ïî 10 ïóáëèêàöèé íà ñòðàíèöå
-$moduleinfo["onpage_admin"]=20;//âûâîäèòü ïî 20 ïóáëèêàöèé â àäìèíêå
+$moduleinfo["onpage"]=10;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð¿Ð¾ 10 Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¹ Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ
+$moduleinfo["onpage_admin"]=20;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð¿Ð¾ 20 Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¹ Ð² Ð°Ð´Ð¼Ð¸Ð½ÐºÐµ
 
 $moduleinfo["comments"]=true;
 
-/*Íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 $moduleinfo["tables"]["PUBLICATIONS"]["caption"]["type"]="text";
-$moduleinfo["tables"]["PUBLICATIONS"]["caption"]["caption"]="Çàãîëîâîê ïóáëèêàöèè";
+$moduleinfo["tables"]["PUBLICATIONS"]["caption"]["caption"]="Ð—Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸";
 $moduleinfo["tables"]["PUBLICATIONS"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PUBLICATIONS"]["caption"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["PUBLICATIONS"]["content"]["type"]="solmetra";
-$moduleinfo["tables"]["PUBLICATIONS"]["content"]["caption"]="Êðàòêîå ñîäåðæèìîå ïóáëèêàöèè";
+$moduleinfo["tables"]["PUBLICATIONS"]["content"]["caption"]="ÐšÑ€Ð°Ñ‚ÐºÐ¾Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸";
 $moduleinfo["tables"]["PUBLICATIONS"]["content"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PUBLICATIONS"]["content"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["PUBLICATIONS"]["content_full"]["type"]="solmetra";
-$moduleinfo["tables"]["PUBLICATIONS"]["content_full"]["caption"]="Ïîëíîå ñîäåðæèìîå ïóáëèêàöèè";
+$moduleinfo["tables"]["PUBLICATIONS"]["content_full"]["caption"]="ÐŸÐ¾Ð»Ð½Ð¾Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ðµ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸";
 $moduleinfo["tables"]["PUBLICATIONS"]["content_full"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PUBLICATIONS"]["content_full"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["PUBLICATIONS"]["meta"]["type"]="textarea";
-$moduleinfo["tables"]["PUBLICATIONS"]["meta"]["caption"]="Òåã meta description";
+$moduleinfo["tables"]["PUBLICATIONS"]["meta"]["caption"]="Ð¢ÐµÐ³ meta description";
 $moduleinfo["tables"]["PUBLICATIONS"]["meta"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PUBLICATIONS"]["meta"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["PUBLICATIONS"]["keywords"]["type"]="textarea";
-$moduleinfo["tables"]["PUBLICATIONS"]["keywords"]["caption"]="Òåã keywords";
+$moduleinfo["tables"]["PUBLICATIONS"]["keywords"]["caption"]="Ð¢ÐµÐ³ keywords";
 $moduleinfo["tables"]["PUBLICATIONS"]["keywords"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PUBLICATIONS"]["keywords"]["sql_type"]="LONGTEXT NULL";
-/*Êîíåö íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐšÐ¾Ð½ÐµÑ† Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 ?>

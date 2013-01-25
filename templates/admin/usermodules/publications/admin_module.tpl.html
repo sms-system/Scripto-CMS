@@ -3,7 +3,7 @@
 {elseif $m_action=="quickedit"}
 {if $save}
  <script>
- 	parent.tooltip('','Изменения сохранены!',3000);
+ 	parent.tooltip('','РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹!',3000);
  </script>
 {/if}
 {if $close}
@@ -17,8 +17,8 @@
 <form action="" name="frm" method="post">
 <table width="100%" cellpadding="0" cellspacing="0" class="whiteheader">
 	<tr>
-		<td width="50%">Содержимое публикации <b>{$publication.caption}</b></td>
-		<td width="50%" align="right"><input type="submit" value="Сохранить изменения"></td>
+		<td width="50%">РЎРѕРґРµСЂР¶РёРјРѕРµ РїСѓР±Р»РёРєР°С†РёРё <b>{$publication.caption}</b></td>
+		<td width="50%" align="right"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ"></td>
 	</tr>
 </table>
 <input type="hidden" name="id_publication" value="{$publication.id_publication}">
@@ -54,11 +54,11 @@ parent.loadContent('{$siteurl}admin/?module=modules&modAction=settings&ajax=yes&
 							</div>
 							{/if}		
 <div class="body">					
-<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=publications&m_action=add&mode=add&modAction=settings{if $id_category}&id_category={$id_category}{/if}');">Добавить публикацию</div>
+<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=publications&m_action=add&mode=add&modAction=settings{if $id_category}&id_category={$id_category}{/if}');">Р”РѕР±Р°РІРёС‚СЊ РїСѓР±Р»РёРєР°С†РёСЋ</div>
 </div>	
 {if $publications}
 <p align="right">
-Выберите страницу:
+Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂР°РЅРёС†Сѓ:
 {foreach key=key item=p from=$pages}
 	{if $p==$pg}
 		<b>{$p+1}</b>
@@ -71,13 +71,13 @@ parent.loadContent('{$siteurl}admin/?module=modules&modAction=settings&ajax=yes&
 <form action="{$siteurl}admin?module=modules&modAction=settings&module_name=publications&id_category={$id_category}&m_action=save" method="post" id="publications_form">
 <table class="objects">
 <tr>
-	<td width="39%" class="objects_header editable_header"><span>Название</span></td>
+	<td width="39%" class="objects_header editable_header"><span>РќР°Р·РІР°РЅРёРµ</span></td>
 	<td width="1%" class="objects_header"></td>
-	<td width="10%" class="objects_header">Дата</td>
-	<td width="30%" class="objects_header editable_header"><span>Автор</span></td>
-	<td width="10%" class="objects_header editable_header"><span>Видимость</span></td>
-	<td width="10%" class="objects_header editable_header"><span>Удалить</span></td>	
-	<td width="10%" class="objects_header" align="right">Операции</td>
+	<td width="10%" class="objects_header">Р”Р°С‚Р°</td>
+	<td width="30%" class="objects_header editable_header"><span>РђРІС‚РѕСЂ</span></td>
+	<td width="10%" class="objects_header editable_header"><span>Р’РёРґРёРјРѕСЃС‚СЊ</span></td>
+	<td width="10%" class="objects_header editable_header"><span>РЈРґР°Р»РёС‚СЊ</span></td>	
+	<td width="10%" class="objects_header" align="right">РћРїРµСЂР°С†РёРё</td>
 </tr>
 {foreach key=key item=publication from=$publications}
 <tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="publ{$publication.id_publication}">
@@ -105,15 +105,15 @@ parent.loadContent('{$siteurl}admin/?module=modules&modAction=settings&ajax=yes&
 	<td></td>
 </tr>
 <tr id="save_submit">
-	<td colspan="7" align="center"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="7" align="center"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 </table>
 </form>
 {else}
 {if $id_category}
-<p>В данном разделе  публикаций не найдено</p>
+<p>Р’ РґР°РЅРЅРѕРј СЂР°Р·РґРµР»Рµ  РїСѓР±Р»РёРєР°С†РёР№ РЅРµ РЅР°Р№РґРµРЅРѕ</p>
 {else}
-<p>Выберите рубрику слева</p>
+<p>Р’С‹Р±РµСЂРёС‚Рµ СЂСѓР±СЂРёРєСѓ СЃР»РµРІР°</p>
 {/if}
 {/if}
 </div>

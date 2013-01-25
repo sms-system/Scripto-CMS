@@ -1,6 +1,6 @@
 <?
 /*
-Óñòàíîâî÷íûé ôàéë äëÿ ìîäóëÿ ïîëüçîâàòåëè
+Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¾Ñ‡Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ð¸
 */
 global $engine;
 
@@ -24,7 +24,7 @@ $install_sql[]="CREATE TABLE `%USERS%` (
 PRIMARY KEY ( `id_user` )
 ) ENGINE=MyISAM;";
 /*
-Ïîëó÷àåì èäåíòèôèêàòîð ãëàâíîãî ðàçäåëà
+ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ Ð³Ð»Ð°Ð²Ð½Ð¾Ð³Ð¾ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°
 */
 $m_page=$engine->getMainpage();
 $date_category=array();
@@ -32,24 +32,24 @@ $date_category[0]=(int)date("d");
 $date_category[1]=(int)date("m");
 $date_category[2]=(int)date("Y");
 /*
-Äîáàâëÿåì ðàçäåë ëè÷íûé êàáèíåò
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» Ð»Ð¸Ñ‡Ð½Ñ‹Ð¹ ÐºÐ°Ð±Ð¸Ð½ÐµÑ‚
 */
 if (!$engine->rubricExist($m->thismodule["my_url"],0)) {
-$engine->addCategory($m_page["id_category"],"Ëè÷íûé êàáèíåò","text",$m->thismodule["my_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
+$engine->addCategory($m_page["id_category"],"Ð›Ð¸Ñ‡Ð½Ñ‹Ð¹ ÐºÐ°Ð±Ð¸Ð½ÐµÑ‚","text",$m->thismodule["my_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
 }
 
 /*
-Äîáàâëÿåì ðàçäåë ðåãèñòðàöèÿ
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸Ñ
 */
 if (!$engine->rubricExist($m->thismodule["register_url"],0)) {
-$engine->addCategory($m_page["id_category"],"Ðåãèñòðàöèÿ","text",$m->thismodule["register_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
+$engine->addCategory($m_page["id_category"],"Ð ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸Ñ","text",$m->thismodule["register_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
 }
 
 /*
-Äîáàâëÿåì ðàçäåë çàáûëè ïàðîëü
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» Ð·Ð°Ð±Ñ‹Ð»Ð¸ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ
 */
 if (!$engine->rubricExist($m->thismodule["forgot_url"],0)) {
-$engine->addCategory($m_page["id_category"],"Âîññòàíîâëåíèå ïàðîëÿ","text",$m->thismodule["forgot_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
+$engine->addCategory($m_page["id_category"],"Ð’Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¿Ð°Ñ€Ð¾Ð»Ñ","text",$m->thismodule["forgot_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
 }
 
 $install_sql[]="CREATE TABLE `%USER_OBJECTS%` (
@@ -67,5 +67,5 @@ PRIMARY KEY ( `id_group` )
 ) ENGINE=MyISAM;";
 
 $install_sql[]="INSERT INTO `%static_modules%` values('users',0)";
-$install_sql[]="insert into `%block_types%` values (null,'Ôîðìà àâòîðèçàöèè','users','users',0);";
+$install_sql[]="insert into `%block_types%` values (null,'Ð¤Ð¾Ñ€Ð¼Ð° Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸Ð¸','users','users',0);";
 ?>

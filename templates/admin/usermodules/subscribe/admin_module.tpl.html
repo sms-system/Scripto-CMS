@@ -1,37 +1,37 @@
 {if $m_action=="add_subscribe"}
 {$form_html}
-<p><b>Примечание:</b> Вы можете использовать тег %NAME% для автоматической вставки имени пользователя при рассылке.</p>
+<p><b>РџСЂРёРјРµС‡Р°РЅРёРµ:</b> Р’С‹ РјРѕР¶РµС‚Рµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РµРі %NAME% РґР»СЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕР№ РІСЃС‚Р°РІРєРё РёРјРµРЅРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РїСЂРё СЂР°СЃСЃС‹Р»РєРµ.</p>
 {else}	
 <table class="moduletable">
 <tr>
 <td class="module_left">
 {if $m_action=="view"}
-<p><b>Участники рассылки</b></p>
+<p><b>РЈС‡Р°СЃС‚РЅРёРєРё СЂР°СЃСЃС‹Р»РєРё</b></p>
 {else}
-<p><a href="{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe">Участники рассылки</a></p>
+<p><a href="{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe">РЈС‡Р°СЃС‚РЅРёРєРё СЂР°СЃСЃС‹Р»РєРё</a></p>
 {/if}
 {if $m_action=="import"}
-<p><b>Импорт\экспорт</b></p>
+<p><b>РРјРїРѕСЂС‚\СЌРєСЃРїРѕСЂС‚</b></p>
 {else}
-<p><a href="{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe&m_action=import">Импорт\экспорт</a></p>
+<p><a href="{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe&m_action=import">РРјРїРѕСЂС‚\СЌРєСЃРїРѕСЂС‚</a></p>
 {/if}
 {if $m_action=="subscribes" || $m_action=="start_subscribe"}
-<p><b>Рассылки</b></p>
+<p><b>Р Р°СЃСЃС‹Р»РєРё</b></p>
 {else}
-<p><a href="{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe&m_action=subscribes">Рассылки</a></p>
+<p><a href="{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe&m_action=subscribes">Р Р°СЃСЃС‹Р»РєРё</a></p>
 {/if}
 </td>
 <td class="module_right">
 <div class="body">
 {if $m_action=="subscribes"}
 	<div class="body">
-		<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe&m_action=add_subscribe');">Создать рассылку</div>
+		<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe&m_action=add_subscribe');">РЎРѕР·РґР°С‚СЊ СЂР°СЃСЃС‹Р»РєСѓ</div>
 	</div>
-	<h2>Существующие рассылки</h2>
+	<h2>РЎСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ СЂР°СЃСЃС‹Р»РєРё</h2>
 	<div class="body">
 	{if $archives}
 		<p align="right">
-Выберите страницу:
+Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂР°РЅРёС†Сѓ:
 {foreach key=key item=p from=$pages}
 	{if $p==$pagenumber}
 		<b>{$p+1}</b>
@@ -43,10 +43,10 @@
 	</p>
 	<table class="objects" id="subscribe">
 		<tr height="30">
-			<td width="10%" class="objects_header">Создана</td>
-			<td width="60%" class="objects_header">Тема рассылки</td>
+			<td width="10%" class="objects_header">РЎРѕР·РґР°РЅР°</td>
+			<td width="60%" class="objects_header">РўРµРјР° СЂР°СЃСЃС‹Р»РєРё</td>
 			<td width="20%" class="objects_header">e-mail</td>
-			<td width="10%" class="objects_header" align="right">Действия</td>
+			<td width="10%" class="objects_header" align="right">Р”РµР№СЃС‚РІРёСЏ</td>
 		</tr>	
 		{foreach key=key item=archive from=$archives}	
 		<tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="object{$archive.id_archive}">
@@ -55,46 +55,46 @@
 			<td>{$archive.backmail}</td>
 			<td class="actions" align="right">
 				<ul>
-					<li><a href="javascript:void(0);" class="start_subscribe" id_archive="{$archive.id_archive}" title="Запустить рассылку {$archive.caption}"><img src="{$img}admin/icons/play.png"></a></li>
-					<li><a href="{$siteurl}admin/?module=modules&module_name=subscribe&m_action=add_subscribe&modAction=settings&id_archive={$archive.id_archive}&mode=edit" title="Редактировать рассылку {$archive.caption}"><img src="{$img}admin/icons/edit.gif"></a></li>
-					<li><a href="javascript:void(0);" onclick="YesNo('Удалить рассылку {$archive.caption}?','{$siteurl}admin/?module=modules&module_name=subscribe&m_action=subscribes&modAction=settings&id_archive={$archive.id_archive}&delete=yes&p={$pagenumber}');" title="Удалить рассылку {$archive.caption}"><img src="{$img}admin/icons/delete.gif" alt="Удалить способ оплаты {$paym.caption}"></a></li>					
+					<li><a href="javascript:void(0);" class="start_subscribe" id_archive="{$archive.id_archive}" title="Р—Р°РїСѓСЃС‚РёС‚СЊ СЂР°СЃСЃС‹Р»РєСѓ {$archive.caption}"><img src="{$img}admin/icons/play.png"></a></li>
+					<li><a href="{$siteurl}admin/?module=modules&module_name=subscribe&m_action=add_subscribe&modAction=settings&id_archive={$archive.id_archive}&mode=edit" title="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЂР°СЃСЃС‹Р»РєСѓ {$archive.caption}"><img src="{$img}admin/icons/edit.gif"></a></li>
+					<li><a href="javascript:void(0);" onclick="YesNo('РЈРґР°Р»РёС‚СЊ СЂР°СЃСЃС‹Р»РєСѓ {$archive.caption}?','{$siteurl}admin/?module=modules&module_name=subscribe&m_action=subscribes&modAction=settings&id_archive={$archive.id_archive}&delete=yes&p={$pagenumber}');" title="РЈРґР°Р»РёС‚СЊ СЂР°СЃСЃС‹Р»РєСѓ {$archive.caption}"><img src="{$img}admin/icons/delete.gif" alt="РЈРґР°Р»РёС‚СЊ СЃРїРѕСЃРѕР± РѕРїР»Р°С‚С‹ {$paym.caption}"></a></li>					
 				</ul>
 			</td>
 		</tr>
 		{/foreach}
 	</table>
 	{else}
-		<p>Вы не создали ни одной рассылки</p>
+		<p>Р’С‹ РЅРµ СЃРѕР·РґР°Р»Рё РЅРё РѕРґРЅРѕР№ СЂР°СЃСЃС‹Р»РєРё</p>
 	{/if}
 	</div>
 {/if}
 {if $m_action=="import"}
-<h2>Импорт базы e-mail</h2>
+<h2>РРјРїРѕСЂС‚ Р±Р°Р·С‹ e-mail</h2>
 <div class="body">
 	{if $users_install}
-	<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe&m_action=importfromusers');">Импорт из пользователей</div>
+	<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe&m_action=importfromusers');">РРјРїРѕСЂС‚ РёР· РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</div>
 	{/if}
-	<div id="txt_button" class="actionbutton">Импорт из текстового файла</div>
+	<div id="txt_button" class="actionbutton">РРјРїРѕСЂС‚ РёР· С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р°</div>
 </div>
-<p>Внимание! Если Вы используете импорт из текстового файла, то он должен быть составлен в следующем формате:</p>
+<p>Р’РЅРёРјР°РЅРёРµ! Р•СЃР»Рё Р’С‹ РёСЃРїРѕР»СЊР·СѓРµС‚Рµ РёРјРїРѕСЂС‚ РёР· С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р°, С‚Рѕ РѕРЅ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СЃРѕСЃС‚Р°РІР»РµРЅ РІ СЃР»РµРґСѓСЋС‰РµРј С„РѕСЂРјР°С‚Рµ:</p>
 <p><textarea style="width:300px;height:100px;">
-e-mail|фио
-e-mail|фио
-e-mail|фио
+e-mail|С„РёРѕ
+e-mail|С„РёРѕ
+e-mail|С„РёРѕ
 e-mail|
-e-mail|фио
+e-mail|С„РёРѕ
 e-mail|
 </textarea></p>
-<h2>Экспорт базы e-mail</h2>
+<h2>Р­РєСЃРїРѕСЂС‚ Р±Р°Р·С‹ e-mail</h2>
 <div class="body">
 	{if $users_install}
-	<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe&m_action=exporttxt');">Экспорт базы e-mail</div>
+	<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&modAction=settings&module_name=subscribe&m_action=exporttxt');">Р­РєСЃРїРѕСЂС‚ Р±Р°Р·С‹ e-mail</div>
 	{/if}
 </div>
 {/if}
 {if $m_action=="view"}
 <div class="body">		
-	<div class="actionbutton" id="add_email_button">Добавить e-mail</div>			
+	<div class="actionbutton" id="add_email_button">Р”РѕР±Р°РІРёС‚СЊ e-mail</div>			
 				<form action="{$siteurl}admin?module=modules&modAction=settings&module_name=subscribe" method="post" id="search_form">
 				<div id="searchbox"><table><tr><td width="90%"><input type="text" name="str" value="{$str}" class="sbox"></td><td><input type="image" src="{$siteurl}images/admin/s_icon.jpg"></td></tr></table></div>
 				<input type="hidden" name="m_action" value="view">
@@ -103,7 +103,7 @@ e-mail|
 <div class="body">
 {if $count>0}
 <p align="right">
-Выберите страницу:
+Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂР°РЅРёС†Сѓ:
 {foreach key=key item=p from=$pages}
 	{if $p==$pagenumber}
 		<b>{$p+1}</b>
@@ -113,19 +113,19 @@ e-mail|
 	&nbsp;
 {/foreach}
 </p>
-<p>В Вашей базе <b>{$count}</b> e-mail для рассылки</p>	
+<p>Р’ Р’Р°С€РµР№ Р±Р°Р·Рµ <b>{$count}</b> e-mail РґР»СЏ СЂР°СЃСЃС‹Р»РєРё</p>	
 <div class="body">
 <form action="{$siteurl}admin?module=modules&modAction=settings&module_name=subscribe" method="post" id="subscribe_form">
 <table class="objects" id="subscribe">
 <tr height="30">
 	<td width="40%" class="objects_header">e-mail</td>
-	<td width="40%" class="objects_header editable_header"><span>Имя</span></td>
-	<td width="20%" class="objects_header editable_header" align="center"><span>Удалить</span></td>
+	<td width="40%" class="objects_header editable_header"><span>РРјСЏ</span></td>
+	<td width="20%" class="objects_header editable_header" align="center"><span>РЈРґР°Р»РёС‚СЊ</span></td>
 </tr>
 {foreach key=key item=mail from=$emails}
 <tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="email{$mail.id_email}">
 	<td><a href="mailto:{$mail.email}">{$mail.email}</a></td>
-	<td class="editable"><span>{if $mail.name}{$mail.name}{else}не указано{/if}</span><input type="text" name="name[{$mail.id_email}]" value="{$mail.name}" class="nonvisible"></td>
+	<td class="editable"><span>{if $mail.name}{$mail.name}{else}РЅРµ СѓРєР°Р·Р°РЅРѕ{/if}</span><input type="text" name="name[{$mail.id_email}]" value="{$mail.name}" class="nonvisible"></td>
 	<td align="center"><input type="checkbox" name="del[{$mail.id_email}]" class="deletecheckbox" numb="0"></td>	
 </tr>
 <input type="hidden" name="idemail[{$mail.id_email}]" value="{$mail.id_email}">
@@ -140,16 +140,16 @@ e-mail|
 	<td class="selectall" align="center"><input type="checkbox" class="deletecheckbox" numb="0"></td>
 </tr>
 <tr id="save_submit">
-	<td colspan="3" align="center"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="3" align="center"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 </table>
 </form>
 </div>
 {else}
 	{if $str}
-	<p>По данному запросу не найдено ни одного e-mail</p>
+	<p>РџРѕ РґР°РЅРЅРѕРјСѓ Р·Р°РїСЂРѕСЃСѓ РЅРµ РЅР°Р№РґРµРЅРѕ РЅРё РѕРґРЅРѕРіРѕ e-mail</p>
 	{else}
-	<p>В Вашей базе нет ни одного e-mail для рассылки</p>
+	<p>Р’ Р’Р°С€РµР№ Р±Р°Р·Рµ РЅРµС‚ РЅРё РѕРґРЅРѕРіРѕ e-mail РґР»СЏ СЂР°СЃСЃС‹Р»РєРё</p>
 	{/if}
 {/if}
 {/if}

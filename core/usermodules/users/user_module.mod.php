@@ -1,9 +1,9 @@
 <?
 global $page;
 if (!isset($_SESSION["user_login"]) && !isset($_SESSION["user_password"])) {
-	//неавторизированы
+	//РЅРµР°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅС‹
 if (isset($_COOKIE['user_login']) && isset($_COOKIE['user_password'])) {
-	//проверка зарегистрированного
+	//РїСЂРѕРІРµСЂРєР° Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅРѕРіРѕ
 	if ($this->authUser($_COOKIE["user_login"],$_COOKIE["user_password"])) {
 		$smarty->assign("user_login",$_COOKIE["user_login"]);
 		$_SESSION["user_login"]=$_COOKIE["user_login"];
@@ -41,7 +41,7 @@ if (isset($_COOKIE['user_login']) && isset($_COOKIE['user_password'])) {
 	}
 }
 } else {
-	//проверка зарегистрированного
+	//РїСЂРѕРІРµСЂРєР° Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅРѕРіРѕ
 	if ($this->authUser($_SESSION["user_login"],$_SESSION["user_password"])) {
 		$smarty->assign("user_login",$_SESSION["user_login"]);
 		if (isset($_REQUEST["user_exit"])) {
@@ -63,7 +63,7 @@ switch ($page["ident"]) {
 	case $this->thismodule["forgot_url"]:
 		$smarty->assign("m_type","forgot");
 		if (isset($_REQUEST["activatekey"])) {
-			//восстановление пароля
+			//РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ
 			$smarty->assign("generate_password",true);
 			$login=@$_REQUEST["login"];
 			$activatekey=@$_REQUEST["activatekey"];
@@ -71,13 +71,13 @@ switch ($page["ident"]) {
 			if ($newkey==$activatekey) {
 				$u=$this->getUserByLogin($login);
 				if (is_array($u)) {
-					//есть такой пользователь
+					//РµСЃС‚СЊ С‚Р°РєРѕР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ
 					$u_pass=$this->generatePassword();
 					$pass=$engine->generate_admin_password($u_pass);
 					$db->query("update `%USERS%` set `password`='".sql_quote($pass)."' where `login`='".sql_quote($u["login"])."'");
 					$smarty->Assign("u",$u);
 					$smarty->Assign("u_pass",$u_pass);
-					$this->mailMe($u["email"],$this->thismodule["mailadmin"],"Восстановление пароля на сайте ".$settings["httproot"],3);
+					$this->mailMe($u["email"],$this->thismodule["mailadmin"],"Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ РЅР° СЃР°Р№С‚Рµ ".$settings["httproot"],3);
 				} else {
 					$smarty->assign("incorrect_key",true);
 				}
@@ -86,7 +86,7 @@ switch ($page["ident"]) {
 			}
 		} else {
 			if (isset($_REQUEST["login"])) {
-				//логин указан
+				//Р»РѕРіРёРЅ СѓРєР°Р·Р°РЅ
 				$u=$this->getUserByLogin($_REQUEST["login"]);
 				if (is_array($u)) {
 					$email=$u["email"];
@@ -104,7 +104,7 @@ switch ($page["ident"]) {
 					$smarty->assign("activatekey",$activatekey);
 					$smarty->assign("u",$u);
 					$lang["users"]["activatesend"]=str_replace('%email%',$email,$lang["users"]["activatesend"]);
-					$this->mailMe($u["email"],$this->thismodule["mailadmin"],"Восстановление пароля на сайте ".$settings["httproot"],2);
+					$this->mailMe($u["email"],$this->thismodule["mailadmin"],"Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ РЅР° СЃР°Р№С‚Рµ ".$settings["httproot"],2);
 					$smarty->assign("lang",$lang);
 					$smarty->assign("send",true);
 				} else {
@@ -197,13 +197,13 @@ switch ($page["ident"]) {
 				$smarty->assign("s_type","edit");
 	$engine->addSubPath($lang["users"]["my"],$page['url']);
 	$page["caption"]=$lang["users"]["my"];
-			//Проверяем загружается ли аватар
+			//РџСЂРѕРІРµСЂСЏРµРј Р·Р°РіСЂСѓР¶Р°РµС‚СЃСЏ Р»Рё Р°РІР°С‚Р°СЂ
 			if (isset($_REQUEST["avatarload"])) {
-			/* загрузка аватара*/
+			/* Р·Р°РіСЂСѓР·РєР° Р°РІР°С‚Р°СЂР°*/
 				if (isset($_FILES["avatar"])) {
 				
 				}
-			/*конец загрузки аватара*/
+			/*РєРѕРЅРµС† Р·Р°РіСЂСѓР·РєРё Р°РІР°С‚Р°СЂР°*/
 			}
 			
 			if (isset($_REQUEST["save"])) {
@@ -264,8 +264,8 @@ $engine->processFormData($frm,$lang["users"]["save"],$first,$tpl_form
 			}
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
-$frm->addField($lang["users"]["currentpassword"]["caption"],$lang["users"]["currentpassword"]["error"],"password",$oldpass,$oldpass,"/^[^`#]{5,25}$/i","oldpass",1,"",array('size'=>'40','ticket'=>'От 5 до 25 символов'));
-$frm->addField($lang["users"]["newpassword2"]["caption"],$lang["users"]["newpassword2"]["error"],"text",$newpass,$newpass,"/^[^`#]{5,25}$/i","newpass",1,"",array('size'=>'40','ticket'=>'От 5 до 10 символов'));
+$frm->addField($lang["users"]["currentpassword"]["caption"],$lang["users"]["currentpassword"]["error"],"password",$oldpass,$oldpass,"/^[^`#]{5,25}$/i","oldpass",1,"",array('size'=>'40','ticket'=>'РћС‚ 5 РґРѕ 25 СЃРёРјРІРѕР»РѕРІ'));
+$frm->addField($lang["users"]["newpassword2"]["caption"],$lang["users"]["newpassword2"]["error"],"text",$newpass,$newpass,"/^[^`#]{5,25}$/i","newpass",1,"",array('size'=>'40','ticket'=>'РћС‚ 5 РґРѕ 10 СЃРёРјРІРѕР»РѕРІ'));
 $frm->addField("","","hidden",'yes','yes',"/^[^`#]{2,255}$/i","changepassword",1,"");
 			if ($newpass==$oldpass) 
 				$frm->addError($lang["users"]["eq_passwords"]);
@@ -285,7 +285,7 @@ $engine->processFormData($frm,$lang["users"]["change"],$first,$tpl_form
 					$login=$user["login"];
 					$smarty->assign("password_change",true);
 					$smarty->assign("password",$newpass);
-					$this->mailMe($email,$this->thismodule["mailadmin"],"Изменение информации о пользователе $login на сайте ".$settings["httproot"],1);
+					$this->mailMe($email,$this->thismodule["mailadmin"],"РР·РјРµРЅРµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ $login РЅР° СЃР°Р№С‚Рµ ".$settings["httproot"],1);
 				}
 			}
 			}
@@ -294,7 +294,7 @@ $engine->processFormData($frm,$lang["users"]["change"],$first,$tpl_form
 	case $this->thismodule["register_url"]:
 	$smarty->assign("m_type","register");
 	if ($this->thismodule["register"]) {
-		//регистрация пользователя
+		//СЂРµРіРёСЃС‚СЂР°С†РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 			if (isset($_REQUEST["save"])) {
 				$first=false;
 				$login=@$_REQUEST["login"];
@@ -337,7 +337,7 @@ $engine->processFormData($frm,$lang["users"]["register"],$first,$tpl_form
 				 $smarty->assign("password",$password);
  $add_id=$this->addUser($login,$password,$family,$name,$otch,$city,$email,$phone1,$phone2,1,'',0);
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				   $smarty->assign("register",true);
 				   $user=$this->getUserByID($add_id);
 				   $smarty->assign("user",$user);
@@ -347,7 +347,7 @@ $engine->processFormData($frm,$lang["users"]["register"],$first,$tpl_form
 					$subscribe->addToSubscribe($user["email"],$user["fio"]);
 				   }
 				   $smarty->assign("registered",true);
-				   $this->mailMe($email,$this->thismodule["mailadmin"],"Регистрация на сайте ".$settings["httproot"],0);
+				   $this->mailMe($email,$this->thismodule["mailadmin"],"Р РµРіРёСЃС‚СЂР°С†РёСЏ РЅР° СЃР°Р№С‚Рµ ".$settings["httproot"],0);
 				 }
 			}
 	} else {

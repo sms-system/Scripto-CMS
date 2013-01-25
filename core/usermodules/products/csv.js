@@ -1,4 +1,4 @@
-/*Файл для обработки функций csv импорта в модуль каталог товаров*/
+/*Р¤Р°Р№Р» РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё С„СѓРЅРєС†РёР№ csv РёРјРїРѕСЂС‚Р° РІ РјРѕРґСѓР»СЊ РєР°С‚Р°Р»РѕРі С‚РѕРІР°СЂРѕРІ*/
 $(document).ready(function(){
 	var csv_positions=0;
 	var str='';
@@ -9,7 +9,7 @@ new AjaxUpload(button,{
 		name: 'csv_file',
 		onSubmit : function(file, ext){
 			// change button text, when user selects file			
-			button.text('Загрузка');
+			button.text('Р—Р°РіСЂСѓР·РєР°');
 			
 			// If you want to allow uploading only 1 file at time,
 			// you can disable upload button
@@ -21,12 +21,12 @@ new AjaxUpload(button,{
 				if (text.length < 13){
 					button.text(text + '.');					
 				} else {
-					button.text('Загрузка');				
+					button.text('Р—Р°РіСЂСѓР·РєР°');				
 				}
 			}, 200);
 		},
 		onComplete: function(file, response){
-			button.text('Выбрать файл и начать импорт');
+			button.text('Р’С‹Р±СЂР°С‚СЊ С„Р°Р№Р» Рё РЅР°С‡Р°С‚СЊ РёРјРїРѕСЂС‚');
 						
 			window.clearInterval(interval);
 						
@@ -36,25 +36,25 @@ new AjaxUpload(button,{
 			// add file to the list
 			switch (response) {
 				case 'wrong_format':
-					tooltip("Ошибка при загрузке файла","Поддерживается только загрузка прайс листов в формате CSV",3000);
+					tooltip("РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ С„Р°Р№Р»Р°","РџРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ Р·Р°РіСЂСѓР·РєР° РїСЂР°Р№СЃ Р»РёСЃС‚РѕРІ РІ С„РѕСЂРјР°С‚Рµ CSV",3000);
 				break;
 				case 'not_copy':
-					tooltip("Ошибка при загрузке файла","Произошла ошибка при копировании файла в папку upload. Пожалуйста проверьте права и существование данной папки",3000);
+					tooltip("РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ С„Р°Р№Р»Р°","РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР° РїСЂРё РєРѕРїРёСЂРѕРІР°РЅРёРё С„Р°Р№Р»Р° РІ РїР°РїРєСѓ upload. РџРѕР¶Р°Р»СѓР№СЃС‚Р° РїСЂРѕРІРµСЂСЊС‚Рµ РїСЂР°РІР° Рё СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ РґР°РЅРЅРѕР№ РїР°РїРєРё",3000);
 				break;
 				case 'ok':
-					showLoad('импорт данных');
-					setLoadProcess('Файл загружен, начинается обработка файла');
+					showLoad('РёРјРїРѕСЂС‚ РґР°РЅРЅС‹С…');
+					setLoadProcess('Р¤Р°Р№Р» Р·Р°РіСЂСѓР¶РµРЅ, РЅР°С‡РёРЅР°РµС‚СЃСЏ РѕР±СЂР°Р±РѕС‚РєР° С„Р°Р№Р»Р°');
 					str=generateStr();
 					getCountProducts();
 				break;		
 				default:
-					tooltip("Произошла ошибка!","Возможно размер загружаемого файла " + file + " , больше чем максимально допустимый на сервере, либо при передаче файла произошла ошибка.",0);			
+					tooltip("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!","Р’РѕР·РјРѕР¶РЅРѕ СЂР°Р·РјРµСЂ Р·Р°РіСЂСѓР¶Р°РµРјРѕРіРѕ С„Р°Р№Р»Р° " + file + " , Р±РѕР»СЊС€Рµ С‡РµРј РјР°РєСЃРёРјР°Р»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјС‹Р№ РЅР° СЃРµСЂРІРµСЂРµ, Р»РёР±Рѕ РїСЂРё РїРµСЂРµРґР°С‡Рµ С„Р°Р№Р»Р° РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°.",0);			
 			}		
 		}
 	});
 	
 	function generateStr() {
-		//формируем запрос
+		//С„РѕСЂРјРёСЂСѓРµРј Р·Р°РїСЂРѕСЃ
 		var id_category=$("#csv_cat").val();
 		var str='id_cat=' + id_category;
 		var sheets=new Array();
@@ -69,22 +69,22 @@ new AjaxUpload(button,{
 	function getCountProducts() {
 $.post('/admin/?module=modules&module_name=products&m_action=read_csv&modAction=settings&' + str, function(response, status, xhr) {
 			  if (status == "error") {
-			    var msg = "В процессе загрузки произошла ошибка: ";
+			    var msg = "Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
 				hideLoad();
 			 } else {
 			 	switch(response) {
 					case 'not_file':
-						tooltip("Ошибка файла","Файл products.csv не найден в папке upload",3000);
+						tooltip("РћС€РёР±РєР° С„Р°Р№Р»Р°","Р¤Р°Р№Р» products.csv РЅРµ РЅР°Р№РґРµРЅ РІ РїР°РїРєРµ upload",3000);
 						hideLoad();
 					break;
 					case "ok":
-						tooltip("Импорт завершен","Импорт данных успешно завершен",3000);	
+						tooltip("РРјРїРѕСЂС‚ Р·Р°РІРµСЂС€РµРЅ","РРјРїРѕСЂС‚ РґР°РЅРЅС‹С… СѓСЃРїРµС€РЅРѕ Р·Р°РІРµСЂС€РµРЅ",3000);	
 						hideLoad();								
 					break;
 					case "error":
 					default:
-						tooltip("Ошибка файла","При обработке данных произошла ошибка",3000);							
+						tooltip("РћС€РёР±РєР° С„Р°Р№Р»Р°","РџСЂРё РѕР±СЂР°Р±РѕС‚РєРµ РґР°РЅРЅС‹С… РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°",3000);							
 						hideLoad();
 				}
 			 }

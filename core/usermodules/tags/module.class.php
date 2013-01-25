@@ -1,6 +1,6 @@
 <?
 /*
-Ìîäóëü íîâîñòåé
+ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð½Ð¾Ð²Ð¾ÑÑ‚ÐµÐ¹
 */
 
 if ($this->checkInstallModule("tags")) {
@@ -27,7 +27,7 @@ class tags {
 		global $db;
 		global $engine;
 		$type_id=mysql_insert_id();
-		if ($db->query("insert into `%blocks%` values (null,0,'Îáëàêî òåãîâ','',$type_id,'cloudtags',1,0,2,30,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
+		if ($db->query("insert into `%blocks%` values (null,0,'ÐžÐ±Ð»Ð°ÐºÐ¾ Ñ‚ÐµÐ³Ð¾Ð²','',$type_id,'cloudtags',1,0,2,30,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
 			return true;
 		}  else {
 			return false;
@@ -76,7 +76,7 @@ class tags {
 	}
 	
 	function checkMe() {
-	//ïðîâåðÿåì ñóùåñòâóþò ëè óæå òàáëèöû ìîäóëÿ
+	//Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‚ Ð»Ð¸ ÑƒÐ¶Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ Ð¼Ð¾Ð´ÑƒÐ»Ñ
 		global $engine;
 		if ($engine->checkInstallModule("tags")) {
 			return true;
@@ -126,7 +126,7 @@ class tags {
 		}
 	}
 	
-	//ôóíêöèÿ ñîðòèðîâêè ýëåìåíòîâ ìàññèâà â ïðîèçâîëüíîì ïîðÿäêå
+	//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¸ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð° Ð² Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð»ÑŒÐ½Ð¾Ð¼ Ð¿Ð¾Ñ€ÑÐ´ÐºÐµ
 	function kshuffle(&$array) {
     if(!is_array($array) || empty($array)) {
         return false;
@@ -143,7 +143,7 @@ class tags {
     return true;
 	}
 	
-	//Ôóíêöèÿ äîáàâëåíèÿ íîâîãî òåãà ñ ó÷åòîì ñóùåñòâîâàíèÿ ñòàðîãî
+	//Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ñ‚ÐµÐ³Ð° Ñ ÑƒÑ‡ÐµÑ‚Ð¾Ð¼ ÑÑƒÑ‰ÐµÑÑ‚Ð²Ð¾Ð²Ð°Ð½Ð¸Ñ ÑÑ‚Ð°Ñ€Ð¾Ð³Ð¾
 	function addTag($tag,$id_object,$object_type='') {
 		global $db;
 		if (!preg_match("/^[0-9]{1,}$/i",$id_object)) return false;
@@ -182,7 +182,7 @@ class tags {
 		}
 	}
 	
-	//ôóíêöèÿ óäàëåíèÿ òåãîâ
+	//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ Ñ‚ÐµÐ³Ð¾Ð²
 	function deleteTags($id_object,$object_type) {
 		global $db;
 		if (!preg_match("/^[0-9]{1,}$/i",$id_object)) return false;
@@ -193,7 +193,7 @@ class tags {
 		}
 	}
 	
-	//ôóíêöèÿ äîáàâëåíèÿ òåãîâ èç ñòðîêè
+	//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ñ‚ÐµÐ³Ð¾Ð² Ð¸Ð· ÑÑ‚Ñ€Ð¾ÐºÐ¸
 	function addTags($str,$id_object,$object_type) {
 		global $db;
 		global $engine;
@@ -217,7 +217,7 @@ class tags {
 		}
 	}
 	
-	//Ïîëó÷àåì ñòðîêó òåãîâ äëÿ îáúåêòà
+	//ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑÑ‚Ñ€Ð¾ÐºÑƒ Ñ‚ÐµÐ³Ð¾Ð² Ð´Ð»Ñ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°
 	function getTags($id_object,$object_type,$mode="text") {
 		global $db;
 		global $engine;
@@ -264,7 +264,7 @@ class tags {
 		return $row["cnt"];
 	}
 	
-	//Ïîëó÷èòü òåãè äëÿ àäìèíêè
+	//ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ñ‚ÐµÐ³Ð¸ Ð´Ð»Ñ Ð°Ð´Ð¼Ð¸Ð½ÐºÐ¸
 	function getTagsFromBase($page=0,$onpage=40,$use_count=false) {
 		global $db;
 		if ($use_count) {
@@ -287,7 +287,7 @@ class tags {
 	}
 	
 	
-	//Ïîëó÷åíèå òåãîâ èç ïîëüçîâàòåëüñêîé ÷àñòè
+	//ÐŸÐ¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ Ñ‚ÐµÐ³Ð¾Ð² Ð¸Ð· Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¾Ð¹ Ñ‡Ð°ÑÑ‚Ð¸
 	function getTagsCountByTag($tag) {
 		global $db;
 		$res=$db->query("SELECT `%TAG_OBJECTS%`.`id_tag`,count(*) as `cnt` FROM `%TAG_OBJECTS%`,`%TAGS%` where `%TAGS%`.id_tag=`%TAG_OBJECTS%`.id_tag and `%TAGS%`.tag='".sql_quote($tag)."'  group by `%TAGS%`.id_tag");

@@ -1,34 +1,34 @@
-<h2>Уважаемый администратор сайта {$siteurl}!</h2>
-<p>В Вашем магазине был оформлен заказ <b>#{$order_id}</b></p>
-<h2>Информация о заказе</h2>
-<p>Дата заказа: <b>{$order.date_print}</b></p>
-<p>Общая стоимость заказа: <b>{if $order.print_coupon_itogo}{$order.print_coupon_itogo}{else}{$order.print_price}{/if}</b></p>
-<p>Способ доставки: <b>{if $order.delivery}{$order.delivery}{else}не указано{/if}</b></p>
-<p>Адрес доставки: <b>{if $order.address}{$order.address}{else}не указано{/if}</b></p>
-<p>Способ оплаты: <b>{if $order.payment}{$order.payment}{else}не указано{/if}</b></p>
+<h2>РЈРІР°Р¶Р°РµРјС‹Р№ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ СЃР°Р№С‚Р° {$siteurl}!</h2>
+<p>Р’ Р’Р°С€РµРј РјР°РіР°Р·РёРЅРµ Р±С‹Р» РѕС„РѕСЂРјР»РµРЅ Р·Р°РєР°Р· <b>#{$order_id}</b></p>
+<h2>РРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р·Р°РєР°Р·Рµ</h2>
+<p>Р”Р°С‚Р° Р·Р°РєР°Р·Р°: <b>{$order.date_print}</b></p>
+<p>РћР±С‰Р°СЏ СЃС‚РѕРёРјРѕСЃС‚СЊ Р·Р°РєР°Р·Р°: <b>{if $order.print_coupon_itogo}{$order.print_coupon_itogo}{else}{$order.print_price}{/if}</b></p>
+<p>РЎРїРѕСЃРѕР± РґРѕСЃС‚Р°РІРєРё: <b>{if $order.delivery}{$order.delivery}{else}РЅРµ СѓРєР°Р·Р°РЅРѕ{/if}</b></p>
+<p>РђРґСЂРµСЃ РґРѕСЃС‚Р°РІРєРё: <b>{if $order.address}{$order.address}{else}РЅРµ СѓРєР°Р·Р°РЅРѕ{/if}</b></p>
+<p>РЎРїРѕСЃРѕР± РѕРїР»Р°С‚С‹: <b>{if $order.payment}{$order.payment}{else}РЅРµ СѓРєР°Р·Р°РЅРѕ{/if}</b></p>
 {if $order.comment}
-<p>Комментарий к заказу:<br>{$order.comment}</p>
+<p>РљРѕРјРјРµРЅС‚Р°СЂРёР№ Рє Р·Р°РєР°Р·Сѓ:<br>{$order.comment}</p>
 {/if}
-<h1>Информация о заказчике</h1>
-<p>ФИО: <b>{$user.fio}</b></p>
+<h1>РРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р·Р°РєР°Р·С‡РёРєРµ</h1>
+<p>Р¤РРћ: <b>{$user.fio}</b></p>
 <p>E-mail: <a href="mailto:{$user.email}">{$user.email}</a></p>
-<p>Городской телефон: {if $user.phone1}<b>{$user.phone1}</b>{else}не указан{/if}</p>
-<p>Сотовый телефон: {if $user.phone2}<b>{$user.phone2}</b>{else}не указан{/if}</p>
-<h1>Заказанные товары</h1>
+<p>Р“РѕСЂРѕРґСЃРєРѕР№ С‚РµР»РµС„РѕРЅ: {if $user.phone1}<b>{$user.phone1}</b>{else}РЅРµ СѓРєР°Р·Р°РЅ{/if}</p>
+<p>РЎРѕС‚РѕРІС‹Р№ С‚РµР»РµС„РѕРЅ: {if $user.phone2}<b>{$user.phone2}</b>{else}РЅРµ СѓРєР°Р·Р°РЅ{/if}</p>
+<h1>Р—Р°РєР°Р·Р°РЅРЅС‹Рµ С‚РѕРІР°СЂС‹</h1>
 <table class="objects">
 <tr height="30">
-	<td width="25%" class="objects_header">Код товара</td>
-	<td width="25%" class="objects_header">Название</td>
-	<td width="15%" class="objects_header">Количество</td>
-	<td width="15%" class="objects_header">Стоимость</td>
-	<td width="20%" class="objects_header">Итого</td>
+	<td width="25%" class="objects_header">РљРѕРґ С‚РѕРІР°СЂР°</td>
+	<td width="25%" class="objects_header">РќР°Р·РІР°РЅРёРµ</td>
+	<td width="15%" class="objects_header">РљРѕР»РёС‡РµСЃС‚РІРѕ</td>
+	<td width="15%" class="objects_header">РЎС‚РѕРёРјРѕСЃС‚СЊ</td>
+	<td width="20%" class="objects_header">РС‚РѕРіРѕ</td>
 </tr>
 {foreach key=key item=prod from=$order.products}
 <tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="order{$ord.id_order}">
 	<td>{$prod.code}</td>
 	<td>{$prod.caption}
 	{if $prod.options}
-	<p><b>Заказанные варианты товара:</b></p>
+	<p><b>Р—Р°РєР°Р·Р°РЅРЅС‹Рµ РІР°СЂРёР°РЅС‚С‹ С‚РѕРІР°СЂР°:</b></p>
 	{foreach key=key item=option from=$prod.options}
 	{assign var="n" value=0}
 	<p>
@@ -49,16 +49,16 @@
 </tr>
 {/foreach}
 <tr>
-	<td colspan="4" align="right"><b>Итого с доставкой:</b></td>
+	<td colspan="4" align="right"><b>РС‚РѕРіРѕ СЃ РґРѕСЃС‚Р°РІРєРѕР№:</b></td>
 	<td align="right"><b>{$order.print_price}</b></td>
 </tr>
 {if $order.print_coupon}
 <tr>
-	<td colspan="4" align="right">Скидочный купон {$order.coupon_caption} ({$order.coupon_code})</td>
-	<td align="right">- {$order.coupon_price} {if $order.coupon_type==0}руб.{/if}{if $order.coupon_type==1}%{/if}</td>
+	<td colspan="4" align="right">РЎРєРёРґРѕС‡РЅС‹Р№ РєСѓРїРѕРЅ {$order.coupon_caption} ({$order.coupon_code})</td>
+	<td align="right">- {$order.coupon_price} {if $order.coupon_type==0}СЂСѓР±.{/if}{if $order.coupon_type==1}%{/if}</td>
 </tr>
 <tr>
-	<td colspan="4" align="right"><b>Итого к оплате:</b></td>
+	<td colspan="4" align="right"><b>РС‚РѕРіРѕ Рє РѕРїР»Р°С‚Рµ:</b></td>
 	<td align="right"><b>{$order.print_coupon_itogo}</b></td>
 </tr>
 {/if}
@@ -68,7 +68,7 @@
 	<td align="right">- {$order.print_discount_price}</td>
 </tr>
 <tr height="20">
-	<td colspan="4" align="right"><b>Итого к оплате (с доставкой):</b></td>
+	<td colspan="4" align="right"><b>РС‚РѕРіРѕ Рє РѕРїР»Р°С‚Рµ (СЃ РґРѕСЃС‚Р°РІРєРѕР№):</b></td>
 	<td align="right"><b>{$order.print_discount_itog}</b></td>
 </tr>
 {/if}

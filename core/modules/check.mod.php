@@ -4,7 +4,7 @@
 		$sql_dump=$root."core/sql/install.sql";
 			$report=array();
 			$rep["lib"]="php";
-			$rep["value"]="PHP версии 5.x + ";
+			$rep["value"]="PHP РІРµСЂСЃРёРё 5.x + ";
 			if (phpversion() >= '5.0') {
 				$rep["install"]=true;
 			} else {
@@ -26,15 +26,15 @@
 			}
 			$report[]=$rep;
 			unset($rep);
-			$extensions["curl"]='Библиотека <a href="http://ru2.php.net/manual/en/book.curl.php" target="_blank">CURL</a>';
-			$extensions["xml"]='Библиотека <a href="http://ru2.php.net/manual/en/book.xml.php" target="_blank">XML</a>';
-			$extensions["gd"]='Библиотека <a href="http://ru2.php.net/manual/en/book.image.php" target="_blank">GD</a>';
+			$extensions["curl"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a href="http://ru2.php.net/manual/en/book.curl.php" target="_blank">CURL</a>';
+			$extensions["xml"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a href="http://ru2.php.net/manual/en/book.xml.php" target="_blank">XML</a>';
+			$extensions["gd"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a href="http://ru2.php.net/manual/en/book.image.php" target="_blank">GD</a>';
 			if ($check_zend)
 			$extensions["Zend Optimizer"]='<a href="http://zend.com" target="_blank">Zend Optimizer</a>';
-			$extensions["mbstring"]='Библиотека <a href="http://ru2.php.net/manual/en/book.mbstring.php" target="_blank">MBString</a>';
-			$extensions["json"]='Библиотека <a
+			$extensions["mbstring"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a href="http://ru2.php.net/manual/en/book.mbstring.php" target="_blank">MBString</a>';
+			$extensions["json"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a
  href="http://ru2.php.net/manual/en/book.json.php" target="_blank">JSON</a>';
-			$extensions["iconv"]='Библиотека <a href="http://ru2.php.net/manual/en/book.iconv.php" target="_blank">Iconv</a>'; 
+			$extensions["iconv"]='Р‘РёР±Р»РёРѕС‚РµРєР° <a href="http://ru2.php.net/manual/en/book.iconv.php" target="_blank">Iconv</a>'; 
 			foreach ($extensions as $lib=>$value) {
 				$rep["lib"]=$lib;
 				$rep["value"]=$value;
@@ -56,8 +56,8 @@
 			unset($rep);
 			$smarty->assign("report",$report);
 			$setup=array();
-			$setting["safe_mode"]="Безопасный режим PHP (Safe Mode)";
-			$setting["file_uploads"]="Загрузка файлов";
+			$setting["safe_mode"]="Р‘РµР·РѕРїР°СЃРЅС‹Р№ СЂРµР¶РёРј PHP (Safe Mode)";
+			$setting["file_uploads"]="Р—Р°РіСЂСѓР·РєР° С„Р°Р№Р»РѕРІ";
 			$setting["magic_quotes_runtime"]="magic_quotes_runtime";
 			foreach ($setting as $zn=>$set) {
 				$rep["lib"]=$zn;
@@ -70,7 +70,7 @@
 				$setup[]=$rep;
 			}
 			$rep["lib"]="register_globals";
-			$rep["value"]="Register Globals выключено";
+			$rep["value"]="Register Globals РІС‹РєР»СЋС‡РµРЅРѕ";
 			if (ini_get("register_globals")) {
 				$rep["install"]=false;
 			} else {
@@ -79,7 +79,7 @@
 			$setup[]=$rep;
 			unset($rep);
 			$rep["lib"]="allow_url_fopen";
-			$rep["value"]="Открытие удаленных файлов выключено";
+			$rep["value"]="РћС‚РєСЂС‹С‚РёРµ СѓРґР°Р»РµРЅРЅС‹С… С„Р°Р№Р»РѕРІ РІС‹РєР»СЋС‡РµРЅРѕ";
 			if (ini_get("allow_url_fopen")) {
 				$rep["install"]=false;
 			} else {

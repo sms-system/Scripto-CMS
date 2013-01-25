@@ -1,5 +1,5 @@
 <div class="button">
-	<div class="actionbutton" id="choosebyurl">Выбрать по URL</div>
+	<div class="actionbutton" id="choosebyurl">Р’С‹Р±СЂР°С‚СЊ РїРѕ URL</div>
 	<form action="{$siteurl}admin?module=modules&modAction=settings&module_name=comments&viewbystr=true" method="post" id="search_form">
 	<div id="searchbox"><table><tr><td width="90%"><input type="text" name="str" value="{$str}" class="sbox"></td><td><input type="image" src="{$siteurl}images/admin/s_icon.jpg"></td></tr></table></div>
 	</form>	
@@ -7,7 +7,7 @@
 <div class="body">
 	{if $comments}
 	<p align="right">
-		Выберите страницу:
+		Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂР°РЅРёС†Сѓ:
 		{foreach key=key item=p from=$pages}
 			{if $p==$pagenumber}
 				<b>{$p+1}</b>
@@ -20,12 +20,12 @@
 <form action="{$siteurl}admin?module=modules&modAction=settings&module_name=comments" method="post" id="comments_form">
 <table class="objects">
 	<tr>					
-		<td class="objects_header" width="50%">Комментарий</td>
-		<td class="objects_header" width="10%">Добавлен</td>
-		<td class="objects_header" width="20%">Пользователь</td>
-		<td class="objects_header editable_header" width="5%"><span>Проверенный</span></td>
-		<td class="objects_header" width="5%">Объект</td>
-		<td class="objects_header editable_header" width="10%" align="right"><span>Удалить</span></td>
+		<td class="objects_header" width="50%">РљРѕРјРјРµРЅС‚Р°СЂРёР№</td>
+		<td class="objects_header" width="10%">Р”РѕР±Р°РІР»РµРЅ</td>
+		<td class="objects_header" width="20%">РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ</td>
+		<td class="objects_header editable_header" width="5%"><span>РџСЂРѕРІРµСЂРµРЅРЅС‹Р№</span></td>
+		<td class="objects_header" width="5%">РћР±СЉРµРєС‚</td>
+		<td class="objects_header editable_header" width="10%" align="right"><span>РЈРґР°Р»РёС‚СЊ</span></td>
 	</tr>
 	{assign var="k" value=0}
 	{foreach key=key item=comment from=$comments}
@@ -56,16 +56,16 @@
 		<td class="selectall" align="center"><input type="checkbox" class="deletecheckbox" numb="1"></td>
 	</tr>
 <tr id="save_submit">
-	<td colspan="5" align="center"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="5" align="center"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>	
 </table>
 <input type="hidden" name="save" value="1">
 </form>
 	{else}
 	{if $viewbyurl}
-	<p>По заданным параметрам нет комментариев</p>
+	<p>РџРѕ Р·Р°РґР°РЅРЅС‹Рј РїР°СЂР°РјРµС‚СЂР°Рј РЅРµС‚ РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ</p>
 	{else}
-	<p>На данный момент нет непросмотренных комментариев.</p>
+	<p>РќР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РЅРµС‚ РЅРµРїСЂРѕСЃРјРѕС‚СЂРµРЅРЅС‹С… РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ.</p>
 	{/if}
 	{/if}
 </div>

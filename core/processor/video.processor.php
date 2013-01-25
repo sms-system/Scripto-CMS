@@ -76,7 +76,7 @@ if (isset($_REQUEST["video_id"])) {
 	if ($page["main_page"]) {
 	$videos=$this->getVideoByCat($page["id_category"],true,true);
 	} else {
-	//ñòðàíèöû
+	//ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹
 	$onpage=$config["category"]["onpage_videos"];
 	$max=$this->getCountVideoByCat($page["id_category"],true);
 	if (isset($_REQUEST["pg"])) {

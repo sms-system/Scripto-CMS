@@ -1,5 +1,5 @@
 <?
-//Модуль товары, пользовательская часть
+//РњРѕРґСѓР»СЊ С‚РѕРІР°СЂС‹, РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєР°СЏ С‡Р°СЃС‚СЊ
 global $engine;
 global $page;
 if ($engine->checkInstallModule("basket")) {
@@ -18,7 +18,7 @@ if ($this->thismodule["shop_on"]) {
 }
 if (isset($_REQUEST["productID"])) {
 global $rubrics;
-	//просмотр товара
+	//РїСЂРѕСЃРјРѕС‚СЂ С‚РѕРІР°СЂР°
 	$productID=$_REQUEST["productID"];
 	if (preg_match("/^[0-9]{1,}$/i",$productID)) {
 		$product=$this->getProductByID($productID);
@@ -53,7 +53,7 @@ $page["caption"]=$product["caption"];
 	}
 } else {
 	if (isset($page["additional"]["favorite_url"])) {
-		//страница сравнения товаров
+		//СЃС‚СЂР°РЅРёС†Р° СЃСЂР°РІРЅРµРЅРёСЏ С‚РѕРІР°СЂРѕРІ
 		if (isset($_REQUEST["add"])) {
 			if (isset($_REQUEST["id_product"])) {
 				$id_product=$_REQUEST["id_product"];
@@ -98,12 +98,12 @@ $page["caption"]=$product["caption"];
 			}
 		}
 	} elseif (isset($page["additional"]["actions_page"])) {
-		//акционная страница
+		//Р°РєС†РёРѕРЅРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°
 		$action=$this->getActionByCategory($page["id_category"]);
 		$smarty->assign("action",$action);
 		$filter["id_action"]=$action["id_action"];
 	} elseif (isset($page["additional"]["type_url"])) {
-		//просмотр по типу товара
+		//РїСЂРѕСЃРјРѕС‚СЂ РїРѕ С‚РёРїСѓ С‚РѕРІР°СЂР°
 			$id_type=$_REQUEST["id_type"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_type)) {
 				$type=$this->getTypeByID($id_type);

@@ -1,13 +1,13 @@
 <?
-//ßçûêîâîé ôàéë äëÿ ìîäóëÿ êàòàëîã òîâàðîâ
-$lang["forms"]["publications"]["visible"]["caption"]="Çðîáèòè ïóáë³êàö³þ âèäèìîþ";
-$lang["forms"]["publications"]["visible"]["error"]="Âêàçàíî  íåâ³ðíå çíà÷åííÿ âèäèìîñò³ ïóáë³êàö³¿";
-$lang["interface"]["edit_publication"]="Ðåäàãóâàòè ïóáë³êàö³þ";
-$lang["dialog"]["delete_publication"]="Âèäàëèòè ïóáë³êàö³þ?";
-$lang["publications"]["backto"]="íàçàä äî ñïèñêó ïóáë³êàö³é";
-$lang["publications"]["viewpublication"]="ïåðåãëÿä ïóáë³êàö³é";
-$lang["publications"]["author"]="Äæåðåëî";
-$lang["publications"]["link_to_author"]="Ññèëêà íà äæåðåëî";
-$lang["publications"]["podr"]="Äåòàëüí³øå>>";
-$lang["publications"]["choosepage"]="Îáåð³òü ñòîð³íêó";
+//Ð¯Ð·Ñ‹ÐºÐ¾Ð²Ð¾Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð²
+$lang["forms"]["publications"]["visible"]["caption"]="Ð—Ñ€Ð¾Ð±Ð¸Ñ‚Ð¸ Ð¿ÑƒÐ±Ð»Ñ–ÐºÐ°Ñ†Ñ–ÑŽ Ð²Ð¸Ð´Ð¸Ð¼Ð¾ÑŽ";
+$lang["forms"]["publications"]["visible"]["error"]="Ð’ÐºÐ°Ð·Ð°Ð½Ð¾  Ð½ÐµÐ²Ñ–Ñ€Ð½Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð½Ñ Ð²Ð¸Ð´Ð¸Ð¼Ð¾ÑÑ‚Ñ– Ð¿ÑƒÐ±Ð»Ñ–ÐºÐ°Ñ†Ñ–Ñ—";
+$lang["interface"]["edit_publication"]="Ð ÐµÐ´Ð°Ð³ÑƒÐ²Ð°Ñ‚Ð¸ Ð¿ÑƒÐ±Ð»Ñ–ÐºÐ°Ñ†Ñ–ÑŽ";
+$lang["dialog"]["delete_publication"]="Ð’Ð¸Ð´Ð°Ð»Ð¸Ñ‚Ð¸ Ð¿ÑƒÐ±Ð»Ñ–ÐºÐ°Ñ†Ñ–ÑŽ?";
+$lang["publications"]["backto"]="Ð½Ð°Ð·Ð°Ð´ Ð´Ð¾ ÑÐ¿Ð¸ÑÐºÑƒ Ð¿ÑƒÐ±Ð»Ñ–ÐºÐ°Ñ†Ñ–Ð¹";
+$lang["publications"]["viewpublication"]="Ð¿ÐµÑ€ÐµÐ³Ð»ÑÐ´ Ð¿ÑƒÐ±Ð»Ñ–ÐºÐ°Ñ†Ñ–Ð¹";
+$lang["publications"]["author"]="Ð”Ð¶ÐµÑ€ÐµÐ»Ð¾";
+$lang["publications"]["link_to_author"]="Ð¡ÑÐ¸Ð»ÐºÐ° Ð½Ð° Ð´Ð¶ÐµÑ€ÐµÐ»Ð¾";
+$lang["publications"]["podr"]="Ð”ÐµÑ‚Ð°Ð»ÑŒÐ½Ñ–ÑˆÐµ>>";
+$lang["publications"]["choosepage"]="ÐžÐ±ÐµÑ€Ñ–Ñ‚ÑŒ ÑÑ‚Ð¾Ñ€Ñ–Ð½ÐºÑƒ";
 ?>

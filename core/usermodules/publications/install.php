@@ -1,6 +1,6 @@
 <?
 /*
-Óñòàíîâî÷íûé ôàéë äëÿ ìîäóëÿ ïóáëèêàöèè
+Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¾Ñ‡Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸
 */
 global $engine;
 $install_sql[]="CREATE TABLE `%PUBLICATIONS%` (
@@ -20,9 +20,9 @@ $install_sql[]="CREATE TABLE `%PUBLICATIONS%` (
 PRIMARY KEY ( `id_publication` ) ,
 INDEX ( `caption` )
 ) ENGINE=MyISAM;";
-$install_sql[]="insert into `%block_types%` values (null,'Ïîñëåäíèå ïóáëèêàöèè','lastpublications','publications',1);";
+$install_sql[]="insert into `%block_types%` values (null,'ÐŸÐ¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸','lastpublications','publications',1);";
 /*
-Äîáàâëÿåì ðàçäåë ïóáëèêàöèè
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸
 */
 $m_page=$engine->getMainpage();
 $date_category=array();
@@ -30,7 +30,7 @@ $date_category[0]=(int)date("d");
 $date_category[1]=(int)date("m");
 $date_category[2]=(int)date("Y");
 if (!$engine->rubricExist($m->thismodule["publications_url"],0)) {
-$engine->addCategory($m_page["id_category"],"Ïóáëèêàöèè","text",$m->thismodule["publications_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
+$engine->addCategory($m_page["id_category"],"ÐŸÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸","text",$m->thismodule["publications_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
 $engine->addModuleToCategory("publications",mysql_insert_id());
 }
 ?>

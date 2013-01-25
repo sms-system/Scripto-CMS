@@ -1,6 +1,6 @@
 <?
-//Модуль формы, пользовательская часть
-//получаем формы
+//РњРѕРґСѓР»СЊ С„РѕСЂРјС‹, РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєР°СЏ С‡Р°СЃС‚СЊ
+//РїРѕР»СѓС‡Р°РµРј С„РѕСЂРјС‹
 global $page;
 global $thismodule;
 
@@ -27,13 +27,13 @@ if (isset($_REQUEST["answer_mode"])) {
 		if ($mode=='admin' || $mode=='user') {
 		$answers=$this->getAnswers($id_order);
 		$smarty->assign("answers",$answers);
-		$engine->addSubPath('Ответ на заявку #'.$id_order,$page['url'].'/?id_order='.$order["order_number"]);
-		$page["caption"]='Ответ на заявку #'.$order["order_number"];
+		$engine->addSubPath('РћС‚РІРµС‚ РЅР° Р·Р°СЏРІРєСѓ #'.$id_order,$page['url'].'/?id_order='.$order["order_number"]);
+		$page["caption"]='РћС‚РІРµС‚ РЅР° Р·Р°СЏРІРєСѓ #'.$order["order_number"];
 		$search=array('%NUMBER%','%FIO%');
 		if ($mode=="admin") {
 		$replace=array($order["order_number"],$order["fio"]);
 		} else {
-		$replace=array($order["order_number"],'Администратор');
+		$replace=array($order["order_number"],'РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ');
 		}
 			if (isset($_REQUEST["save"])) {
 				$first=false;
@@ -53,10 +53,10 @@ if (isset($_REQUEST["answer_mode"])) {
 				$order["content"]=str_replace($search,$replace,$answer_text);
 				}
 				$forwardcontent=str_replace($search,$replace,$form["forwardcontent"]);
-				$order["content"]=$forwardcontent.'<p></p><hr><font style="color:#A1A1A1;"><i>Вы писали: <br>'.$order["content"].'</i></font>';
+				$order["content"]=$forwardcontent.'<p></p><hr><font style="color:#A1A1A1;"><i>Р’С‹ РїРёСЃР°Р»Рё: <br>'.$order["content"].'</i></font>';
 				} else {
 				if ($order["fio"]) {
-				$order["content"]='Добрый день, Администратор<br><br>С Уважением, '.$order["fio"];
+				$order["content"]='Р”РѕР±СЂС‹Р№ РґРµРЅСЊ, РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ<br><br>РЎ РЈРІР°Р¶РµРЅРёРµРј, '.$order["fio"];
 				} else {
 				$order["content"]='';
 				}
@@ -72,23 +72,23 @@ if (isset($_REQUEST["answer_mode"])) {
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 			$fck_editor1=$engine->createFCKEditor("fck1",$content);
-			$frm->addField("Содержимое письма","Неверно заполнено содержимое письма","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1);
+			$frm->addField("РЎРѕРґРµСЂР¶РёРјРѕРµ РїРёСЃСЊРјР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ СЃРѕРґРµСЂР¶РёРјРѕРµ РїРёСЃСЊРјР°","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1);
 			$frm->addField("","","hidden",$id_order,$id_order,"/^[0-9]{1,}$/i","id_order",1);
 			if (
-$engine->processFormData($frm,"Отправить",$first
+$engine->processFormData($frm,"РћС‚РїСЂР°РІРёС‚СЊ",$first
 			)) {
 				if ($mode=="admin") {
 				if ($this->createAnswer($id_order,1,$form["email"],$content)) {
 				$smarty->assign("save",true);
 				$this_cat=$engine->getCategoryByID($form["id_category"]);
-				$content.='<p><b>ВНИМАНИЕ</b> Данное сообщение было сгенерировано автоматизированной системой, если Вы хотите ответить на него , то пожалуйста воспользуйтесь следующей ссылкой:</p><p><a href="'.$this_cat["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($order["email"]).'" target="_blank">'.$this_cat["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($order["email"]).'</a></p>';
+				$content.='<p><b>Р’РќРРњРђРќРР•</b> Р”Р°РЅРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ Р±С‹Р»Рѕ СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅРѕ Р°РІС‚РѕРјР°С‚РёР·РёСЂРѕРІР°РЅРЅРѕР№ СЃРёСЃС‚РµРјРѕР№, РµСЃР»Рё Р’С‹ С…РѕС‚РёС‚Рµ РѕС‚РІРµС‚РёС‚СЊ РЅР° РЅРµРіРѕ , С‚Рѕ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РІРѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ СЃР»РµРґСѓСЋС‰РµР№ СЃСЃС‹Р»РєРѕР№:</p><p><a href="'.$this_cat["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($order["email"]).'" target="_blank">'.$this_cat["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($order["email"]).'</a></p>';
 				mailHTML($order["email"],$form["email"],$subject,$content);
 				$smarty->assign("sended",true);
 				}
 				} else {
 				if ($this->createAnswer($id_order,0,$order["email"],$content)) {
 				$smarty->assign("save",true);
-		$content.='<p><b>ВНИМАНИЕ</b> Данное сообщение было сгенерировано автоматизированной системой, если Вы хотите ответить на него , то пожалуйста воспользуйтесь следующей ссылкой:</p><p><a href="'.$page["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($form["email"].$config["secretkey"]).'" target="_blank">'.$page["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($form["email"].$config["secretkey"]).'</a></p>';				
+		$content.='<p><b>Р’РќРРњРђРќРР•</b> Р”Р°РЅРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ Р±С‹Р»Рѕ СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅРѕ Р°РІС‚РѕРјР°С‚РёР·РёСЂРѕРІР°РЅРЅРѕР№ СЃРёСЃС‚РµРјРѕР№, РµСЃР»Рё Р’С‹ С…РѕС‚РёС‚Рµ РѕС‚РІРµС‚РёС‚СЊ РЅР° РЅРµРіРѕ , С‚Рѕ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РІРѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ СЃР»РµРґСѓСЋС‰РµР№ СЃСЃС‹Р»РєРѕР№:</p><p><a href="'.$page["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($form["email"].$config["secretkey"]).'" target="_blank">'.$page["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($form["email"].$config["secretkey"]).'</a></p>';				
 				mailHTML($form["email"],$order["email"],$subject,$content);
 				$smarty->assign("sended",true);
 				}
@@ -169,7 +169,7 @@ if (isset($_REQUEST["save"])) {
 	if (is_array($inputs))
 	foreach ($inputs as $key=>$input) {
 	if ($input["data_type"]==6) {
-		//ФИО
+		//Р¤РРћ
 		$fio=$values[$input["id_input"]];
 	}
 	if ($input["data_type"]==2) {
@@ -198,7 +198,7 @@ $frm->addField($input["caption"],$input["error_text"],$this->thismodule["inputs"
 		} elseif ($input["input_type"]==11) {
 	$frm->addField($input["caption"],$input["error_text"],$this->thismodule["inputs"][$input["input_type"]]["type"],'','',"/^[0-9]{0,}$/i","files".$input["id_input"]."",$input["obyaz"],$input["tooltip"],array('size'=>'30'));
 		} elseif ($input["input_type"]==8) {
-$frm->addField($input["caption"],$input["error_text"],"kcaptcha","",$config["classes"]["kcaptha"],"/^[^#]{1,}$/i","kcaptcha",1,'',array('ticket'=>'Любые цифры и буквы'));
+$frm->addField($input["caption"],$input["error_text"],"kcaptcha","",$config["classes"]["kcaptha"],"/^[^#]{1,}$/i","kcaptcha",1,'',array('ticket'=>'Р›СЋР±С‹Рµ С†РёС„СЂС‹ Рё Р±СѓРєРІС‹'));
 			if(isset($_SESSION['captcha_keystring']) && $_SESSION['captcha_keystring'] !=  @$values[$input["id_input"]]){
 				$frm->addError($input["error_text"]);
 			}
@@ -208,7 +208,7 @@ $frm->addField($input["caption"],$input["error_text"],"kcaptcha","",$config["cla
 	}
 	
 	if ($engine->processFormData($frm,$lang["forms"]["send"],$first,"system/classes/module_form.html")) {
-		//$engine->setCongratulation("Форма отправлена успешно!");
+		//$engine->setCongratulation("Р¤РѕСЂРјР° РѕС‚РїСЂР°РІР»РµРЅР° СѓСЃРїРµС€РЅРѕ!");
 		unset($_SESSION['captcha_keystring']);
 		$form_html=$frm->print_me();
 		$smarty->assign("form_html",$form_html);
@@ -222,12 +222,12 @@ $frm->addField($input["caption"],$input["error_text"],"kcaptcha","",$config["cla
 		if (trim($form["caption_mail_admin"])!='') {
 			$admin_subject=str_replace($search,$replace,$form["caption_mail_admin"]);
 		} else {
-			$admin_subject="[".$form["caption"]."] Сообщение #$number с сайта ".$settings["httproot"];
+			$admin_subject="[".$form["caption"]."] РЎРѕРѕР±С‰РµРЅРёРµ #$number СЃ СЃР°Р№С‚Р° ".$settings["httproot"];
 		}
 		if (trim($form["caption_mail_user"])!='') {
 			$user_subject=str_replace($search,$replace,$form["caption_mail_user"]);
 		} else {
-			$user_subject="[".$form["caption"]."] Сообщение #$number с сайта ".$settings["httproot"];
+			$user_subject="[".$form["caption"]."] РЎРѕРѕР±С‰РµРЅРёРµ #$number СЃ СЃР°Р№С‚Р° ".$settings["httproot"];
 		}		
 		$admin_text=str_replace($search,$replace,$form["success_admin"])."<br>".$form_html;
 		$user_text=str_replace($search,$replace,$form["success_user"]);
@@ -236,7 +236,7 @@ $frm->addField($input["caption"],$input["error_text"],"kcaptcha","",$config["cla
 		} else {
 			$admin_from=$this->thismodule["mailadmin"];
 		}
-		$admin_text.='<p><b>ВНИМАНИЕ</b> Данное сообщение было сгенерировано автоматизированной системой, если Вы хотите ответить на него , то пожалуйста воспользуйтесь следующей ссылкой:</p><p><a href="'.$page["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($form["email"].$config["secretkey"]).'" target="_blank">'.$page["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($form["email"].$config["secretkey"]).'</a></p>';
+		$admin_text.='<p><b>Р’РќРРњРђРќРР•</b> Р”Р°РЅРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ Р±С‹Р»Рѕ СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅРѕ Р°РІС‚РѕРјР°С‚РёР·РёСЂРѕРІР°РЅРЅРѕР№ СЃРёСЃС‚РµРјРѕР№, РµСЃР»Рё Р’С‹ С…РѕС‚РёС‚Рµ РѕС‚РІРµС‚РёС‚СЊ РЅР° РЅРµРіРѕ , С‚Рѕ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РІРѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ СЃР»РµРґСѓСЋС‰РµР№ СЃСЃС‹Р»РєРѕР№:</p><p><a href="'.$page["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($form["email"].$config["secretkey"]).'" target="_blank">'.$page["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($form["email"].$config["secretkey"]).'</a></p>';
 		mailHTML($form["email"],$admin_from,$admin_subject,$admin_text,true);
 		mailHTML($user_email,$form["email"],$user_subject,$user_text);
 	}

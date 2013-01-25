@@ -1,95 +1,95 @@
 <?
-$moduleinfo["caption"]="Ìîäóëü òîâàðû";
+$moduleinfo["caption"]="ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ñ‚Ð¾Ð²Ð°Ñ€Ñ‹";
 $moduleinfo["url"]="http://www.scripto.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
 $moduleinfo["version"]="1.0";
 $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/products/";
-$moduleinfo["use_in_one_rubric"]=false;//âûâîäèòü âî âñåõ ðàçäåëàõ ñàéòà
+$moduleinfo["use_in_one_rubric"]=false;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð²Ð¾ Ð²ÑÐµÑ… Ñ€Ð°Ð·Ð´ÐµÐ»Ð°Ñ… ÑÐ°Ð¹Ñ‚Ð°
 $moduleinfo["icon"]="products.png";
 
-$moduleinfo["show_price1"]=true;//âûâîäèòü ñòîèìîñòü 1
-$moduleinfo["show_price2"]=true;//âûâîäèòü ñòîèìîñòü 2
-$moduleinfo["show_count"]=false;//âûâîäèòü êîëè÷åñòâî òîâàðà
-$moduleinfo["onpage"]=16;//âûâîäèòü ïî 20 òîâàðîâ íà ñòðàíèöå
-$moduleinfo["onpage_admin"]=16;//âûâîäèòü ïî 20 òîâàðîâ íà ñòðàíèöå
-$moduleinfo["shop_on"]=true;//âêëþ÷èòü ôóíêöèè èíòåðíåò ìàãàçèíà
-$moduleinfo["do_subcategory"]=true;//âûâîäèòü òîâàðû èç ïîäêàòåãîðèé
-$moduleinfo["brand_url"]="brand";//èäåíòèôèêàòîð ñòðàíèöû, íà êîòîðîé ïîêàçûâàòü òîâàðû ïðîèçâîäèòåëåé
-$moduleinfo["type_url"]="type";//èäåíòèôèêàòîð ñòðàíèöû, íà êîòîðîé ïîêàçûâàòü òèïû òîâàðîâ
-$moduleinfo["favorite_url"]="favorite";//èäåíòèôèêàòîð ñòðàíèöû, íà êîòîðîé âûâîäèòü ñðàâíåíèå òîâàðîâ
+$moduleinfo["show_price1"]=true;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾Ð¸Ð¼Ð¾ÑÑ‚ÑŒ 1
+$moduleinfo["show_price2"]=true;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ ÑÑ‚Ð¾Ð¸Ð¼Ð¾ÑÑ‚ÑŒ 2
+$moduleinfo["show_count"]=false;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ‚Ð¾Ð²Ð°Ñ€Ð°
+$moduleinfo["onpage"]=16;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð¿Ð¾ 20 Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð² Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ
+$moduleinfo["onpage_admin"]=16;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð¿Ð¾ 20 Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð² Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ
+$moduleinfo["shop_on"]=true;//Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ Ð¸Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½Ð°
+$moduleinfo["do_subcategory"]=true;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ñ‚Ð¾Ð²Ð°Ñ€Ñ‹ Ð¸Ð· Ð¿Ð¾Ð´ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¹
+$moduleinfo["brand_url"]="brand";//Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹, Ð½Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ñ‚Ð¾Ð²Ð°Ñ€Ñ‹ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÐµÐ¹
+$moduleinfo["type_url"]="type";//Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹, Ð½Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ñ‚Ð¸Ð¿Ñ‹ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð²
+$moduleinfo["favorite_url"]="favorite";//Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹, Ð½Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ ÑÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð²
 
-//Ïîëÿ äëÿ èìïîðòà CSV
+//ÐŸÐ¾Ð»Ñ Ð´Ð»Ñ Ð¸Ð¼Ð¿Ð¾Ñ€Ñ‚Ð° CSV
 $moduleinfo["csv"][0]["id"]="csv_code";
-$moduleinfo["csv"][0]["caption"]="Êîä òîâàðà";
+$moduleinfo["csv"][0]["caption"]="ÐšÐ¾Ð´ Ñ‚Ð¾Ð²Ð°Ñ€Ð°";
 $moduleinfo["csv"][1]["id"]="csv_product";
-$moduleinfo["csv"][1]["caption"]="Íàçâàíèå òîâàðà";
+$moduleinfo["csv"][1]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð°";
 $moduleinfo["csv"][2]["id"]="csv_price1";
-$moduleinfo["csv"][2]["caption"]="Öåíà 1";
+$moduleinfo["csv"][2]["caption"]="Ð¦ÐµÐ½Ð° 1";
 $moduleinfo["csv"][3]["id"]="csv_price2";
-$moduleinfo["csv"][3]["caption"]="Öåíà 2";
+$moduleinfo["csv"][3]["caption"]="Ð¦ÐµÐ½Ð° 2";
 $moduleinfo["csv"][4]["id"]="csv_price_default";
-$moduleinfo["csv"][4]["caption"]="Çàêóïî÷íàÿ ñòîèìîñòü";
+$moduleinfo["csv"][4]["caption"]="Ð—Ð°ÐºÑƒÐ¿Ð¾Ñ‡Ð½Ð°Ñ ÑÑ‚Ð¾Ð¸Ð¼Ð¾ÑÑ‚ÑŒ";
 $moduleinfo["csv"][5]["id"]="csv_description";
-$moduleinfo["csv"][5]["caption"]="Êðàòêîå îïèñàíèå";
+$moduleinfo["csv"][5]["caption"]="ÐšÑ€Ð°Ñ‚ÐºÐ¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ";
 $moduleinfo["csv"][6]["id"]="csv_fulldescription";
-$moduleinfo["csv"][6]["caption"]="Ïîëíîå îïèñàíèå";
+$moduleinfo["csv"][6]["caption"]="ÐŸÐ¾Ð»Ð½Ð¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ";
 $moduleinfo["csv"][7]["id"]="csv_link";
-$moduleinfo["csv"][7]["caption"]="Ññûëêà íà ñàéò ïðîèçâîäèòåëÿ òîâàðà";
+$moduleinfo["csv"][7]["caption"]="Ð¡ÑÑ‹Ð»ÐºÐ° Ð½Ð° ÑÐ°Ð¹Ñ‚ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»Ñ Ñ‚Ð¾Ð²Ð°Ñ€Ð°";
 $moduleinfo["csv"][8]["id"]="csv_count";
-$moduleinfo["csv"][8]["caption"]="Íà ñêëàäå (êîëè÷åñòâî òîâàðà)";
+$moduleinfo["csv"][8]["caption"]="ÐÐ° ÑÐºÐ»Ð°Ð´Ðµ (ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ‚Ð¾Ð²Ð°Ñ€Ð°)";
 $moduleinfo["csv"][9]["id"]="csv_caption";
-$moduleinfo["csv"][9]["caption"]="Íàçâàíèå ðàçäåëà";
+$moduleinfo["csv"][9]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°";
 
-/*Íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 $moduleinfo["tables"]["PRODUCTS"]["caption"]["type"]="text";
-$moduleinfo["tables"]["PRODUCTS"]["caption"]["caption"]="Íàçâàíèå òîâàðà";
+$moduleinfo["tables"]["PRODUCTS"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð°";
 $moduleinfo["tables"]["PRODUCTS"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PRODUCTS"]["caption"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["PRODUCTS"]["content"]["type"]="solmetra";
-$moduleinfo["tables"]["PRODUCTS"]["content"]["caption"]="Êðàòêîå îïèñàíèå òîâàðà";
+$moduleinfo["tables"]["PRODUCTS"]["content"]["caption"]="ÐšÑ€Ð°Ñ‚ÐºÐ¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð°";
 $moduleinfo["tables"]["PRODUCTS"]["content"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PRODUCTS"]["content"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["PRODUCTS"]["content_full"]["type"]="solmetra";
-$moduleinfo["tables"]["PRODUCTS"]["content_full"]["caption"]="Ïîëíîå îïèñàíèå òîâàðà";
+$moduleinfo["tables"]["PRODUCTS"]["content_full"]["caption"]="ÐŸÐ¾Ð»Ð½Ð¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð°";
 $moduleinfo["tables"]["PRODUCTS"]["content_full"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PRODUCTS"]["content_full"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["PRODUCTS"]["meta"]["type"]="textarea";
-$moduleinfo["tables"]["PRODUCTS"]["meta"]["caption"]="Òåã meta description";
+$moduleinfo["tables"]["PRODUCTS"]["meta"]["caption"]="Ð¢ÐµÐ³ meta description";
 $moduleinfo["tables"]["PRODUCTS"]["meta"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PRODUCTS"]["meta"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["PRODUCTS"]["keywords"]["type"]="textarea";
-$moduleinfo["tables"]["PRODUCTS"]["keywords"]["caption"]="Òåã keywords";
+$moduleinfo["tables"]["PRODUCTS"]["keywords"]["caption"]="Ð¢ÐµÐ³ keywords";
 $moduleinfo["tables"]["PRODUCTS"]["keywords"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PRODUCTS"]["keywords"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["FIRMS"]["caption"]["type"]="text";
-$moduleinfo["tables"]["FIRMS"]["caption"]["caption"]="Íàçâàíèå ôèðìû";
+$moduleinfo["tables"]["FIRMS"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ„Ð¸Ñ€Ð¼Ñ‹";
 $moduleinfo["tables"]["FIRMS"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["FIRMS"]["caption"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["FIRMS"]["description"]["type"]="solmetra";
-$moduleinfo["tables"]["FIRMS"]["description"]["caption"]="Îïèñàíèå ôèðìû";
+$moduleinfo["tables"]["FIRMS"]["description"]["caption"]="ÐžÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ñ„Ð¸Ñ€Ð¼Ñ‹";
 $moduleinfo["tables"]["FIRMS"]["description"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["FIRMS"]["description"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["PRODUCT_TYPES"]["caption"]["type"]="text";
-$moduleinfo["tables"]["PRODUCT_TYPES"]["caption"]["caption"]="Íàçâàíèå òèïà";
+$moduleinfo["tables"]["PRODUCT_TYPES"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ‚Ð¸Ð¿Ð°";
 $moduleinfo["tables"]["PRODUCT_TYPES"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PRODUCT_TYPES"]["caption"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["ACTIONS"]["caption"]["type"]="text";
-$moduleinfo["tables"]["ACTIONS"]["caption"]["caption"]="Íàçâàíèå àêöèè";
+$moduleinfo["tables"]["ACTIONS"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð°ÐºÑ†Ð¸Ð¸";
 $moduleinfo["tables"]["ACTIONS"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["ACTIONS"]["caption"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["ACTIONS"]["content"]["type"]="solmetra";
-$moduleinfo["tables"]["ACTIONS"]["content"]["caption"]="Îïèñàíèå àêöèè";
+$moduleinfo["tables"]["ACTIONS"]["content"]["caption"]="ÐžÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð°ÐºÑ†Ð¸Ð¸";
 $moduleinfo["tables"]["ACTIONS"]["content"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["ACTIONS"]["content"]["sql_type"]="LONGTEXT NULL";
-/*Êîíåö íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐšÐ¾Ð½ÐµÑ† Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 ?>

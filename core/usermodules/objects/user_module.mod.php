@@ -1,5 +1,5 @@
 <?
-//Модуль объекты, пользовательская часть
+//РњРѕРґСѓР»СЊ РѕР±СЉРµРєС‚С‹, РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєР°СЏ С‡Р°СЃС‚СЊ
 global $page;
 if (isset($_REQUEST["delete"])) {
 	if (isset($_REQUEST["id_object"])) {
@@ -36,11 +36,11 @@ if (isset($_REQUEST["add"])) {
 					$need_categories[]=$cat;
 				}
 			}
-			/*показываем форму добавления*/
+			/*РїРѕРєР°Р·С‹РІР°РµРј С„РѕСЂРјСѓ РґРѕР±Р°РІР»РµРЅРёСЏ*/
 				if (is_file($this->thismodule["path"]."user_add_form.mod.php")) {
 					@include($this->thismodule["path"]."user_add_form.mod.php");
 				}
-			/*конец показа формы добавления*/
+			/*РєРѕРЅРµС† РїРѕРєР°Р·Р° С„РѕСЂРјС‹ РґРѕР±Р°РІР»РµРЅРёСЏ*/
 			} else {
 				$smarty->assign("categories_error",true);
 			}
@@ -67,7 +67,7 @@ if (isset($_REQUEST["id_file"])) {
 	die();
 }
 if (isset($_REQUEST["id_object"])) {
-	//просмотр объекта
+	//РїСЂРѕСЃРјРѕС‚СЂ РѕР±СЉРµРєС‚Р°
 	$id_object=$_REQUEST["id_object"];
 	if (preg_match("/^[0-9]{1,}$/i",$id_object)) {
 		$type=false;
@@ -86,7 +86,7 @@ if (isset($_REQUEST["id_object"])) {
 			$smarty->assign("comments",$comments);
 		}
 		if (isset($_REQUEST["voted"])) {
-			/*голосование за объект*/
+			/*РіРѕР»РѕСЃРѕРІР°РЅРёРµ Р·Р° РѕР±СЉРµРєС‚*/
 			$vote=@$_REQUEST["vote"];
 			if (preg_match("/^[0-9]{1,}$/i",$vote)) {
 				$my_ip=getIp();
@@ -134,8 +134,8 @@ if (trim($object["keywords"])!='') $page["keywords"]=$object["keywords"];
 	}
 	$smarty->assign("full_view",true);
 } else {
-	//получаем список объектов
-	//проверяем поисковый запрос
+	//РїРѕР»СѓС‡Р°РµРј СЃРїРёСЃРѕРє РѕР±СЉРµРєС‚РѕРІ
+	//РїСЂРѕРІРµСЂСЏРµРј РїРѕРёСЃРєРѕРІС‹Р№ Р·Р°РїСЂРѕСЃ
 	if (isset($_REQUEST["str"])) {
 		$str_real=trim($_REQUEST["str"]);
 		if (trim($str_real)!='') {
@@ -171,11 +171,11 @@ if (trim($object["keywords"])!='') $page["keywords"]=$object["keywords"];
 		}
 	}
 	if ($show_alphabet) {
-		//получаем алфавит
+		//РїРѕР»СѓС‡Р°РµРј Р°Р»С„Р°РІРёС‚
 		$rus_alphabet=array();
 		$eng_alphabet=array();
 		$digits=array();
-		for ($x=ord('А');$x<=ord('Я');$x++) $rus_alphabet[]=strtoupper(chr($x));
+		for ($x=ord('Рђ');$x<=ord('РЇ');$x++) $rus_alphabet[]=strtoupper(chr($x));
 		for ($x=ord('a');$x<=ord('z');$x++) $eng_alphabet[]=strtoupper(chr($x));
 		for ($x=0;$x<=9;$x++) $digits[]=$x;
 		$smarty->assign("rus_alphabet",$rus_alphabet);

@@ -1,6 +1,6 @@
 <?
 /*
-ìîäóëü íàñòðîéêè
+Ð¼Ð¾Ð´ÑƒÐ»ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸
 */
 global $db;
 if (defined("SCRIPTO_GALLERY")) {
@@ -74,7 +74,7 @@ $frm->addField($lang["forms"]["settings"]["email"]["caption"],$lang["forms"]["se
 
 $frm->addField($lang["forms"]["settings"]["url"]["caption"],$lang["forms"]["settings"]["url"]["error"],"text",$url,$url,"/^(http|https)+(:\/\/)+[a-z0-9_-]+\.+[a-z0-9_-]/i","url",0,$lang["forms"]["settings"]["url"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["settings"]["url"]["rules"]));
 
-$frm->addField("Äîïîëíèòåëüíûå íàñòðîéêè ñàéòà","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","s01",0,'',array('hidden'=>true));
+$frm->addField("Ð”Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ðµ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ°Ð¹Ñ‚Ð°","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","s01",0,'',array('hidden'=>true));
 
 $frm->addField($lang["forms"]["settings"]["language"]["caption"],$lang["forms"]["settings"]["language"]["error"],"hidden",$id_lang,$id_lang,"/^[a-zA-Z]{1,}$/i","id_lang",1,$lang["forms"]["settings"]["language"]["sample"],array('size'=>'30'));
 
@@ -85,7 +85,7 @@ $frm->addField($lang["forms"]["settings"]["content"]["caption"],$lang["forms"]["
 
 $frm->addField("","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","s01",0,'',array('end'=>true));
 
-$frm->addField("SEO îïòèìèçàöèÿ","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","seo",0,'',array('hidden'=>true));
+$frm->addField("SEO Ð¾Ð¿Ñ‚Ð¸Ð¼Ð¸Ð·Ð°Ñ†Ð¸Ñ","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","seo",0,'',array('hidden'=>true));
 
 $frm->addField($lang["forms"]["settings"]["titletag"]["caption"],$lang["forms"]["settings"]["titletag"]["error"],"text",$titletag,$titletag,"/^[^`#]{2,255}$/i","titletag",0,$lang["forms"]["settings"]["titletag"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["settings"]["titletag"]["rules"]));
 
@@ -93,9 +93,9 @@ $frm->addField($lang["forms"]["settings"]["metatag"]["caption"],$lang["forms"]["
 
 $frm->addField($lang["forms"]["settings"]["keywords"]["caption"],$lang["forms"]["settings"]["keywords"]["error"],"textarea",$keywords,$keywords,"/^[^#]{1,}$/i","keywords",0,$lang["forms"]["settings"]["keywords"]["sample"],array('rows'=>'40','cols'=>'10','ticket'=>$lang["forms"]["settings"]["keywords"]["rules"]));
 
-$frm->addField("SEO îïòèìèçàöèÿ","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","seo",0,'',array('end'=>true));
+$frm->addField("SEO Ð¾Ð¿Ñ‚Ð¸Ð¼Ð¸Ð·Ð°Ñ†Ð¸Ñ","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","seo",0,'',array('end'=>true));
 
-$frm->addField("Íàñòðîéêè èçîáðàæåíèé","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","image",0,'',array('hidden'=>true));
+$frm->addField("ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ð¹","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","image",0,'',array('hidden'=>true));
 
 $frm->addField($lang["forms"]["settings"]["smallx"]["caption"],$lang["forms"]["settings"]["smallx"]["error"],"text",$small_x,$small_x,"/^[^`#]{1,255}$/i","small_x",1,$lang["forms"]["settings"]["smallx"]["sample"],array('size'=>'4','ticket'=>$lang["forms"]["settings"]["smallx"]["rules"]));
 
@@ -105,16 +105,16 @@ $frm->addField($lang["forms"]["settings"]["mediumx"]["caption"],$lang["forms"]["
 
 $frm->addField($lang["forms"]["settings"]["mediumy"]["caption"],$lang["forms"]["settings"]["mediumy"]["error"],"text",$medium_y,$medium_y,"/^[^`#]{1,255}$/i","medium_y",1,$lang["forms"]["settings"]["mediumy"]["sample"],array('size'=>'4','ticket'=>$lang["forms"]["settings"]["mediumy"]["rules"]));
 
-$frm->addField("Íàñòðîéêè èçîáðàæåíèé","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","image",0,'',array('end'=>true));
+$frm->addField("ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ð¹","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","image",0,'',array('end'=>true));
 
-$frm->addField("Îãðàíè÷åíèå äîñòóïà ê àäìèíèñòðàòèâíîé ïàíåëè","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","security",0,'',array('hidden'=>true));
+$frm->addField("ÐžÐ³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð¸Ðµ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ðº Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¸Ð²Ð½Ð¾Ð¹ Ð¿Ð°Ð½ÐµÐ»Ð¸","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","security",0,'',array('hidden'=>true));
 
 $frm->addField($lang["forms"]["settings"]["ips"]["caption"],$lang["forms"]["settings"]["ips"]["error"],"textarea",$ips,$ips,"/^[^#]{6,}$/i","ips",0,$lang["forms"]["settings"]["ips"]["sample"],array('rows'=>'40','cols'=>'10','ticket'=>$lang["forms"]["settings"]["ips"]["rules"]));
 
-$frm->addField("Îãðàíè÷åíèå äîñòóïà ê àäìèíèñòðàòèâíîé ïàíåëè","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","security",0,'',array('end'=>true));
+$frm->addField("ÐžÐ³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð¸Ðµ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ðº Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¸Ð²Ð½Ð¾Ð¹ Ð¿Ð°Ð½ÐµÐ»Ð¸","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","security",0,'',array('end'=>true));
 
 if ($this->user["type"]=="root") {
-$frm->addField("Ñìåíà ïàðîëÿ àäìèíèñòðàòîðà","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","s02",0,'',array('hidden'=>true));
+$frm->addField("Ð¡Ð¼ÐµÐ½Ð° Ð¿Ð°Ñ€Ð¾Ð»Ñ Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€Ð°","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","s02",0,'',array('hidden'=>true));
 
 $frm->addField($lang["forms"]["settings"]["set_new_password"]["caption"],$lang["forms"]["settings"]["set_new_password"]["error"],"check",$set_new_password,$set_new_password,"/^[0-9]{1}$/i","set_new_password",1);
 
@@ -124,7 +124,7 @@ $frm->addField($lang["forms"]["settings"]["oldpassword"]["caption"],$lang["forms
 
 $frm->addField($lang["forms"]["settings"]["newpassword"]["caption"],$lang["forms"]["settings"]["newpassword"]["error"],"text",$newpassword,$newpassword,"/^[a-zA-Z0-9]{4,50}$/i","newpassword",0,$lang["forms"]["settings"]["newpassword"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["settings"]["newpassword"]["rules"]));
 
-$frm->addField("Ñìåíà ïàðîëÿ àäìèíèñòðàòîðà","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","s02",0,'',array('end'=>true));
+$frm->addField("Ð¡Ð¼ÐµÐ½Ð° Ð¿Ð°Ñ€Ð¾Ð»Ñ Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€Ð°","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","s02",0,'',array('end'=>true));
 }
 
 $this->generateLangControls("settings",$lang_values,$frm);
@@ -143,7 +143,7 @@ $this->processFormData($frm,$lang["forms"]["settings"]["submit_name"],$first
 			)) {
 				if ($this->user["type"]!="root" && $mailadmin!=$settings["mailadmin"]) {
 					$mailadmin=$settings["mailadmin"];
-					$this->setCongratulation('Îøèáêà','E-mail àäìèíèñòðàòîðà ðàçðåøåíî èçìåíÿòü òîëüêî àäìèíèñòðàòîðó!',5000);
+					$this->setCongratulation('ÐžÑˆÐ¸Ð±ÐºÐ°','E-mail Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€Ð° Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¾ Ð¸Ð·Ð¼ÐµÐ½ÑÑ‚ÑŒ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¾Ñ€Ñƒ!',5000);
 				}
 				$db->query("
 				update %settings% set 

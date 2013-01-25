@@ -1,6 +1,6 @@
 <?
 global $settings;
-$moduleinfo["caption"]="Ìîäóëü ïîëüçîâàòåëè";
+$moduleinfo["caption"]="ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ð¸";
 $moduleinfo["url"]="http://www.scripto.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
@@ -12,10 +12,10 @@ $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/use
 $moduleinfo["mailadmin"]=$settings["mailadmin"];
 $moduleinfo["my_url"]="my";
 $moduleinfo["register_url"]="register";
-$moduleinfo["register"]=true;//âêëþ÷èòü èëè âûêëþ÷èòü ðåãèñòðàöèþ (true - âêëþ÷èòü)
+$moduleinfo["register"]=true;//Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¸Ð»Ð¸ Ð²Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸ÑŽ (true - Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ)
 $moduleinfo["forgot_url"]="forgot";
 $moduleinfo["onpage_admin"]=15;
 
-$moduleinfo["width"]=100;//øèðèíà èçîáðàæåíèÿ àâàòàðêè ïîëüçîâàòåëÿ
-$moduleinfo["height"]=100;//âûñîòà èçîáðàæåíèÿ àâàòàðêè ïîëüçîâàòåëÿ
+$moduleinfo["width"]=100;//ÑˆÐ¸Ñ€Ð¸Ð½Ð° Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð°Ð²Ð°Ñ‚Ð°Ñ€ÐºÐ¸ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ
+$moduleinfo["height"]=100;//Ð²Ñ‹ÑÐ¾Ñ‚Ð° Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð°Ð²Ð°Ñ‚Ð°Ñ€ÐºÐ¸ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ
 ?>

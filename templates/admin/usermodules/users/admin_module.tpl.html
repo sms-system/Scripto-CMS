@@ -1,17 +1,17 @@
 {if $m_action=="users"}
 <div class="body">					
-<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=users&m_action=register&mode=add&modAction=settings');">Регистрация пользователя</div>
-{if $basket_install}<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=users&m_action=groups&modAction=settings');">Группы пользователей</div>{/if}
+<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=users&m_action=register&mode=add&modAction=settings');">Р РµРіРёСЃС‚СЂР°С†РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</div>
+{if $basket_install}<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=users&m_action=groups&modAction=settings');">Р“СЂСѓРїРїС‹ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</div>{/if}
 				<form action="{$siteurl}admin?module=modules&modAction=settings&module_name=users" method="post" id="search_form">
 				<div id="searchbox"><table><tr><td width="90%"><input type="text" name="str" value="{$str}" class="sbox"></td><td><input type="image" src="{$siteurl}images/admin/s_icon.jpg"></td></tr></table></div>
-				<div id="additionalbox"><table><tr><td><select name="stype"><option value="0"{if $stype==0} selected{/if}>Все пользователи</option><option value="1"{if $stype==1} selected{/if}>Только новые пользователи</option><option value="2"{if $stype==2} selected{/if}>Модераторы</option></select></td></tr></table></div>				
+				<div id="additionalbox"><table><tr><td><select name="stype"><option value="0"{if $stype==0} selected{/if}>Р’СЃРµ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё</option><option value="1"{if $stype==1} selected{/if}>РўРѕР»СЊРєРѕ РЅРѕРІС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё</option><option value="2"{if $stype==2} selected{/if}>РњРѕРґРµСЂР°С‚РѕСЂС‹</option></select></td></tr></table></div>				
 				<input type="hidden" name="m_action" value="users">
 				</form>
 </div>
 <div class="body">
 {if $users}
 <p align="right">
-Выберите страницу:
+Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂР°РЅРёС†Сѓ:
 {foreach key=key item=p from=$pages}
 	{if $p==$pagenumber}
 		<b>{$p+1}</b>
@@ -23,19 +23,19 @@
 </p>
 {if $password}
 <div class="body">
-<h2>Важная информация</h2>
-<div class="attention">Пожалуйста запишите пароль для входа пользователя <b>{$cuser.login}</b> : <b>{$password}</b></div>
+<h2>Р’Р°Р¶РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ</h2>
+<div class="attention">РџРѕР¶Р°Р»СѓР№СЃС‚Р° Р·Р°РїРёС€РёС‚Рµ РїР°СЂРѕР»СЊ РґР»СЏ РІС…РѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ <b>{$cuser.login}</b> : <b>{$password}</b></div>
 </div>
 {/if}
 <div class="body">
 <form action="{$siteurl}admin?module=modules&modAction=settings&module_name=users" method="post" id="users_form">
 <table class="objects" id="users">
 <tr height="30">
-	<td width="25%" class="objects_header">Логин</td>
-	<td width="40%" class="objects_header editable_header"><span>ФИО</span></td>	
-	<td width="5%" class="objects_header editable_header"><span>Новый</span></td>
+	<td width="25%" class="objects_header">Р›РѕРіРёРЅ</td>
+	<td width="40%" class="objects_header editable_header"><span>Р¤РРћ</span></td>	
+	<td width="5%" class="objects_header editable_header"><span>РќРѕРІС‹Р№</span></td>
 	<td width="20%" class="objects_header editable_header"><span>E-mail</span></td>
-	<td width="10%" class="objects_header" align="right">Операции</td>
+	<td width="10%" class="objects_header" align="right">РћРїРµСЂР°С†РёРё</td>
 </tr>
 {foreach key=key item=usr from=$users}
 <tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="user{$usr.id_user}">
@@ -45,13 +45,13 @@
 	<td class="editable"><span><a href="mailto:{$usr.email}">{$usr.email}</a></span><input type="text" name="email[{$usr.id_user}]" value="{$usr.email}" class="nonvisible"></td>
 	<td class="actions" align="right">
 		<ul>
-			<li><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=register&mode=edit&id_user={$usr.id_user}" title="Редактировать пользователя {$usr.login}"><img src="{$img}admin/icons/edit.gif" border="0"></a></li>
-			<li><a href="javascript:void(0);" onclick="YesNo('Удалить пользователя {$usr.login}?','{$siteurl}admin/?module=modules&module_name=users&m_action=delete&modAction=settings&id_user={$usr.id_user}');" title="Удалить пользователя {$usr.login}"><img src="{$img}admin/icons/delete.gif" border="0"></a></li>
+			<li><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=register&mode=edit&id_user={$usr.id_user}" title="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ {$usr.login}"><img src="{$img}admin/icons/edit.gif" border="0"></a></li>
+			<li><a href="javascript:void(0);" onclick="YesNo('РЈРґР°Р»РёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ {$usr.login}?','{$siteurl}admin/?module=modules&module_name=users&m_action=delete&modAction=settings&id_user={$usr.id_user}');" title="РЈРґР°Р»РёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ {$usr.login}"><img src="{$img}admin/icons/delete.gif" border="0"></a></li>
 			{if $usr.moderator}
-			<li><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=permissions&id_user={$usr.id_user}&ajax=yes" class="dialog" title="Права доступа пользователя {$usr.login}"><img src="{$img}admin/icons/access.png" border="0"></a></li>
+			<li><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=permissions&id_user={$usr.id_user}&ajax=yes" class="dialog" title="РџСЂР°РІР° РґРѕСЃС‚СѓРїР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ {$usr.login}"><img src="{$img}admin/icons/access.png" border="0"></a></li>
 			{/if}
 			{if $objects_install}
-			<li><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=objects&id_user={$usr.id_user}" title="Выбрать объекты для пользователя {$usr.login}"><img src="{$img}admin/icons/objects.png" border="0"></a></li>											
+			<li><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=objects&id_user={$usr.id_user}" title="Р’С‹Р±СЂР°С‚СЊ РѕР±СЉРµРєС‚С‹ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ {$usr.login}"><img src="{$img}admin/icons/objects.png" border="0"></a></li>											
 			{/if}
 		</ul>
 	</td>		
@@ -70,41 +70,41 @@
 	<td colspan="2"></td>
 </tr>
 <tr id="save_submit">
-	<td colspan="5" align="center"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="5" align="center"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 </table>
 </form>
 </div>
 {else}
 {if $str || $stype>0}
-<p>Пользователи с заданными параметрами не найдены</p>
+<p>РџРѕР»СЊР·РѕРІР°С‚РµР»Рё СЃ Р·Р°РґР°РЅРЅС‹РјРё РїР°СЂР°РјРµС‚СЂР°РјРё РЅРµ РЅР°Р№РґРµРЅС‹</p>
 {else}
-<p>У Вас не зарегистрировалось ни одного пользователя</p>
+<p>РЈ Р’Р°СЃ РЅРµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»РѕСЃСЊ РЅРё РѕРґРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</p>
 {/if}
 {/if}
 {elseif $m_action=="groups"}
 <div class="body">
-	<h2>Добавить группу пользователей</h2>
+	<h2>Р”РѕР±Р°РІРёС‚СЊ РіСЂСѓРїРїСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</h2>
 	<form action="" method="post">
 	<table width="400">
 		<tr>
-			<td width="30%">Название группы:</td>
+			<td width="30%">РќР°Р·РІР°РЅРёРµ РіСЂСѓРїРїС‹:</td>
 			<td width="50%"><input type="text" name="groupname" value="" class="textbox"></td>
-			<td width="20%" class="bigbutton"><input type="submit" value="добавить"></td>
+			<td width="20%" class="bigbutton"><input type="submit" value="РґРѕР±Р°РІРёС‚СЊ"></td>
 		</tr>
 	</table>
 	<input type="hidden" name="addnew" value="1">
 	</form>
-	<h2>Группы пользователей</h2>
+	<h2>Р“СЂСѓРїРїС‹ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</h2>
 	{if $groups}
-	<p>Вы можете установить размер скидки при покупках в интернет магазине для каждой из групп пользователей. Чтобы скидка считалась у Вас должен быть установлен модуль Интернет магазин.</p>
+	<p>Р’С‹ РјРѕР¶РµС‚Рµ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ СЂР°Р·РјРµСЂ СЃРєРёРґРєРё РїСЂРё РїРѕРєСѓРїРєР°С… РІ РёРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅРµ РґР»СЏ РєР°Р¶РґРѕР№ РёР· РіСЂСѓРїРї РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№. Р§С‚РѕР±С‹ СЃРєРёРґРєР° СЃС‡РёС‚Р°Р»Р°СЃСЊ Сѓ Р’Р°СЃ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓСЃС‚Р°РЅРѕРІР»РµРЅ РјРѕРґСѓР»СЊ РРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅ.</p>
 	<form action="" method="post" id="groups_form">
 	<table class="objects">
 	<tr>
-		<td class="objects_header editable_header" width="50%"><span>Название группы</span></td>
-		<td class="objects_header editable_header" width="15%"><span>Скидка</span></td>
-		<td class="objects_header" width="15%">Удалить</td>
-		<td class="objects_header" width="20%" align="right">Действия</td>
+		<td class="objects_header editable_header" width="50%"><span>РќР°Р·РІР°РЅРёРµ РіСЂСѓРїРїС‹</span></td>
+		<td class="objects_header editable_header" width="15%"><span>РЎРєРёРґРєР°</span></td>
+		<td class="objects_header" width="15%">РЈРґР°Р»РёС‚СЊ</td>
+		<td class="objects_header" width="20%" align="right">Р”РµР№СЃС‚РІРёСЏ</td>
 	</tr>
 	{foreach key=key item=group from=$groups}
 	<tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="group{$group.id_group}">
@@ -113,7 +113,7 @@
 		<td align="center"><input type="checkbox" name="del[{$group.id_group}]" class="deletecheckbox" numb="0"></td>
 		<td class="actions">
 			<ul>
-				<li><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=group_users&id_group={$group.id_group}&ajax=yes" class="editor" title="Пользователи группы {$group.caption}"><img src="{$img}admin/icons/users.png" border="0" alt="Пользователи группы {$group.caption}"></a></li>
+				<li><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=group_users&id_group={$group.id_group}&ajax=yes" class="editor" title="РџРѕР»СЊР·РѕРІР°С‚РµР»Рё РіСЂСѓРїРїС‹ {$group.caption}"><img src="{$img}admin/icons/users.png" border="0" alt="РџРѕР»СЊР·РѕРІР°С‚РµР»Рё РіСЂСѓРїРїС‹ {$group.caption}"></a></li>
 			</ul>
 		</td>
 	</tr>
@@ -125,20 +125,20 @@
 		<td></td>
 	</tr>	
 	<tr id="save_submit">
-		<td colspan="4" align="center"><input type="submit" value="Сохранить" class="button"></td>
+		<td colspan="4" align="center"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 	</tr>
 	</table>
 	<input type="hidden" name="save" value="1">
 	</form>	
 	{else}
-	<p>Вы еще не создали ни одной группы пользователей.</p>
+	<p>Р’С‹ РµС‰Рµ РЅРµ СЃРѕР·РґР°Р»Рё РЅРё РѕРґРЅРѕР№ РіСЂСѓРїРїС‹ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№.</p>
 	{/if}
 </div>
 {elseif $m_action=="group_users"}
-	<h2>Пользователи группы {$group.caption}</h2>
+	<h2>РџРѕР»СЊР·РѕРІР°С‚РµР»Рё РіСЂСѓРїРїС‹ {$group.caption}</h2>
 	{if $saved}
 		<script>
-			parent.tooltip('','Пользователи успешно добавлены в группу {$group.caption}!',3000);	
+			parent.tooltip('','РџРѕР»СЊР·РѕРІР°С‚РµР»Рё СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅС‹ РІ РіСЂСѓРїРїСѓ {$group.caption}!',3000);	
 			{literal}		
 			parent.show_close_dialog=false;
 			parent.$.fancybox.close();
@@ -148,8 +148,8 @@
 	<form action="" method="post">
 	<table class="objects" id="users">
 	<tr height="30">
-		<td width="80%" class="objects_header">Пользователь</td>
-		<td width="20%" class="objects_header editable_header"><span>Добавить в группу</span></td>	
+		<td width="80%" class="objects_header">РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ</td>
+		<td width="20%" class="objects_header editable_header"><span>Р”РѕР±Р°РІРёС‚СЊ РІ РіСЂСѓРїРїСѓ</span></td>	
 	</tr>	
 	{foreach key=key item=usr from=$users}
 	<tr class="{cycle values="objects_cell_light,objects_cell_bold"}">
@@ -157,45 +157,45 @@
 		<td align="center"><input type="checkbox" numb="0" name="add[{$usr.id_user}]"{if $usr.id_group==$group.id_group} checked{/if}></td>
 	</tr>		
 	{/foreach}
-	<tr><td colspan="2" align="center"><input type="submit" value="сохранить"></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="СЃРѕС…СЂР°РЅРёС‚СЊ"></td></tr>
 	</table>
 	<input type="hidden" name="save" value="1">
 	</form>	
 {elseif $m_action=="permissions"}
 	{if $user.type=='root'}
-	<h2>Установка прав доступа для пользователя {$usr.fio}</h2>
+	<h2>РЈСЃС‚Р°РЅРѕРІРєР° РїСЂР°РІ РґРѕСЃС‚СѓРїР° РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ {$usr.fio}</h2>
 	{if $saved}
 		<script>
-			parent.tooltip('','Данные доступа успешно сохранены!',3000);
+			parent.tooltip('','Р”Р°РЅРЅС‹Рµ РґРѕСЃС‚СѓРїР° СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅС‹!',3000);
 		</script>
 	{/if}
 	<form action="" method="post">
 	<table class="objects" id="users">
 	<tr height="30">
-		<td width="80%" class="objects_header">Модуль</td>
-		<td width="20%" class="objects_header editable_header"><span>Разрешить доступ</span></td>	
+		<td width="80%" class="objects_header">РњРѕРґСѓР»СЊ</td>
+		<td width="20%" class="objects_header editable_header"><span>Р Р°Р·СЂРµС€РёС‚СЊ РґРѕСЃС‚СѓРї</span></td>	
 	</tr>
-	<tr><td colspan="2" align="center"><b>Стандартные функции</b></td></tr>
+	<tr><td colspan="2" align="center"><b>РЎС‚Р°РЅРґР°СЂС‚РЅС‹Рµ С„СѓРЅРєС†РёРё</b></td></tr>
 	{foreach key=key item=mod from=$mods.standart}
 	<tr class="{cycle values="objects_cell_light,objects_cell_bold"}">
 		<td>{$mod}</td>
 		<td align="center"><input type="checkbox" name="standart[{$key}]"{if $usr.permissions.standart[$key]==true} checked{/if}></td>
 	</tr>
 	{/foreach}
-	<tr><td colspan="2" align="center"><b>Установленные модули</b></td></tr>	
+	<tr><td colspan="2" align="center"><b>РЈСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹Рµ РјРѕРґСѓР»Рё</b></td></tr>	
 	{foreach key=key item=mod from=$mods.additional}
 	<tr class="{cycle values="objects_cell_light,objects_cell_bold"}">
 		<td>{$mod}</td>
 		<td align="center"><input type="checkbox" name="additional[{$key}]"{if $usr.permissions.additional[$key]==true} checked{/if}></td>
 	</tr>
 	{/foreach}
-	<tr><td colspan="2" align="center"><input type="submit" value="сохранить"></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="СЃРѕС…СЂР°РЅРёС‚СЊ"></td></tr>
 	</table>
 	<input type="hidden" name="save" value="yes">
 	</form>
 	{else}
-	<h2>Ошибка</h2>
-	<p>Вам запрещено изменять уровень доступа модераторов.</p>
+	<h2>РћС€РёР±РєР°</h2>
+	<p>Р’Р°Рј Р·Р°РїСЂРµС‰РµРЅРѕ РёР·РјРµРЅСЏС‚СЊ СѓСЂРѕРІРµРЅСЊ РґРѕСЃС‚СѓРїР° РјРѕРґРµСЂР°С‚РѕСЂРѕРІ.</p>
 	{/if}
 {else}
 {if $m_action=="register"}
@@ -233,8 +233,8 @@
 <div class="image_buttons">
 	<table width="100%">
 		<tr>
-			<td width="50%" align="left"><input type="button" value="удалить текущий объект" id="deleteImage"></td>
-			<td width="50%" align="right"><input type="button" value="выбрать объект" id="selectImage"></td>
+			<td width="50%" align="left"><input type="button" value="СѓРґР°Р»РёС‚СЊ С‚РµРєСѓС‰РёР№ РѕР±СЉРµРєС‚" id="deleteImage"></td>
+			<td width="50%" align="right"><input type="button" value="РІС‹Р±СЂР°С‚СЊ РѕР±СЉРµРєС‚" id="selectImage"></td>
 		</tr>
 	</table>
 	<input type="hidden" id="type" value="object">
@@ -246,19 +246,19 @@
 {/if}
 {if $m_action=="objects"}
 		{if $objects_install}
-		<h2>Галерея объектов пользователя {$user.login}</h2>
+		<h2>Р“Р°Р»РµСЂРµСЏ РѕР±СЉРµРєС‚РѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ {$user.login}</h2>
 		<div class="body">
-			<div class="actionbutton"><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=dialogobject&id_user={$user.id_user}&ajax=true&get_rubrics=true&mode=new" class="change">Добавить новый объект</a></div>
+			<div class="actionbutton"><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=dialogobject&id_user={$user.id_user}&ajax=true&get_rubrics=true&mode=new" class="change">Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ РѕР±СЉРµРєС‚</a></div>
 		</div>
 		<div class="body">
 			{if $user_objects}
 					<form action="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=objects&id_user={$user.id_user}&sort_me=yes" method="post" id="objects_form">
 					<table class="pictures">
 					<tr>
-						<td class="objects_header" width="40%">Название</td>
-						<td class="objects_header" width="15%">Сортировка</td>
-						<td class="objects_header" width="15%">Удалить</td>
-						<td class="objects_header" width="20%" align="center">Действия</td>
+						<td class="objects_header" width="40%">РќР°Р·РІР°РЅРёРµ</td>
+						<td class="objects_header" width="15%">РЎРѕСЂС‚РёСЂРѕРІРєР°</td>
+						<td class="objects_header" width="15%">РЈРґР°Р»РёС‚СЊ</td>
+						<td class="objects_header" width="20%" align="center">Р”РµР№СЃС‚РІРёСЏ</td>
 					</tr>
 					{foreach key=key item=type from=$user_objects}
 					{foreach key=key item=obj from=$type}
@@ -266,7 +266,7 @@
 						<td id="preview{$obj.id_object}">{$obj.caption}</td>
 						<td align="center"><input type="text" name="sort[{$obj.id_object}]" class="textbox" value="{$obj.sort}" size="3"></td>
 						<td align="center"><input type="checkbox" name="del[{$obj.id_object}]" class="deletecheckbox" numb="0"></td>
-						<td align="center"><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=dialogobject&id_user={$user.id_user}&ajax=true&get_rubrics=true&mode={$obj.id_object}" class="change">изменить</a></td>
+						<td align="center"><a href="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=dialogobject&id_user={$user.id_user}&ajax=true&get_rubrics=true&mode={$obj.id_object}" class="change">РёР·РјРµРЅРёС‚СЊ</a></td>
 					</tr>
 					{/foreach}
 					{/foreach}
@@ -279,19 +279,19 @@
 							<td width="20%"></td>
 						</tr>
 						<tr id="save_submit">
-							<td colspan="4" align="center" style="padding-top:10px;"><input type="submit" value="Сохранить" class="button"></td>
+							<td colspan="4" align="center" style="padding-top:10px;"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 						</tr>
 					</table>
 					</form>						
 			{else}
-			<p class="toDel">Для данного пользователя еще не загружено объектов</p>
+			<p class="toDel">Р”Р»СЏ РґР°РЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РµС‰Рµ РЅРµ Р·Р°РіСЂСѓР¶РµРЅРѕ РѕР±СЉРµРєС‚РѕРІ</p>
 					<form action="{$siteurl}admin/?module=modules&module_name=users&modAction=settings&m_action=objects&id_user={$user.id_user}&sort_me=yes" method="post" id="objects_form">	
 					<table class="pictures nonvisible">
 					<tr>
-						<td class="objects_header" width="40%">Название</td>
-						<td class="objects_header" width="15%">Сортировка</td>
-						<td class="objects_header" width="15%">Удалить</td>
-						<td class="objects_header" width="20%" align="center">Действия</td>
+						<td class="objects_header" width="40%">РќР°Р·РІР°РЅРёРµ</td>
+						<td class="objects_header" width="15%">РЎРѕСЂС‚РёСЂРѕРІРєР°</td>
+						<td class="objects_header" width="15%">РЈРґР°Р»РёС‚СЊ</td>
+						<td class="objects_header" width="20%" align="center">Р”РµР№СЃС‚РІРёСЏ</td>
 					</tr>
 					</table>
 					<table class="pictures2 nonvisible">
@@ -302,14 +302,14 @@
 							<td width="20%"></td>
 						</tr>
 						<tr id="save_submit">
-							<td colspan="4" align="center" style="padding-top:10px;"><input type="submit" value="Сохранить" class="button"></td>
+							<td colspan="4" align="center" style="padding-top:10px;"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 						</tr>
 						</table>
 					</form>					
 			{/if}
 		</div>		
 		{else}
-		<p><b>Модуль объекты не установлен</b></p>
+		<p><b>РњРѕРґСѓР»СЊ РѕР±СЉРµРєС‚С‹ РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅ</b></p>
 		{/if}
 {/if}
 {/if}

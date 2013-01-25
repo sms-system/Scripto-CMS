@@ -1,5 +1,5 @@
 <?
-//Óïðàâëåíèå ÿçûêàìè â CMS
+//Ð£Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐ·Ñ‹ÐºÐ°Ð¼Ð¸ Ð² CMS
 if (defined("SCRIPTO_GALLERY")) {
 	$page["title"]=$lang["modules"]["languages"];
 	$smarty->assign("page",$page);
@@ -12,7 +12,7 @@ if (defined("SCRIPTO_GALLERY")) {
 			$id_language=@$_REQUEST["id_language"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_language)) {
 				if ($this->deleteLanguage($id_language)) {
-					$this->setCongratulation('','ßçûê óäàëåí',5000);
+					$this->setCongratulation('','Ð¯Ð·Ñ‹Ðº ÑƒÐ´Ð°Ð»ÐµÐ½',5000);
 					$modAction="view";
 					$languages=$this->getListLanguages();
 					$smarty->assign("languages",$languages);
@@ -23,8 +23,8 @@ if (defined("SCRIPTO_GALLERY")) {
 			
 		break;
 		case "add":
-			$this->addPath('ßçûêîâûå âåðñèè','/admin?module=languages',true);
-			$this->addPath('Äîáàâëåíèå íîâîé âåðñèè','',false);
+			$this->addPath('Ð¯Ð·Ñ‹ÐºÐ¾Ð²Ñ‹Ðµ Ð²ÐµÑ€ÑÐ¸Ð¸','/admin?module=languages',true);
+			$this->addPath('Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð½Ð¾Ð²Ð¾Ð¹ Ð²ÐµÑ€ÑÐ¸Ð¸','',false);
 			$this->assignPath();
 			if (isset($_REQUEST["save"])) {
 				$first=false;
@@ -38,15 +38,15 @@ if (defined("SCRIPTO_GALLERY")) {
 			$module["title"]=$lang["modules"]["add_language"];
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
-			$frm->addField('Íàçâàíèå ÿçûêà','Íåâåðíî óêàçàíî íàçâàíèå ÿçûêà',"text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,'Àíãëèéñêèé ÿçûê',array('size'=>'40'));
-			$frm->addField('Îáîçíà÷åíèå ÿçûêà','Íåâåðíî óêàçàíî îáîçíà÷åíèå ÿçûêà',"text",$ident,$ident,"/^[a-z]{1,8}$/i","ident",1,'en',array('size'=>'40'));
+			$frm->addField('ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ ÑÐ·Ñ‹ÐºÐ°','ÐÐµÐ²ÐµÑ€Ð½Ð¾ ÑƒÐºÐ°Ð·Ð°Ð½Ð¾ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ ÑÐ·Ñ‹ÐºÐ°',"text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,'ÐÐ½Ð³Ð»Ð¸Ð¹ÑÐºÐ¸Ð¹ ÑÐ·Ñ‹Ðº',array('size'=>'40'));
+			$frm->addField('ÐžÐ±Ð¾Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÑÐ·Ñ‹ÐºÐ°','ÐÐµÐ²ÐµÑ€Ð½Ð¾ ÑƒÐºÐ°Ð·Ð°Ð½Ð¾ Ð¾Ð±Ð¾Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÑÐ·Ñ‹ÐºÐ°',"text",$ident,$ident,"/^[a-z]{1,8}$/i","ident",1,'en',array('size'=>'40'));
 			if ($this->existLanguage($ident))
-				$frm->addError('ßçûê ñ èäåíòèôèêàòîðîì '.$ident.' óæå ñóùåñòâóåò');
+				$frm->addError('Ð¯Ð·Ñ‹Ðº Ñ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ð¾Ð¼ '.$ident.' ÑƒÐ¶Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚');
 			if (
 $this->processFormData($frm,$lang["forms"]["languages"]["submit_name"],$first
 			)) {
 				if ($this->createLanguage($caption,$ident,0)) {
-					$this->setCongratulation('','ßçûêîâàÿ âåðñèÿ ñîçäàíà',5000);
+					$this->setCongratulation('','Ð¯Ð·Ñ‹ÐºÐ¾Ð²Ð°Ñ Ð²ÐµÑ€ÑÐ¸Ñ ÑÐ¾Ð·Ð´Ð°Ð½Ð°',5000);
 					$modAction="view";
 					$languages=$this->getListLanguages();
 					$smarty->assign("languages",$languages);
@@ -61,7 +61,7 @@ $this->processFormData($frm,$lang["forms"]["languages"]["submit_name"],$first
 			foreach ($lang as $id_language=>$l) {
 				$db->query("update `%languages%` set `caption`='".$l."' where id_language=$id_language");
 			}
-			$this->setCongratulation('','Íàçâàíèÿ ÿçûêîâûõ âåðñèé îáíîâëåíû!',5000);
+			$this->setCongratulation('','ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ñ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ñ‹!',5000);
 			$languages=$this->getListLanguages();
 			$smarty->assign("languages",$languages);
 		}

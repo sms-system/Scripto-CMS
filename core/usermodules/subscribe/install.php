@@ -1,6 +1,6 @@
 <?
 /*
-Óñòàíîâî÷íûé ôàéë äëÿ ìîäóëÿ ðàññûëêè
+Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¾Ñ‡Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ñ€Ð°ÑÑÑ‹Ð»ÐºÐ¸
 */
 
 $install_sql[]="CREATE TABLE `%email%` (
@@ -17,5 +17,5 @@ $install_sql[]="CREATE TABLE `%archive%` (
 `date` TIMESTAMP not null default CURRENT_TIMESTAMP,
 PRIMARY KEY (`id_archive`)
 );";
-$install_sql[]="insert into `%block_types%` values (null,'Ðàññûëêè','subscribe','subscribe',0);";
+$install_sql[]="insert into `%block_types%` values (null,'Ð Ð°ÑÑÑ‹Ð»ÐºÐ¸','subscribe','subscribe',0);";
 ?>

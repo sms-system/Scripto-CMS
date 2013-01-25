@@ -12,7 +12,7 @@ class TinyImageManager {
 	var $SID;
 	
 	/**
-	 * Конструктор
+	 * РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	 *
 	 * @return TinyImageManager
 	 */
@@ -41,7 +41,7 @@ class TinyImageManager {
 		
 		switch ($_POST['action']) {
 			
-			//Создать папку
+			//РЎРѕР·РґР°С‚СЊ РїР°РїРєСѓ
 			case 'newfolder':
 				
 				$result = array();
@@ -49,7 +49,7 @@ class TinyImageManager {
 				if($dir) {
 					if (preg_match('/[a-z0-9-_]+/sim', $_POST['name'])) {
 						if(is_dir($dir.'/'.$_POST['name'])) {
-							$result['error'] = 'Такая папка уже есть';
+							$result['error'] = 'РўР°РєР°СЏ РїР°РїРєР° СѓР¶Рµ РµСЃС‚СЊ';
 						} else {
 							if(mkdir($dir.'/'.$_POST['name'])) {
 								$result['tree']  = $this->DirStructure('images', 'first', $dir.'/'.$_POST['name']);
@@ -57,14 +57,14 @@ class TinyImageManager {
 								$result['addr'] = $this->DirPath($_POST['type'], $this->AccessDir($_POST['path'].'/'.$_POST['name'], $_POST['type']));
 								$result['error'] = '';
 							} else {
-								$result['error'] = 'Ошибка создания папки';
+								$result['error'] = 'РћС€РёР±РєР° СЃРѕР·РґР°РЅРёСЏ РїР°РїРєРё';
 							}
 						}
 					} else {
-						$result['error'] = 'Название папки может содержать только латинские буквы, цифры, тире и знак подчеркивания';
+						$result['error'] = 'РќР°Р·РІР°РЅРёРµ РїР°РїРєРё РјРѕР¶РµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ С‚РѕР»СЊРєРѕ Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹, С†РёС„СЂС‹, С‚РёСЂРµ Рё Р·РЅР°Рє РїРѕРґС‡РµСЂРєРёРІР°РЅРёСЏ';
 					}
 				} else {
-					$result['error'] = 'Отказ в доступе';
+					$result['error'] = 'РћС‚РєР°Р· РІ РґРѕСЃС‚СѓРїРµ';
 				}
 				
 				echo "{'tree':'{$result['tree']}', 'addr':'{$result['addr']}', 'error':'{$result['error']}'}";
@@ -72,7 +72,7 @@ class TinyImageManager {
 				
 			break;
 			
-			//Показать дерево папок
+			//РџРѕРєР°Р·Р°С‚СЊ РґРµСЂРµРІРѕ РїР°РїРѕРє
 			case 'showtree':
 				if(!isset($_POST['path'])) $_POST['path'] = '';
 				if(!isset($_POST['type'])) $_POST['type'] = '';
@@ -91,7 +91,7 @@ class TinyImageManager {
 				exit();
 			break;
 			
-			//Показать путь (хлебные крошки вверху)
+			//РџРѕРєР°Р·Р°С‚СЊ РїСѓС‚СЊ (С…Р»РµР±РЅС‹Рµ РєСЂРѕС€РєРё РІРІРµСЂС…Сѓ)
 			case 'showpath':
 				if(isset($_POST['default']) && isset($_SESSION['tiny_image_manager_path'])) $path = $_SESSION['tiny_image_manager_path'];
 				else $path = $_SESSION['tiny_image_manager_path'] = $_POST['path'];
@@ -100,7 +100,7 @@ class TinyImageManager {
 				exit();
 			break;
 			
-			//Показать файлы
+			//РџРѕРєР°Р·Р°С‚СЊ С„Р°Р№Р»С‹
 			case 'showdir':
 				if(isset($_POST['default']) && isset($_SESSION['tiny_image_manager_path'])) $path = $_SESSION['tiny_image_manager_path'];
 				else $path = $_SESSION['tiny_image_manager_path'] = $_POST['path'];
@@ -109,13 +109,13 @@ class TinyImageManager {
 				exit();
 			break;
 			
-			//Загрузить изображение
+			//Р—Р°РіСЂСѓР·РёС‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ
 			case 'uploadfile':
 				echo $this->UploadFile($_POST['path'], $_POST['pathtype']);
 				exit();
 			break;
 			
-			//Удалить файл, или несколько файлов
+			//РЈРґР°Р»РёС‚СЊ С„Р°Р№Р», РёР»Рё РЅРµСЃРєРѕР»СЊРєРѕ С„Р°Р№Р»РѕРІ
 			case 'delfile':
 				if(is_array($_POST['md5'])) {
 					foreach ($_POST['md5'] as $k=>$v) {
@@ -151,10 +151,10 @@ class TinyImageManager {
 	}
 	
 	/**
-	 * Проверка на разрешение записи в папку (не системное)
+	 * РџСЂРѕРІРµСЂРєР° РЅР° СЂР°Р·СЂРµС€РµРЅРёРµ Р·Р°РїРёСЃРё РІ РїР°РїРєСѓ (РЅРµ СЃРёСЃС‚РµРјРЅРѕРµ)
 	 *
-	 * @param string $requestDirectory Запрашиваемая папка (относительно DIR_IMAGES или DIR_FILES)
-	 * @param (images|files) $typeDirectory Тип папки, изображения или файлы
+	 * @param string $requestDirectory Р—Р°РїСЂР°С€РёРІР°РµРјР°СЏ РїР°РїРєР° (РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ DIR_IMAGES РёР»Рё DIR_FILES)
+	 * @param (images|files) $typeDirectory РўРёРї РїР°РїРєРё, РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РёР»Рё С„Р°Р№Р»С‹
 	 * @return path|false
 	 */
 	function AccessDir($requestDirectory, $typeDirectory) {
@@ -173,8 +173,8 @@ class TinyImageManager {
 	
 	
 	/**
-	 * Дерево каталогов
-	 * функция рекурсивная
+	 * Р”РµСЂРµРІРѕ РєР°С‚Р°Р»РѕРіРѕРІ
+	 * С„СѓРЅРєС†РёСЏ СЂРµРєСѓСЂСЃРёРІРЅР°СЏ
 	 * 
 	 * @return array
 	 */
@@ -205,8 +205,8 @@ class TinyImageManager {
 	}
 	
 	/**
-	 * Визуализация дерева каталогов
-	 * функция рекурсивная
+	 * Р’РёР·СѓР°Р»РёР·Р°С†РёСЏ РґРµСЂРµРІР° РєР°С‚Р°Р»РѕРіРѕРІ
+	 * С„СѓРЅРєС†РёСЏ СЂРµРєСѓСЂСЃРёРІРЅР°СЏ
 	 *
 	 * @param images|files $type
 	 * @param first|String $innerDirs
@@ -215,7 +215,7 @@ class TinyImageManager {
 	 * @return html
 	 */
 	function DirStructure($type, $innerDirs='first', $currentDir='', $level=0) {
-		//Пока отключим файлы
+		//РџРѕРєР° РѕС‚РєР»СЋС‡РёРј С„Р°Р№Р»С‹
 		//if($type=='files') return ;
 		
 		$currentDirArr = array();
@@ -234,9 +234,9 @@ class TinyImageManager {
 				$firstAct = '';
 			}
 			$ret = '';
-			if($innerDirs == false) return 'Неверно задана корневая директория ('.DIR_IMAGES.')';
+			if($innerDirs == false) return 'РќРµРІРµСЂРЅРѕ Р·Р°РґР°РЅР° РєРѕСЂРЅРµРІР°СЏ РґРёСЂРµРєС‚РѕСЂРёСЏ ('.DIR_IMAGES.')';
 			foreach ($innerDirs as $v) {
-				$ret = '<div class="folder'.ucfirst($type).' '.$firstAct.'" path="" pathtype="'.$type.'">'.($type=='images'?'Изображения':'Файлы').($v['count']>0?' ('.$v['count'].')':'').'</div><div class="folderOpenSection" style="display:block;">';
+				$ret = '<div class="folder'.ucfirst($type).' '.$firstAct.'" path="" pathtype="'.$type.'">'.($type=='images'?'РР·РѕР±СЂР°Р¶РµРЅРёСЏ':'Р¤Р°Р№Р»С‹').($v['count']>0?' ('.$v['count'].')':'').'</div><div class="folderOpenSection" style="display:block;">';
 				if(isset($v['childs'])) {
 					$ret .= $this->DirStructure($type, $v['childs'], $currentDir, $level);
 				}
@@ -251,10 +251,10 @@ class TinyImageManager {
 		foreach ($innerDirs as $v) {
 			foreach ($v as $v) {}
 			if(isset($v['count'])) {
-				$files = 'Файлов: '.$v['count'];
+				$files = 'Р¤Р°Р№Р»РѕРІ: '.$v['count'];
 				$count_childs = isset($v['childs'])?sizeof($v['childs']):0;
 				if($count_childs!=0) {
-					$files .= ', папок: '.$count_childs;
+					$files .= ', РїР°РїРѕРє: '.$count_childs;
 				}
 			} else {
 				$files = '';
@@ -297,7 +297,7 @@ class TinyImageManager {
 	}
 	
 	/**
-	 * Путь (хлебные крошки)
+	 * РџСѓС‚СЊ (С…Р»РµР±РЅС‹Рµ РєСЂРѕС€РєРё)
 	 *
 	 * @param images|files $type
 	 * @param String $path
@@ -310,7 +310,7 @@ class TinyImageManager {
 			$path = array_filter($path);
 		}
 		
-		$ret = '<div class="addrItem" path="" pathtype="'.$type.'" title=""><img src="img/'.($type=='images'?'folder_open_image':'folder_open_document').'.png" width="16" height="16" alt="Корневая директория" /></div>';
+		$ret = '<div class="addrItem" path="" pathtype="'.$type.'" title=""><img src="img/'.($type=='images'?'folder_open_image':'folder_open_document').'.png" width="16" height="16" alt="РљРѕСЂРЅРµРІР°СЏ РґРёСЂРµРєС‚РѕСЂРёСЏ" /></div>';
 		$i=0;
 		$addPath = '';
 		if(is_array($path)) { 
@@ -440,9 +440,9 @@ class TinyImageManager {
 			$files = unserialize($dbdata);
 		} else $files = array();
 		
-		//Файл из flash-мультизагрузки
+		//Р¤Р°Р№Р» РёР· flash-РјСѓР»СЊС‚РёР·Р°РіСЂСѓР·РєРё
 		if(isset($_POST['Filename'])) {
-			//Тип (изображение/файл)
+			//РўРёРї (РёР·РѕР±СЂР°Р¶РµРЅРёРµ/С„Р°Р№Р»)
 			$pathtype = $_POST['pathtype'];
 			if (strpos($_POST['Filename'], '.') !== false) {
 				$extension = end(explode('.', $_POST['Filename']));
@@ -453,7 +453,7 @@ class TinyImageManager {
 			}
 			if($pathtype == 'images') $allowed = $this->ALLOWED_IMAGES;
 			elseif($pathtype == 'files') $allowed = $this->ALLOWED_FILES;
-			//Если не подходит разрешение файла
+			//Р•СЃР»Рё РЅРµ РїРѕРґС…РѕРґРёС‚ СЂР°Р·СЂРµС€РµРЅРёРµ С„Р°Р№Р»Р°
 			if(!in_array(strtolower($extension),$allowed)) {
 				header('HTTP/1.1 403 Forbidden');
 				exit();
@@ -462,7 +462,7 @@ class TinyImageManager {
 			$md5 = md5_file($_FILES['Filedata']['tmp_name']);
 			$file = $md5.'.'.$extension;
 			
-			//Проверка на изображение
+			//РџСЂРѕРІРµСЂРєР° РЅР° РёР·РѕР±СЂР°Р¶РµРЅРёРµ
 			if($pathtype == 'images') {
 				$files[$file]['imageinfo'] = getimagesize($_FILES['Filedata']['tmp_name']);
 				
@@ -511,7 +511,7 @@ class TinyImageManager {
 				);
 			}
 		}
-		//Файлы из обычной загрузки 
+		//Р¤Р°Р№Р»С‹ РёР· РѕР±С‹С‡РЅРѕР№ Р·Р°РіСЂСѓР·РєРё 
 		else {
 			sort($_FILES);
 			$ufiles = $_FILES[0];
@@ -519,7 +519,7 @@ class TinyImageManager {
 			foreach ($ufiles['name'] as $k=>$v) {
 				if($ufiles['error'][$k] != 0) continue;
 				
-				//Тип (изображение/файл)
+				//РўРёРї (РёР·РѕР±СЂР°Р¶РµРЅРёРµ/С„Р°Р№Р»)
 				$pathtype = $_POST['pathtype'];
 				if (strpos($ufiles['name'][$k], '.') !== false) {
 					$extension = end(explode('.', $ufiles['name'][$k]));
@@ -530,7 +530,7 @@ class TinyImageManager {
 				}
 				if($pathtype == 'images') $allowed = $this->ALLOWED_IMAGES;
 				elseif($pathtype == 'files') $allowed = $this->ALLOWED_FILES;
-				//Если не подходит расширение файла
+				//Р•СЃР»Рё РЅРµ РїРѕРґС…РѕРґРёС‚ СЂР°СЃС€РёСЂРµРЅРёРµ С„Р°Р№Р»Р°
 				if(!in_array(strtolower($extension),$allowed)) {
 					continue;
 				}
@@ -538,7 +538,7 @@ class TinyImageManager {
 				$md5 = md5_file($ufiles['tmp_name'][$k]);
 				$file = $md5.'.'.$extension;
 				
-				//Проверка на изображение
+				//РџСЂРѕРІРµСЂРєР° РЅР° РёР·РѕР±СЂР°Р¶РµРЅРёРµ
 				if($pathtype == 'images') {
 					$files[$file]['imageinfo'] = getimagesize($ufiles['tmp_name'][$k]);
 				
@@ -659,7 +659,7 @@ class TinyImageManager {
 		$dir = $this->CallDir($dir, $type);
 		
 		if(!$dir) {
-			//echo 'Ошибка чтения, возможно нет доступа.';
+			//echo 'РћС€РёР±РєР° С‡С‚РµРЅРёСЏ, РІРѕР·РјРѕР¶РЅРѕ РЅРµС‚ РґРѕСЃС‚СѓРїР°.';
 			exit();
 		}
 		$ret = '';
@@ -790,7 +790,7 @@ class TinyImageManager {
 		if(!$path) return false;
 		
 		if(realpath($path.'/') == realpath(DIR_ROOT.DIR_IMAGES.'/')) {
-			return '{error:"Нельзя удалять корневую папку!"}';
+			return '{error:"РќРµР»СЊР·СЏ СѓРґР°Р»СЏС‚СЊ РєРѕСЂРЅРµРІСѓСЋ РїР°РїРєСѓ!"}';
 		}
 		
 		$files = array();
@@ -800,7 +800,7 @@ class TinyImageManager {
 			while (false !== ($file = readdir($handle))) {
 				if ($file != "." && $file != ".." && trim($file) != "" && $file != ".thumbs") {
 					if(is_dir($path.'/'.$file)) {
-						return '{error:"Пока папка содержит вложенные папки, она не может быть удалена."}';
+						return '{error:"РџРѕРєР° РїР°РїРєР° СЃРѕРґРµСЂР¶РёС‚ РІР»РѕР¶РµРЅРЅС‹Рµ РїР°РїРєРё, РѕРЅР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ СѓРґР°Р»РµРЅР°."}';
 					} else {
 						$files[] = $file;
 					}
@@ -826,7 +826,7 @@ class TinyImageManager {
 			if(is_file($path.'/'.$f)) unlink($path.'/'.$f);
 		}
 		
-		if(!rmdir($path)) return '{error:"Ошибка удаления папки"}';
+		if(!rmdir($path)) return '{error:"РћС€РёР±РєР° СѓРґР°Р»РµРЅРёСЏ РїР°РїРєРё"}';
 		
 		return '{ok:\'\'}';
 	}

@@ -1,6 +1,6 @@
 <?
 /*
-ìîäóëü ïî óïğàâëåíèş ìîäóëÿìè
+Ğ¼Ğ¾Ğ´ÑƒĞ»ÑŒ Ğ¿Ğ¾ ÑƒĞ¿Ñ€Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ñ Ğ¼Ğ¾Ğ´ÑƒĞ»ÑĞ¼Ğ¸
 */
 
 if (defined("SCRIPTO_GALLERY")) {
@@ -78,7 +78,7 @@ $this->setCongratulation('',$lang["congratulation"]["module_category_save"],7000
 					$smarty->assign("user_module",$mod_);
 				}
 				} else {
-					$this->setAdminTitle($lang["error"]["access_denied"]='Äîñòóï çàêğûò');
+					$this->setAdminTitle($lang["error"]["access_denied"]='Ğ”Ğ¾ÑÑ‚ÑƒĞ¿ Ğ·Ğ°ĞºÑ€Ñ‹Ñ‚');
 					$smarty->assign("denied",true);
 				}
 			}

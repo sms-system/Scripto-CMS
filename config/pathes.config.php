@@ -1,43 +1,43 @@
 <?
-//Íàñòðîéêè ïóòåé ê êëàññàì, áèáëèîòåêàì è ò.ï.
-	//ïóòü ê "äâèæêó"
+//ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¿ÑƒÑ‚ÐµÐ¹ Ðº ÐºÐ»Ð°ÑÑÐ°Ð¼, Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ°Ð¼ Ð¸ Ñ‚.Ð¿.
+	//Ð¿ÑƒÑ‚ÑŒ Ðº "Ð´Ð²Ð¸Ð¶ÐºÑƒ"
 	$config["pathes"]["core_dir"]=$root."core/";
-	//ïóòü ê êëàññàì
+	//Ð¿ÑƒÑ‚ÑŒ Ðº ÐºÐ»Ð°ÑÑÐ°Ð¼
 	$config["pathes"]["classes_dir"]=$config["pathes"]["core_dir"]."classes/";
-	//ïóòü ê âíåøíèì ñêðèïòàì
+	//Ð¿ÑƒÑ‚ÑŒ Ðº Ð²Ð½ÐµÑˆÐ½Ð¸Ð¼ ÑÐºÑ€Ð¸Ð¿Ñ‚Ð°Ð¼
 	$config["pathes"]["external_dir"]=$config["pathes"]["core_dir"]."external/";
-	//ïóòü ê ôóíêöèÿì
+	//Ð¿ÑƒÑ‚ÑŒ Ðº Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑÐ¼
 	$config["pathes"]["functions_dir"]=$config["pathes"]["core_dir"]."functions/";
-	//ïóòü ê ïàïêå javascript
+	//Ð¿ÑƒÑ‚ÑŒ Ðº Ð¿Ð°Ð¿ÐºÐµ javascript
 	$config["pathes"]["javascript_dir"]=$config["pathes"]["core_dir"]."javascript/";
-	//ïóòü ê SQL
+	//Ð¿ÑƒÑ‚ÑŒ Ðº SQL
 	$config["pathes"]["sql_dir"]=$config["pathes"]["core_dir"]."sql/";
-	//ïóòü ê ÿçûêîâûì ôàéëàì
+	//Ð¿ÑƒÑ‚ÑŒ Ðº ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ð¼ Ñ„Ð°Ð¹Ð»Ð°Ð¼
 	$config["pathes"]["lang_dir"]=$root."languages/";
-	//ïóòü ê øàáëîíàì
+	//Ð¿ÑƒÑ‚ÑŒ Ðº ÑˆÐ°Ð±Ð»Ð¾Ð½Ð°Ð¼
 	$config["pathes"]["templates_dir"]=$root."templates/";
 	$config["pathes"]["templates_dir_fast"]="templates/";
-	//ïóòü ê ìîäóëÿì
+	//Ð¿ÑƒÑ‚ÑŒ Ðº Ð¼Ð¾Ð´ÑƒÐ»ÑÐ¼
 	$config["pathes"]["modules_dir"]=$config["pathes"]["core_dir"]."modules/";
-	//ïóòü ê àäìèíñêèì ìîäóëÿì
+	//Ð¿ÑƒÑ‚ÑŒ Ðº Ð°Ð´Ð¼Ð¸Ð½ÑÐºÐ¸Ð¼ Ð¼Ð¾Ð´ÑƒÐ»ÑÐ¼
 	$config["pathes"]["admin_modules_dir"]=$config["pathes"]["core_dir"]."modules/admin/";
-	//ïóòü ê ôàéëàì-îáðàáîò÷èêàì êîíòåíòà [admin]
+	//Ð¿ÑƒÑ‚ÑŒ Ðº Ñ„Ð°Ð¹Ð»Ð°Ð¼-Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸ÐºÐ°Ð¼ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð° [admin]
 	$config["pathes"]["admin_processor_dir"]=$config["pathes"]["core_dir"]."processor/admin/";
 	$config["pathes"]["cache_dir"]=$root."cache/";
 	$config["pathes"]["cache_dir_modules"]=$config["pathes"]["cache_dir"]."modules/";
 	$config["pathes"]["cache_dir_blocks"]=$config["pathes"]["cache_dir"]."blocks/";
 
-	//ïóòü ê äîïîëíèòåëüíûì ìîäóëÿì
+	//Ð¿ÑƒÑ‚ÑŒ Ðº Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼ Ð¼Ð¾Ð´ÑƒÐ»ÑÐ¼
 	$config["pathes"]["usermodules"]=$config["pathes"]["core_dir"]."usermodules/";
 	$config["pathes"]["usermodules_install"]=$config["pathes"]["core_dir"]."usermodules/modules.install";
 	$config["pathes"]["usermodules_static"]=$config["pathes"]["core_dir"]."usermodules/modules.static";
 	$config["pathes"]["http_usermodules"]=$httproot."core/usermodules/";
 	
-	//ïóòü ê ôàéëàì-îáðàáîò÷èêàì êîíòåíòà [user]
+	//Ð¿ÑƒÑ‚ÑŒ Ðº Ñ„Ð°Ð¹Ð»Ð°Ð¼-Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸ÐºÐ°Ð¼ ÐºÐ¾Ð½Ñ‚ÐµÐ½Ñ‚Ð° [user]
 	$config["pathes"]["user_processor_dir"]=$config["pathes"]["core_dir"]."processor/";
 	$config["pathes"]["usermodules_fast"]="usermodules/";
 	
-	//íàñòðîéêè êëàññîâ
+	//Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÐºÐ»Ð°ÑÑÐ¾Ð²
 	$config["classes"]["mysql"]=$config["pathes"]["classes_dir"]."db.class.php";
 	$config["classes"]["engine"]=$config["pathes"]["classes_dir"]."engine.class.php";
 	$config["classes"]["form"]=$config["pathes"]["classes_dir"]."form.class.php";
@@ -47,16 +47,16 @@
 	$config["classes"]["fckeditor"]["basepath"]=$httproot."core/javascript/fckeditor/";
 	$config["classes"]["kcaptha"]=$httproot."core/external/kcaptcha/index.php";
 	
-	//íàñòðîéêè Smarty
+	//Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Smarty
 	$config["classes"]["smarty"]=$config["pathes"]["external_dir"]."smarty/libs/smarty.class.php";
 	$config["classes"]["thumbnail"]["php4"]=$config["pathes"]["external_dir"]."thumbnails/php4/thumbnail.inc.php";
 	$config["classes"]["thumbnail"]["php5"]=$config["pathes"]["external_dir"]."thumbnails/php5/thumbnail.inc.php";
 	$config["smarty"]["compiledir"]=$config["pathes"]["templates_dir"]."system/compile";
 	
-	//íàñòðîéêè RSS
+	//Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ RSS
 	$config["classes"]["rss"]=$config["pathes"]["classes_dir"]."rss.class.php";
 	
-	//ïóòü ê ïîëüçîâàòåëüñêèì ôàéëàì
+	//Ð¿ÑƒÑ‚ÑŒ Ðº Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¼ Ñ„Ð°Ð¹Ð»Ð°Ð¼
 	$config["pathes"]["user_files"]=$root."upload/";
 	$config["pathes"]["user_image"]=$config["pathes"]["user_files"]."images/";
 	$config["pathes"]["user_video"]=$config["pathes"]["user_files"]."videos/";
@@ -76,7 +76,7 @@
 	$config["pathes"]["user_upload_http"]=$httproot."upload/new/";
 	$config["pathes"]["tiny_mce_http"]=$config["pathes"]["user_files_http"]."tiny_mce/";
 	
-	//íàñòðîéêè øàáëîíîâ
+	//Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑˆÐ°Ð±Ð»Ð¾Ð½Ð¾Ð²
 	$config["templates"]["admin"]="admin/";
 	$config["templates"]["user"]="system/frontend/";
 	$config["templates"]["themes"]="themes/";
@@ -87,15 +87,15 @@
 	$config["templates"]["user_processor"]="system/processor/";	
 	$config["templates"]["usermodules_templates"]=$config["templates"]["admin"]."usermodules/";
 	
-	//íàñòðîéêè ïóòåé ñ http ñòîðîíû
-	//ïóòü ê êàðòèíêàì
+	//Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¿ÑƒÑ‚ÐµÐ¹ Ñ http ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñ‹
+	//Ð¿ÑƒÑ‚ÑŒ Ðº ÐºÐ°Ñ€Ñ‚Ð¸Ð½ÐºÐ°Ð¼
 	$config["http"]["root"]=$httproot;
 	$config["http"]["images"]=$httproot."images/";
 	$config["http"]["admin_images"]=$config["http"]["images"]."admin/";
 	$config["http"]["image_modules"]=$config["http"]["admin_images"].'modules/';
 	$config["http"]["javascript"]=$httproot."core/javascript/";
 	
-	//ïóòè ê øàáëîíàì àäìèíêè
+	//Ð¿ÑƒÑ‚Ð¸ Ðº ÑˆÐ°Ð±Ð»Ð¾Ð½Ð°Ð¼ Ð°Ð´Ð¼Ð¸Ð½ÐºÐ¸
 	$config["admin"]["splashscreen"]=$config["templates"]["admin"]."enter.tpl.html";
 	$config["admin"]["splashscreen_css"]=$config["templates"]["css"]."admin_spashscreen.css";
 	$config["admin"]["main"]=$config["templates"]["admin"]."admin.tpl.html";
@@ -103,13 +103,13 @@
 	$config["admin"]["white"]=$config["templates"]["admin"]."white.tpl.html";
 	$config["admin"]["white_css"]=$config["templates"]["css"]."white_main.css";	
 	
-	//ïóòü ê øàáëîíó èíñòàëëÿòîðà
+	//Ð¿ÑƒÑ‚ÑŒ Ðº ÑˆÐ°Ð±Ð»Ð¾Ð½Ñƒ Ð¸Ð½ÑÑ‚Ð°Ð»Ð»ÑÑ‚Ð¾Ñ€Ð°
 	$config["admin"]["install"]=$config["templates"]["admin"]."install.tpl.html";	
 	
-	//ïîëüçîâàòåëüñêèå øàáëîíû
+	//Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ðµ ÑˆÐ°Ð±Ð»Ð¾Ð½Ñ‹
 	$config["user"]["white"]=$config["templates"]["user"]."white.tpl.html";
 	$config["user"]["white_css"]=$config["templates"]["css"]."white_main.css";
 	
-	//ïóòü ê ôóíêöèÿì àäìèíêè
+	//Ð¿ÑƒÑ‚ÑŒ Ðº Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑÐ¼ Ð°Ð´Ð¼Ð¸Ð½ÐºÐ¸
 	$config["pathes"]["image_dialog"]=$httproot.'admin/?module=objects&modAction=changepreview&ajax=true';
 ?>

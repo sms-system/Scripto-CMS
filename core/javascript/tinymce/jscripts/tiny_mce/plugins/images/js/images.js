@@ -15,9 +15,9 @@ tinyMCEPopup.onInit.add(ImagesDialog.init, ImagesDialog);
 
 $(function(){
 	
-	//ЗАГРУЗКА
+	//Р—РђР“Р РЈР—РљРђ
 	$('#loader').show();
-	//Строка адреса
+	//РЎС‚СЂРѕРєР° Р°РґСЂРµСЃР°
 	$.ajax({
 		type: "POST",
 		url: "connector/php/index.php",
@@ -26,7 +26,7 @@ $(function(){
 			$('#addr').html(data);
 		}
 	});
-	//Каталог папок
+	//РљР°С‚Р°Р»РѕРі РїР°РїРѕРє
 	$.ajax({
 		type: "POST",
 		url: "connector/php/index.php",
@@ -35,7 +35,7 @@ $(function(){
 			$('#tree').html(data);
 		}
 	});
-	//Список файлов
+	//РЎРїРёСЃРѕРє С„Р°Р№Р»РѕРІ
 	$.ajax({
 		type: "POST",
 		url: "connector/php/index.php",
@@ -47,7 +47,7 @@ $(function(){
 			showFootInfo();
 		}
 	});
-	//Session ID для Flash-загрузчика
+	//Session ID РґР»СЏ Flash-Р·Р°РіСЂСѓР·С‡РёРєР°
 	var SID;
 	$.ajax({
 		type: "POST",
@@ -59,7 +59,7 @@ $(function(){
 	});
 	
 	
-	//Адресная строка
+	//РђРґСЂРµСЃРЅР°СЏ СЃС‚СЂРѕРєР°
 	$('.addrItem div,.addrItem img').live('mouseover', function(){
 		$(this).parent().animate({backgroundColor:'#b1d3fa'}, 100, 'swing', function(){
 			
@@ -107,7 +107,7 @@ $(function(){
 		});
 	});
 	
-	//Кнопка "В начало"
+	//РљРЅРѕРїРєР° "Р’ РЅР°С‡Р°Р»Рѕ"
 	$('#toBeginBtn').mouseover(function(){
 		$(this).children(0).attr('src','img/backActive.gif');
 	});
@@ -115,7 +115,7 @@ $(function(){
 		$(this).children(0).attr('src','img/backEnabled.gif');
 	});
 	
-	//Меню
+	//РњРµРЅСЋ
 	$('.folderClosed,.folderOpened,.folderS,.folderImages,.folderFiles').live('mouseover',function(){
 		if(!$(this).hasClass('folderAct')) {
 			$(this).addClass('folderHover');
@@ -131,9 +131,9 @@ $(function(){
 		}
 	});
 	
-	//Флаг загрузки
+	//Р¤Р»Р°Рі Р·Р°РіСЂСѓР·РєРё
 	var folderLoadFlag = false;
-	//Открыть указанную папку
+	//РћС‚РєСЂС‹С‚СЊ СѓРєР°Р·Р°РЅРЅСѓСЋ РїР°РїРєСѓ
 	function openFolder(type, path, callback) {
 		$.ajax({
 			type: "POST",
@@ -158,7 +158,7 @@ $(function(){
 	}
 	$('.folderClosed,.folderOpened,.folderS,.folderImages,.folderFiles').live('click',function(){
 		
-		//Запрет на переключение
+		//Р—Р°РїСЂРµС‚ РЅР° РїРµСЂРµРєР»СЋС‡РµРЅРёРµ
 		if(folderLoadFlag) return false;
 		folderLoadFlag = true;
 		
@@ -182,15 +182,15 @@ $(function(){
 		$(this).next().slideToggle('normal');
 	});
 	
-	//ДЕЙСТВИЯ МЕНЮ
-	//Открыть загрузчик файлов
+	//Р”Р•Р™РЎРўР’РРЇ РњР•РќР®
+	//РћС‚РєСЂС‹С‚СЊ Р·Р°РіСЂСѓР·С‡РёРє С„Р°Р№Р»РѕРІ
 	$('#menuUploadFiles').click(function(){
 		var path = getCurrentPath();
 		var str = '';
 		if(path.type=='images') {
-			str = '<span>Изображения:</span>';
+			str = '<span>РР·РѕР±СЂР°Р¶РµРЅРёСЏ:</span>';
 		} else if(path.type=='files') {
-			str = '<span>Файлы:</span>';
+			str = '<span>Р¤Р°Р№Р»С‹:</span>';
 		}
 		str += path.path;
 		$('#uploadTarget').html(str);
@@ -200,7 +200,7 @@ $(function(){
 		
 		$('#upload').show();
 	});
-	//Создать папку
+	//РЎРѕР·РґР°С‚СЊ РїР°РїРєСѓ
 	var canCancelFolder = true;
 	$('#menuCreateFolder').click(function(){
 		$(this).hide();
@@ -214,7 +214,7 @@ $(function(){
 				} else if (e.which == 27) {
 					cancelNewFolder();
 				} else if ((e.which >= 97 && e.which <= 122) || (e.which >= 65 && e.which <= 90) || (e.which >= 48 && e.which <= 57) || e.which == 8 || e.which == 95 || e.which == 45 || e.keyCode == 37 || e.keyCode == 39 || e.keyCode == 16) {
-					//Значит все верно: a-Z0-9-_ и управление вводом
+					//Р—РЅР°С‡РёС‚ РІСЃРµ РІРµСЂРЅРѕ: a-Z0-9-_ Рё СѓРїСЂР°РІР»РµРЅРёРµ РІРІРѕРґРѕРј
 				} else {
 					return false;
 				}
@@ -223,7 +223,7 @@ $(function(){
 		});
 		
 	});
-	//Отменить создание папки
+	//РћС‚РјРµРЅРёС‚СЊ СЃРѕР·РґР°РЅРёРµ РїР°РїРєРё
 	function cancelNewFolder(){
 		if(!canCancelFolder) {
 			canCancelFolder = true;
@@ -238,12 +238,12 @@ $(function(){
 	}
 	$('#menuCancelFolder').click(cancelNewFolder);
 	
-	//Подтвердить создание папки
+	//РџРѕРґС‚РІРµСЂРґРёС‚СЊ СЃРѕР·РґР°РЅРёРµ РїР°РїРєРё
 	function saveNewFolder(){
 		canCancelFolder = false;
 		
 		if($('#newFolderBlock input').val() == '') {
-			alert('Введите имя новой папки');
+			alert('Р’РІРµРґРёС‚Рµ РёРјСЏ РЅРѕРІРѕР№ РїР°РїРєРё');
 			$('#newFolderBlock input').focus();
 			return false;
 		}
@@ -251,7 +251,7 @@ $(function(){
 		$('#loader').show();
 		$('#menuCancelFolder,#menuSaveFolder').hide();
 		$('#menuCreateFolder').show();
-		//Запрос на создание папки + сервер должен отдать новую структуру каталогов
+		//Р—Р°РїСЂРѕСЃ РЅР° СЃРѕР·РґР°РЅРёРµ РїР°РїРєРё + СЃРµСЂРІРµСЂ РґРѕР»Р¶РµРЅ РѕС‚РґР°С‚СЊ РЅРѕРІСѓСЋ СЃС‚СЂСѓРєС‚СѓСЂСѓ РєР°С‚Р°Р»РѕРіРѕРІ
 		var pathtype = $('.folderAct').attr('pathtype');
 		var path = $('.folderAct').attr('path');
 		var path_new = $('#newFolderBlock input').val();
@@ -271,7 +271,7 @@ $(function(){
 					$('#addr').html(blocks.addr);
 					canCancelFolder = true;
 					
-					//Открываем созданную папку
+					//РћС‚РєСЂС‹РІР°РµРј СЃРѕР·РґР°РЅРЅСѓСЋ РїР°РїРєСѓ
 					$.ajax({
 						type: "POST",
 						url: "connector/php/index.php",
@@ -288,10 +288,10 @@ $(function(){
 	}
 	$('#menuSaveFolder').click(saveNewFolder).hover(function(){ canCancelFolder = false; }, function(){ canCancelFolder = true; });
 	
-	//Удалить папку
+	//РЈРґР°Р»РёС‚СЊ РїР°РїРєСѓ
 	$('#menuDelFolder').click(function() {
 		var path = getCurrentPath();
-		if(confirm('Удалить папку '+path.path+'?')) {
+		if(confirm('РЈРґР°Р»РёС‚СЊ РїР°РїРєСѓ '+path.path+'?')) {
 			$('#loader').show();
 			$.ajax({
 				type: "POST",
@@ -323,14 +323,14 @@ $(function(){
 		}
 	});
 	
-	//Удалить файлы
+	//РЈРґР°Р»РёС‚СЊ С„Р°Р№Р»С‹
 	$('#menuDelFiles').click(function() {
 		var files = $('.imageBlockAct');
 		
 		if(files.length == 0) {
-			alert('Выберите файлы для удаления.\n\nМожно выделять несколько файлов сразу, для этого удерживайте Ctrl при выборе.');
+			alert('Р’С‹Р±РµСЂРёС‚Рµ С„Р°Р№Р»С‹ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ.\n\nРњРѕР¶РЅРѕ РІС‹РґРµР»СЏС‚СЊ РЅРµСЃРєРѕР»СЊРєРѕ С„Р°Р№Р»РѕРІ СЃСЂР°Р·Сѓ, РґР»СЏ СЌС‚РѕРіРѕ СѓРґРµСЂР¶РёРІР°Р№С‚Рµ Ctrl РїСЂРё РІС‹Р±РѕСЂРµ.');
 		} else if(files.length == 1) {
-			if(confirm('Удалить файл '+files.attr('fname')+'.'+files.attr('ext')+'?')) {
+			if(confirm('РЈРґР°Р»РёС‚СЊ С„Р°Р№Р» '+files.attr('fname')+'.'+files.attr('ext')+'?')) {
 				$('#loader').show();
 				var path = getCurrentPath();
 				$.ajax({
@@ -350,11 +350,11 @@ $(function(){
 				});
 			}
 		} else {
-			if(confirm('Выбрано файлов для удаления: '+files.length+'\n\nПродолжить?')) {
+			if(confirm('Р’С‹Р±СЂР°РЅРѕ С„Р°Р№Р»РѕРІ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ: '+files.length+'\n\nРџСЂРѕРґРѕР»Р¶РёС‚СЊ?')) {
 				$('#loader').show();
 				var path = getCurrentPath();
 				
-				//Собираем строку запроса
+				//РЎРѕР±РёСЂР°РµРј СЃС‚СЂРѕРєСѓ Р·Р°РїСЂРѕСЃР°
 				var actionStr = 'action=delfile&pathtype='+path.type+'&path='+path.path;
 				$.each(files, function(i, item){
 					actionStr += "&md5["+i+"]="+$(this).attr('md5')+"&filename["+i+"]="+$(this).attr('filename');
@@ -380,7 +380,7 @@ $(function(){
 	});
 	
 	
-	//Файлы
+	//Р¤Р°Р№Р»С‹
 	var ctrlState = false;
 	$('.imageBlock0').live('mouseover', function(){
 		if(!$(this).hasClass('imageBlockAct')) {
@@ -466,15 +466,15 @@ $(function(){
 	
 	
 	
-	//НИЖНЯЯ ПАНЕЛЬ
-	//Показать текущую информацию
+	//РќРР–РќРЇРЇ РџРђРќР•Р›Р¬
+	//РџРѕРєР°Р·Р°С‚СЊ С‚РµРєСѓС‰СѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ
 	function showFootInfo() {
 		$('#fileNameEdit').show();
 		$('#fileNameSave').hide();
 		var file = $('.imageBlockAct');
 		if(file.length > 1) {
 			$('#footTableName, #footDateLabel, #footLinkLabel, #footDimLabel, #footDate, #footLink, #footDim').css('visibility','hidden');
-			$('#footExt').text('Выбрано файлов: '+file.length);
+			$('#footExt').text('Р’С‹Р±СЂР°РЅРѕ С„Р°Р№Р»РѕРІ: '+file.length);
 			var tmpSizeCount = 0;
 			$.each(file, function(i, item) {
 				tmpSizeCount += parseInt($(this).attr('fsize'));
@@ -484,7 +484,7 @@ $(function(){
 			$('#footTableName, #footDateLabel, #footLinkLabel, #footDimLabel, #footDate, #footLink, #footDim').css('visibility','hidden');
 			var allFiles = $('.imageBlock0');
 
-			$('#footExt').text('Всего файлов: '+allFiles.length);
+			$('#footExt').text('Р’СЃРµРіРѕ С„Р°Р№Р»РѕРІ: '+allFiles.length);
 			var tmpSizeCount = 0;
 			$.each(allFiles, function(i, item) {
 				tmpSizeCount += parseInt($(this).attr('fsize'));
@@ -503,35 +503,35 @@ $(function(){
 		}
 	}
 	
-	//Очистить поля информации
+	//РћС‡РёСЃС‚РёС‚СЊ РїРѕР»СЏ РёРЅС„РѕСЂРјР°С†РёРё
 	
-	//Байты в Мб и Кб
+	//Р‘Р°Р№С‚С‹ РІ РњР± Рё РљР±
 	function intToMb(i) {
 		if(i < 1024) {
-			return i + ' Б';
+			return i + ' Р‘';
 		} else if(i < 1048576) {
 			var v = i/1024;
 			v = parseInt(v*10)/10;
-			return v + ' КБ';
+			return v + ' РљР‘';
 		} else {
 			var v = i/1048576;
 			v = parseInt(v*10)/10;
-			return v + ' МБ';
+			return v + ' РњР‘';
 		}
 	}
 	
-	//Редактировать имя
+	//Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РёРјСЏ
 	$('#fileNameEdit').click(function(){
 		$('#fileName').html('<input type="text" name="fileName" id="fileNameValue" value="'+$('#fileName').html()+'" />');
 		$('#fileNameValue').focus();
 		$('#fileNameEdit').hide();
 		$('#fileNameSave').show();
 	});
-	//Сохранить имя
+	//РЎРѕС…СЂР°РЅРёС‚СЊ РёРјСЏ
 	$('#fileNameSave').click(function(){
 		$('#loader').show();
 		
-		//Запрос
+		//Р—Р°РїСЂРѕСЃ
 		//$('.imageBlockAct').attr('filename')
 		var path = getCurrentPath();
 		var newname = $('#fileNameValue').val();
@@ -556,7 +556,7 @@ $(function(){
 	});
 	
 	
-	//Меню загрузчика
+	//РњРµРЅСЋ Р·Р°РіСЂСѓР·С‡РёРєР°
 	$('#uploadMenu a').click(function(){
 		$('#uploadMenu a').removeClass('act');
 		$(this).addClass('act');
@@ -572,7 +572,7 @@ $(function(){
 		return false;
 	});
 	
-	//Закрыть загрузчик
+	//Р—Р°РєСЂС‹С‚СЊ Р·Р°РіСЂСѓР·С‡РёРє
 	$('#uploadClose').click(function(){
 		$('#loader').show();
 		var path = getCurrentPath();
@@ -591,7 +591,7 @@ $(function(){
 		$('#divStatus').html('');
 	});
 	
-	//Получить текущую директорию и ее тип
+	//РџРѕР»СѓС‡РёС‚СЊ С‚РµРєСѓС‰СѓСЋ РґРёСЂРµРєС‚РѕСЂРёСЋ Рё РµРµ С‚РёРї
 	function getCurrentPath() {
 		var type = $('.addrItem:first').attr('pathtype');
 		var path = $('.addrItemEnd').attr('path');
@@ -601,12 +601,12 @@ $(function(){
 		return {'type':type, 'path':path};
 	}
 	
-	//Нормальная загрузка
+	//РќРѕСЂРјР°Р»СЊРЅР°СЏ Р·Р°РіСЂСѓР·РєР°
 	$('#fileOpen').MultiFile({ 
 		STRING: { 
-			remove:'<img src="img/cross_small.png" width="16" height="16" alt="Убрать" />',
-			denied:'Нельзя загружать файлы с расширением $ext!',
-			duplicate:'Вы уже добавили файл $file'
+			remove:'<img src="img/cross_small.png" width="16" height="16" alt="РЈР±СЂР°С‚СЊ" />',
+			denied:'РќРµР»СЊР·СЏ Р·Р°РіСЂСѓР¶Р°С‚СЊ С„Р°Р№Р»С‹ СЃ СЂР°СЃС€РёСЂРµРЅРёРµРј $ext!',
+			duplicate:'Р’С‹ СѓР¶Рµ РґРѕР±Р°РІРёР»Рё С„Р°Р№Р» $file'
 		},
 		max: 5,
 		afterFileSelect: checkFiles,
@@ -629,9 +629,9 @@ $(function(){
 					$('#filesHolder').html('<input type="file" id="fileOpen" class="fileOpen" />');
 					$('#fileOpen').MultiFile({ 
 						STRING: {
-							remove:'<img src="img/cross_small.png" width="16" height="16" alt="Убрать" />',
-							denied:'Нельзя загружать файлы с расширением $ext!',
-							duplicate:'Вы уже добавили файл $file'
+							remove:'<img src="img/cross_small.png" width="16" height="16" alt="РЈР±СЂР°С‚СЊ" />',
+							denied:'РќРµР»СЊР·СЏ Р·Р°РіСЂСѓР¶Р°С‚СЊ С„Р°Р№Р»С‹ СЃ СЂР°СЃС€РёСЂРµРЅРёРµРј $ext!',
+							duplicate:'Р’С‹ СѓР¶Рµ РґРѕР±Р°РІРёР»Рё С„Р°Р№Р» $file'
 						},
 						max: 5,
 						afterFileSelect: checkFiles,
@@ -644,7 +644,7 @@ $(function(){
 		return false;
 	}); 
 	
-	//SWFUpload загрузка
+	//SWFUpload Р·Р°РіСЂСѓР·РєР°
 	swfu = new SWFUpload({
 		flash_url : "js/swfupload/swfupload.swf",
 		upload_url: "connector/php/index.php",	// Relative to the SWF file
@@ -654,7 +654,7 @@ $(function(){
 		},
 		file_size_limit : "100 MB",
 		file_types : "*.*",
-		file_types_description : "Все файлы",
+		file_types_description : "Р’СЃРµ С„Р°Р№Р»С‹",
 		file_upload_limit : 20,
 		file_queue_limit : 0,
 		custom_settings : {

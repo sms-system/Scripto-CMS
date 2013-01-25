@@ -1,18 +1,18 @@
 <?
-$moduleinfo["caption"]="Ìîäóëü òåãè";
+$moduleinfo["caption"]="ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ñ‚ÐµÐ³Ð¸";
 $moduleinfo["url"]="http://www.scripto-cms.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
 $moduleinfo["version"]="1.0";
 $moduleinfo["icon"]="tags.png";
 $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/tags/";
-$moduleinfo["use_in_one_rubric"]=true;//òîëüêî äëÿ îäíîé ðóáðèêè
+$moduleinfo["use_in_one_rubric"]=true;//Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð¾Ð´Ð½Ð¾Ð¹ Ñ€ÑƒÐ±Ñ€Ð¸ÐºÐ¸
 $moduleinfo["tag_url"]="tag";
-$moduleinfo["onpage"]=40;//ñêîëüêî òåãîâ âûâîäèòü íà ñòðàíèöå â àäìèíèñòðàòèâíîì èíòåðôåéñå
-//íàñòðîéêè îáëàêà òåãîâ
-$moduleinfo["onpage_user"]=20;//ñêîëüêî òåãîâ âûâîäèòü íà ñòðàíèöå â ïîëüçîâàòåëüñêîé ÷àñòè
-//íàñòðîéêè îáëàêà òåãîâ
-$moduleinfo["minimum_fontsize"]=9;//ìèíèìàëüíûé ðàçìåð øðèôòà
-$moduleinfo["maximum_fontsize"]=32;//ìàêñèìàëüíûé ðàçìåð øðèôòà
-$moduleinfo["koef"]=2.8;//Êîåôôèöèåíò ðàçìåðà îáëàêà òåãîâ
+$moduleinfo["onpage"]=40;//ÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ñ‚ÐµÐ³Ð¾Ð² Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ Ð² Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¸Ð²Ð½Ð¾Ð¼ Ð¸Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹ÑÐµ
+//Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¾Ð±Ð»Ð°ÐºÐ° Ñ‚ÐµÐ³Ð¾Ð²
+$moduleinfo["onpage_user"]=20;//ÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ñ‚ÐµÐ³Ð¾Ð² Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ Ð² Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¾Ð¹ Ñ‡Ð°ÑÑ‚Ð¸
+//Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð¾Ð±Ð»Ð°ÐºÐ° Ñ‚ÐµÐ³Ð¾Ð²
+$moduleinfo["minimum_fontsize"]=9;//Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑˆÑ€Ð¸Ñ„Ñ‚Ð°
+$moduleinfo["maximum_fontsize"]=32;//Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑˆÑ€Ð¸Ñ„Ñ‚Ð°
+$moduleinfo["koef"]=2.8;//ÐšÐ¾ÐµÑ„Ñ„Ð¸Ñ†Ð¸ÐµÐ½Ñ‚ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð° Ð¾Ð±Ð»Ð°ÐºÐ° Ñ‚ÐµÐ³Ð¾Ð²
 ?>

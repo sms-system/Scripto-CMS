@@ -125,13 +125,13 @@
 			$frm=new Form($smarty);
 			$frm->addField($lang["objects"]["rubric"]["caption"],$lang["objects"]["rubric"]["error"],"list",$need_categories,$id_cat,"/^[0-9]{1,}$/i","id_cat",1,$lang["objects"]["rubric"]["sample"],array('size'=>'30'));
 			
-			$frm->addField($lang["objects"]["caption"]["caption"].$type["fulllink_text"],$lang["objects"]["caption"]["error"].$type["fulllink_text"],"text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,$lang["objects"]["caption"]["sample"],array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+			$frm->addField($lang["objects"]["caption"]["caption"].$type["fulllink_text"],$lang["objects"]["caption"]["error"].$type["fulllink_text"],"text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,$lang["objects"]["caption"]["sample"],array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 
 			if (defined("SCRIPTO_tags")) {
 	$frm->addField($lang["forms"]["catalog"]["tags"]["caption"],$lang["forms"]["catalog"]["tags"]["error"],"text",$tags,$tags,"/^[^`#]{2,255}$/i","tags",0,$lang["forms"]["catalog"]["tags"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["catalog"]["tags"]["rules"]));
 			}
 			if ($type["use_code"]) {
-				$frm->addField($lang["objects"]["cd"]["caption"].$type["fulllink_text"],$lang["objects"]["cd"]["error"].$type["fulllink_text"],"text",$code,$code,"/^[^`#]{2,255}$/i","code",1,"24545356",array('size'=>'40','ticket'=>"Ëþáûå áóêâû è öèôðû"));
+				$frm->addField($lang["objects"]["cd"]["caption"].$type["fulllink_text"],$lang["objects"]["cd"]["error"].$type["fulllink_text"],"text",$code,$code,"/^[^`#]{2,255}$/i","code",1,"24545356",array('size'=>'40','ticket'=>"Ð›ÑŽÐ±Ñ‹Ðµ Ð±ÑƒÐºÐ²Ñ‹ Ð¸ Ñ†Ð¸Ñ„Ñ€Ñ‹"));
 			}
 			if ($type["short_content"]) {
 			$fck_editor1=$engine->createFCKEditor("fck1",$content);
@@ -152,9 +152,9 @@
 						$eregi="/^[^`]{1,}$/i";
 					}
 					if ($tp["type"]=="textarea") {
-					$frm->addField($tp["caption"],"Íåâåðíî çàïîëíåíî ïîëå ".$tp["caption"],"textarea",$val[$key],$val[$key],$eregi,"val[$key]",0,"",array('size'=>'40'));	
+					$frm->addField($tp["caption"],"ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Ð¿Ð¾Ð»Ðµ ".$tp["caption"],"textarea",$val[$key],$val[$key],$eregi,"val[$key]",0,"",array('size'=>'40'));	
 					} else{
-					$frm->addField($tp["caption"],"Íåâåðíî çàïîëíåíî ïîëå ".$tp["caption"],"text",$val[$key],$val[$key],$eregi,"val[$key]",0,"",array('size'=>'40'));	
+					$frm->addField($tp["caption"],"ÐÐµÐ²ÐµÑ€Ð½Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ Ð¿Ð¾Ð»Ðµ ".$tp["caption"],"text",$val[$key],$val[$key],$eregi,"val[$key]",0,"",array('size'=>'40'));	
 					}
 				}
 			}
@@ -176,7 +176,7 @@
 				}
 			}
 
-$frm->addField($lang["objects"]["captcha"]["caption"],$lang["objects"]["captcha"]["error"],"kcaptcha","",$config["classes"]["kcaptha"],"/^[^#]{1,}$/i","kcaptcha",1,'',array('ticket'=>'Ëþáûå öèôðû è áóêâû'));
+$frm->addField($lang["objects"]["captcha"]["caption"],$lang["objects"]["captcha"]["error"],"kcaptcha","",$config["classes"]["kcaptha"],"/^[^#]{1,}$/i","kcaptcha",1,'',array('ticket'=>'Ð›ÑŽÐ±Ñ‹Ðµ Ñ†Ð¸Ñ„Ñ€Ñ‹ Ð¸ Ð±ÑƒÐºÐ²Ñ‹'));
 			if(isset($_SESSION['captcha_keystring']) && $_SESSION['captcha_keystring'] !=  @$kcaptcha){
 				$frm->addError($lang["objects"]["captcha"]["error"]);
 			}
@@ -216,7 +216,7 @@ $engine->processFormData($frm,$btn,$first,$tpl_form
 			)) {
 				
 				if ($mode=="edit") {
-					//ðåäàêòèðîâàíèå
+					//Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ
 					if (!$type["short_content"]) {
 						$content_sql='';
 					} else {
@@ -249,7 +249,7 @@ $engine->processFormData($frm,$btn,$first,$tpl_form
 						$smarty->assign("edit",true);
 					}
 				} else {
-					//äîáàâëåíèå
+					//Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ
 					if (!$type["short_content"]) {
 						$content='';
 					}
@@ -265,7 +265,7 @@ $engine->processFormData($frm,$btn,$first,$tpl_form
 							$tgs->addTags($tags,$add_id,'objects');
 						}
 						if ($engine->checkInstallModule("users")) {
-							//ìîäóëü ïîëüçîâàòåëè óñòàíîâëåí
+							//Ð¼Ð¾Ð´ÑƒÐ»ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ð¸ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½
 							if (($_SESSION["auth"]==true) && (@$_SESSION["user_login"]!='')) {
 								$u=new Users();
 								$u->doDb();

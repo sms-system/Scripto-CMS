@@ -1,41 +1,41 @@
-		<h2>Отчет об установленных необходимых библиотеках PHP и Apache</h2>
+		<h2>РћС‚С‡РµС‚ РѕР± СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… РЅРµРѕР±С…РѕРґРёРјС‹С… Р±РёР±Р»РёРѕС‚РµРєР°С… PHP Рё Apache</h2>
 		<table width="100%">
 		<tr>
-			<td width="80%" class="header"><b>Библиотека</b></td>
-			<td width="20%" class="header" align="center"><b>Статус</b></td>
+			<td width="80%" class="header"><b>Р‘РёР±Р»РёРѕС‚РµРєР°</b></td>
+			<td width="20%" class="header" align="center"><b>РЎС‚Р°С‚СѓСЃ</b></td>
 		</tr>
 			{foreach key=key item=lib from=$report}
 				<tr height="30" class="{cycle values="objects_cell_light,objects_cell_bold"}">
 					<td>{$lib.value}</td>
-					<td align="center">{if $lib.install}<img src="/images/admin/ok.png" alt="Установлено">{else}<img src="/images/admin/error.png" alt="Не установлено">{/if}</td>
+					<td align="center">{if $lib.install}<img src="/images/admin/ok.png" alt="РЈСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{else}<img src="/images/admin/error.png" alt="РќРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{/if}</td>
 				</tr>
 			{/foreach}
 		</table>
-		<h2>Проверка рекомендуемых настроек сервера</h2>
-		<p>В данной таблице приведены рекомендуемые настройки сервера, настройки Вашего сервера могут отличаться от рекомендуемых.</p>
+		<h2>РџСЂРѕРІРµСЂРєР° СЂРµРєРѕРјРµРЅРґСѓРµРјС‹С… РЅР°СЃС‚СЂРѕРµРє СЃРµСЂРІРµСЂР°</h2>
+		<p>Р’ РґР°РЅРЅРѕР№ С‚Р°Р±Р»РёС†Рµ РїСЂРёРІРµРґРµРЅС‹ СЂРµРєРѕРјРµРЅРґСѓРµРјС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё СЃРµСЂРІРµСЂР°, РЅР°СЃС‚СЂРѕР№РєРё Р’Р°С€РµРіРѕ СЃРµСЂРІРµСЂР° РјРѕРіСѓС‚ РѕС‚Р»РёС‡Р°С‚СЊСЃСЏ РѕС‚ СЂРµРєРѕРјРµРЅРґСѓРµРјС‹С….</p>
 		<table width="100%" class="objects">
 		<tr>
-			<td width="80%" class="header"><b>Параметр</b></td>
-			<td width="20%" class="header" align="center"><b>Статус</b></td>
+			<td width="80%" class="header"><b>РџР°СЂР°РјРµС‚СЂ</b></td>
+			<td width="20%" class="header" align="center"><b>РЎС‚Р°С‚СѓСЃ</b></td>
 		</tr>
 			{foreach key=key item=lb from=$setups}
 				<tr height="30" class="{cycle values="objects_cell_light,objects_cell_bold"}">
 					<td>{$lb.value}</td>
-					<td align="center">{if $lb.install}<img src="/images/admin/ok.png" alt="Установлено">{else}<img src="/images/admin/alarm.png" alt="Не установлено">{/if}</td>
+					<td align="center">{if $lb.install}<img src="/images/admin/ok.png" alt="РЈСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{else}<img src="/images/admin/alarm.png" alt="РќРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{/if}</td>
 				</tr>
 			{/foreach}		
 		</table>
-		<h2>Проверка установки необходимых прав на файлы и папки</h2>
-		<p>В данной таблице приведен отчет о проверки доступности файлов и папок <b>на запись</b>, если некоторые файлы или папки недоступны для записи, Вам необходимо вручную установить права, достаточные для записи (обычно это 755,775).</p>
+		<h2>РџСЂРѕРІРµСЂРєР° СѓСЃС‚Р°РЅРѕРІРєРё РЅРµРѕР±С…РѕРґРёРјС‹С… РїСЂР°РІ РЅР° С„Р°Р№Р»С‹ Рё РїР°РїРєРё</h2>
+		<p>Р’ РґР°РЅРЅРѕР№ С‚Р°Р±Р»РёС†Рµ РїСЂРёРІРµРґРµРЅ РѕС‚С‡РµС‚ Рѕ РїСЂРѕРІРµСЂРєРё РґРѕСЃС‚СѓРїРЅРѕСЃС‚Рё С„Р°Р№Р»РѕРІ Рё РїР°РїРѕРє <b>РЅР° Р·Р°РїРёСЃСЊ</b>, РµСЃР»Рё РЅРµРєРѕС‚РѕСЂС‹Рµ С„Р°Р№Р»С‹ РёР»Рё РїР°РїРєРё РЅРµРґРѕСЃС‚СѓРїРЅС‹ РґР»СЏ Р·Р°РїРёСЃРё, Р’Р°Рј РЅРµРѕР±С…РѕРґРёРјРѕ РІСЂСѓС‡РЅСѓСЋ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РїСЂР°РІР°, РґРѕСЃС‚Р°С‚РѕС‡РЅС‹Рµ РґР»СЏ Р·Р°РїРёСЃРё (РѕР±С‹С‡РЅРѕ СЌС‚Рѕ 755,775).</p>
 		<table width="100%" class="objects">
 		<tr>
-			<td width="80%" class="header"><b>Файл\папка</b></td>
-			<td width="20%" class="header" align="center"><b>Статус</b></td>
+			<td width="80%" class="header"><b>Р¤Р°Р№Р»\РїР°РїРєР°</b></td>
+			<td width="20%" class="header" align="center"><b>РЎС‚Р°С‚СѓСЃ</b></td>
 		</tr>
 			{foreach key=key item=file from=$files}
 				<tr height="30" class="{cycle values="objects_cell_light,objects_cell_bold"}">
 					<td>{$file.value}</td>
-					<td align="center">{if $file.install}<img src="/images/admin/ok.png" alt="Установлено">{else}<img src="/images/admin/error.png" alt="Не установлено">{/if}</td>
+					<td align="center">{if $file.install}<img src="/images/admin/ok.png" alt="РЈСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{else}<img src="/images/admin/error.png" alt="РќРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ">{/if}</td>
 				</tr>
 			{/foreach}		
 		</table>

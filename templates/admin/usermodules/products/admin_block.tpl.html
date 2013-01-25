@@ -1,11 +1,11 @@
 {if $block.type.type=="products" || $block.type.type=="products_random"}
 <div id="products">
-<h1 class="padding">Добавить новый товар к блоку</h1>
-<p>Выберите товар:</p>
+<h1 class="padding">Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ С‚РѕРІР°СЂ Рє Р±Р»РѕРєСѓ</h1>
+<p>Р’С‹Р±РµСЂРёС‚Рµ С‚РѕРІР°СЂ:</p>
 <form id="frm" method="post" action="{$siteurl}admin/?module=blocks&modAction=module_block&ajax=true&add_product=yes&id_block={$block.id_block}&mod_name={$block.type.module}">
 <p>
 <select name="id_product">
-	<option value="0">выберите товар</option>
+	<option value="0">РІС‹Р±РµСЂРёС‚Рµ С‚РѕРІР°СЂ</option>
 {foreach key=key item=product from=$products}
 {if $product.caption}
 	<option value="{$product.id_product}">{$product.caption} [{$product.code}]</option>
@@ -13,19 +13,19 @@
 {/foreach}
 </select>
 </p>
-<p class="padding"><input type="submit" value="Добавить" class="button"></p>
+<p class="padding"><input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ" class="button"></p>
 </form>
-<h1 class="padding">Товары, выводимые в данном блоке</h1>
+<h1 class="padding">РўРѕРІР°СЂС‹, РІС‹РІРѕРґРёРјС‹Рµ РІ РґР°РЅРЅРѕРј Р±Р»РѕРєРµ</h1>
 {if $block_products}
 {foreach key=key item=product from=$block_products}
-<p>{$product.caption} &nbsp;<a href="javascript:void(0);" onclick="YesNo('Удалить товар из блока {$block.caption}?','{$siteurl}admin/?module=blocks&modAction=module_block&delete_product=yes&ajax=yes&id_block={$block.id_block}&mod_name={$block.type.module}&id_product={$product.id_product}');"><img src="{$img}admin/icons/delete.gif" border="0"></a></p>
+<p>{$product.caption} &nbsp;<a href="javascript:void(0);" onclick="YesNo('РЈРґР°Р»РёС‚СЊ С‚РѕРІР°СЂ РёР· Р±Р»РѕРєР° {$block.caption}?','{$siteurl}admin/?module=blocks&modAction=module_block&delete_product=yes&ajax=yes&id_block={$block.id_block}&mod_name={$block.type.module}&id_product={$product.id_product}');"><img src="{$img}admin/icons/delete.gif" border="0"></a></p>
 {/foreach}
 {else}
-В данном блоке еще не выводится ни одного товара
+Р’ РґР°РЅРЅРѕРј Р±Р»РѕРєРµ РµС‰Рµ РЅРµ РІС‹РІРѕРґРёС‚СЃСЏ РЅРё РѕРґРЅРѕРіРѕ С‚РѕРІР°СЂР°
 {/if}
 </div>
 {elseif $block.type.type=="products_actions"}
-<p>Выберите акцию, из которой выводить товары в данном блоке:</p>
+<p>Р’С‹Р±РµСЂРёС‚Рµ Р°РєС†РёСЋ, РёР· РєРѕС‚РѕСЂРѕР№ РІС‹РІРѕРґРёС‚СЊ С‚РѕРІР°СЂС‹ РІ РґР°РЅРЅРѕРј Р±Р»РѕРєРµ:</p>
 <form action="{$siteurl}admin/?module=blocks&modAction=module_block&ajax=true&add_product=yes&id_block={$block.id_block}&mod_name={$block.type.module}" method="post">
 <p>
 <select name="id_action">
@@ -34,8 +34,8 @@
 {/foreach}
 </select>
 </p>
-<p class="padding"><input type="submit" value="Сохранить" class="button"></p>
+<p class="padding"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></p>
 </form>
 {else}
-Данный блок не имеет настроек
+Р”Р°РЅРЅС‹Р№ Р±Р»РѕРє РЅРµ РёРјРµРµС‚ РЅР°СЃС‚СЂРѕРµРє
 {/if}

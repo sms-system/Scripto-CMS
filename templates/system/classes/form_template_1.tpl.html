@@ -119,10 +119,10 @@ function toggleEditor(id) {
 		<tr>
 			{if $element.value!=''}
 				<td width="70%" id="preview{$element.mode}"><a href="{$siteurl}admin/?module=objects&modAction=crop&filename_photo={$element.value}&ajax=true" class="crop"><img src="{$user_thumbnails}{$element.value}" width="100" border="0"></a></td>
-				<td width="30%"><a href="{$config.pathes.image_dialog}&mode={$element.mode}{if $element.id_cat>0}&id_category={$element.id_cat}{/if}&get_rubrics=true" {if $element.fancy_show}class="change"{else}class="ch"{/if}>изменить</a></td>
+				<td width="30%"><a href="{$config.pathes.image_dialog}&mode={$element.mode}{if $element.id_cat>0}&id_category={$element.id_cat}{/if}&get_rubrics=true" {if $element.fancy_show}class="change"{else}class="ch"{/if}>РёР·РјРµРЅРёС‚СЊ</a></td>
 			{else}
-				<td width="70%" id="preview{$element.mode}"><a href="javascript:void(0);" class="crop"></a>не установлено</td>
-				<td width="30%"><a href="{$config.pathes.image_dialog}&mode={$element.mode}{if $element.id_cat>0}&id_category={$element.id_cat}{/if}&get_rubrics=true" {if $element.fancy_show}class="change"{else}class="ch"{/if}>выбрать</a></td>
+				<td width="70%" id="preview{$element.mode}"><a href="javascript:void(0);" class="crop"></a>РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ</td>
+				<td width="30%"><a href="{$config.pathes.image_dialog}&mode={$element.mode}{if $element.id_cat>0}&id_category={$element.id_cat}{/if}&get_rubrics=true" {if $element.fancy_show}class="change"{else}class="ch"{/if}>РІС‹Р±СЂР°С‚СЊ</a></td>
 			{/if}
 		</tr>
 	</table>
@@ -219,7 +219,7 @@ function toggleEditor(id) {
 <td colspan="2" style="padding-bottom:10px;">
 <p><b>{$element.name}:</b></p>
 {$element.values}
-{if $element.min && $element.max}<p style="color:#989898;font-size:12px;">Минимальная длина - {$element.min} , максимальная длина - {$element.max}</p>{/if}
+{if $element.min && $element.max}<p style="color:#989898;font-size:12px;">РњРёРЅРёРјР°Р»СЊРЅР°СЏ РґР»РёРЅР° - {$element.min} , РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґР»РёРЅР° - {$element.max}</p>{/if}
 </td>
 </tr>
 {/if}
@@ -227,7 +227,7 @@ function toggleEditor(id) {
 {/foreach}
 <tr>
 <td></td>
-<td class="form_inputs">Знаком <font style="color:#cc0033;font-size:20px;">*</font> отмечены обязательные для заполнения поля.<br>
+<td class="form_inputs">Р—РЅР°РєРѕРј <font style="color:#cc0033;font-size:20px;">*</font> РѕС‚РјРµС‡РµРЅС‹ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рµ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ РїРѕР»СЏ.<br>
 </td>
 </tr>
 <tr>

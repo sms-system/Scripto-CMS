@@ -1,5 +1,5 @@
 <?
-/*ìîäóëü çàìåòêè*/
+/*Ğ¼Ğ¾Ğ´ÑƒĞ»ÑŒ Ğ·Ğ°Ğ¼ĞµÑ‚ĞºĞ¸*/
 global $page;
 global $settings;
 
@@ -28,13 +28,13 @@ if (defined("SCRIPTO_GALLERY")) {
 			}
 		break;
 		case "addnote":
-			//Äîáàâëåíèå çàìåòêè
+			//Ğ”Ğ¾Ğ±Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğµ Ğ·Ğ°Ğ¼ĞµÑ‚ĞºĞ¸
 			$mode=@$_REQUEST["mode"];
-			$this->addPath('Îğãàíàéçåğ','/admin?module=notes',true);
+			$this->addPath('ĞÑ€Ğ³Ğ°Ğ½Ğ°Ğ¹Ğ·ĞµÑ€','/admin?module=notes',true);
 			if ($mode=="edit") {
-			$this->addPath('Ğåäàêòèğîâàíèå çàìåòêè','',false);
+			$this->addPath('Ğ ĞµĞ´Ğ°ĞºÑ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ·Ğ°Ğ¼ĞµÑ‚ĞºĞ¸','',false);
 			} else {
-			$this->addPath('Äîáàâëåíèå çàìåòêè','',false);
+			$this->addPath('Ğ”Ğ¾Ğ±Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğµ Ğ·Ğ°Ğ¼ĞµÑ‚ĞºĞ¸','',false);
 			}
 			$this->assignPath();
 			
@@ -63,10 +63,10 @@ if (defined("SCRIPTO_GALLERY")) {
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 			
-$frm->addField('Íàçâàíèå çàìåòêè','Íåâåğíî çàïîëíåíî íàçâàíèå çàìåòêè',"text",$caption,$caption,"/^[^`#]{2,250}$/i","caption",1,'',array('size'=>'40','ticket'=>''));
+$frm->addField('ĞĞ°Ğ·Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ·Ğ°Ğ¼ĞµÑ‚ĞºĞ¸','ĞĞµĞ²ĞµÑ€Ğ½Ğ¾ Ğ·Ğ°Ğ¿Ğ¾Ğ»Ğ½ĞµĞ½Ğ¾ Ğ½Ğ°Ğ·Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ·Ğ°Ğ¼ĞµÑ‚ĞºĞ¸',"text",$caption,$caption,"/^[^`#]{2,250}$/i","caption",1,'',array('size'=>'40','ticket'=>''));
 
 $fck_editor1=$this->createFCKEditor("fck1",$content);
-$frm->addField("Òåêñò çàìåòêè","Íå óêàçàí òåêñò çàìåòêè","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+$frm->addField("Ğ¢ĞµĞºÑÑ‚ Ğ·Ğ°Ğ¼ĞµÑ‚ĞºĞ¸","ĞĞµ ÑƒĞºĞ°Ğ·Ğ°Ğ½ Ñ‚ĞµĞºÑÑ‚ Ğ·Ğ°Ğ¼ĞµÑ‚ĞºĞ¸","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
 
 $frm->addField("","","hidden",$mode,$mode,"/^[^`]{0,}$/i","mode",1);
 if (isset($_REQUEST["id_note"])) {
@@ -83,24 +83,24 @@ if ($mode=="edit") {
 			if (
 $this->processFormData($frm,$s_name,$first
 			)) {
-				//äîáàâëÿåì èëè ğåäàêòèğóåì
+				//Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ»ÑĞµĞ¼ Ğ¸Ğ»Ğ¸ Ñ€ĞµĞ´Ğ°ĞºÑ‚Ğ¸Ñ€ÑƒĞµĞ¼
 				if ($mode=="edit") {
-				 //ğåäàêòèğóåì
+				 //Ñ€ĞµĞ´Ğ°ĞºÑ‚Ğ¸Ñ€ÑƒĞµĞ¼
 				 if (isset($id_note)) {
 				 	if ($db->query("update %notes% set `caption`='".sql_quote($caption)."' , `content`='".sql_quote($content)."' where id_note=$id_note")) {
-						//îòğåäàêòèğîâàëè
+						//Ğ¾Ñ‚Ñ€ĞµĞ´Ğ°ĞºÑ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ»Ğ¸
 				   $this->setCongratulation('',$lang["congratulation"]["note_edit"],3000);
 				   $modAction="notes";
 				   $this->clearPath();
 					}
 				 } else {
-				 	//ïîêàçûâàåì îøèáêó
+				 	//Ğ¿Ğ¾ĞºĞ°Ğ·Ñ‹Ğ²Ğ°ĞµĞ¼ Ğ¾ÑˆĞ¸Ğ±ĞºÑƒ
 				 }
 				} else {
-				 //äîáàâëÿåì
+				 //Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ»ÑĞµĞ¼
 				 $add_id=$this->createNote($caption,$content);
 				 if ($add_id!=false) {
-				   //äîáàâèëè óñïåøíî!
+				   //Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ¸Ğ»Ğ¸ ÑƒÑĞ¿ĞµÑˆĞ½Ğ¾!
 				//   $modAction="view";
 				   $this->setCongratulation('',$lang["congratulation"]["note_add"],3000);
 				   $modAction="notes";
@@ -202,17 +202,17 @@ $this->processFormData($frm,$s_name,$first
 					}
 					}
 				}
-				$this->setCongratulation('',"Îáíîâëåíî $upd íàïîìèíàíèé, óäàëåíî $d íàïîìèíàíèé.",5000);
+				$this->setCongratulation('',"ĞĞ±Ğ½Ğ¾Ğ²Ğ»ĞµĞ½Ğ¾ $upd Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ğ¹, ÑƒĞ´Ğ°Ğ»ĞµĞ½Ğ¾ $d Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ğ¹.",5000);
 			}
 			$modAction="view";
 		break;
 		case "addreminder":
 			$mode=@$_REQUEST["mode"];
-			$this->addPath('Îğãàíàéçåğ','/admin?module=notes',true);
+			$this->addPath('ĞÑ€Ğ³Ğ°Ğ½Ğ°Ğ¹Ğ·ĞµÑ€','/admin?module=notes',true);
 			if ($mode=="edit") {
-			$this->addPath('Ğåäàêòèğîâàíèå íàïîìèíàíèÿ','',false);
+			$this->addPath('Ğ ĞµĞ´Ğ°ĞºÑ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ñ','',false);
 			} else {
-			$this->addPath('Äîáàâëåíèå íàïîìèíàíèÿ','',false);
+			$this->addPath('Ğ”Ğ¾Ğ±Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğµ Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ñ','',false);
 			}
 			$this->assignPath();
 			
@@ -269,15 +269,15 @@ $this->processFormData($frm,$s_name,$first
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 			
-$frm->addField('Òåìà íàïîìèíàíèÿ','Íåâåğíî çàïîëíåíà òåìà íàïîìèíàíèÿ',"text",$subject,$subject,"/^[^`#]{2,250}$/i","subject",0,'Ïğîâåğèòü ïîçèöèè â ïîèñêîâèêàõ',array('size'=>'40','ticket'=>''));
+$frm->addField('Ğ¢ĞµĞ¼Ğ° Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ñ','ĞĞµĞ²ĞµÑ€Ğ½Ğ¾ Ğ·Ğ°Ğ¿Ğ¾Ğ»Ğ½ĞµĞ½Ğ° Ñ‚ĞµĞ¼Ğ° Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ñ',"text",$subject,$subject,"/^[^`#]{2,250}$/i","subject",0,'ĞŸÑ€Ğ¾Ğ²ĞµÑ€Ğ¸Ñ‚ÑŒ Ğ¿Ğ¾Ğ·Ğ¸Ñ†Ğ¸Ğ¸ Ğ² Ğ¿Ğ¾Ğ¸ÑĞºĞ¾Ğ²Ğ¸ĞºĞ°Ñ…',array('size'=>'40','ticket'=>''));
 
-$frm->addField('Òåêñò íàïîìèíàíèÿ','Íåâåğíî çàïîëíåí òåêñò íàïîìèíàíèÿ',"textarea",$text,$text,"/^[^`#]{2,200}$/i","text",1,'',array('rows'=>'40','cols'=>'10','ticket'=>'Îò 2 äî 200 ñèìâîëîâ'));
+$frm->addField('Ğ¢ĞµĞºÑÑ‚ Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ñ','ĞĞµĞ²ĞµÑ€Ğ½Ğ¾ Ğ·Ğ°Ğ¿Ğ¾Ğ»Ğ½ĞµĞ½ Ñ‚ĞµĞºÑÑ‚ Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ñ',"textarea",$text,$text,"/^[^`#]{2,200}$/i","text",1,'',array('rows'=>'40','cols'=>'10','ticket'=>'ĞÑ‚ 2 Ğ´Ğ¾ 200 ÑĞ¸Ğ¼Ğ²Ğ¾Ğ»Ğ¾Ğ²'));
 
-$frm->addField('Äàòà íàïîìèíàíèÿ','Íåâåğíî âûáğàíà äàòà íàïîìèíàíèÿ',"date",$date_reminder,$date_reminder,"/^[0-9]{1,}$/i","date_reminder",0,"19.01.2008");
+$frm->addField('Ğ”Ğ°Ñ‚Ğ° Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ñ','ĞĞµĞ²ĞµÑ€Ğ½Ğ¾ Ğ²Ñ‹Ğ±Ñ€Ğ°Ğ½Ğ° Ğ´Ğ°Ñ‚Ğ° Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ñ',"date",$date_reminder,$date_reminder,"/^[0-9]{1,}$/i","date_reminder",0,"19.01.2008");
 
-$frm->addField('Âğåìÿ íàïîìèíàíèÿ','Íåâåğíî âûáğàíî âğåìÿ íàïîìèíàíèÿ',"time",$time_reminder,$time_reminder,"/^[0-9]{1,}$/i","time_reminder",0,"19:45");
+$frm->addField('Ğ’Ñ€ĞµĞ¼Ñ Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ñ','ĞĞµĞ²ĞµÑ€Ğ½Ğ¾ Ğ²Ñ‹Ğ±Ñ€Ğ°Ğ½Ğ¾ Ğ²Ñ€ĞµĞ¼Ñ Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ñ',"time",$time_reminder,$time_reminder,"/^[0-9]{1,}$/i","time_reminder",0,"19:45");
 
-$frm->addField('Íå óäàëÿòü íàïîìèíàíèå ïîñëå íàñòóïëåíèÿ ñîáûòèÿ','',"check",$undelete,$undelete,"/^[^`#]{1,}$/i","undelete",0,'');
+$frm->addField('ĞĞµ ÑƒĞ´Ğ°Ğ»ÑÑ‚ÑŒ Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ğµ Ğ¿Ğ¾ÑĞ»Ğµ Ğ½Ğ°ÑÑ‚ÑƒĞ¿Ğ»ĞµĞ½Ğ¸Ñ ÑĞ¾Ğ±Ñ‹Ñ‚Ğ¸Ñ','',"check",$undelete,$undelete,"/^[^`#]{1,}$/i","undelete",0,'');
 
 $frm->addField("","","hidden",$mode,$mode,"/^[^`]{0,}$/i","mode",1);
 if (isset($_REQUEST["id_reminder"])) {
@@ -297,24 +297,24 @@ if (!checkdate($date_reminder[1],$date_reminder[0],$date_reminder[2]))
 			if (
 $this->processFormData($frm,$s_name,$first
 			)) {
-				//äîáàâëÿåì èëè ğåäàêòèğóåì
+				//Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ»ÑĞµĞ¼ Ğ¸Ğ»Ğ¸ Ñ€ĞµĞ´Ğ°ĞºÑ‚Ğ¸Ñ€ÑƒĞµĞ¼
 				if ($mode=="edit") {
-				 //ğåäàêòèğóåì
+				 //Ñ€ĞµĞ´Ğ°ĞºÑ‚Ğ¸Ñ€ÑƒĞµĞ¼
 				 if (isset($id_reminder)) {
 				 	if ($db->query("update %reminders% set `subject`='".sql_quote($subject)."' , `undelete`=$undelete , content='".sql_quote($text)."' , `show_date`='".sql_quote(@$date_reminder[2])."-".sql_quote(@$date_reminder[1])."-".sql_quote(@$date_reminder[0])." ".sql_quote(@$time_reminder[0]).":".sql_quote(@$time_reminder[1]).":00' ,`show`=0 where id_reminder=$id_reminder")) {
-						//îòğåäàêòèğîâàëè
+						//Ğ¾Ñ‚Ñ€ĞµĞ´Ğ°ĞºÑ‚Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ»Ğ¸
 				   $this->setCongratulation('',$lang["congratulation"]["reminder_edit"],3000);
 				   $modAction="view";
 				   $this->clearPath();
 					}
 				 } else {
-				 	//ïîêàçûâàåì îøèáêó
+				 	//Ğ¿Ğ¾ĞºĞ°Ğ·Ñ‹Ğ²Ğ°ĞµĞ¼ Ğ¾ÑˆĞ¸Ğ±ĞºÑƒ
 				 }
 				} else {
-				 //äîáàâëÿåì
+				 //Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ»ÑĞµĞ¼
  $add_id=$this->addReminder($subject,$text,$date_reminder,$time_reminder,$undelete);
 				 if ($add_id!=false) {
-				   //äîáàâèëè óñïåøíî!
+				   //Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ¸Ğ»Ğ¸ ÑƒÑĞ¿ĞµÑˆĞ½Ğ¾!
 				//   $modAction="view";
 				   $this->setCongratulation('',$lang["congratulation"]["reminder_add"],3000);
 				   $modAction="view";
@@ -356,7 +356,7 @@ $this->processFormData($frm,$s_name,$first
 				}
 				}
 			}
-			/*ïîëó÷àåì òåêóùèå íàïîìèíàíèÿ íà ñåãîäíÿ*/
+			/*Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ°ĞµĞ¼ Ñ‚ĞµĞºÑƒÑ‰Ğ¸Ğµ Ğ½Ğ°Ğ¿Ğ¾Ğ¼Ğ¸Ğ½Ğ°Ğ½Ğ¸Ñ Ğ½Ğ° ÑĞµĞ³Ğ¾Ğ´Ğ½Ñ*/
 			$count_reminders=$this->getNowReminders();
 			if ($count_reminders>0) {
 				$reminders[$n]["silent"]=true;

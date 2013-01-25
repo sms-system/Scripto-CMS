@@ -4,15 +4,15 @@
 		{include file='admin/module_header.tpl.html'}
 {if $modAction=="view"}
 <div class="body">
-	<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=languages&modAction=add');">Добавить язык</div>
+	<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=languages&modAction=add');">Р”РѕР±Р°РІРёС‚СЊ СЏР·С‹Рє</div>
 </div>
 <div class="body">
-	<h2>Существующие языковые версии</h2>
+	<h2>РЎСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ СЏР·С‹РєРѕРІС‹Рµ РІРµСЂСЃРёРё</h2>
 <form action="{$siteurl}admin?module=languages" method="post" id="comments_form">
 <table class="objects">
 	<tr>					
-		<td class="objects_header editable_header" width="90%"><span>Название версии</span></td>
-		<td class="objects_header editable_header" width="10%" align="right">Удалить</td>
+		<td class="objects_header editable_header" width="90%"><span>РќР°Р·РІР°РЅРёРµ РІРµСЂСЃРёРё</span></td>
+		<td class="objects_header editable_header" width="10%" align="right">РЈРґР°Р»РёС‚СЊ</td>
 	</tr>
 	{foreach key=key item=lng from=$languages}
 	<tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="language{$lng.id_language}">
@@ -25,7 +25,7 @@
 	</tr>
 	{/foreach}
 	<tr id="save_submit">
-		<td colspan="5" align="center"><input type="submit" value="Сохранить" class="button"></td>
+		<td colspan="5" align="center"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 	</tr>
 </table>
 <input type="hidden" name="save" value="1">

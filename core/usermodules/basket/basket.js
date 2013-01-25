@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('#choosebyurl').click(function() {
-	  var url=prompt('Укажите url объекта, к которому просмотреть комментарии:');
+	  var url=prompt('РЈРєР°Р¶РёС‚Рµ url РѕР±СЉРµРєС‚Р°, Рє РєРѕС‚РѕСЂРѕРјСѓ РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РєРѕРјРјРµРЅС‚Р°СЂРёРё:');
 	  if (url!='') {
 	  	location.href='/admin?module=modules&modAction=settings&module_name=comments&viewbyurl=yes&url=' + url;
 	  }

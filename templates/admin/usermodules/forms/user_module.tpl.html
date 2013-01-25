@@ -1,47 +1,47 @@
 {if $answer_mode}
 {if $mode=='user' || $mode=='admin'}
-	{if $order.fio}<p>Отправитель: {$order.fio}</p>{/if}
-	{if $order.email}<p>E-mail отправителя: <a href="mailto:{$order.email}">{$order.email}</a></p>{/if}
-	<h2>Полученные ранее сообщения</h2>
+	{if $order.fio}<p>РћС‚РїСЂР°РІРёС‚РµР»СЊ: {$order.fio}</p>{/if}
+	{if $order.email}<p>E-mail РѕС‚РїСЂР°РІРёС‚РµР»СЏ: <a href="mailto:{$order.email}">{$order.email}</a></p>{/if}
+	<h2>РџРѕР»СѓС‡РµРЅРЅС‹Рµ СЂР°РЅРµРµ СЃРѕРѕР±С‰РµРЅРёСЏ</h2>
 <div class="answers">
 	<div class="answer_box_user">
 		<div class="answer_from padding">
-			{if $order.fio}{$order.fio}{/if} {if $order.email}(<a href="mailto:{$order.email}">{$order.email}</a>){/if} писал {$order.create_print}:
+			{if $order.fio}{$order.fio}{/if} {if $order.email}(<a href="mailto:{$order.email}">{$order.email}</a>){/if} РїРёСЃР°Р» {$order.create_print}:
 		</div>
 		<div class="answer_content">{$order.content}</div>
-		<div class="answer_from">IP записан: {$order.ip}</div>
+		<div class="answer_from">IP Р·Р°РїРёСЃР°РЅ: {$order.ip}</div>
 	</div>
 	{if $answers}
 	{foreach key=key item=answer from=$answers}
 		{if $answer.is_admin==1}
 	<div class="answer_box_me">
 		<div class="answer_from padding">
-			<b>Администратор</b> писал {$answer.create_print}:
+			<b>РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</b> РїРёСЃР°Р» {$answer.create_print}:
 		</div>
 		<div class="answer_content">{$answer.forwardtext}</div>
-		<div class="answer_from">IP записан: {$answer.ip}</div>
+		<div class="answer_from">IP Р·Р°РїРёСЃР°РЅ: {$answer.ip}</div>
 	</div>		
 		{else}
 	<div class="answer_box_user">
 		<div class="answer_from padding">
-			{if $order.fio}{$order.fio}{/if} {if $order.email}(<a href="mailto:{$order.email}">{$order.email}</a>){/if} писал {$answer.create_print}:
+			{if $order.fio}{$order.fio}{/if} {if $order.email}(<a href="mailto:{$order.email}">{$order.email}</a>){/if} РїРёСЃР°Р» {$answer.create_print}:
 		</div>
 		<div class="answer_content">{$answer.forwardtext}</div>
-		<div class="answer_from">IP записан: {$answer.ip}</div>
+		<div class="answer_from">IP Р·Р°РїРёСЃР°РЅ: {$answer.ip}</div>
 	</div>		
 		{/if}
 	{/foreach}
 	{/if}
 </div>
 <div class="answer_form">
-<h2>Отправить ответ</h2>
+<h2>РћС‚РїСЂР°РІРёС‚СЊ РѕС‚РІРµС‚</h2>
 {if $save}
-<h2>Ответ на заявку был успешно отправлен</h2>
+<h2>РћС‚РІРµС‚ РЅР° Р·Р°СЏРІРєСѓ Р±С‹Р» СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅ</h2>
 {/if}
 {$form_html}
 </div>	
 {else}
-<p><b>Внимание! Указан неверный ключ!</b></p>
+<p><b>Р’РЅРёРјР°РЅРёРµ! РЈРєР°Р·Р°РЅ РЅРµРІРµСЂРЅС‹Р№ РєР»СЋС‡!</b></p>
 {/if}
 {else}
 	{if $form_send}

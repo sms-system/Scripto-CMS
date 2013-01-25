@@ -1,5 +1,5 @@
 <?
-			/*crop èçîáðàæåíèé*/
+			/*crop Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ð¹*/
 			$smarty->assign("do_jCrop",true);
 			if (isset($_REQUEST["id_photo"])) {
 			$id_photo=@$_REQUEST["id_photo"];
@@ -13,7 +13,7 @@
 				$image=$this->getImageByID($id_photo);
 				if ($image["id_category"] && is_file($config["pathes"]["user_image"].$image["big_photo"])) {
 				$realsize=getimagesize($config["pathes"]["user_image"].$image["big_photo"]);
-				//âûðåçàåì
+				//Ð²Ñ‹Ñ€ÐµÐ·Ð°ÐµÐ¼
 				if (isset($_REQUEST["doCrop"])) {
 					$width=@$_REQUEST["width"];
 					$height=@$_REQUEST["height"];
@@ -34,7 +34,7 @@
 							$str="`small_info`='$x1|$y1|$x2|$y2|$w|$h|$width|$height'";	
 						}
 					if (preg_match("/^[0-9]{1,}$/i",$width) && preg_match("/^[0-9]{1,}$/i",$height)) {
-						//ðàáîòàåì
+						//Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÐ¼
 						$thumb=$this->loadThumbnail($config["pathes"]["user_image"].$image["big_photo"]);
 						$thumb->crop($x1,$y1,$w,$h);
 						if ($w>$width && $h>$height) {

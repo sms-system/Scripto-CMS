@@ -1,8 +1,8 @@
 <?
 /*
-Модуль объекты, управление
-Версия модуля - 1.0
-Разработчик - Иванов Дмитрий
+РњРѕРґСѓР»СЊ РѕР±СЉРµРєС‚С‹, СѓРїСЂР°РІР»РµРЅРёРµ
+Р’РµСЂСЃРёСЏ РјРѕРґСѓР»СЏ - 1.0
+Р Р°Р·СЂР°Р±РѕС‚С‡РёРє - РРІР°РЅРѕРІ Р”РјРёС‚СЂРёР№
 */
 global $rubrics;
 
@@ -51,7 +51,7 @@ switch ($m_action) {
 		if (isset($_REQUEST["id_object"])) {
 			$id_object=$_REQUEST["id_object"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_object)) {
-				/*установка свойств*/
+				/*СѓСЃС‚Р°РЅРѕРІРєР° СЃРІРѕР№СЃС‚РІ*/
 				$smarty->assign("doAjaxify",true);
 				if (isset($_REQUEST["mode"])) {
 				$mode=$_REQUEST["mode"];
@@ -59,19 +59,19 @@ switch ($m_action) {
 					 $smarty->assign("mode",$mode);
 				}
 				$smarty->assign("multiple","no");
-				//откуда пришел пользователь
+				//РѕС‚РєСѓРґР° РїСЂРёС€РµР» РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ
 				if (!isset($_REQUEST["ref"])) {
 					$ref=getenv("HTTP_REFERER");
 					$smarty->assign("ref",$ref);
 				}
-				$engine->setAdminTitle('Выбор объекта');
-				$page["title"]='Выбор объекта';
+				$engine->setAdminTitle('Р’С‹Р±РѕСЂ РѕР±СЉРµРєС‚Р°');
+				$page["title"]='Р’С‹Р±РѕСЂ РѕР±СЉРµРєС‚Р°';
 				if (isset($_REQUEST["get_rubrics"])) {
 					$smarty->assign("get_rubrics",true);
 				} else {
 					$smarty->assign("get_rubrics",false);
 				}
-				/*конец установки свойств*/
+				/*РєРѕРЅРµС† СѓСЃС‚Р°РЅРѕРІРєРё СЃРІРѕР№СЃС‚РІ*/
 				$engine->clearPath();
 				$object=$this->getObjectByID($id_object,$type);
 				$smarty->assign("object",$object);
@@ -101,7 +101,7 @@ switch ($m_action) {
 				$engine->assignJS();
 				$smarty->assign("doFiles",true);
 				if (isset($_REQUEST["sort_me"])) {
-					//сортировка
+					//СЃРѕСЂС‚РёСЂРѕРІРєР°
 					$del=@$_REQUEST["del"];
 					$sort=@$_REQUEST["sort"];
 					if (is_array($sort)) {
@@ -122,7 +122,7 @@ switch ($m_action) {
 								}
 							}
 						}
-						$engine->setCongratulation("","Изменения сохранены (Удалено $d файлов , обновлено $u файлов)");
+						$engine->setCongratulation("","РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹ (РЈРґР°Р»РµРЅРѕ $d С„Р°Р№Р»РѕРІ , РѕР±РЅРѕРІР»РµРЅРѕ $u С„Р°Р№Р»РѕРІ)");
 					}
 				}
 				$object=$this->getObjectByID($id_object,$type);
@@ -131,7 +131,7 @@ switch ($m_action) {
 				$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 				$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
 				$engine->addPath($type["caption"],'/admin/?module=modules&modAction=settings&m_action=view&module_name='.$this->thismodule["name"].'&id_category='.$object["id_category"].'&id_type='.$object["id_type"],true);
-				$engine->addPath('Просмотр файлов объекта '.$object["caption"],'',false);
+				$engine->addPath('РџСЂРѕСЃРјРѕС‚СЂ С„Р°Р№Р»РѕРІ РѕР±СЉРµРєС‚Р° '.$object["caption"],'',false);
 				$engine->assignPath();
 			}
 		}
@@ -141,7 +141,7 @@ switch ($m_action) {
 			$id_object=$_REQUEST["id_object"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_object)) {
 				if (isset($_REQUEST["sort_me"])) {
-					//сортировка
+					//СЃРѕСЂС‚РёСЂРѕРІРєР°
 					$del=@$_REQUEST["del"];
 					$sort=@$_REQUEST["sort"];
 					if (is_array($sort)) {
@@ -158,7 +158,7 @@ switch ($m_action) {
 								}
 							}
 						}
-						$engine->setCongratulation("","Изменения сохранены (Удалено $d объектов , обновлено $u объектов)");
+						$engine->setCongratulation("","РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹ (РЈРґР°Р»РµРЅРѕ $d РѕР±СЉРµРєС‚РѕРІ , РѕР±РЅРѕРІР»РµРЅРѕ $u РѕР±СЉРµРєС‚РѕРІ)");
 					}
 				}
 				$object=$this->getObjectByID($id_object,$type);
@@ -167,7 +167,7 @@ switch ($m_action) {
 				$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 				$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
 				$engine->addPath($type["caption"],'/admin/?module=modules&modAction=settings&m_action=view&module_name='.$this->thismodule["name"].'&id_category='.$object["id_category"].'&id_type='.$object["id_type"],true);
-				$engine->addPath('Просмотр объектов объекта '.$object["caption"],'',false);
+				$engine->addPath('РџСЂРѕСЃРјРѕС‚СЂ РѕР±СЉРµРєС‚РѕРІ РѕР±СЉРµРєС‚Р° '.$object["caption"],'',false);
 				$engine->assignPath();
 				if (isset($_REQUEST["setObject"])) {
 					$id_object2=@$_REQUEST["id_object2"];
@@ -180,7 +180,7 @@ switch ($m_action) {
 								$smarty->assign("objct",$obj);
 								$smarty->assign("id_object2",$id_object2);
 								if ($this->addObject2Object($id_object,$id_object2)) {
-									$smarty->assign("fancyTooltip","Объект успешно добавлен");
+									$smarty->assign("fancyTooltip","РћР±СЉРµРєС‚ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅ");
 								}
 								$smarty->assign("addObj",true);
 								}
@@ -188,7 +188,7 @@ switch ($m_action) {
 							default:
 								if ($id_object2==0) {
 										$db->query("delete from `%OBJECT_OBJECTS%` where id_object=$id_object and id_object2=$previewMode");
-										$smarty->assign("fancyTooltip","Объект удален успешно");
+										$smarty->assign("fancyTooltip","РћР±СЉРµРєС‚ СѓРґР°Р»РµРЅ СѓСЃРїРµС€РЅРѕ");
 										$smarty->assign("id_object2",$previewMode);
 										$smarty->assign("deleteObj",true);
 								} else {
@@ -196,7 +196,7 @@ switch ($m_action) {
 									$smarty->assign("objct",$obj);
 									$smarty->assign("id_object2",$id_object2);
 								if ($db->query("update `%OBJECT_OBJECTS%` set id_object2=$id_object2 where id_object2=$previewMode and id_object=$id_object")) {
-	$engine->setPreview($obj["caption"],$previewMode,'Объект установлен успешно','html');
+	$engine->setPreview($obj["caption"],$previewMode,'РћР±СЉРµРєС‚ СѓСЃС‚Р°РЅРѕРІР»РµРЅ СѓСЃРїРµС€РЅРѕ','html');
 								}
 								}
 						}
@@ -211,7 +211,7 @@ switch ($m_action) {
 			$id_object=$_REQUEST["id_object"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_object)) {
 				if (isset($_REQUEST["sort_me"])) {
-					//сортировка
+					//СЃРѕСЂС‚РёСЂРѕРІРєР°
 					$del=@$_REQUEST["del"];
 					$sort=@$_REQUEST["sort"];
 					if (is_array($sort)) {
@@ -228,19 +228,19 @@ switch ($m_action) {
 								}
 							}
 						}
-						$engine->setCongratulation("","Изменения сохранены (Удалено $d видео , обновлено $u видео)");
+						$engine->setCongratulation("","РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹ (РЈРґР°Р»РµРЅРѕ $d РІРёРґРµРѕ , РѕР±РЅРѕРІР»РµРЅРѕ $u РІРёРґРµРѕ)");
 					}
 				}
 				$object=$this->getObjectByID($id_object,$type);
 				$smarty->assign("object",$object);
 				if (sizeof($object["videos"])>$type["max_videos"] && $type["max_videos"]>0) {
-					$engine->setCongratulation("Превышен лимит видео","Вы превысили лимит видео (для данного типа - ".$type["max_videos"]."), для пользователя будут выведены первые ".$type["max_videos"]." видео.",5000);
+					$engine->setCongratulation("РџСЂРµРІС‹С€РµРЅ Р»РёРјРёС‚ РІРёРґРµРѕ","Р’С‹ РїСЂРµРІС‹СЃРёР»Рё Р»РёРјРёС‚ РІРёРґРµРѕ (РґР»СЏ РґР°РЅРЅРѕРіРѕ С‚РёРїР° - ".$type["max_videos"]."), РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Р±СѓРґСѓС‚ РІС‹РІРµРґРµРЅС‹ РїРµСЂРІС‹Рµ ".$type["max_videos"]." РІРёРґРµРѕ.",5000);
 				}
 				$engine->clearPath();
 				$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 				$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
 				$engine->addPath($type["caption"],'/admin/?module=modules&modAction=settings&m_action=view&module_name='.$this->thismodule["name"].'&id_category='.$object["id_category"].'&id_type='.$object["id_type"],true);
-				$engine->addPath('Просмотр галереи видео объекта '.$object["caption"],'',false);
+				$engine->addPath('РџСЂРѕСЃРјРѕС‚СЂ РіР°Р»РµСЂРµРё РІРёРґРµРѕ РѕР±СЉРµРєС‚Р° '.$object["caption"],'',false);
 				$engine->assignPath();
 				if (isset($_REQUEST["setVideo"])) {
 					$previewMode=@$_REQUEST["previewMode"];
@@ -256,12 +256,12 @@ switch ($m_action) {
 							case "new":
 								if (isset($video["caption"])) {
 									if ($this->addVideoToObject($id_object,$id_video)) {
-						$smarty->assign("fancyTooltip","Видео установлено успешно");
+						$smarty->assign("fancyTooltip","Р’РёРґРµРѕ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ СѓСЃРїРµС€РЅРѕ");
 									} else {
-						$smarty->assign("fancyTooltip","В процессе добавления видео произошла ошибка");
+						$smarty->assign("fancyTooltip","Р’ РїСЂРѕС†РµСЃСЃРµ РґРѕР±Р°РІР»РµРЅРёСЏ РІРёРґРµРѕ РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°");
 									}
 								} else {
-						$smarty->assign("fancyTooltip","Видео не добавлено, т.к. Вы его не выбрали");
+						$smarty->assign("fancyTooltip","Р’РёРґРµРѕ РЅРµ РґРѕР±Р°РІР»РµРЅРѕ, С‚.Рє. Р’С‹ РµРіРѕ РЅРµ РІС‹Р±СЂР°Р»Рё");
 								}
 								$smarty->assign("addVideo",true);
 								$smarty->assign("closeFancybox",true);
@@ -270,10 +270,10 @@ switch ($m_action) {
 								if (preg_match("/^[0-9]{1,}$/i",$previewMode)) {
 									if (isset($video["caption"])) {
 										$db->query("update `%OBJECT_VIDEOS%` set id_video=".$video["id_video"].",`filename`='".$video["filename"]."',`caption`='".$video["caption"]."' where id_object=$id_object and id_video=$previewMode");
-										$engine->setPreview('<a href="'.@$_SESSION["scripto_httproot"].'admin/?module=objects&modAction=viewvideo&id_video='.$video["id_video"].'&ajax=true" class="video">'.$video["caption"].'</a>',$previewMode,'Видео установлено успешно','html');
+										$engine->setPreview('<a href="'.@$_SESSION["scripto_httproot"].'admin/?module=objects&modAction=viewvideo&id_video='.$video["id_video"].'&ajax=true" class="video">'.$video["caption"].'</a>',$previewMode,'Р’РёРґРµРѕ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ СѓСЃРїРµС€РЅРѕ','html');
 									} else {
 										$db->query("delete from `%OBJECT_VIDEOS%` where id_object=$id_object and id_video=$previewMode");
-										$smarty->assign("fancyTooltip","Видео удалено успешно");
+										$smarty->assign("fancyTooltip","Р’РёРґРµРѕ СѓРґР°Р»РµРЅРѕ СѓСЃРїРµС€РЅРѕ");
 										$smarty->assign("id_video",$previewMode);
 										$smarty->assign("deleteVideo",true);
 									}
@@ -290,7 +290,7 @@ switch ($m_action) {
 			$id_object=$_REQUEST["id_object"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_object)) {
 				if (isset($_REQUEST["sort_me"])) {
-					//сортировка
+					//СЃРѕСЂС‚РёСЂРѕРІРєР°
 					$del=@$_REQUEST["del"];
 					$sort=@$_REQUEST["sort"];
 					if (is_array($sort)) {
@@ -307,19 +307,19 @@ switch ($m_action) {
 								}
 							}
 						}
-						$engine->setCongratulation("","Изменения сохранены (Удалено $d изображений , обновлено $u изображений)");
+						$engine->setCongratulation("","РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹ (РЈРґР°Р»РµРЅРѕ $d РёР·РѕР±СЂР°Р¶РµРЅРёР№ , РѕР±РЅРѕРІР»РµРЅРѕ $u РёР·РѕР±СЂР°Р¶РµРЅРёР№)");
 					}
 				}
 				$object=$this->getObjectByID($id_object,$type);
 				$smarty->assign("object",$object);
 				if (sizeof($object["images"])>$type["max_images"] && $type["max_images"]>0) {
-					$engine->setCongratulation("Превышен лимит изображений","Вы превысили лимит изображений (для данного типа - ".$type["max_images"]."), для пользователя будут выведены первые ".$type["max_images"]." изображений.",5000);
+					$engine->setCongratulation("РџСЂРµРІС‹С€РµРЅ Р»РёРјРёС‚ РёР·РѕР±СЂР°Р¶РµРЅРёР№","Р’С‹ РїСЂРµРІС‹СЃРёР»Рё Р»РёРјРёС‚ РёР·РѕР±СЂР°Р¶РµРЅРёР№ (РґР»СЏ РґР°РЅРЅРѕРіРѕ С‚РёРїР° - ".$type["max_images"]."), РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Р±СѓРґСѓС‚ РІС‹РІРµРґРµРЅС‹ РїРµСЂРІС‹Рµ ".$type["max_images"]." РёР·РѕР±СЂР°Р¶РµРЅРёР№.",5000);
 				}
 				$engine->clearPath();
 				$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 				$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
 				$engine->addPath($type["caption"],'/admin/?module=modules&modAction=settings&m_action=view&module_name='.$this->thismodule["name"].'&id_category='.$object["id_category"].'&id_type='.$object["id_type"],true);
-				$engine->addPath('Просмотр галереи изображений объекта '.$object["caption"],'',false);
+				$engine->addPath('РџСЂРѕСЃРјРѕС‚СЂ РіР°Р»РµСЂРµРё РёР·РѕР±СЂР°Р¶РµРЅРёР№ РѕР±СЉРµРєС‚Р° '.$object["caption"],'',false);
 				$engine->assignPath();
 				if (isset($_REQUEST["setPreview"])) {
 					$previewMode=@$_REQUEST["previewMode"];
@@ -343,12 +343,12 @@ if (isset($image["caption"])) {
 									if ($object["middle_preview"]=='') {
 								$res=$db->query("update `%OBJ%` set `middle_preview`='".$image["medium_photo"]."' where id_object=$id_object");
 									}
-						$smarty->assign("fancyTooltip","Изображение добавлено успешно");
+						$smarty->assign("fancyTooltip","РР·РѕР±СЂР°Р¶РµРЅРёРµ РґРѕР±Р°РІР»РµРЅРѕ СѓСЃРїРµС€РЅРѕ");
 									} else {
-						$smarty->assign("fancyTooltip","В процессе добавления изображения произошла ошибка");
+						$smarty->assign("fancyTooltip","Р’ РїСЂРѕС†РµСЃСЃРµ РґРѕР±Р°РІР»РµРЅРёСЏ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°");
 									}
 								} else {
-						$smarty->assign("fancyTooltip","Изображение не добавлено, т.к. Вы его не выбрали");
+						$smarty->assign("fancyTooltip","РР·РѕР±СЂР°Р¶РµРЅРёРµ РЅРµ РґРѕР±Р°РІР»РµРЅРѕ, С‚.Рє. Р’С‹ РµРіРѕ РЅРµ РІС‹Р±СЂР°Р»Рё");
 								}
 								$smarty->assign("addObjects",true);
 								$smarty->assign("closeFancybox",true);
@@ -376,12 +376,12 @@ if (isset($image["caption"])) {
 									if ($object["middle_preview"]=='') {
 								$res=$db->query("update `%OBJ%` set `middle_preview`='".$image["medium_photo"]."' where id_object=$id_object");
 									}
-						$smarty->assign("fancyTooltip","Изображение добавлено успешно");
+						$smarty->assign("fancyTooltip","РР·РѕР±СЂР°Р¶РµРЅРёРµ РґРѕР±Р°РІР»РµРЅРѕ СѓСЃРїРµС€РЅРѕ");
 									} else {
-						$smarty->assign("fancyTooltip","В процессе добавления изображения произошла ошибка");
+						$smarty->assign("fancyTooltip","Р’ РїСЂРѕС†РµСЃСЃРµ РґРѕР±Р°РІР»РµРЅРёСЏ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°");
 									}
 								} else {
-						$smarty->assign("fancyTooltip","Изображение не добавлено, т.к. Вы его не выбрали");
+						$smarty->assign("fancyTooltip","РР·РѕР±СЂР°Р¶РµРЅРёРµ РЅРµ РґРѕР±Р°РІР»РµРЅРѕ, С‚.Рє. Р’С‹ РµРіРѕ РЅРµ РІС‹Р±СЂР°Р»Рё");
 								}
 								$smarty->assign("addObject",true);
 								$smarty->assign("closeFancybox",true);
@@ -390,10 +390,10 @@ if (isset($image["caption"])) {
 								if (preg_match("/^[0-9]{1,}$/i",$previewMode)) {
 									if (isset($image["caption"])) {
 										$db->query("update `%OBJECT_PICTURES%` set id_image=".$image["id_photo"].",`small_preview`='".$image["small_photo"]."',`middle_preview`='".$image["medium_photo"]."',`big_preview`='".$image["big_photo"]."' where id_object=$id_object and id_image=$previewMode");
-										$engine->setPreview($image["small_photo"],$previewMode,'Изображение изменено успешно');
+										$engine->setPreview($image["small_photo"],$previewMode,'РР·РѕР±СЂР°Р¶РµРЅРёРµ РёР·РјРµРЅРµРЅРѕ СѓСЃРїРµС€РЅРѕ');
 									} else {
 										$db->query("delete from `%OBJECT_PICTURES%` where id_object=$id_object and id_image=$previewMode");
-										$smarty->assign("fancyTooltip","Изображение удалено успешно");
+										$smarty->assign("fancyTooltip","РР·РѕР±СЂР°Р¶РµРЅРёРµ СѓРґР°Р»РµРЅРѕ СѓСЃРїРµС€РЅРѕ");
 										$smarty->assign("id_image",$previewMode);
 										$smarty->assign("deleteObject",true);
 									}
@@ -411,7 +411,7 @@ if (isset($image["caption"])) {
 			$id_type=$_REQUEST["id_type"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_type)) {
 				if ($this->deleteType($id_type)) {
-					$engine->setCongratulation('','Тип удален успешно',5000);
+					$engine->setCongratulation('','РўРёРї СѓРґР°Р»РµРЅ СѓСЃРїРµС€РЅРѕ',5000);
 				}
 			}
 		}
@@ -482,7 +482,7 @@ if (isset($image["caption"])) {
 			}
 		}
 		$engine->clearCacheBlocks($this->thismodule["name"]);
-		$engine->setCongratulation('',"Информация об объектах изменена (удалено $d объектов, обновлено $o объектов)",3000);
+		$engine->setCongratulation('',"РРЅС„РѕСЂРјР°С†РёСЏ РѕР± РѕР±СЉРµРєС‚Р°С… РёР·РјРµРЅРµРЅР° (СѓРґР°Р»РµРЅРѕ $d РѕР±СЉРµРєС‚РѕРІ, РѕР±РЅРѕРІР»РµРЅРѕ $o РѕР±СЉРµРєС‚РѕРІ)",3000);
 		$m_action="view";
 	break;
 	case "addvalue":
@@ -501,7 +501,7 @@ if (isset($image["caption"])) {
 				$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);	
 				$engine->addPath($type["caption"],'/admin/?module=modules&modAction=settings&m_action=view&module_name='.$this->thismodule["name"].'&id_category='.$id_category.'&id_type='.$type["id_type"],true);
 
-				/*добавление объекта*/
+				/*РґРѕР±Р°РІР»РµРЅРёРµ РѕР±СЉРµРєС‚Р°*/
 				$values=array();
 				$engine->getRubricsTreeEx($values,0,0,true,"",false);
 			
@@ -642,40 +642,40 @@ if (isset($image["caption"])) {
 			$smarty->assign("is_file_form",true);
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
-			$frm->addField('Раздел','Ошибка выбора раздела',"list",$values,$id_cat,"/^[0-9]{1,}$/i","id_cat",1,'О компании&nbsp;>&nbsp;публикации',array('size'=>'30'));
+			$frm->addField('Р Р°Р·РґРµР»','РћС€РёР±РєР° РІС‹Р±РѕСЂР° СЂР°Р·РґРµР»Р°',"list",$values,$id_cat,"/^[0-9]{1,}$/i","id_cat",1,'Рћ РєРѕРјРїР°РЅРёРё&nbsp;>&nbsp;РїСѓР±Р»РёРєР°С†РёРё',array('size'=>'30'));
 			
-			$frm->addField("Название ".$type["fulllink_text"],"Неверно заполнено название ".$type["fulllink_text"],"text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Дом в Подмосковье",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+			$frm->addField("РќР°Р·РІР°РЅРёРµ ".$type["fulllink_text"],"РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РЅР°Р·РІР°РЅРёРµ ".$type["fulllink_text"],"text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Р”РѕРј РІ РџРѕРґРјРѕСЃРєРѕРІСЊРµ",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
 if (defined("SCRIPTO_tags")) {
 $frm->addField($lang["forms"]["catalog"]["tags"]["caption"],$lang["forms"]["catalog"]["tags"]["error"],"text",$tags,$tags,"/^[^`#]{2,255}$/i","tags",0,$lang["forms"]["catalog"]["tags"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["catalog"]["tags"]["rules"]));
 }
 
 			if ($type["use_code"]) {
-				$frm->addField("Уникальный код ".$type["fulllink_text"],"Неверно заполнен уникальный код ".$type["fulllink_text"],"text",$code,$code,"/^[^`#]{2,255}$/i","code",1,"24545356",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+				$frm->addField("РЈРЅРёРєР°Р»СЊРЅС‹Р№ РєРѕРґ ".$type["fulllink_text"],"РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ СѓРЅРёРєР°Р»СЊРЅС‹Р№ РєРѕРґ ".$type["fulllink_text"],"text",$code,$code,"/^[^`#]{2,255}$/i","code",1,"24545356",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 			}
 			if ($type["short_content"]) {
 			$fck_editor1=$engine->createFCKEditor("fck1",$content);
-			$frm->addField("Краткое описание ".$type["fulllink_text"],"Неверно заполнено краткое описание ".$type["fulllink_text"],"solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+			$frm->addField("РљСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ ".$type["fulllink_text"],"РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РєСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ ".$type["fulllink_text"],"solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
 			}
 			if ($type["full_content"]) {
 			$fck_editor2=$engine->createFCKEditor("fck2",$content_full);
-			$frm->addField("Полное описание ".$type["fulllink_text"],"Неверно заполнено полное описание ".$type["fulllink_text"],"solmetra",$fck_editor2,$fck_editor2,"/^[[:print:][:allnum:]]{1,}$/i","content_full",1,"");
+			$frm->addField("РџРѕР»РЅРѕРµ РѕРїРёСЃР°РЅРёРµ ".$type["fulllink_text"],"РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»РЅРѕРµ РѕРїРёСЃР°РЅРёРµ ".$type["fulllink_text"],"solmetra",$fck_editor2,$fck_editor2,"/^[[:print:][:allnum:]]{1,}$/i","content_full",1,"");
 			}
 			/*seo*/
-$frm->addField('SEO оптимизация',"","caption",0,0,"/^[0-9]{1}$/i","seo",0,'',array('hidden'=>true));
+$frm->addField('SEO РѕРїС‚РёРјРёР·Р°С†РёСЏ',"","caption",0,0,"/^[0-9]{1}$/i","seo",0,'',array('hidden'=>true));
 
-$frm->addField('Тег title','Ошибка заполнения тега title',"text",$titletag,$titletag,"/^[^`#]{2,255}$/i","titletag",0,'',array('size'=>'40','ticket'=>$lang["forms"]["catalog"]["titletag"]["rules"]));
+$frm->addField('РўРµРі title','РћС€РёР±РєР° Р·Р°РїРѕР»РЅРµРЅРёСЏ С‚РµРіР° title',"text",$titletag,$titletag,"/^[^`#]{2,255}$/i","titletag",0,'',array('size'=>'40','ticket'=>$lang["forms"]["catalog"]["titletag"]["rules"]));
 
-$frm->addField('Тег meta','Ошибка заполнения тега meta',"textarea",$metatag,$metatag,"/^[^#]{1,}$/i","metatag",0,'',array('rows'=>'40','cols'=>'10','ticket'=>$lang["forms"]["catalog"]["metatag"]["rules"]));
+$frm->addField('РўРµРі meta','РћС€РёР±РєР° Р·Р°РїРѕР»РЅРµРЅРёСЏ С‚РµРіР° meta',"textarea",$metatag,$metatag,"/^[^#]{1,}$/i","metatag",0,'',array('rows'=>'40','cols'=>'10','ticket'=>$lang["forms"]["catalog"]["metatag"]["rules"]));
 
-$frm->addField('Тег meta keywords','Ошибка заполнения тега meta keywords',"textarea",$metakeywords,$metakeywords,"/^[^#]{1,}$/i","metakeywords",0,'',array('rows'=>'40','cols'=>'10','ticket'=>$lang["forms"]["catalog"]["metakeywords"]["rules"]));
+$frm->addField('РўРµРі meta keywords','РћС€РёР±РєР° Р·Р°РїРѕР»РЅРµРЅРёСЏ С‚РµРіР° meta keywords',"textarea",$metakeywords,$metakeywords,"/^[^#]{1,}$/i","metakeywords",0,'',array('rows'=>'40','cols'=>'10','ticket'=>$lang["forms"]["catalog"]["metakeywords"]["rules"]));
 
 $frm->addField('',"","caption",0,0,"/^[0-9]{1}$/i","seo",0,'',array('end'=>true));
 
 $engine->generateLangControls("OBJ",$lang_values,$frm);
 			/*end of seo*/
-			/*работаем с изображениями*/
-			//устанавливаем превью
+			/*СЂР°Р±РѕС‚Р°РµРј СЃ РёР·РѕР±СЂР°Р¶РµРЅРёСЏРјРё*/
+			//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїСЂРµРІСЊСЋ
 				if (isset($_REQUEST["setPreview"])) {
 					$previewMode=@$_REQUEST["previewMode"];
 					$id_image=@$_REQUEST["id_image"];
@@ -689,21 +689,21 @@ $engine->generateLangControls("OBJ",$lang_values,$frm);
 						switch ($previewMode) {
 							case "small":
 								if ($mode!="edit") {
-$engine->setPreview($img["small_photo"],$previewMode,'Малое превью установлено');
+$engine->setPreview($img["small_photo"],$previewMode,'РњР°Р»РѕРµ РїСЂРµРІСЊСЋ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ');
 $_SESSION["object_small"]=$img["small_photo"];
 								} else {
 								if ($db->query("update `%OBJ%` set `small_preview`='".$img["small_photo"]."' where id_object=$id_object")) {
-$engine->setPreview($img["small_photo"],$previewMode,'Малое превью установлено');
+$engine->setPreview($img["small_photo"],$previewMode,'РњР°Р»РѕРµ РїСЂРµРІСЊСЋ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ');
 								}
 								}
 							break;
 							case "medium":
 								if ($mode!="edit") {
-$engine->setPreview($img["medium_photo"],$previewMode,'Среднее превью установлено');
+$engine->setPreview($img["medium_photo"],$previewMode,'РЎСЂРµРґРЅРµРµ РїСЂРµРІСЊСЋ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ');
 $_SESSION["object_middle"]=$img["medium_photo"];
 								} else {
 								if ($db->query("update `%OBJ%` set `middle_preview`='".$img["medium_photo"]."' where id_object=$id_object")) {
-									$engine->setPreview($img["medium_photo"],$previewMode,'Среднее превью установлено');
+									$engine->setPreview($img["medium_photo"],$previewMode,'РЎСЂРµРґРЅРµРµ РїСЂРµРІСЊСЋ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ');
 								}
 								}
 							break;
@@ -711,12 +711,12 @@ $_SESSION["object_middle"]=$img["medium_photo"];
 					}
 				}
 			if ($type["small_preview"] || $type["medium_preview"]) {
-			$frm->addField('Превью для '.$type["fulllink_text"],"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('hidden'=>true));	
+			$frm->addField('РџСЂРµРІСЊСЋ РґР»СЏ '.$type["fulllink_text"],"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('hidden'=>true));	
 			if ($mode=="edit") {
 			if ($type["small_preview"]) 
-				$frm->addField('Малое изображение превью','',"preview",$object["small_preview"],$object["small_preview"],"/^[0-9]{1,}$/i","small_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true,'id_cat'=>$object["id_category"]));
+				$frm->addField('РњР°Р»РѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРµРІСЊСЋ','',"preview",$object["small_preview"],$object["small_preview"],"/^[0-9]{1,}$/i","small_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true,'id_cat'=>$object["id_category"]));
 			if ($type["medium_preview"])
-				$frm->addField('Большое изображение превью','',"preview",$object["middle_preview"],$object["middle_preview"],"/^[0-9]{1,}$/i","middle_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true,'id_cat'=>$object["id_category"]));
+				$frm->addField('Р‘РѕР»СЊС€РѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРµРІСЊСЋ','',"preview",$object["middle_preview"],$object["middle_preview"],"/^[0-9]{1,}$/i","middle_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true,'id_cat'=>$object["id_category"]));
 			} else {
 			if (preg_match("/^[0-9]{1,}$/i",$id_category)) {
 				$cat_idcat=$id_category;
@@ -729,7 +729,7 @@ $_SESSION["object_middle"]=$img["medium_photo"];
 				} else {
 					$object["small_preview"]='';
 				}
-				$frm->addField('Малое изображение превью','',"preview",$object["small_preview"],$object["small_preview"],"/^[0-9]{1,}$/i","small_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true,'id_cat'=>$cat_idcat));
+				$frm->addField('РњР°Р»РѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРµРІСЊСЋ','',"preview",$object["small_preview"],$object["small_preview"],"/^[0-9]{1,}$/i","small_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true,'id_cat'=>$cat_idcat));
 			} else {
 				$object["small_preview"]='';
 			}
@@ -739,17 +739,17 @@ $_SESSION["object_middle"]=$img["medium_photo"];
 				} else {
 					$object["middle_preview"]='';
 				}
-				$frm->addField('Среднее изображение превью','',"preview",$object["middle_preview"],$object["middle_preview"],"/^[0-9]{1,}$/i","middle_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true,'id_cat'=>$cat_idcat));
+				$frm->addField('РЎСЂРµРґРЅРµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРµРІСЊСЋ','',"preview",$object["middle_preview"],$object["middle_preview"],"/^[0-9]{1,}$/i","middle_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true,'id_cat'=>$cat_idcat));
 			} else {
 				$object["middle_preview"]='';
 			}
 			}
-			$frm->addField('Превью для '.$type["fulllink_text"],"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('end'=>true));		
+			$frm->addField('РџСЂРµРІСЊСЋ РґР»СЏ '.$type["fulllink_text"],"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('end'=>true));		
 			} else {
 				$object["small_preview"]='';
 				$object["middle_preview"]='';
 			}	
-			/*конец работы с изображениями*/
+			/*РєРѕРЅРµС† СЂР°Р±РѕС‚С‹ СЃ РёР·РѕР±СЂР°Р¶РµРЅРёСЏРјРё*/
 
 			if (isset($type["texts"])) 
 			if (is_array($type["texts"])) {
@@ -760,9 +760,9 @@ $_SESSION["object_middle"]=$img["medium_photo"];
 						$eregi="/^[^`]{1,}$/i";
 					}
 					if ($tp["type"]=="textarea") {
-					$frm->addField($tp["caption"],"Неверно заполнено поле ".$tp["caption"],"textarea",$val[$key],$val[$key],$eregi,"val[$key]",0,"",array('size'=>'40'));	
+					$frm->addField($tp["caption"],"РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ ".$tp["caption"],"textarea",$val[$key],$val[$key],$eregi,"val[$key]",0,"",array('size'=>'40'));	
 					} else{
-					$frm->addField($tp["caption"],"Неверно заполнено поле ".$tp["caption"],"text",$val[$key],$val[$key],$eregi,"val[$key]",0,"",array('size'=>'40'));	
+					$frm->addField($tp["caption"],"РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ ".$tp["caption"],"text",$val[$key],$val[$key],$eregi,"val[$key]",0,"",array('size'=>'40'));	
 					}
 				}
 			}
@@ -774,17 +774,17 @@ $_SESSION["object_middle"]=$img["medium_photo"];
 					} else {
 						$eregi="/^[^`]{1,}$/i";
 					}
-					$frm->addField($tp["caption"],"Неверно выбрано значение ".$tp["caption"],"list",$tp["values"],$listval[$key],$eregi,"listval[$key]",0,"",array('size'=>'40'));	
+					$frm->addField($tp["caption"],"РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ Р·РЅР°С‡РµРЅРёРµ ".$tp["caption"],"list",$tp["values"],$listval[$key],$eregi,"listval[$key]",0,"",array('size'=>'40'));	
 				}
 			}
 			if (isset($type["checkbox"])) 
 			if (is_array($type["checkbox"])) {
 				foreach ($type["checkbox"] as $key=>$tp) {
-					$frm->addField($tp["caption"],"Неверно заполнено поле ".$tp["caption"],"check",$val[$key],$val[$key],"/^[0-9]{0,1}$/i","val[$key]",0,"");	
+					$frm->addField($tp["caption"],"РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РїРѕР»Рµ ".$tp["caption"],"check",$val[$key],$val[$key],"/^[0-9]{0,1}$/i","val[$key]",0,"");	
 				}				
 			}
 			
-			$frm->addField('Виден на сайте','Неверно указано свойство видимости',"check",$visible,$visible,"/^[0-9]{1}$/i","visible",1);
+			$frm->addField('Р’РёРґРµРЅ РЅР° СЃР°Р№С‚Рµ','РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ РІРёРґРёРјРѕСЃС‚Рё',"check",$visible,$visible,"/^[0-9]{1}$/i","visible",1);
 
 $frm->addField("","","hidden",$mode,$mode,"/^[^`]{0,}$/i","mode",1);
 $frm->addField("","","hidden",$id_category,$id_category,"/^[^`]{0,}$/i","id_category",1);
@@ -796,18 +796,18 @@ $frm->addField("","","hidden",$id_object,$id_object,"/^[^`]{0,}$/i","id_object",
 }
 
 if ($mode=="edit") {
-$engine->addPath('Редактирование объекта','',false);
-$btn="Сохранить";
+$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РѕР±СЉРµРєС‚Р°','',false);
+$btn="РЎРѕС…СЂР°РЅРёС‚СЊ";
 	if ($type["use_code"] && $code!=$object["code"]) {
 		if ($this->existObject($code,$id_type))
-			$frm->addError('Объект с таким кодом уже существует!');
+			$frm->addError('РћР±СЉРµРєС‚ СЃ С‚Р°РєРёРј РєРѕРґРѕРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!');
 	}
 } else {
-$engine->addPath('Добавление объекта','',false);
-$btn="Добавить";
+$engine->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ РѕР±СЉРµРєС‚Р°','',false);
+$btn="Р”РѕР±Р°РІРёС‚СЊ";
 	if ($type["use_code"] && !$first) {
 		if ($this->existObject($code,$id_type))
-			$frm->addError('Объект с таким кодом уже существует!');
+			$frm->addError('РћР±СЉРµРєС‚ СЃ С‚Р°РєРёРј РєРѕРґРѕРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!');
 	}
 }
 			if (
@@ -815,7 +815,7 @@ $engine->processFormData($frm,$btn,$first
 			)) {
 				
 				if ($mode=="edit") {
-					//редактирование
+					//СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ
 					if (!$type["short_content"]) {
 						$content_sql='';
 					} else {
@@ -839,7 +839,7 @@ $engine->processFormData($frm,$btn,$first
 				  		if (defined("SCRIPTO_tags")) {
 							$tgs->addTags($tags,$id_object,'objects');
 						}
-						$engine->setCongratulation('','Объект отредактирован успешно!',3000);
+						$engine->setCongratulation('','РћР±СЉРµРєС‚ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅ СѓСЃРїРµС€РЅРѕ!',3000);
 						$engine->clearCacheBlocks($this->thismodule["name"]);
 	$engine->addModuleToCategory($this->thismodule["name"],$id_cat);
 $_REQUEST["id_category"]=$id_cat;
@@ -849,7 +849,7 @@ $_REQUEST["id_category"]=$id_cat;
 						$m_action="view";
 					}
 				} else {
-					//добавление
+					//РґРѕР±Р°РІР»РµРЅРёРµ
 					if (!$type["short_content"]) {
 						$content='';
 					}
@@ -868,7 +868,7 @@ $_REQUEST["id_category"]=$id_cat;
 							$_SESSION["object_middle"]='';
 						if (isset($_SESSION["object_small"]))
 							$_SESSION["object_small"]='';
-						$engine->setCongratulation('','Объект добавлен успешно!',3000);
+						$engine->setCongratulation('','РћР±СЉРµРєС‚ РґРѕР±Р°РІР»РµРЅ СѓСЃРїРµС€РЅРѕ!',3000);
 					$engine->clearCacheBlocks($this->thismodule["name"]);	$engine->addModuleToCategory($this->thismodule["name"],$id_category);
 						if ($type["full_content"]) {
 							$engine->setContentFileEx($add_id,$content_full,"objects/".$type["id_type"]);
@@ -879,7 +879,7 @@ $_REQUEST["id_category"]=$id_cat;
 
 			}				
 				
-				/*конец добавления объекта*/
+				/*РєРѕРЅРµС† РґРѕР±Р°РІР»РµРЅРёСЏ РѕР±СЉРµРєС‚Р°*/
 				
 				$engine->assignPath();
 			}
@@ -1319,139 +1319,139 @@ $_REQUEST["id_category"]=$id_cat;
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 
-$frm->addField("Название типа","Неверно заполнено название типа","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Артисты",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РќР°Р·РІР°РЅРёРµ С‚РёРїР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РЅР°Р·РІР°РЅРёРµ С‚РёРїР°","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"РђСЂС‚РёСЃС‚С‹",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Идентификатор типа","Неверно заполнен идентификатор типа","text",$ident,$ident,"/^[a-zA-Z0-9]{2,30}$/i","ident",1,"artists",array('size'=>'40','ticket'=>"Латинские буквы и цифры от 2 до 30 знаков"));
+$frm->addField("РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С‚РёРїР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С‚РёРїР°","text",$ident,$ident,"/^[a-zA-Z0-9]{2,30}$/i","ident",1,"artists",array('size'=>'40','ticket'=>"Р›Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹ РѕС‚ 2 РґРѕ 30 Р·РЅР°РєРѕРІ"));
 
-$frm->addField("Добавление объектов пользователями","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","userobjects",0,'',array('hidden'=>true));
-$frm->addField("Разрешить добавление объектов пользователями","Неверно выбрано свойство разрешить добавление объектов пользователями","check",$user_add,$user_add,"/^[0-9]{1}$/i","user_add",1);
+$frm->addField("Р”РѕР±Р°РІР»РµРЅРёРµ РѕР±СЉРµРєС‚РѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","userobjects",0,'',array('hidden'=>true));
+$frm->addField("Р Р°Р·СЂРµС€РёС‚СЊ РґРѕР±Р°РІР»РµРЅРёРµ РѕР±СЉРµРєС‚РѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ СЂР°Р·СЂРµС€РёС‚СЊ РґРѕР±Р°РІР»РµРЅРёРµ РѕР±СЉРµРєС‚РѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё","check",$user_add,$user_add,"/^[0-9]{1}$/i","user_add",1);
 
-$frm->addField('Разместить форму добавления в разделе','Ошибка выбора раздела',"list",$values,$add_cat,"/^[0-9]{1,}$/i","add_cat",1,'Главная страница&nbsp;>&nbsp;Добавить статью',array('size'=>'30'));
+$frm->addField('Р Р°Р·РјРµСЃС‚РёС‚СЊ С„РѕСЂРјСѓ РґРѕР±Р°РІР»РµРЅРёСЏ РІ СЂР°Р·РґРµР»Рµ','РћС€РёР±РєР° РІС‹Р±РѕСЂР° СЂР°Р·РґРµР»Р°',"list",$values,$add_cat,"/^[0-9]{1,}$/i","add_cat",1,'Р“Р»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°&nbsp;>&nbsp;Р”РѕР±Р°РІРёС‚СЊ СЃС‚Р°С‚СЊСЋ',array('size'=>'30'));
 
 $fck_editor2=$engine->createFCKEditor("fck2",$congratulation_text);
-$frm->addField("Текст, при успешном добавлении объекта пользователем","Неверно указан текст при добавлении объекта пользователем","solmetra",$fck_editor2,$fck_editor2,"/^[^`#]{2,255}$/i","congratulation_text",0,"",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РўРµРєСЃС‚, РїСЂРё СѓСЃРїРµС€РЅРѕРј РґРѕР±Р°РІР»РµРЅРёРё РѕР±СЉРµРєС‚Р° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј","РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ С‚РµРєСЃС‚ РїСЂРё РґРѕР±Р°РІР»РµРЅРёРё РѕР±СЉРµРєС‚Р° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј","solmetra",$fck_editor2,$fck_editor2,"/^[^`#]{2,255}$/i","congratulation_text",0,"",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
 $fck_editor3=$engine->createFCKEditor("fck3",$edit_text);
-$frm->addField("Текст, при успешном редактировании объекта пользователем","Неверно указан текст при редактировании объекта пользователем","solmetra",$fck_editor3,$fck_editor3,"/^[^`#]{2,255}$/i","edit_text",0,"",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РўРµРєСЃС‚, РїСЂРё СѓСЃРїРµС€РЅРѕРј СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРё РѕР±СЉРµРєС‚Р° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј","РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ С‚РµРєСЃС‚ РїСЂРё СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРё РѕР±СЉРµРєС‚Р° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј","solmetra",$fck_editor3,$fck_editor3,"/^[^`#]{2,255}$/i","edit_text",0,"",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Добавление объектов пользователями","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","userobjects",0,'',array('end'=>true));
+$frm->addField("Р”РѕР±Р°РІР»РµРЅРёРµ РѕР±СЉРµРєС‚РѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","userobjects",0,'',array('end'=>true));
 
-$frm->addField("Выводить алфавитный список","Неверно выбрано свойство выводить алфавитный список","check",$alphabet,$alphabet,"/^[0-9]{1}$/i","alphabet",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ Р°Р»С„Р°РІРёС‚РЅС‹Р№ СЃРїРёСЃРѕРє","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ РІС‹РІРѕРґРёС‚СЊ Р°Р»С„Р°РІРёС‚РЅС‹Р№ СЃРїРёСЃРѕРє","check",$alphabet,$alphabet,"/^[0-9]{1}$/i","alphabet",1);
 
-$frm->addField("Разрешить комментарии к объектам","Неверно выбрано свойство разрешить комментарии к объектам","check",$do_comments,$do_comments,"/^[0-9]{1}$/i","do_comments",1);
+$frm->addField("Р Р°Р·СЂРµС€РёС‚СЊ РєРѕРјРјРµРЅС‚Р°СЂРёРё Рє РѕР±СЉРµРєС‚Р°Рј","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ СЂР°Р·СЂРµС€РёС‚СЊ РєРѕРјРјРµРЅС‚Р°СЂРёРё Рє РѕР±СЉРµРєС‚Р°Рј","check",$do_comments,$do_comments,"/^[0-9]{1}$/i","do_comments",1);
 
 $fck_editor1=$engine->createFCKEditor("fck1",$content);
-$frm->addField("Описание","Неверно заполнено описание","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+$frm->addField("РћРїРёСЃР°РЅРёРµ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РѕРїРёСЃР°РЅРёРµ","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
 
-$frm->addField("Разрешить добавление рекомендуемых объектов","Неверно выбрано свойство разрешить добавление рекомендуемых объектов","check",$use_objects,$use_objects,"/^[0-9]{1}$/i","use_objects",1);
+$frm->addField("Р Р°Р·СЂРµС€РёС‚СЊ РґРѕР±Р°РІР»РµРЅРёРµ СЂРµРєРѕРјРµРЅРґСѓРµРјС‹С… РѕР±СЉРµРєС‚РѕРІ","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ СЂР°Р·СЂРµС€РёС‚СЊ РґРѕР±Р°РІР»РµРЅРёРµ СЂРµРєРѕРјРµРЅРґСѓРµРјС‹С… РѕР±СЉРµРєС‚РѕРІ","check",$use_objects,$use_objects,"/^[0-9]{1}$/i","use_objects",1);
 
-$frm->addField("Разрешить прикрепление файлов к объектам","Неверно выбрано свойство разрешить прикрепление файлов к объектам","check",$use_files,$use_files,"/^[0-9]{1}$/i","use_files",1);
+$frm->addField("Р Р°Р·СЂРµС€РёС‚СЊ РїСЂРёРєСЂРµРїР»РµРЅРёРµ С„Р°Р№Р»РѕРІ Рє РѕР±СЉРµРєС‚Р°Рј","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ СЂР°Р·СЂРµС€РёС‚СЊ РїСЂРёРєСЂРµРїР»РµРЅРёРµ С„Р°Р№Р»РѕРІ Рє РѕР±СЉРµРєС‚Р°Рј","check",$use_files,$use_files,"/^[0-9]{1}$/i","use_files",1);
 
-$frm->addField("Разрешить скачивание файлов только зарегистрированным пользователям (если установлен модуль пользователи)","Неверно выбрано свойство разрешить скачивание файлов только зарегистрированным пользователям","check",$download_only_for_users,$download_only_for_users,"/^[0-9]{1}$/i","download_only_for_users",1);
+$frm->addField("Р Р°Р·СЂРµС€РёС‚СЊ СЃРєР°С‡РёРІР°РЅРёРµ С„Р°Р№Р»РѕРІ С‚РѕР»СЊРєРѕ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Рј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј (РµСЃР»Рё СѓСЃС‚Р°РЅРѕРІР»РµРЅ РјРѕРґСѓР»СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё)","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ СЂР°Р·СЂРµС€РёС‚СЊ СЃРєР°С‡РёРІР°РЅРёРµ С„Р°Р№Р»РѕРІ С‚РѕР»СЊРєРѕ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Рј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј","check",$download_only_for_users,$download_only_for_users,"/^[0-9]{1}$/i","download_only_for_users",1);
 
-$frm->addField("Настройки изображений","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","images",0,'',array('hidden'=>true));
-$frm->addField("Выводить галерею изображений у объекта","Неверно выбрано свойство выводить галерею изображений у объекта","check",$use_gallery,$use_gallery,"/^[0-9]{1}$/i","use_gallery",1);
-$frm->addField("Максимальное количество изображений у объекта","Неверно указано максимальное количество изображений у объекта","text",$max_images,$max_images,"/^[0-9]{1,}$/i","max_images",1,"10",array('size'=>'40','ticket'=>"Цифры, максимальное количество - 25"));
-$frm->addField("Загружать маленькое изображение превью","","check",$small_preview,$small_preview,"/^[0-9]{1}$/i","small_preview",1);
-$frm->addField("Загружать среднее изображение превью","","check",$medium_preview,$medium_preview,"/^[0-9]{1}$/i","medium_preview",1);
-$frm->addField("Настройки изображений","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","images",0,'',array('end'=>true));
+$frm->addField("РќР°СЃС‚СЂРѕР№РєРё РёР·РѕР±СЂР°Р¶РµРЅРёР№","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","images",0,'',array('hidden'=>true));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РіР°Р»РµСЂРµСЋ РёР·РѕР±СЂР°Р¶РµРЅРёР№ Сѓ РѕР±СЉРµРєС‚Р°","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ РІС‹РІРѕРґРёС‚СЊ РіР°Р»РµСЂРµСЋ РёР·РѕР±СЂР°Р¶РµРЅРёР№ Сѓ РѕР±СЉРµРєС‚Р°","check",$use_gallery,$use_gallery,"/^[0-9]{1}$/i","use_gallery",1);
+$frm->addField("РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РёР·РѕР±СЂР°Р¶РµРЅРёР№ Сѓ РѕР±СЉРµРєС‚Р°","РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РёР·РѕР±СЂР°Р¶РµРЅРёР№ Сѓ РѕР±СЉРµРєС‚Р°","text",$max_images,$max_images,"/^[0-9]{1,}$/i","max_images",1,"10",array('size'=>'40','ticket'=>"Р¦РёС„СЂС‹, РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ - 25"));
+$frm->addField("Р—Р°РіСЂСѓР¶Р°С‚СЊ РјР°Р»РµРЅСЊРєРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРµРІСЊСЋ","","check",$small_preview,$small_preview,"/^[0-9]{1}$/i","small_preview",1);
+$frm->addField("Р—Р°РіСЂСѓР¶Р°С‚СЊ СЃСЂРµРґРЅРµРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРµРІСЊСЋ","","check",$medium_preview,$medium_preview,"/^[0-9]{1}$/i","medium_preview",1);
+$frm->addField("РќР°СЃС‚СЂРѕР№РєРё РёР·РѕР±СЂР°Р¶РµРЅРёР№","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","images",0,'',array('end'=>true));
 
-$frm->addField("Настройки видео","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","videos",0,'',array('hidden'=>true));
-$frm->addField("Выводить галерею видео у объекта","Неверно выбрано свойство выводить галерею видео у объекта","check",$use_videogallery,$use_videogallery,"/^[0-9]{1}$/i","use_videogallery",1);
-$frm->addField("Максимальное количество видео у объекта","Неверно указано максимальное количество видео у объекта","text",$max_videos,$max_videos,"/^[0-9]{1,}$/i","max_videos",1,"10",array('size'=>'40','ticket'=>"Цифры, максимальное количество - 25"));
-$frm->addField("Настройки видео","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","videos",0,'',array('end'=>true));
+$frm->addField("РќР°СЃС‚СЂРѕР№РєРё РІРёРґРµРѕ","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","videos",0,'',array('hidden'=>true));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РіР°Р»РµСЂРµСЋ РІРёРґРµРѕ Сѓ РѕР±СЉРµРєС‚Р°","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ РІС‹РІРѕРґРёС‚СЊ РіР°Р»РµСЂРµСЋ РІРёРґРµРѕ Сѓ РѕР±СЉРµРєС‚Р°","check",$use_videogallery,$use_videogallery,"/^[0-9]{1}$/i","use_videogallery",1);
+$frm->addField("РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІРёРґРµРѕ Сѓ РѕР±СЉРµРєС‚Р°","РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІРёРґРµРѕ Сѓ РѕР±СЉРµРєС‚Р°","text",$max_videos,$max_videos,"/^[0-9]{1,}$/i","max_videos",1,"10",array('size'=>'40','ticket'=>"Р¦РёС„СЂС‹, РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ - 25"));
+$frm->addField("РќР°СЃС‚СЂРѕР№РєРё РІРёРґРµРѕ","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","videos",0,'',array('end'=>true));
 
-$frm->addField("Разрешить голосование за объекты","","check",$voters,$voters,"/^[0-9]{1}$/i","voters",1);
-$frm->addField("У каждого объекта свой уникальный код","","check",$use_code,$use_code,"/^[0-9]{1}$/i","use_code",1);
-$frm->addField("Краткое содержимое","","check",$short_content,$short_content,"/^[0-9]{1}$/i","short_content",1);
-$frm->addField("Полное содержимое","","check",$full_content,$full_content,"/^[0-9]{1}$/i","full_content",1);
-$frm->addField("Количество выводимых объектов на странице","Неверно указано максимальное количество выводимых объектов","text",$onpage,$onpage,"/^[0-9]{1,}$/i","onpage",1,"10",array('size'=>'40','ticket'=>"Цифры"));
+$frm->addField("Р Р°Р·СЂРµС€РёС‚СЊ РіРѕР»РѕСЃРѕРІР°РЅРёРµ Р·Р° РѕР±СЉРµРєС‚С‹","","check",$voters,$voters,"/^[0-9]{1}$/i","voters",1);
+$frm->addField("РЈ РєР°Р¶РґРѕРіРѕ РѕР±СЉРµРєС‚Р° СЃРІРѕР№ СѓРЅРёРєР°Р»СЊРЅС‹Р№ РєРѕРґ","","check",$use_code,$use_code,"/^[0-9]{1}$/i","use_code",1);
+$frm->addField("РљСЂР°С‚РєРѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ","","check",$short_content,$short_content,"/^[0-9]{1}$/i","short_content",1);
+$frm->addField("РџРѕР»РЅРѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ","","check",$full_content,$full_content,"/^[0-9]{1}$/i","full_content",1);
+$frm->addField("РљРѕР»РёС‡РµСЃС‚РІРѕ РІС‹РІРѕРґРёРјС‹С… РѕР±СЉРµРєС‚РѕРІ РЅР° СЃС‚СЂР°РЅРёС†Рµ","РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІС‹РІРѕРґРёРјС‹С… РѕР±СЉРµРєС‚РѕРІ","text",$onpage,$onpage,"/^[0-9]{1,}$/i","onpage",1,"10",array('size'=>'40','ticket'=>"Р¦РёС„СЂС‹"));
 
-$frm->addField("Настройки текстовых полей","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","fields",0,'',array('hidden'=>true));
+$frm->addField("РќР°СЃС‚СЂРѕР№РєРё С‚РµРєСЃС‚РѕРІС‹С… РїРѕР»РµР№","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","fields",0,'',array('hidden'=>true));
 
-$frm->addField("Название поля 1","Ошибка ввода названия поля 1","text",$caption1,$caption1,"/^[^`]{1,}$/i","caption1",0,'',array('size'=>'30'));
-$frm->addField("Тип поля 1","Ошибка выбора типа поля 1","list",$this->thismodule["types"],$type1,"/^[a-zA-Z]{1,}$/i","type1",1,'',array('size'=>'30'));
-$frm->addField("Выводить поле 1 в кратком описании","","check",$show_in_short1,$show_in_short1,"/^[0-9]{1}$/i","show_in_short1",1);
-$frm->addField("Выводить поле 1 в полном описании","","check",$show_in_full1,$show_in_full1,"/^[0-9]{1}$/i","show_in_full1",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ РїРѕР»СЏ 1","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ РїРѕР»СЏ 1","text",$caption1,$caption1,"/^[^`]{1,}$/i","caption1",0,'',array('size'=>'30'));
+$frm->addField("РўРёРї РїРѕР»СЏ 1","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° РїРѕР»СЏ 1","list",$this->thismodule["types"],$type1,"/^[a-zA-Z]{1,}$/i","type1",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 1 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_short1,$show_in_short1,"/^[0-9]{1}$/i","show_in_short1",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 1 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_full1,$show_in_full1,"/^[0-9]{1}$/i","show_in_full1",1);
 
-$frm->addField("Название поля 2","Ошибка ввода названия поля 2","text",$caption2,$caption2,"/^[^`]{1,}$/i","caption2",0,'',array('size'=>'30'));
-$frm->addField("Тип поля 2","Ошибка выбора типа поля 2","list",$this->thismodule["types"],$type2,"/^[a-zA-Z]{1,}$/i","type2",1,'',array('size'=>'30'));
-$frm->addField("Выводить поле 2 в кратком описании","","check",$show_in_short2,$show_in_short2,"/^[0-9]{1}$/i","show_in_short2",1);
-$frm->addField("Выводить поле 2 в полном описании","","check",$show_in_full2,$show_in_full2,"/^[0-9]{1}$/i","show_in_full2",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ РїРѕР»СЏ 2","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ РїРѕР»СЏ 2","text",$caption2,$caption2,"/^[^`]{1,}$/i","caption2",0,'',array('size'=>'30'));
+$frm->addField("РўРёРї РїРѕР»СЏ 2","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° РїРѕР»СЏ 2","list",$this->thismodule["types"],$type2,"/^[a-zA-Z]{1,}$/i","type2",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 2 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_short2,$show_in_short2,"/^[0-9]{1}$/i","show_in_short2",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 2 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_full2,$show_in_full2,"/^[0-9]{1}$/i","show_in_full2",1);
 
-$frm->addField("Название поля 3","Ошибка ввода названия поля 3","text",$caption3,$caption3,"/^[^`]{1,}$/i","caption3",0,'',array('size'=>'30'));
-$frm->addField("Тип поля 3","Ошибка выбора типа поля 3","list",$this->thismodule["types"],$type3,"/^[a-zA-Z]{1,}$/i","type3",1,'',array('size'=>'30'));
-$frm->addField("Выводить поле 3 в кратком описании","","check",$show_in_short3,$show_in_short3,"/^[0-9]{1}$/i","show_in_short3",1);
-$frm->addField("Выводить поле 3 в полном описании","","check",$show_in_full3,$show_in_full3,"/^[0-9]{1}$/i","show_in_full3",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ РїРѕР»СЏ 3","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ РїРѕР»СЏ 3","text",$caption3,$caption3,"/^[^`]{1,}$/i","caption3",0,'',array('size'=>'30'));
+$frm->addField("РўРёРї РїРѕР»СЏ 3","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° РїРѕР»СЏ 3","list",$this->thismodule["types"],$type3,"/^[a-zA-Z]{1,}$/i","type3",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 3 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_short3,$show_in_short3,"/^[0-9]{1}$/i","show_in_short3",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 3 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_full3,$show_in_full3,"/^[0-9]{1}$/i","show_in_full3",1);
 
-$frm->addField("Название поля 4","Ошибка ввода названия поля 4","text",$caption4,$caption4,"/^[^`]{1,}$/i","caption4",0,'',array('size'=>'30'));
-$frm->addField("Тип поля 4","Ошибка выбора типа поля 4","list",$this->thismodule["types"],$type4,"/^[a-zA-Z]{1,}$/i","type4",1,'',array('size'=>'30'));
-$frm->addField("Выводить поле 4 в кратком описании","","check",$show_in_short4,$show_in_short4,"/^[0-9]{1}$/i","show_in_short4",1);
-$frm->addField("Выводить поле 4 в полном описании","","check",$show_in_full4,$show_in_full4,"/^[0-9]{1}$/i","show_in_full4",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ РїРѕР»СЏ 4","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ РїРѕР»СЏ 4","text",$caption4,$caption4,"/^[^`]{1,}$/i","caption4",0,'',array('size'=>'30'));
+$frm->addField("РўРёРї РїРѕР»СЏ 4","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° РїРѕР»СЏ 4","list",$this->thismodule["types"],$type4,"/^[a-zA-Z]{1,}$/i","type4",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 4 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_short4,$show_in_short4,"/^[0-9]{1}$/i","show_in_short4",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 4 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_full4,$show_in_full4,"/^[0-9]{1}$/i","show_in_full4",1);
 
-$frm->addField("Название поля 5","Ошибка ввода названия поля 5","text",$caption5,$caption5,"/^[^`]{1,}$/i","caption5",0,'',array('size'=>'30'));
-$frm->addField("Тип поля 5","Ошибка выбора типа поля 5","list",$this->thismodule["types"],$type5,"/^[a-zA-Z]{1,}$/i","type5",1,'',array('size'=>'30'));
-$frm->addField("Выводить поле 5 в кратком описании","","check",$show_in_short5,$show_in_short5,"/^[0-9]{1}$/i","show_in_short5",1);
-$frm->addField("Выводить поле 5 в полном описании","","check",$show_in_full5,$show_in_full5,"/^[0-9]{1}$/i","show_in_full5",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ РїРѕР»СЏ 5","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ РїРѕР»СЏ 5","text",$caption5,$caption5,"/^[^`]{1,}$/i","caption5",0,'',array('size'=>'30'));
+$frm->addField("РўРёРї РїРѕР»СЏ 5","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° РїРѕР»СЏ 5","list",$this->thismodule["types"],$type5,"/^[a-zA-Z]{1,}$/i","type5",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 5 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_short5,$show_in_short5,"/^[0-9]{1}$/i","show_in_short5",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 5 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_full5,$show_in_full5,"/^[0-9]{1}$/i","show_in_full5",1);
 
-$frm->addField("Название поля 6","Ошибка ввода названия поля 6","text",$caption6,$caption6,"/^[^`]{1,}$/i","caption6",0,'',array('size'=>'30'));
-$frm->addField("Тип поля 6","Ошибка выбора типа поля 6","list",$this->thismodule["types"],$type6,"/^[a-zA-Z]{1,}$/i","type6",1,'',array('size'=>'30'));
-$frm->addField("Выводить поле 6 в кратком описании","","check",$show_in_short6,$show_in_short6,"/^[0-9]{1}$/i","show_in_short6",1);
-$frm->addField("Выводить поле 6 в полном описании","","check",$show_in_full6,$show_in_full6,"/^[0-9]{1}$/i","show_in_full6",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ РїРѕР»СЏ 6","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ РїРѕР»СЏ 6","text",$caption6,$caption6,"/^[^`]{1,}$/i","caption6",0,'',array('size'=>'30'));
+$frm->addField("РўРёРї РїРѕР»СЏ 6","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° РїРѕР»СЏ 6","list",$this->thismodule["types"],$type6,"/^[a-zA-Z]{1,}$/i","type6",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 6 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_short6,$show_in_short6,"/^[0-9]{1}$/i","show_in_short6",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 6 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_full6,$show_in_full6,"/^[0-9]{1}$/i","show_in_full6",1);
 
-$frm->addField("Название поля 7","Ошибка ввода названия поля 7","text",$caption7,$caption7,"/^[^`]{1,}$/i","caption7",0,'',array('size'=>'30'));
-$frm->addField("Тип поля 7","Ошибка выбора типа поля 7","list",$this->thismodule["types"],$type7,"/^[a-zA-Z]{1,}$/i","type7",1,'',array('size'=>'30'));
-$frm->addField("Выводить поле 7 в кратком описании","","check",$show_in_short7,$show_in_short7,"/^[0-9]{1}$/i","show_in_short7",1);
-$frm->addField("Выводить поле 7 в полном описании","","check",$show_in_full7,$show_in_full7,"/^[0-9]{1}$/i","show_in_full7",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ РїРѕР»СЏ 7","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ РїРѕР»СЏ 7","text",$caption7,$caption7,"/^[^`]{1,}$/i","caption7",0,'',array('size'=>'30'));
+$frm->addField("РўРёРї РїРѕР»СЏ 7","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° РїРѕР»СЏ 7","list",$this->thismodule["types"],$type7,"/^[a-zA-Z]{1,}$/i","type7",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 7 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_short7,$show_in_short7,"/^[0-9]{1}$/i","show_in_short7",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 7 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_full7,$show_in_full7,"/^[0-9]{1}$/i","show_in_full7",1);
 
-$frm->addField("Название поля 8","Ошибка ввода названия поля 8","text",$caption8,$caption8,"/^[^`]{1,}$/i","caption8",0,'',array('size'=>'30'));
-$frm->addField("Тип поля 8","Ошибка выбора типа поля 8","list",$this->thismodule["types"],$type8,"/^[a-zA-Z]{1,}$/i","type8",1,'',array('size'=>'30'));
-$frm->addField("Выводить поле 8 в кратком описании","","check",$show_in_short8,$show_in_short8,"/^[0-9]{1}$/i","show_in_short8",1);
-$frm->addField("Выводить поле 8 в полном описании","","check",$show_in_full8,$show_in_full8,"/^[0-9]{1}$/i","show_in_full8",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ РїРѕР»СЏ 8","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ РїРѕР»СЏ 8","text",$caption8,$caption8,"/^[^`]{1,}$/i","caption8",0,'',array('size'=>'30'));
+$frm->addField("РўРёРї РїРѕР»СЏ 8","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° РїРѕР»СЏ 8","list",$this->thismodule["types"],$type8,"/^[a-zA-Z]{1,}$/i","type8",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 8 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_short8,$show_in_short8,"/^[0-9]{1}$/i","show_in_short8",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 8 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_full8,$show_in_full8,"/^[0-9]{1}$/i","show_in_full8",1);
 
-$frm->addField("Название поля 9","Ошибка ввода названия поля 9","text",$caption9,$caption9,"/^[^`]{1,}$/i","caption9",0,'',array('size'=>'30'));
-$frm->addField("Тип поля 9","Ошибка выбора типа поля 9","list",$this->thismodule["types"],$type9,"/^[a-zA-Z]{1,}$/i","type9",1,'',array('size'=>'30'));
-$frm->addField("Выводить поле 9 в кратком описании","","check",$show_in_short9,$show_in_short9,"/^[0-9]{1}$/i","show_in_short9",1);
-$frm->addField("Выводить поле 9 в полном описании","","check",$show_in_full9,$show_in_full9,"/^[0-9]{1}$/i","show_in_full9",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ РїРѕР»СЏ 9","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ РїРѕР»СЏ 9","text",$caption9,$caption9,"/^[^`]{1,}$/i","caption9",0,'',array('size'=>'30'));
+$frm->addField("РўРёРї РїРѕР»СЏ 9","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° РїРѕР»СЏ 9","list",$this->thismodule["types"],$type9,"/^[a-zA-Z]{1,}$/i","type9",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 9 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_short9,$show_in_short9,"/^[0-9]{1}$/i","show_in_short9",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 9 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_full9,$show_in_full9,"/^[0-9]{1}$/i","show_in_full9",1);
 
-$frm->addField("Название поля 10","Ошибка ввода названия поля 10","text",$caption10,$caption10,"/^[^`]{1,}$/i","caption10",0,'',array('size'=>'30'));
-$frm->addField("Тип поля 10","Ошибка выбора типа поля 10","list",$this->thismodule["types"],$type10,"/^[a-zA-Z]{1,}$/i","type10",1,'',array('size'=>'30'));
-$frm->addField("Выводить поле 10 в кратком описании","","check",$show_in_short10,$show_in_short10,"/^[0-9]{1}$/i","show_in_short10",1);
-$frm->addField("Выводить поле 10 в полном описании","","check",$show_in_full10,$show_in_full10,"/^[0-9]{1}$/i","show_in_full10",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ РїРѕР»СЏ 10","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ РїРѕР»СЏ 10","text",$caption10,$caption10,"/^[^`]{1,}$/i","caption10",0,'',array('size'=>'30'));
+$frm->addField("РўРёРї РїРѕР»СЏ 10","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° РїРѕР»СЏ 10","list",$this->thismodule["types"],$type10,"/^[a-zA-Z]{1,}$/i","type10",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 10 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_short10,$show_in_short10,"/^[0-9]{1}$/i","show_in_short10",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ РїРѕР»Рµ 10 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$show_in_full10,$show_in_full10,"/^[0-9]{1}$/i","show_in_full10",1);
 
-$frm->addField("Настройки полей","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","fields",0,'',array('end'=>true));
+$frm->addField("РќР°СЃС‚СЂРѕР№РєРё РїРѕР»РµР№","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","fields",0,'',array('end'=>true));
 
-$frm->addField("Настройки выпадающих списков","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","lists",0,'',array('hidden'=>true));
+$frm->addField("РќР°СЃС‚СЂРѕР№РєРё РІС‹РїР°РґР°СЋС‰РёС… СЃРїРёСЃРєРѕРІ","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","lists",0,'',array('hidden'=>true));
 
-$frm->addField("Название списка 1","Ошибка ввода названия списка 1","text",$list_caption1,$list_caption1,"/^[^`]{1,}$/i","list_caption1",0,'',array('size'=>'30'));
-$frm->addField('Значения списка 1','Неверно заполнены значения списка 1',"textarea",$list_value1,$list_value1,"/^[^#]{1,}$/i","list_value1",0,'',array('rows'=>'40','cols'=>'10','ticket'=>'По одному на строчку'));
-$frm->addField("Тип списка 1","Ошибка выбора типа списка 1","list",$this->thismodule["listtypes"],$list_type1,"/^[a-zA-Z]{1,}$/i","list_type1",1,'',array('size'=>'30'));
-$frm->addField("Выводить значение списка 1 в кратком описании","","check",$list_show_in_short1,$list_show_in_short1,"/^[0-9]{1}$/i","list_show_in_short1",1);
-$frm->addField("Выводить значение списка 1 в полном описании","","check",$list_show_in_full1,$list_show_in_full1,"/^[0-9]{1}$/i","list_show_in_full1",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ СЃРїРёСЃРєР° 1","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ СЃРїРёСЃРєР° 1","text",$list_caption1,$list_caption1,"/^[^`]{1,}$/i","list_caption1",0,'',array('size'=>'30'));
+$frm->addField('Р—РЅР°С‡РµРЅРёСЏ СЃРїРёСЃРєР° 1','РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅС‹ Р·РЅР°С‡РµРЅРёСЏ СЃРїРёСЃРєР° 1',"textarea",$list_value1,$list_value1,"/^[^#]{1,}$/i","list_value1",0,'',array('rows'=>'40','cols'=>'10','ticket'=>'РџРѕ РѕРґРЅРѕРјСѓ РЅР° СЃС‚СЂРѕС‡РєСѓ'));
+$frm->addField("РўРёРї СЃРїРёСЃРєР° 1","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° СЃРїРёСЃРєР° 1","list",$this->thismodule["listtypes"],$list_type1,"/^[a-zA-Z]{1,}$/i","list_type1",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ СЃРїРёСЃРєР° 1 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$list_show_in_short1,$list_show_in_short1,"/^[0-9]{1}$/i","list_show_in_short1",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ СЃРїРёСЃРєР° 1 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$list_show_in_full1,$list_show_in_full1,"/^[0-9]{1}$/i","list_show_in_full1",1);
 
-$frm->addField("Название списка 2","Ошибка ввода названия списка 2","text",$list_caption2,$list_caption2,"/^[^`]{1,}$/i","list_caption2",0,'',array('size'=>'30'));
-$frm->addField('Значения списка 2','Неверно заполнены значения списка 2',"textarea",$list_value2,$list_value2,"/^[^#]{1,}$/i","list_value2",0,'',array('rows'=>'40','cols'=>'10','ticket'=>'По одному на строчку'));
-$frm->addField("Тип списка 2","Ошибка выбора типа списка 2","list",$this->thismodule["listtypes"],$list_type2,"/^[a-zA-Z]{1,}$/i","list_type2",1,'',array('size'=>'30'));
-$frm->addField("Выводить значение списка 2 в кратком описании","","check",$list_show_in_short2,$list_show_in_short2,"/^[0-9]{1}$/i","list_show_in_short2",1);
-$frm->addField("Выводить значение списка 2 в полном описании","","check",$list_show_in_full2,$list_show_in_full2,"/^[0-9]{1}$/i","list_show_in_full2",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ СЃРїРёСЃРєР° 2","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ СЃРїРёСЃРєР° 2","text",$list_caption2,$list_caption2,"/^[^`]{1,}$/i","list_caption2",0,'',array('size'=>'30'));
+$frm->addField('Р—РЅР°С‡РµРЅРёСЏ СЃРїРёСЃРєР° 2','РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅС‹ Р·РЅР°С‡РµРЅРёСЏ СЃРїРёСЃРєР° 2',"textarea",$list_value2,$list_value2,"/^[^#]{1,}$/i","list_value2",0,'',array('rows'=>'40','cols'=>'10','ticket'=>'РџРѕ РѕРґРЅРѕРјСѓ РЅР° СЃС‚СЂРѕС‡РєСѓ'));
+$frm->addField("РўРёРї СЃРїРёСЃРєР° 2","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° СЃРїРёСЃРєР° 2","list",$this->thismodule["listtypes"],$list_type2,"/^[a-zA-Z]{1,}$/i","list_type2",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ СЃРїРёСЃРєР° 2 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$list_show_in_short2,$list_show_in_short2,"/^[0-9]{1}$/i","list_show_in_short2",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ СЃРїРёСЃРєР° 2 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$list_show_in_full2,$list_show_in_full2,"/^[0-9]{1}$/i","list_show_in_full2",1);
 
-$frm->addField("Название списка 3","Ошибка ввода названия списка 3","text",$list_caption3,$list_caption3,"/^[^`]{1,}$/i","list_caption3",0,'',array('size'=>'30'));
-$frm->addField('Значения списка 3','Неверно заполнены значения списка 3',"textarea",$list_value3,$list_value3,"/^[^#]{1,}$/i","list_value3",0,'',array('rows'=>'40','cols'=>'10','ticket'=>'По одному на строчку'));
-$frm->addField("Тип списка 3","Ошибка выбора типа списка 3","list",$this->thismodule["listtypes"],$list_type3,"/^[a-zA-Z]{1,}$/i","list_type3",1,'',array('size'=>'30'));
-$frm->addField("Выводить значение списка 3 в кратком описании","","check",$list_show_in_short3,$list_show_in_short3,"/^[0-9]{1}$/i","list_show_in_short3",1);
-$frm->addField("Выводить значение списка 3 в полном описании","","check",$list_show_in_full3,$list_show_in_full3,"/^[0-9]{1}$/i","list_show_in_full3",1);
+$frm->addField("РќР°Р·РІР°РЅРёРµ СЃРїРёСЃРєР° 3","РћС€РёР±РєР° РІРІРѕРґР° РЅР°Р·РІР°РЅРёСЏ СЃРїРёСЃРєР° 3","text",$list_caption3,$list_caption3,"/^[^`]{1,}$/i","list_caption3",0,'',array('size'=>'30'));
+$frm->addField('Р—РЅР°С‡РµРЅРёСЏ СЃРїРёСЃРєР° 3','РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅС‹ Р·РЅР°С‡РµРЅРёСЏ СЃРїРёСЃРєР° 3',"textarea",$list_value3,$list_value3,"/^[^#]{1,}$/i","list_value3",0,'',array('rows'=>'40','cols'=>'10','ticket'=>'РџРѕ РѕРґРЅРѕРјСѓ РЅР° СЃС‚СЂРѕС‡РєСѓ'));
+$frm->addField("РўРёРї СЃРїРёСЃРєР° 3","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° СЃРїРёСЃРєР° 3","list",$this->thismodule["listtypes"],$list_type3,"/^[a-zA-Z]{1,}$/i","list_type3",1,'',array('size'=>'30'));
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ СЃРїРёСЃРєР° 3 РІ РєСЂР°С‚РєРѕРј РѕРїРёСЃР°РЅРёРё","","check",$list_show_in_short3,$list_show_in_short3,"/^[0-9]{1}$/i","list_show_in_short3",1);
+$frm->addField("Р’С‹РІРѕРґРёС‚СЊ Р·РЅР°С‡РµРЅРёРµ СЃРїРёСЃРєР° 3 РІ РїРѕР»РЅРѕРј РѕРїРёСЃР°РЅРёРё","","check",$list_show_in_full3,$list_show_in_full3,"/^[0-9]{1}$/i","list_show_in_full3",1);
 
-$frm->addField("Настройки выпадающих списков","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","lists",0,'',array('end'=>true));
+$frm->addField("РќР°СЃС‚СЂРѕР№РєРё РІС‹РїР°РґР°СЋС‰РёС… СЃРїРёСЃРєРѕРІ","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","lists",0,'',array('end'=>true));
 
-$frm->addField("Настройки текстов","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","texts",0,'',array('hidden'=>true));
+$frm->addField("РќР°СЃС‚СЂРѕР№РєРё С‚РµРєСЃС‚РѕРІ","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","texts",0,'',array('hidden'=>true));
 
-$frm->addField("Назад к просмотру <...>","Неверно указан текст просмотр <...>","text",$view_all_text,$view_all_text,"/^[^`#]{2,255}$/i","view_all_text",0,"артистов",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РќР°Р·Р°Рґ Рє РїСЂРѕСЃРјРѕС‚СЂСѓ <...>","РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ С‚РµРєСЃС‚ РїСЂРѕСЃРјРѕС‚СЂ <...>","text",$view_all_text,$view_all_text,"/^[^`#]{2,255}$/i","view_all_text",0,"Р°СЂС‚РёСЃС‚РѕРІ",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Добавить <...>","Неверно указан текст добавить <...>","text",$add_text,$add_text,"/^[^`#]{2,255}$/i","add_text",0,"Артиста",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("Р”РѕР±Р°РІРёС‚СЊ <...>","РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ С‚РµРєСЃС‚ РґРѕР±Р°РІРёС‚СЊ <...>","text",$add_text,$add_text,"/^[^`#]{2,255}$/i","add_text",0,"РђСЂС‚РёСЃС‚Р°",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Просмотреть описание <...>","Неверно указан текст просмотреть описание <...>","text",$fulllink_text,$fulllink_text,"/^[^`#]{2,255}$/i","fulllink_text",0,"артиста",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РѕРїРёСЃР°РЅРёРµ <...>","РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ С‚РµРєСЃС‚ РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РѕРїРёСЃР°РЅРёРµ <...>","text",$fulllink_text,$fulllink_text,"/^[^`#]{2,255}$/i","fulllink_text",0,"Р°СЂС‚РёСЃС‚Р°",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Настройки текстов","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","texts",0,'',array('end'=>true));
+$frm->addField("РќР°СЃС‚СЂРѕР№РєРё С‚РµРєСЃС‚РѕРІ","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","texts",0,'',array('end'=>true));
 
 $engine->generateLangControls("TYPES",$lang_values,$frm);
 
@@ -1462,46 +1462,46 @@ $id_type=$_REQUEST["id_type"];
 $frm->addField("","","hidden",$id_type,$id_type,"/^[^`]{0,}$/i","id_type",1);
 }
 if ($mode=="edit") {
-	$engine->addPath('Редактирование типа '.$type["caption"],'',false);
+	$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С‚РёРїР° '.$type["caption"],'',false);
 	if ($ident!=$type["ident"])
 		if ($this->existType($ident))
-			$frm->addError('Тип с указанным идентификатором уже существует');	
+			$frm->addError('РўРёРї СЃ СѓРєР°Р·Р°РЅРЅС‹Рј РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚');	
 } else {
-	$engine->addPath('Создание нового типа','',false);
+	$engine->addPath('РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ С‚РёРїР°','',false);
 	if ($this->existType($ident))
-		$frm->addError('Тип с указанным идентификатором уже существует');
+		$frm->addError('РўРёРї СЃ СѓРєР°Р·Р°РЅРЅС‹Рј РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚');
 }
 if ($max_images>25)
-	$frm->addError("Максимальное количество изображений у объекта - 25");
+	$frm->addError("РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РёР·РѕР±СЂР°Р¶РµРЅРёР№ Сѓ РѕР±СЉРµРєС‚Р° - 25");
 if ($max_videos>25)
-	$frm->addError("Максимальное количество  видео у объекта - 25");
+	$frm->addError("РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ  РІРёРґРµРѕ Сѓ РѕР±СЉРµРєС‚Р° - 25");
 	
 			if (
-$engine->processFormData($frm,"Сохранить",$first
+$engine->processFormData($frm,"РЎРѕС…СЂР°РЅРёС‚СЊ",$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if (isset($id_type)) {
 				 	$query="update `%TYPES%` set `caption`='".sql_quote($caption)."',`ident`='".sql_quote($ident)."',`description`='".sql_quote($content)."',`use_objects`=$use_objects,`use_files`=$use_files,`add_cat`=$add_cat,`user_add`=$user_add,`download_only_for_users`=$download_only_for_users,`short_content`=$short_content,`full_content`=$full_content,`voters`=$voters,`small_preview`=$small_preview,`medium_preview`=$medium_preview,`show_alphabet`=$alphabet,`caption1`='".sql_quote($caption1)."',`type1`='".sql_quote($type1)."',`show_in_full1`=$show_in_full1,`show_in_short1`=$show_in_short1,`caption2`='".sql_quote($caption2)."',`type2`='".sql_quote($type2)."',`show_in_full2`=$show_in_full2,`show_in_short2`=$show_in_short2,`caption3`='".sql_quote($caption3)."',`type3`='".sql_quote($type3)."',`show_in_full3`=$show_in_full3,`show_in_short3`=$show_in_short3,`caption4`='".sql_quote($caption4)."',`type4`='".sql_quote($type4)."',`show_in_full4`=$show_in_full4,`show_in_short4`=$show_in_short4,`caption5`='".sql_quote($caption5)."',`type5`='".sql_quote($type5)."',`show_in_full5`=$show_in_full5,`show_in_short5`=$show_in_short5,`caption6`='".sql_quote($caption6)."',`type6`='".sql_quote($type6)."',`show_in_full6`=$show_in_full6,`show_in_short6`=$show_in_short6,`caption7`='".sql_quote($caption7)."',`type7`='".sql_quote($type7)."',`show_in_full7`=$show_in_full7,`show_in_short7`=$show_in_short7,`caption8`='".sql_quote($caption8)."',`type8`='".sql_quote($type8)."',`show_in_full8`=$show_in_full8,`show_in_short8`=$show_in_short8,`caption9`='".sql_quote($caption9)."',`type9`='".sql_quote($type9)."',`show_in_full9`=$show_in_full9,`show_in_short9`=$show_in_short9,`caption10`='".sql_quote($caption10)."',`type10`='".sql_quote($type10)."',`show_in_full10`=$show_in_full10,`show_in_short10`=$show_in_short10,`list_caption1`='".sql_quote($list_caption1)."',`list_value1`='".sql_quote($list_value1)."',`list_type1`='".sql_quote($list_type1)."',`list_show_in_full1`=$list_show_in_full1,`list_show_in_short1`=$list_show_in_short1,`list_caption2`='".sql_quote($list_caption2)."',`list_value2`='".sql_quote($list_value2)."',`list_type2`='".sql_quote($list_type2)."',`list_show_in_full2`=$list_show_in_full2,`list_show_in_short2`=$list_show_in_short2,`list_caption3`='".sql_quote($list_caption3)."',`list_value3`='".sql_quote($list_value3)."',`list_type3`='".sql_quote($list_type3)."',`list_show_in_full3`=$list_show_in_full3,`list_show_in_short3`=$list_show_in_short3,`view_all_text`='".sql_quote($view_all_text)."',`add_text`='".sql_quote($add_text)."',`fulllink_text`='".sql_quote($fulllink_text)."',`max_images`=$max_images,`use_gallery`=$use_gallery,`max_videos`=$max_videos,`use_videogallery`=$use_videogallery,`use_code`=$use_code,`congratulation_text`='".sql_quote($congratulation_text)."',`edit_text`='".sql_quote($edit_text)."',`onpage`=$onpage, `do_comments`=$do_comments ".$engine->generateUpdateSQL("TYPES",$lang_values)." where id_type=".$type["id_type"];
 				 	if ($db->query($query)) {
-						//отредактировали
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
 					if ($user_add)
 						$engine->addModuleToCategory($this->thismodule["name"],$add_cat);
-				    $engine->setCongratulation("","Тип объектов отредактирован успешно!",3000);
+				    $engine->setCongratulation("","РўРёРї РѕР±СЉРµРєС‚РѕРІ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅ СѓСЃРїРµС€РЅРѕ!",3000);
 					$m_action="view_types";
 					}
 				 } else {
-				 	//показываем ошибку
+				 	//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
 				 $query="insert into `%TYPES%` values(null,'".sql_quote($caption)."','".sql_quote($ident)."','".sql_quote($content)."',NULL,$use_code,$do_comments,$short_content,$full_content,$voters,$small_preview,$medium_preview,$max_images,$use_gallery,$max_videos,$use_videogallery,$use_objects,$use_files,$add_cat,$user_add,$download_only_for_users,$onpage,$alphabet,'".sql_quote($caption1)."','".sql_quote($type1)."',$show_in_full1,$show_in_short1,'".sql_quote($caption2)."','".sql_quote($type2)."',$show_in_full2,$show_in_short2,'".sql_quote($caption3)."','".sql_quote($type3)."',$show_in_full3,$show_in_short3,'".sql_quote($caption4)."','".sql_quote($type4)."',$show_in_full4,$show_in_short4,'".sql_quote($caption5)."','".sql_quote($type5)."',$show_in_full5,$show_in_short5,'".sql_quote($caption6)."','".sql_quote($type6)."',$show_in_full6,$show_in_short6,'".sql_quote($caption7)."','".sql_quote($type7)."',$show_in_full7,$show_in_short7,'".sql_quote($caption8)."','".sql_quote($type8)."',$show_in_full8,$show_in_short8,'".sql_quote($caption9)."','".sql_quote($type9)."',$show_in_full9,$show_in_short9,'".sql_quote($caption10)."','".sql_quote($type10)."',$show_in_full10,$show_in_short10,'".sql_quote($list_caption1)."','".sql_quote($list_value1)."','".sql_quote($list_type1)."',$list_show_in_full1,$list_show_in_short1,'".sql_quote($list_caption2)."','".sql_quote($list_value2)."','".sql_quote($list_type2)."',$list_show_in_full2,$list_show_in_short2,'".sql_quote($list_caption3)."','".sql_quote($list_value3)."','".sql_quote($list_type3)."',$list_show_in_full3,$list_show_in_short3,'".sql_quote($view_all_text)."','".sql_quote($add_text)."','".sql_quote($fulllink_text)."','".sql_quote($congratulation_text)."','".sql_quote($edit_text)."' ".$engine->generateInsertSQL("TYPES",$lang_values).")";
 				 if ($db->query($query)) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 					if ($user_add)
 					   $engine->addModuleToCategory($this->thismodule["name"],$add_cat);
-				   $engine->setCongratulation("","Новый тип объектов добавлен успешно!",3000);
+				   $engine->setCongratulation("","РќРѕРІС‹Р№ С‚РёРї РѕР±СЉРµРєС‚РѕРІ РґРѕР±Р°РІР»РµРЅ СѓСЃРїРµС€РЅРѕ!",3000);
 					$m_action="view_types";
 				 }
 			}
@@ -1532,7 +1532,7 @@ $engine->processFormData($frm,"Сохранить",$first
 					$smarty->assign("id_category",$id_category);
 					$ppath=$engine->getPath($id_category);
 					$smarty->assign("ppath",$ppath);	
-					//проверяем поисковый запрос
+					//РїСЂРѕРІРµСЂСЏРµРј РїРѕРёСЃРєРѕРІС‹Р№ Р·Р°РїСЂРѕСЃ
 					if (isset($_REQUEST["str"])) {
 						$str_real=trim($_REQUEST["str"]);
 						if (trim($str_real)!='') {
@@ -1588,7 +1588,7 @@ $engine->processFormData($frm,"Сохранить",$first
 							$smarty->assign("pagenumber",$pg);
 						}
 				}
-				//получаем все рубрики
+				//РїРѕР»СѓС‡Р°РµРј РІСЃРµ СЂСѓР±СЂРёРєРё
 				$rubrics=$this->getCountAllObjects($id_type);
 				$engine->clearPath();
 				$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);

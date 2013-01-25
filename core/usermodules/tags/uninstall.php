@@ -1,6 +1,6 @@
 <?
 /*
-Ôàéë óäàëåíèÿ ìîäóëÿ òåãè
+Ð¤Ð°Ð¹Ð» ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ñ‚ÐµÐ³Ð¸
 */
 global $engine;
 $res=$db->query("select * from %block_types% where type='cloudtags'");

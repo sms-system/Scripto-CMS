@@ -1,6 +1,6 @@
 <?
 /*
-Модуль товары
+РњРѕРґСѓР»СЊ С‚РѕРІР°СЂС‹
 */
 
 define("SCRIPTO_basket",true);
@@ -31,7 +31,7 @@ class basket {
 		global $db;
 		global $engine;
 		$type_id=mysql_insert_id();
-		if ($db->query("insert into `%blocks%` values (null,0,'Корзина','',$type_id,'basket',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
+		if ($db->query("insert into `%blocks%` values (null,0,'РљРѕСЂР·РёРЅР°','',$type_id,'basket',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
 			return true;
 		}  else {
 			return false;
@@ -67,7 +67,7 @@ class basket {
 	}
 	
 	function checkMe() {
-	//проверяем существуют ли уже таблицы модуля
+	//РїСЂРѕРІРµСЂСЏРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‚ Р»Рё СѓР¶Рµ С‚Р°Р±Р»РёС†С‹ РјРѕРґСѓР»СЏ
 		global $engine;
 		if ($engine->checkInstallModule("basket")) {
 			return true;
@@ -82,7 +82,7 @@ class basket {
 		$count=@mysql_num_rows($res);
 		if ($count>0) {
 			$reminder['subject']=ToUTF8($this->thismodule["caption"]);
-			$reminder['content']=ToUTF8('У Вас '.@mysql_num_rows($res).' новых заказов в интернет магазине');
+			$reminder['content']=ToUTF8('РЈ Р’Р°СЃ '.@mysql_num_rows($res).' РЅРѕРІС‹С… Р·Р°РєР°Р·РѕРІ РІ РёРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅРµ');
 			$reminder['count']=$count;
 			return $reminder;
 		} else {
@@ -102,7 +102,7 @@ class basket {
 		
 		if (is_file($this->thismodule["path"]."user_module.mod.php")) {
 			include($this->thismodule["path"]."user_module.mod.php");
-			//здесь получаем товары для рубрик
+			//Р·РґРµСЃСЊ РїРѕР»СѓС‡Р°РµРј С‚РѕРІР°СЂС‹ РґР»СЏ СЂСѓР±СЂРёРє
 $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path"]."user_module".$this->engine->current_prefix.".tpl.html";
 		if (is_file($fname)) {
 		$content=$smarty->fetch($this->thismodule["template_path"]."user_module".$this->engine->current_prefix.".tpl.html");
@@ -298,19 +298,19 @@ function generatePassword($minLength = 8, $maxLength = 12, $maxSymbols = 0)
 		global $smarty;
 		switch ($mail_type) {
 			case 0:
-			//регистрация
+			//СЂРµРіРёСЃС‚СЂР°С†РёСЏ
 	$mailtext=$smarty->fetch($this->thismodule["template_path"]."register.mail.tpl");
 			break;
 			case 1:
-			//изменение
+			//РёР·РјРµРЅРµРЅРёРµ
 	$mailtext=$smarty->fetch($this->thismodule["template_path"]."edit.mail.tpl");
 			break;
 			case 2:
-			//Письмо админу
+			//РџРёСЃСЊРјРѕ Р°РґРјРёРЅСѓ
 	$mailtext=$smarty->fetch($this->thismodule["template_path"]."order.admin.mail.tpl");
 			break;
 			case 3:
-			//Письмо пользователю
+			//РџРёСЃСЊРјРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ
 	$mailtext=$smarty->fetch($this->thismodule["template_path"]."order.mail.tpl");
 			break;
 		}
@@ -376,7 +376,7 @@ function generatePassword($minLength = 8, $maxLength = 12, $maxSymbols = 0)
 				if (is_array($prod) && preg_match("/^[0-9]{1,}$/i",$id_prod)) 
 				foreach ($prod as $id_var=>$prodarr) {
 					if (isset($prodarr["id_variant"])) {
-						//с вариантом
+						//СЃ РІР°СЂРёР°РЅС‚РѕРј
 					$basketinfo["products"][$id_prod][$id_var]=$products->getProductByID($id_prod);
 if (isset($basket[$id_prod][$id_var]["options"]))
 $basketinfo["products"][$id_prod][$id_var]["options"]=$basket[$id_prod][$id_var]["options"];
@@ -390,7 +390,7 @@ $basketinfo["products"][$id_prod][$id_var]["price_itogo"]=$prodarr["count"]*$bas
 	$basketinfo["products"][$id_prod][$id_var]["price_itogo_print"]=$this->getPrintPrice($basketinfo["products"][$id_prod][$id_var]["price_itogo"]);
 $basketinfo["itogo"]=$basketinfo["itogo"]+$basketinfo["products"][$id_prod][$id_var]["price_itogo"];
 					} else {
-						//без вариантов
+						//Р±РµР· РІР°СЂРёР°РЅС‚РѕРІ
 	$basketinfo["products"][$id_prod][0]=$products->getProductByID($id_prod);
 if (isset($basket[$id_prod][0]["options"]))
 $basketinfo["products"][$id_prod][0]["options"]=$basket[$id_prod][0]["options"];	
@@ -414,7 +414,7 @@ $basketinfo["itogo"]=$basketinfo["itogo"]+$basketinfo["products"][$id_prod][0]["
 		
 	}
 	
-	function getPrintPrice($price,$valute="руб") {
+	function getPrintPrice($price,$valute="СЂСѓР±") {
 		if (!preg_match("/^[0-9.]{1,}$/i",$price)) return false;
 		$pos=strpos($price,'.');
 		$ost='';
@@ -584,14 +584,14 @@ $basketinfo["itogo"]=$basketinfo["itogo"]+$basketinfo["products"][$id_prod][0]["
 		$coupon_itog=0;
 		if (isset($coupon["price"]) && isset($coupon["code"]) && isset($coupon["caption"]) && isset($coupon["type"]))
 		 if (($coupon["price"]>0) && ($coupon["code"]!='')) {
-			//купон существует
+			//РєСѓРїРѕРЅ СЃСѓС‰РµСЃС‚РІСѓРµС‚
 			switch($coupon["type"]) {
 				case 0:
-					//скидка в рублях
+					//СЃРєРёРґРєР° РІ СЂСѓР±Р»СЏС…
 					$coupon_itog=$basket["final"]-$coupon["price"];
 				break;
 				case 1:
-					//скидка в процентах
+					//СЃРєРёРґРєР° РІ РїСЂРѕС†РµРЅС‚Р°С…
 					if ($coupon["price"]<=$this->thismodule["max_percent"]) {
 					$discount=round($basket["final"]*($coupon["price"]/100),2);
 					$coupon_itog=$basket["final"]-$discount;
@@ -617,8 +617,8 @@ $basketinfo["itogo"]=$basketinfo["itogo"]+$basketinfo["products"][$id_prod][0]["
 			$order=$this->getOrderById($id_order);
 			$smarty->assign("order",$order);
 			$smarty->assign("order_id",$order["id_order"]);
-			$this->mailMe($user["email"],$this->thismodule["mailadmin"],"Заказ в интернет магазине #".$id_order,3);
-			$this->mailMe($this->thismodule["mailadmin"],$user["email"],"Заказ в интернет магазине #".$id_order,2);
+			$this->mailMe($user["email"],$this->thismodule["mailadmin"],"Р—Р°РєР°Р· РІ РёРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅРµ #".$id_order,3);
+			$this->mailMe($this->thismodule["mailadmin"],$user["email"],"Р—Р°РєР°Р· РІ РёРЅС‚РµСЂРЅРµС‚ РјР°РіР°Р·РёРЅРµ #".$id_order,2);
 			return $id_order;
 		} else {
 		echo mysql_error();

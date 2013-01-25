@@ -5,7 +5,7 @@
 					<div class="body">
 {if $modAction=="add"}
 {if $mod_name}
-<p>Раздел успешно создан!</p>
+<p>Р Р°Р·РґРµР» СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!</p>
 <script>
 parent.goTo('{$ref}&id_category={$id_cat}');
 </script>
@@ -15,7 +15,7 @@ parent.goTo('{$ref}&id_category={$id_cat}');
 {elseif $modAction=="quickedit"}
 {if $save}
  <script>
- 	parent.tooltip('','Изменения сохранены!',3000);
+ 	parent.tooltip('','РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹!',3000);
  </script>
 {/if}
 {if $close}
@@ -29,8 +29,8 @@ parent.goTo('{$ref}&id_category={$id_cat}');
 <form action="" name="frm" method="post">
 <table width="100%" cellpadding="0" cellspacing="0" class="whiteheader">
 	<tr>
-		<td width="50%">Содержимое раздела <b>{$category.caption}</b></td>
-		<td width="50%" align="right"><input type="submit" value="Сохранить изменения"></td>
+		<td width="50%">РЎРѕРґРµСЂР¶РёРјРѕРµ СЂР°Р·РґРµР»Р° <b>{$category.caption}</b></td>
+		<td width="50%" align="right"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ"></td>
 	</tr>
 </table>
 <input type="hidden" name="id_cat" value="{$category.id_category}">
@@ -39,36 +39,36 @@ parent.goTo('{$ref}&id_category={$id_cat}');
 {$editor}
 </form>
 {elseif $modAction=="view" || $modAction=="save"}
-<div class="body"><div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=catalog&modAction=add');">Создать новый раздел</div></div>
+<div class="body"><div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=catalog&modAction=add');">РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ СЂР°Р·РґРµР»</div></div>
 {if $categories}
 <div class="body">
 <form id="frm" method="post">
 <table class="objects">
 <tr>
-	<td colspan="9" align="left" id="sort">Сортировать разделы:<br> <b>по названию</b> (
+	<td colspan="9" align="left" id="sort">РЎРѕСЂС‚РёСЂРѕРІР°С‚СЊ СЂР°Р·РґРµР»С‹:<br> <b>РїРѕ РЅР°Р·РІР°РЅРёСЋ</b> (
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=caption"><img src="{$img}admin/icons/up.gif" border="0"></a>
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=caption&desc=true"><img src="{$img}admin/icons/down.gif" border="0"></a>
 	)
-	<b>по сортировке</b> (
+	<b>РїРѕ СЃРѕСЂС‚РёСЂРѕРІРєРµ</b> (
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=sort"><img src="{$img}admin/icons/up.gif" border="0"></a>
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=sort&desc=true"><img src="{$img}admin/icons/down.gif" border="0"></a>	
 	)
-	<b>по дате</b>
+	<b>РїРѕ РґР°С‚Рµ</b>
  	(
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=date"><img src="{$img}admin/icons/up.gif" border="0"></a>
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=date&desc=true"><img src="{$img}admin/icons/down.gif" border="0"></a>	
 	)
-	<b>по видимости</b>
+	<b>РїРѕ РІРёРґРёРјРѕСЃС‚Рё</b>
  	(
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=visible"><img src="{$img}admin/icons/up.gif" border="0"></a>
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=visible&desc=true"><img src="{$img}admin/icons/down.gif" border="0"></a>	
 	)
-	<b>по типу содержимого</b>
+	<b>РїРѕ С‚РёРїСѓ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ</b>
  	(
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=type"><img src="{$img}admin/icons/up.gif" border="0"></a>
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=type&desc=true"><img src="{$img}admin/icons/down.gif" border="0"></a>	
 	)
-	<b>по расположению в меню</b>
+	<b>РїРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЋ РІ РјРµРЅСЋ</b>
  	(
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=position"><img src="{$img}admin/icons/up.gif" border="0"></a>
 	<a href="{$siteurl}admin/?module=catalog&modAction=view&order=position&desc=true"><img src="{$img}admin/icons/down.gif" border="0"></a>	
@@ -77,15 +77,15 @@ parent.goTo('{$ref}&id_category={$id_cat}');
 </tr>								
 <tr>
 	<td class="objects_header" width="2%"></td>
-	<td class="objects_header editable_header" width="40%"><span>Название</span></td>
-	<td class="objects_header editable_header" width="20%"><span>ЧПУ</span></td>
-	<td class="objects_header editable_header" width="5%"><span>Тип</span></td>
-	<td class="objects_header editable_header" width="7%"><span>Сортировка</span></td>
+	<td class="objects_header editable_header" width="40%"><span>РќР°Р·РІР°РЅРёРµ</span></td>
+	<td class="objects_header editable_header" width="20%"><span>Р§РџРЈ</span></td>
+	<td class="objects_header editable_header" width="5%"><span>РўРёРї</span></td>
+	<td class="objects_header editable_header" width="7%"><span>РЎРѕСЂС‚РёСЂРѕРІРєР°</span></td>
 	<td class="objects_header" width="1%"></td>
-	<td class="objects_header" width="5%">Видимость</td>
-	<td class="objects_header" width="5%">Создан</td>
-	<td class="objects_header editable_header" width="5%"><span>Меню</span></td>
-	<td class="objects_header" width="10%" align="right">Действия</td>
+	<td class="objects_header" width="5%">Р’РёРґРёРјРѕСЃС‚СЊ</td>
+	<td class="objects_header" width="5%">РЎРѕР·РґР°РЅ</td>
+	<td class="objects_header editable_header" width="5%"><span>РњРµРЅСЋ</span></td>
+	<td class="objects_header" width="10%" align="right">Р”РµР№СЃС‚РІРёСЏ</td>
 </tr>
 <tr>
 <td colspan="10">
@@ -98,7 +98,7 @@ parent.goTo('{$ref}&id_category={$id_cat}');
 	<td colspan="3"></td>
 </tr>
 <tr id="save_submit">
-	<td colspan="9" align="center" style="padding-top:10px;"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="9" align="center" style="padding-top:10px;"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 </table>
 <input type="hidden" name="modAction" value="save">

@@ -1,6 +1,6 @@
 <?
 /*
-Ìîäóëü Îïðîñû
+ÐœÐ¾Ð´ÑƒÐ»ÑŒ ÐžÐ¿Ñ€Ð¾ÑÑ‹
 */
 
 define("SCRIPTO_subscribe",true);
@@ -26,7 +26,7 @@ class subscribe {
 		global $db;
 		global $engine;
 		$type_id=mysql_insert_id();
-		if ($db->query("insert into `%blocks%` values (null,0,'Ïîäïèñàòüñÿ íà ðàññûëêó','',$type_id,'subscribe',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
+		if ($db->query("insert into `%blocks%` values (null,0,'ÐŸÐ¾Ð´Ð¿Ð¸ÑÐ°Ñ‚ÑŒÑÑ Ð½Ð° Ñ€Ð°ÑÑÑ‹Ð»ÐºÑƒ','',$type_id,'subscribe',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
 			return true;
 		}  else {
 			return false;
@@ -76,7 +76,7 @@ class subscribe {
 	}
 	
 	function checkMe() {
-	//ïðîâåðÿåì ñóùåñòâóþò ëè óæå òàáëèöû ìîäóëÿ
+	//Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‚ Ð»Ð¸ ÑƒÐ¶Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ Ð¼Ð¾Ð´ÑƒÐ»Ñ
 		global $engine;
 		if ($engine->checkInstallModule("subscribe")) {
 			return true;

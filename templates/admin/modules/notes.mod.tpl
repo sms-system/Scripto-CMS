@@ -11,12 +11,12 @@
 </table>
 {elseif $modAction=="viewnote"}
 {if $note}
-<h1>Просмотр заметки {$note.caption}</h1>
+<h1>РџСЂРѕСЃРјРѕС‚СЂ Р·Р°РјРµС‚РєРё {$note.caption}</h1>
 <div class="body">
 {$note.content}
 </div>
 {else}
-<p>Неверно задан идентификатор заметки</p>
+<p>РќРµРІРµСЂРЅРѕ Р·Р°РґР°РЅ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РјРµС‚РєРё</p>
 {/if}
 {else}
 {include file='admin/module_header.tpl.html'}
@@ -25,28 +25,28 @@
 	<tr>
 		<td class="module_left">
 			<ul>
-				<li>{if $modAction=="view" || $modAction=="addreminder"}<b>Напоминания</b>{else}<a href="{$siteurl}admin?module=notes">Напоминания</a>{/if}</li>
-				<li>{if $modAction=="affairs"}<b>Дела</b>{else}<a href="{$siteurl}admin?module=notes&modAction=affairs">Дела</a>{/if}</li>
-				<li>{if $modAction=="notes"}<b>Заметки</b>{else}<a href="{$siteurl}admin?module=notes&modAction=notes">Заметки</a>{/if}</li>
+				<li>{if $modAction=="view" || $modAction=="addreminder"}<b>РќР°РїРѕРјРёРЅР°РЅРёСЏ</b>{else}<a href="{$siteurl}admin?module=notes">РќР°РїРѕРјРёРЅР°РЅРёСЏ</a>{/if}</li>
+				<li>{if $modAction=="affairs"}<b>Р”РµР»Р°</b>{else}<a href="{$siteurl}admin?module=notes&modAction=affairs">Р”РµР»Р°</a>{/if}</li>
+				<li>{if $modAction=="notes"}<b>Р—Р°РјРµС‚РєРё</b>{else}<a href="{$siteurl}admin?module=notes&modAction=notes">Р—Р°РјРµС‚РєРё</a>{/if}</li>
 			</ul>
 		</td>
 		<td class="module_right">
 		<div class="body">
 			{if $modAction=="view"}
-			<h2>Напоминания</h2>
+			<h2>РќР°РїРѕРјРёРЅР°РЅРёСЏ</h2>
 			<div class="body">
-				<div class="actionbutton" onclick="javascript:goTo('{$siteurl}admin/?module=notes&modAction=addreminder');">Добавить напоминание</div>
+				<div class="actionbutton" onclick="javascript:goTo('{$siteurl}admin/?module=notes&modAction=addreminder');">Р”РѕР±Р°РІРёС‚СЊ РЅР°РїРѕРјРёРЅР°РЅРёРµ</div>
 			</div>	
 			<div class="body">		
 			{if $reminders}
 			<form action="{$siteurl}admin" method="post">
 			<table class="objects">
 			<tr>
-				<td class="objects_header editable_header" width="40%"><span>Тема</span></td>
-				<td class="objects_header editable_header" width="25%"><span>Дата</span></td>
-				<td class="objects_header editable_header" width="25%"><span>Время</span></td>
-				<td class="objects_header editable_header" width="5%" align="right">Удалить</td>
-				<td class="objects_header" width="5%" align="right">Действия</td>
+				<td class="objects_header editable_header" width="40%"><span>РўРµРјР°</span></td>
+				<td class="objects_header editable_header" width="25%"><span>Р”Р°С‚Р°</span></td>
+				<td class="objects_header editable_header" width="25%"><span>Р’СЂРµРјСЏ</span></td>
+				<td class="objects_header editable_header" width="5%" align="right">РЈРґР°Р»РёС‚СЊ</td>
+				<td class="objects_header" width="5%" align="right">Р”РµР№СЃС‚РІРёСЏ</td>
 			</tr>
 			{foreach key=key item=reminder from=$reminders}
 			<tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="reminder{$reminder.id_reminder}">
@@ -68,30 +68,30 @@
 				<td></td>
 			</tr>
 			<tr id="save_submit">
-				<td colspan="5" align="center" style="padding-top:10px;"><input type="submit" value="Сохранить" class="button"></td>
+				<td colspan="5" align="center" style="padding-top:10px;"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 			</tr>
 			</table>
 			<input type="hidden" name="modAction" value="save">
 			<input type="hidden" name="module" value="notes">
 			</form>
 			{else}
-				<p>На данный момент напоминаний не создано</p>
+				<p>РќР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РЅР°РїРѕРјРёРЅР°РЅРёР№ РЅРµ СЃРѕР·РґР°РЅРѕ</p>
 			{/if}
 			</div>
 		{elseif $modAction=="notes"}
-			<h2>Заметки</h2>
+			<h2>Р—Р°РјРµС‚РєРё</h2>
 			<div class="body">
-				<div class="actionbutton" onclick="javascript:goTo('{$siteurl}admin/?module=notes&modAction=addnote');">Добавить заметку</div>
+				<div class="actionbutton" onclick="javascript:goTo('{$siteurl}admin/?module=notes&modAction=addnote');">Р”РѕР±Р°РІРёС‚СЊ Р·Р°РјРµС‚РєСѓ</div>
 			</div>
-			<h2>Существующие заметки</h2>
+			<h2>РЎСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ Р·Р°РјРµС‚РєРё</h2>
 			<div class="body">
 			{if $notes}
 			<table class="objects">
 			<tr>
-				<td class="objects_header editable_header" width="55%">Название заметки</td>
-				<td class="objects_header editable_header" width="15%">Дата создания</td>
-				<td class="objects_header editable_header" width="25%">Просмотреть заметку</td>
-				<td class="objects_header editable_header" width="5%" align="right">Действия</td>
+				<td class="objects_header editable_header" width="55%">РќР°Р·РІР°РЅРёРµ Р·Р°РјРµС‚РєРё</td>
+				<td class="objects_header editable_header" width="15%">Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ</td>
+				<td class="objects_header editable_header" width="25%">РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р·Р°РјРµС‚РєСѓ</td>
+				<td class="objects_header editable_header" width="5%" align="right">Р”РµР№СЃС‚РІРёСЏ</td>
 			</tr>
 			{foreach key=key item=note from=$notes}
 			<tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="note{$note.id_note}">
@@ -108,39 +108,39 @@
 			{/foreach}
 			</table>			
 			{else}
-				<p>Ни одной заметки не создано</p>
+				<p>РќРё РѕРґРЅРѕР№ Р·Р°РјРµС‚РєРё РЅРµ СЃРѕР·РґР°РЅРѕ</p>
 			{/if}
 			</div>
 		{else}
-			<h2>Новое дело</h2>
+			<h2>РќРѕРІРѕРµ РґРµР»Рѕ</h2>
 			<div class="body">
 				<table width="100%">
 					<tr>
-						<td class="objects_header" width="55%">Описание (максимум 110 символов)</td>
-						<td class="objects_header" width="25%">Важность</td>
-						<td class="objects_header" width="20%">Действия</td>
+						<td class="objects_header" width="55%">РћРїРёСЃР°РЅРёРµ (РјР°РєСЃРёРјСѓРј 110 СЃРёРјРІРѕР»РѕРІ)</td>
+						<td class="objects_header" width="25%">Р’Р°Р¶РЅРѕСЃС‚СЊ</td>
+						<td class="objects_header" width="20%">Р”РµР№СЃС‚РІРёСЏ</td>
 					</tr>
 					<tr height="50">
 						<td valign="top"><textarea id="delo" class="n100"></textarea></td>
 						<td valign="top" class="biglist">
 						<select id="vazhn">
-						<option value="0">Очень важное</option>
-						<option value="1">Важное</option>
-						<option value="2" selected>Среднее</option>
-						<option value="3">Когда нибудь</option>
+						<option value="0">РћС‡РµРЅСЊ РІР°Р¶РЅРѕРµ</option>
+						<option value="1">Р’Р°Р¶РЅРѕРµ</option>
+						<option value="2" selected>РЎСЂРµРґРЅРµРµ</option>
+						<option value="3">РљРѕРіРґР° РЅРёР±СѓРґСЊ</option>
 						</select>
 						</td>
-						<td valign="top" align="center" class="bigbutton"><input type="button" id="createAffair" value="добавить"></td>
+						<td valign="top" align="center" class="bigbutton"><input type="button" id="createAffair" value="РґРѕР±Р°РІРёС‚СЊ"></td>
 					</tr>
 					<tr height="15">
 						<td colspan="3"><div id="symbols"></div></td>
 					</tr>
 				</table>
 			</div>	
-			<h2>Дела</h2>
+			<h2>Р”РµР»Р°</h2>
 			<div class="body" id="affairs">
 			{if !$affairs}
-				<p id="clear">На данный момент не создано ни одного дела</p>
+				<p id="clear">РќР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РЅРµ СЃРѕР·РґР°РЅРѕ РЅРё РѕРґРЅРѕРіРѕ РґРµР»Р°</p>
 			{/if}				
 				{foreach key=key item=vzhn from=$vazhn}
 				<div class="process process{$vzhn}" vazhn="{$vzhn}">
@@ -149,13 +149,13 @@
 							<table>
 								<tr>
 									<td width="45%" class="proc">{$aff.content}</td>
-									<td width="10%" align="center"><input type="button" class="del_btn" id_process="{$aff.id_process}" value="удалить"></td>
+									<td width="10%" align="center"><input type="button" class="del_btn" id_process="{$aff.id_process}" value="СѓРґР°Р»РёС‚СЊ"></td>
 									<td width="20%" align="center">{$aff.create_print}</td>
 									<td width="25%" align="right" class="bigbutton" id="btn_{$aff.id_process}">
 									{if $aff.done}
-										<p>Выполнено <b>{$aff.done_print}</b></p>
+										<p>Р’С‹РїРѕР»РЅРµРЅРѕ <b>{$aff.done_print}</b></p>
 									{else}
-										<input type="button" class="subm_btn" id_process="{$aff.id_process}" value="Готово!">
+										<input type="button" class="subm_btn" id_process="{$aff.id_process}" value="Р“РѕС‚РѕРІРѕ!">
 									{/if}
 									</td>
 								</tr>

@@ -1,9 +1,9 @@
 <?
-$moduleinfo["caption"]="Êàðòà ñàéòà";
+$moduleinfo["caption"]="ÐšÐ°Ñ€Ñ‚Ð° ÑÐ°Ð¹Ñ‚Ð°";
 $moduleinfo["url"]="http://www.scripto-cms.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
 $moduleinfo["version"]="1.0";
-$moduleinfo["use_in_one_rubric"]=false;//òîëüêî äëÿ îäíîé ðóáðèêè
+$moduleinfo["use_in_one_rubric"]=false;//Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð¾Ð´Ð½Ð¾Ð¹ Ñ€ÑƒÐ±Ñ€Ð¸ÐºÐ¸
 $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/sitemap/";
 ?>

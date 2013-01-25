@@ -3,7 +3,7 @@
 	if ($page["main_page"]) {
 	$media=$this->getMediaByCat($page["id_category"],true,true);
 	} else {
-	//ñòðàíèöû
+	//ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹
 	$onpage=$config["category"]["onpage_media"];
 	$max=$this->getCountMediaByCat($page["id_category"],true);
 	if (isset($_REQUEST["pg"])) {

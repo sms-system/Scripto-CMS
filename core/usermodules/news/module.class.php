@@ -1,6 +1,6 @@
 <?
 /*
-Модуль новостей
+РњРѕРґСѓР»СЊ РЅРѕРІРѕСЃС‚РµР№
 */
 
 define("SCRIPTO_news",true);
@@ -25,7 +25,7 @@ class news {
 		global $engine;
 		
 		$type_id=mysql_insert_id();
-		if ($db->query("insert into `%blocks%` values (null,0,'Последние новости','',$type_id,'lastnews',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
+		if ($db->query("insert into `%blocks%` values (null,0,'РџРѕСЃР»РµРґРЅРёРµ РЅРѕРІРѕСЃС‚Рё','',$type_id,'lastnews',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
 			return true;
 		}  else {
 			return false;
@@ -55,7 +55,7 @@ class news {
 	}
 	
 	function checkMe() {
-	//проверяем существуют ли уже таблицы модуля
+	//РїСЂРѕРІРµСЂСЏРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‚ Р»Рё СѓР¶Рµ С‚Р°Р±Р»РёС†С‹ РјРѕРґСѓР»СЏ
 		global $engine;
 		if ($engine->checkInstallModule("news")) {
 			return true;
@@ -136,7 +136,7 @@ class news {
 	}
 	
 	
-	/*добавление новостей*/
+	/*РґРѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕСЃС‚РµР№*/
 	function addNews($date_news="",$caption="",$content="",$content_full="",$meta='',$keywords='',$url="",$author="",$news_small='',$news_middle='',$sql='') {
 		global $db;
 		if (
@@ -149,7 +149,7 @@ class news {
 		}
 	}
 	
-	//получаем новость по идентификатору
+	//РїРѕР»СѓС‡Р°РµРј РЅРѕРІРѕСЃС‚СЊ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
 	function getNewsByID($id_news) {
 		global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_news)) {
@@ -176,7 +176,7 @@ class news {
 			return @mysql_num_rows($res);
 	}	
 		
-	//Получаем новости
+	//РџРѕР»СѓС‡Р°РµРј РЅРѕРІРѕСЃС‚Рё
 	function getAllNews($page=0,$onpage=20) {
 		global $db;
 		global $engine;
@@ -197,7 +197,7 @@ class news {
 		}
 	}
 	
-	//Получаем последние новости
+	//РџРѕР»СѓС‡Р°РµРј РїРѕСЃР»РµРґРЅРёРµ РЅРѕРІРѕСЃС‚Рё
 	function getLastNews($number=0) {
 		global $db;
 		global $engine;

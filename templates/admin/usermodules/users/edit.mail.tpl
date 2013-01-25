@@ -1,17 +1,17 @@
-<p>Ваш аккаунт был отредактирован , новые данные такие:</p>
+<p>Р’Р°С€ Р°РєРєР°СѓРЅС‚ Р±С‹Р» РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅ , РЅРѕРІС‹Рµ РґР°РЅРЅС‹Рµ С‚Р°РєРёРµ:</p>
 <table width="400">
 	<tr>
-		<td width="40%">Логин</td>
+		<td width="40%">Р›РѕРіРёРЅ</td>
 		<td width="60%">{$cuser.login}</td>
 	</tr>
 	{if $password}
 	<tr>
-		<td width="40%">Пароль</td>
+		<td width="40%">РџР°СЂРѕР»СЊ</td>
 		<td width="60%">{$password}</td>
 	</tr>	
 	{/if}
 	<tr>
-		<td width="40%">ФИО</td>
+		<td width="40%">Р¤РРћ</td>
 		<td width="60%">{$cuser.family} {$cuser.name} {$cuser.otch}</td>
 	</tr>	
 	<tr>
@@ -19,16 +19,16 @@
 		<td width="60%">{$cuser.email}</td>
 	</tr>	
 	<tr>
-		<td width="40%">Город</td>
-		<td width="60%">{if $cuser.city}{$cuser.city}{else}Не указано{/if}</td>
+		<td width="40%">Р“РѕСЂРѕРґ</td>
+		<td width="60%">{if $cuser.city}{$cuser.city}{else}РќРµ СѓРєР°Р·Р°РЅРѕ{/if}</td>
 	</tr>
 	<tr>
-		<td width="40%">Городской телефон</td>
-		<td width="60%">{if $cuser.phone1}{$cuser.phone1}{else}Не указано{/if}</td>
+		<td width="40%">Р“РѕСЂРѕРґСЃРєРѕР№ С‚РµР»РµС„РѕРЅ</td>
+		<td width="60%">{if $cuser.phone1}{$cuser.phone1}{else}РќРµ СѓРєР°Р·Р°РЅРѕ{/if}</td>
 	</tr>
 	<tr>
-		<td width="40%">Сотовый телефон</td>
-		<td width="60%">{if $cuser.phone2}{$cuser.phone2}{else}Не указано{/if}</td>
+		<td width="40%">РЎРѕС‚РѕРІС‹Р№ С‚РµР»РµС„РѕРЅ</td>
+		<td width="60%">{if $cuser.phone2}{$cuser.phone2}{else}РќРµ СѓРєР°Р·Р°РЅРѕ{/if}</td>
 	</tr>		
 </table>
 </p>

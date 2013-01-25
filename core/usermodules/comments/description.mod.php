@@ -1,12 +1,12 @@
 <?
-$moduleinfo["caption"]="Ìîäóëü êîììåíòàðèè";
+$moduleinfo["caption"]="ÐœÐ¾Ð´ÑƒÐ»ÑŒ ÐºÐ¾Ð¼Ð¼ÐµÐ½Ñ‚Ð°Ñ€Ð¸Ð¸";
 $moduleinfo["url"]="http://www.scripto-cms.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
 $moduleinfo["version"]="1.0";
 $moduleinfo["icon"]="comments.png";
 $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/comments/";
-$moduleinfo["use_in_one_rubric"]=true;//òîëüêî äëÿ îäíîé ðóáðèêè
+$moduleinfo["use_in_one_rubric"]=true;//Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð¾Ð´Ð½Ð¾Ð¹ Ñ€ÑƒÐ±Ñ€Ð¸ÐºÐ¸
 $moduleinfo["onpage_admin"]=30;
 $moduleinfo["post_only_registered"]=true;
 ?>

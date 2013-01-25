@@ -1,8 +1,8 @@
 <?
 /*
-Модуль рассылки, управление
-Версия модуля - 1.0
-Разработчик - Иванов Дмитрий
+РњРѕРґСѓР»СЊ СЂР°СЃСЃС‹Р»РєРё, СѓРїСЂР°РІР»РµРЅРёРµ
+Р’РµСЂСЃРёСЏ РјРѕРґСѓР»СЏ - 1.0
+Р Р°Р·СЂР°Р±РѕС‚С‡РёРє - РРІР°РЅРѕРІ Р”РјРёС‚СЂРёР№
 */
 
 $m_action=@$_REQUEST["m_action"];
@@ -63,9 +63,9 @@ switch ($m_action) {
 					$add++;
 				}
 			}
-			$engine->setCongratulation('','В рассылку было добавлено '.$add.' e-mail',3000);
+			$engine->setCongratulation('','Р’ СЂР°СЃСЃС‹Р»РєСѓ Р±С‹Р»Рѕ РґРѕР±Р°РІР»РµРЅРѕ '.$add.' e-mail',3000);
 		} else {
-			$engine->setCongratulation('Ошибка','Модуль пользователи не установлен!',3000);
+			$engine->setCongratulation('РћС€РёР±РєР°','РњРѕРґСѓР»СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅ!',3000);
 		}
 		$m_action="import";
 	case "import":
@@ -94,7 +94,7 @@ switch ($m_action) {
 				}
 			}
 		}
-		$engine->setCongratulation('',"Обновлено $u e-mail адресов, удалено $d e-mail адресов",3000);
+		$engine->setCongratulation('',"РћР±РЅРѕРІР»РµРЅРѕ $u e-mail Р°РґСЂРµСЃРѕРІ, СѓРґР°Р»РµРЅРѕ $d e-mail Р°РґСЂРµСЃРѕРІ",3000);
 		$m_action="view";
 	break;
 	case "get_count":
@@ -114,7 +114,7 @@ switch ($m_action) {
 					if ($email["name"]!='') {
 						$description=str_replace('%FIO%',$email["name"],$archive["description"]);
 					} else {
-						$description=str_replace('%FIO%','Подписчик',$archive["description"]);
+						$description=str_replace('%FIO%','РџРѕРґРїРёСЃС‡РёРє',$archive["description"]);
 					}
 					if (mailHTML($email["email"],$archive["backmail"],$archive["caption"],$description,false)) {
 						die("mailerror");
@@ -161,11 +161,11 @@ switch ($m_action) {
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
 			
-			$frm->addField("Тема рассылки","Неверно заполнена тема рассылки","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Открытие сайта",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
-			$frm->addField("Обратный адрес для рассылки","Неверно заполнен обратный адрес для рассылки","text",$backmail,$backmail,"/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i","backmail",1,"info@site.ru",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+			$frm->addField("РўРµРјР° СЂР°СЃСЃС‹Р»РєРё","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅР° С‚РµРјР° СЂР°СЃСЃС‹Р»РєРё","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"РћС‚РєСЂС‹С‚РёРµ СЃР°Р№С‚Р°",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
+			$frm->addField("РћР±СЂР°С‚РЅС‹Р№ Р°РґСЂРµСЃ РґР»СЏ СЂР°СЃСЃС‹Р»РєРё","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ РѕР±СЂР°С‚РЅС‹Р№ Р°РґСЂРµСЃ РґР»СЏ СЂР°СЃСЃС‹Р»РєРё","text",$backmail,$backmail,"/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i","backmail",1,"info@site.ru",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
 			$fck_editor1=$engine->createFCKEditor("fck1",$content);
-			$frm->addField("Текст рассылки","Неверно заполнен текст рассылки","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+			$frm->addField("РўРµРєСЃС‚ СЂР°СЃСЃС‹Р»РєРё","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ С‚РµРєСЃС‚ СЂР°СЃСЃС‹Р»РєРё","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
 
 			$frm->addField("","","hidden",$mode,$mode,"/^[^`]{0,}$/i","mode",1);
 			$frm->addField("","","hidden",$modAction,$modAction,"/^[^`]{0,}$/i","modAction",1);
@@ -175,26 +175,26 @@ switch ($m_action) {
 			}
 
 			if ($mode=="edit") {
-				$engine->addPath('Редактирование рассылки','',false);
+				$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЂР°СЃСЃС‹Р»РєРё','',false);
 			} else {
-				$engine->addPath('Добавление рассылки','',false);
+				$engine->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ СЂР°СЃСЃС‹Р»РєРё','',false);
 			}
 			$engine->assignPath();
 			if (
-			$engine->processFormData($frm,"Сохранить",$first
+			$engine->processFormData($frm,"РЎРѕС…СЂР°РЅРёС‚СЊ",$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				if ($mode=="edit") {
 					if ($db->query("update `%archive%` set `caption`='".sql_quote($caption)."',`backmail`='".$backmail."',`description`='".sql_quote($content)."' where id_archive=$id_archive")) {
-						$engine->setCongratulation('','Рассылка успешно отредактирована!',3000);
+						$engine->setCongratulation('','Р Р°СЃСЃС‹Р»РєР° СѓСЃРїРµС€РЅРѕ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅР°!',3000);
 					} else {
-						$engine->setCongratulation('Ошибка','В процессе редактирования рассылки произошла ошибка!',3000);
+						$engine->setCongratulation('РћС€РёР±РєР°','Р’ РїСЂРѕС†РµСЃСЃРµ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ СЂР°СЃСЃС‹Р»РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!',3000);
 					}
 				} else {
 					if ($this->createArchive($caption,$backmail,$content)) {
-						$engine->setCongratulation('','Рассылка успешно создана!',3000);
+						$engine->setCongratulation('','Р Р°СЃСЃС‹Р»РєР° СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅР°!',3000);
 					} else {
-						$engine->setCongratulation('Ошибка','В процессе создания рассылки произошла ошибка!',3000);
+						$engine->setCongratulation('РћС€РёР±РєР°','Р’ РїСЂРѕС†РµСЃСЃРµ СЃРѕР·РґР°РЅРёСЏ СЂР°СЃСЃС‹Р»РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!',3000);
 					}
 				}
 				$m_action="subscribes";
@@ -215,7 +215,7 @@ if ($m_action=="subscribes") {
 			$id_archive=$_REQUEST["id_archive"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_archive)) {
 				if ($db->query("delete from `%archive%` where id_archive=$id_archive")) {
-					$engine->setCongratulation('','Рассылка удалена успешно!',3000);
+					$engine->setCongratulation('','Р Р°СЃСЃС‹Р»РєР° СѓРґР°Р»РµРЅР° СѓСЃРїРµС€РЅРѕ!',3000);
 				}
 			}
 		}
@@ -248,12 +248,12 @@ if ($m_action=="view") {
 			$email=$_REQUEST["email"];
 			if (preg_match("/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i",$email)) {
 				if ($this->addToSubscribe($email,'')) {
-					$engine->setCongratulation('','E-mail успешно добавлен в базу!',3000);
+					$engine->setCongratulation('','E-mail СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅ РІ Р±Р°Р·Сѓ!',3000);
 				} else {
-					$engine->setCongratulation('Ошибка','E-mail уже существует в базе!',3000);
+					$engine->setCongratulation('РћС€РёР±РєР°','E-mail СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РІ Р±Р°Р·Рµ!',3000);
 				}
 			} else {
-				$engine->setCongratulation('Ошибка','Вы указали не e-mail!',3000);
+				$engine->setCongratulation('РћС€РёР±РєР°','Р’С‹ СѓРєР°Р·Р°Р»Рё РЅРµ e-mail!',3000);
 			}
 		}
 	}

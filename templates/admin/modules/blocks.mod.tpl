@@ -8,7 +8,7 @@
 {elseif $modAction=="quickedit"}
 {if $save}
  <script>
- 	parent.tooltip('','Изменения сохранены!',3000);
+ 	parent.tooltip('','РР·РјРµРЅРµРЅРёСЏ СЃРѕС…СЂР°РЅРµРЅС‹!',3000);
  </script>
 {/if}
 {if $close}
@@ -22,8 +22,8 @@
 <form action="" name="frm" method="post">
 <table width="100%" cellpadding="0" cellspacing="0" class="whiteheader">
 	<tr>
-		<td width="50%">Содержимое блока <b>{$block.caption}</b></td>
-		<td width="50%" align="right"><input type="submit" value="Сохранить изменения"></td>
+		<td width="50%">РЎРѕРґРµСЂР¶РёРјРѕРµ Р±Р»РѕРєР° <b>{$block.caption}</b></td>
+		<td width="50%" align="right"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ"></td>
 	</tr>
 </table>
 <input type="hidden" name="id_block" value="{$block.id_block}">
@@ -35,44 +35,44 @@
 {if $block_content}
 {$block_content}
 {else}
-<p><b>Для данного блока настройки не предусмотрены!</b></p>
-<p><a href="javascript:void(0);" onclick="parent.$.fancybox.close();">Закрыть окно</a></p>
+<p><b>Р”Р»СЏ РґР°РЅРЅРѕРіРѕ Р±Р»РѕРєР° РЅР°СЃС‚СЂРѕР№РєРё РЅРµ РїСЂРµРґСѓСЃРјРѕС‚СЂРµРЅС‹!</b></p>
+<p><a href="javascript:void(0);" onclick="parent.$.fancybox.close();">Р—Р°РєСЂС‹С‚СЊ РѕРєРЅРѕ</a></p>
 {/if}
 {elseif $modAction=="rss_block"}
 {if $add_rss}
 	<script>
-		parent.tooltip('','RSS лента добавлена',3000);
+		parent.tooltip('','RSS Р»РµРЅС‚Р° РґРѕР±Р°РІР»РµРЅР°',3000);
 	</script>
 {/if}
 {if $error_rss}
 	<script>
-		parent.tooltip('','Одно из полей заполнено неверно',3000);
+		parent.tooltip('','РћРґРЅРѕ РёР· РїРѕР»РµР№ Р·Р°РїРѕР»РЅРµРЅРѕ РЅРµРІРµСЂРЅРѕ',3000);
 	</script>
 {/if}
 {if $update_rss}
 	<script>
-		parent.tooltip('Данные сохранены','Обновлено {$n} лент , удалено {$del} лент',3000);
+		parent.tooltip('Р”Р°РЅРЅС‹Рµ СЃРѕС…СЂР°РЅРµРЅС‹','РћР±РЅРѕРІР»РµРЅРѕ {$n} Р»РµРЅС‚ , СѓРґР°Р»РµРЅРѕ {$del} Р»РµРЅС‚',3000);
 	</script>
 {/if}
 <div id="rss">
-<b>Работаем с блоком {$block.caption}</b><br>
-<h1>Добавить новую RSS ленту</h1>
+<b>Р Р°Р±РѕС‚Р°РµРј СЃ Р±Р»РѕРєРѕРј {$block.caption}</b><br>
+<h1>Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІСѓСЋ RSS Р»РµРЅС‚Сѓ</h1>
 <form action="{$siteurl}admin/?module=blocks&modAction=rss_block&mode=add&ajax=true" method="post">
-<p><b>Название ленты:</b></p>
+<p><b>РќР°Р·РІР°РЅРёРµ Р»РµРЅС‚С‹:</b></p>
 <p><input type="text" name="rss_caption" class="textbox" style="width:50%;"></p>
-<p><b>Адрес ленты:</b></p>
+<p><b>РђРґСЂРµСЃ Р»РµРЅС‚С‹:</b></p>
 <p><input type="text" name="rss_link" class="textbox" style="width:50%;"></p>
 <input type="hidden" name="id_block" value="{$block.id_block}">
-<p><input type="submit" value="Добавить новую ленту"></p>
+<p><input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІСѓСЋ Р»РµРЅС‚Сѓ"></p>
 </form>
-<h1>Существующие rss ленты</h1>
+<h1>РЎСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ rss Р»РµРЅС‚С‹</h1>
 <form action="{$siteurl}admin/?module=blocks&modAction=rss_block&ajax=true&id_block={$block.id_block}&mode=save" method="post">
 <table width="100%" cellpadding="0" cellspacing="0" id="cats">
 <tr height="30">
-	<td width="30%" class="shapka">Название ленты</td>
-	<td width="7%" class="shapka">Новостей</td>
-	<td width="58%" class="shapka">Адрес</td>
-	<td width="5%" class="shapka" align="right">Удалить</td>
+	<td width="30%" class="shapka">РќР°Р·РІР°РЅРёРµ Р»РµРЅС‚С‹</td>
+	<td width="7%" class="shapka">РќРѕРІРѕСЃС‚РµР№</td>
+	<td width="58%" class="shapka">РђРґСЂРµСЃ</td>
+	<td width="5%" class="shapka" align="right">РЈРґР°Р»РёС‚СЊ</td>
 </tr>
 {if $rss}
 {foreach key=key item=rs from=$rss}
@@ -84,24 +84,24 @@
 <input type="hidden" name="idrss[{$rs.id_rss}]" value="{$rs.id_rss}">
 {/foreach}
 <tr>
-	<td colspan="3" align="center" style="padding-top:10px;"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="3" align="center" style="padding-top:10px;"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 {/if}
 </table>
 </form>
 </div>
 {elseif $modAction=="random_photo"}
-<p>Выберите раздел , в котором выводить блок <b>{$block.caption}</b></p>
+<p>Р’С‹Р±РµСЂРёС‚Рµ СЂР°Р·РґРµР» , РІ РєРѕС‚РѕСЂРѕРј РІС‹РІРѕРґРёС‚СЊ Р±Р»РѕРє <b>{$block.caption}</b></p>
 {if $save}
 <script>
-	parent.tooltip('','Данные сохранены',5000);
+	parent.tooltip('','Р”Р°РЅРЅС‹Рµ СЃРѕС…СЂР°РЅРµРЅС‹',5000);
 </script>
 {/if}
 <form id="frm" action="{$siteurl}admin/?module=blocks&modAction=random_photo&ajax=true&id_block={$block.id_block}" method="post">
 <table width="100%" id="mods">
 <tr height="30">
 	<td width="10%" class="shapka"></td>
-	<td width="90%" class="shapka">Название раздела</td>
+	<td width="90%" class="shapka">РќР°Р·РІР°РЅРёРµ СЂР°Р·РґРµР»Р°</td>
 </tr>
 {if $categories}
 {foreach key=key item=category from=$categories}
@@ -112,7 +112,7 @@
 {/foreach}
 <input type="hidden" name="m_save" value="1">
 <tr>
-	<td colspan="2" align="center" style="padding-top:10px;"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="2" align="center" style="padding-top:10px;"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 {/if}
 </table>
@@ -120,33 +120,33 @@
 {elseif $modAction=="text_block"}
 {if $add_block}
 	<script>
-		parent.tooltip('','Текстовый блок добавлен успешно',3000);
+		parent.tooltip('','РўРµРєСЃС‚РѕРІС‹Р№ Р±Р»РѕРє РґРѕР±Р°РІР»РµРЅ СѓСЃРїРµС€РЅРѕ',3000);
 	</script>
 {/if}
 {if $update_block}
 	<script>
-		parent.tooltip('Данные сохранены','Обновлено {$n} блоков , удалено {$del} блоков',3000);
+		parent.tooltip('Р”Р°РЅРЅС‹Рµ СЃРѕС…СЂР°РЅРµРЅС‹','РћР±РЅРѕРІР»РµРЅРѕ {$n} Р±Р»РѕРєРѕРІ , СѓРґР°Р»РµРЅРѕ {$del} Р±Р»РѕРєРѕРІ',3000);
 	</script>
 {/if}
 <div id="texts">
-<b>Работаем с блоком {$block.caption}</b><br>
-<h1>Добавить новый текстовый блок</h1>
+<b>Р Р°Р±РѕС‚Р°РµРј СЃ Р±Р»РѕРєРѕРј {$block.caption}</b><br>
+<h1>Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ С‚РµРєСЃС‚РѕРІС‹Р№ Р±Р»РѕРє</h1>
 <form action="{$siteurl}admin/?module=blocks&modAction=text_block&mode=add&ajax=true" method="post">
-<p><b>Название блока:</b></p>
+<p><b>РќР°Р·РІР°РЅРёРµ Р±Р»РѕРєР°:</b></p>
 <p><input type="text" name="caption" class="textbox" style="width:50%;"></p>
-<p><b>Содержимое блока:</b></p>
+<p><b>РЎРѕРґРµСЂР¶РёРјРѕРµ Р±Р»РѕРєР°:</b></p>
 <p><textarea name="content" style="width:50%;height:100px;"></textarea></p>
 <input type="hidden" name="id_block" value="{$block.id_block}">
 <input type="hidden" name="mode" value="add">
-<p><input type="submit" class="button" value="Добавить новый блок"></p>
+<p><input type="submit" class="button" value="Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ Р±Р»РѕРє"></p>
 </form>
-<h1>Существующие текстовые блоки</h1>
+<h1>РЎСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ С‚РµРєСЃС‚РѕРІС‹Рµ Р±Р»РѕРєРё</h1>
 <form action="{$siteurl}admin/?module=blocks&modAction=text_block&ajax=true&id_block={$block.id_block}&mode=save" method="post">
 <table width="100%" cellpadding="0" cellspacing="0" id="cats">
 <tr height="30">
-	<td width="35%" class="shapka">Название</td>
-	<td width="60%" class="shapka">Текст</td>
-	<td width="5%" class="shapka" align="right">Удалить</td>
+	<td width="35%" class="shapka">РќР°Р·РІР°РЅРёРµ</td>
+	<td width="60%" class="shapka">РўРµРєСЃС‚</td>
+	<td width="5%" class="shapka" align="right">РЈРґР°Р»РёС‚СЊ</td>
 </tr>
 {if $texts}
 {foreach key=key item=text from=$texts}
@@ -157,7 +157,7 @@
 <input type="hidden" name="idtext[{$text.id_text}]" value="{$text.id_text}">
 {/foreach}
 <tr>
-	<td colspan="3" align="center" style="padding-top:10px;"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="3" align="center" style="padding-top:10px;"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 {/if}
 </table>
@@ -165,22 +165,22 @@
 </div>
 {elseif $modAction=="view" || $modAction=="save"}
 <div class="body">
-	<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=blocks&modAction=add');">Создать новый блок</p>
+	<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=blocks&modAction=add');">РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ Р±Р»РѕРє</p>
 </div>
 <div class="body">
 {if $blocks}
 <form id="frm" method="post">
 <table class="objects">
 <tr>
-	<td class="objects_header editable_header" width="25%"><span>Название</span></td>
+	<td class="objects_header editable_header" width="25%"><span>РќР°Р·РІР°РЅРёРµ</span></td>
 	<td class="objects_header" width="1%"></td>
-	<td class="objects_header editable_header" width="14%"><span>Идентификатор</span></td>
-	<td class="objects_header" width="8%">Создан</td>
-	<td class="objects_header editable_header" width="5%"><span>Сортировка</span></td>
-	<td class="objects_header editable_header" width="15%"><span>Тип блока</span></td>
-	<td class="objects_header editable_header" width="12%"><span>Кол-во объектов</span></td>
-	<td class="objects_header" width="5%">Видимость</td>
-	<td class="objects_header" width="15%" align="right">Действия</td>
+	<td class="objects_header editable_header" width="14%"><span>РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ</span></td>
+	<td class="objects_header" width="8%">РЎРѕР·РґР°РЅ</td>
+	<td class="objects_header editable_header" width="5%"><span>РЎРѕСЂС‚РёСЂРѕРІРєР°</span></td>
+	<td class="objects_header editable_header" width="15%"><span>РўРёРї Р±Р»РѕРєР°</span></td>
+	<td class="objects_header editable_header" width="12%"><span>РљРѕР»-РІРѕ РѕР±СЉРµРєС‚РѕРІ</span></td>
+	<td class="objects_header" width="5%">Р’РёРґРёРјРѕСЃС‚СЊ</td>
+	<td class="objects_header" width="15%" align="right">Р”РµР№СЃС‚РІРёСЏ</td>
 </tr>
 {foreach key=key item=block from=$blocks}
 <tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="block{$block.id_block}">
@@ -219,7 +219,7 @@
 	<td></td>
 </tr>
 <tr id="save_submit">
-	<td colspan="8" align="center" style="padding-top:10px;"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="8" align="center" style="padding-top:10px;"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 </table>
 <input type="hidden" name="modAction" value="save">

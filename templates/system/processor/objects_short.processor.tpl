@@ -5,9 +5,9 @@
 {else}
 	<div class="object_description_max">
 {/if}
-		<h3>{if $type.full_content}<a href="{$siteurl}{$urls[$obj.id_category]}?id_object={$obj.id_object}">{/if}{$obj.caption} {foreach key=key item=text from=$obj.values.texts}{if $text.type=="pricerub"}{if $text.value}( {$text.value} руб. ){/if}{elseif $text.type=="priceusd"}{if $text.value}( {$text.value} $ ){/if}{/if}{/foreach}{if $type.full_content}</a>{/if}</h3>
+		<h3>{if $type.full_content}<a href="{$siteurl}{$urls[$obj.id_category]}?id_object={$obj.id_object}">{/if}{$obj.caption} {foreach key=key item=text from=$obj.values.texts}{if $text.type=="pricerub"}{if $text.value}( {$text.value} СЂСѓР±. ){/if}{elseif $text.type=="priceusd"}{if $text.value}( {$text.value} $ ){/if}{/if}{/foreach}{if $type.full_content}</a>{/if}</h3>
 		{if $type.use_code}
-			{if $obj.code!=''}<p>Код {$type.fulllink_text}: <b>{$obj.code}</b></p>{/if}
+			{if $obj.code!=''}<p>РљРѕРґ {$type.fulllink_text}: <b>{$obj.code}</b></p>{/if}
 		{/if}
 		{if $type.short_content}
 			{$obj.small_content}
@@ -20,7 +20,7 @@
 				{elseif $text.type=="email"}
 					{if $text.value!='' && $text.caption!=''}{$text.caption} : <a href="mailto:{$text.value}">{$text.value}</a>; {/if}
 				{elseif $text.type=="pricerub"}
-					{if $text.value!='' && $text.caption!=''}{$text.caption} : {$text.value} руб.; {/if}
+					{if $text.value!='' && $text.caption!=''}{$text.caption} : {$text.value} СЂСѓР±.; {/if}
 				{elseif $text.type=="priceusd"}
 					{if $text.value!='' && $text.caption!=''}{$text.caption} : {$text.value} $; {/if}					
 				{else}
@@ -30,12 +30,12 @@
 		{/if}
 		{if $obj.values.checkbox}
 			{foreach key=key item=text from=$obj.values.checkbox}
-					{if $text.caption!=''}{$text.caption} : {if $text.value}да{else}нет{/if}; {/if}
+					{if $text.caption!=''}{$text.caption} : {if $text.value}РґР°{else}РЅРµС‚{/if}; {/if}
 			{/foreach}
 		{/if}
 		{if $obj.values.lists}
 			{foreach key=key item=text from=$obj.values.lists}
-					{if $text.caption!=''}{$text.caption} : {if $text.value}{$text.value}{else}не указано{/if}; {/if}
+					{if $text.caption!=''}{$text.caption} : {if $text.value}{$text.value}{else}РЅРµ СѓРєР°Р·Р°РЅРѕ{/if}; {/if}
 			{/foreach}
 		{/if}	
 		</p>

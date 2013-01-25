@@ -1,12 +1,12 @@
 
 <?
-$lang["comments"]["caption"]="Êîìåíòàð³";
-$lang["comments"]["add"]="Äîäàòè êîìåíòàð";
-$lang["comments"]["wrote"]="ïèñàâ";
-$lang["comments"]["congratulation"]="Âàø êîìåíòàð óñï³øíî äîäàíèé";
-$lang["comments"]["nickname"]="Í³ê";
-$lang["comments"]["comment"]="Êîìåíòàð";
-$lang["comments"]["button"]="Äîäàòè";
-$lang["comments"]["captcha"]="Ââåä³òü öèôðè, âêàçàí³ íà êàðòèíö³";
-$lang["comments"]["kcaptha_error"]="Âè âêàçàëè íåâ³ðí³ öèôðè, âêàçàí³ íà êàðòèíö³";
+$lang["comments"]["caption"]="ÐšÐ¾Ð¼ÐµÐ½Ñ‚Ð°Ñ€Ñ–";
+$lang["comments"]["add"]="Ð”Ð¾Ð´Ð°Ñ‚Ð¸ ÐºÐ¾Ð¼ÐµÐ½Ñ‚Ð°Ñ€";
+$lang["comments"]["wrote"]="Ð¿Ð¸ÑÐ°Ð²";
+$lang["comments"]["congratulation"]="Ð’Ð°Ñˆ ÐºÐ¾Ð¼ÐµÐ½Ñ‚Ð°Ñ€ ÑƒÑÐ¿Ñ–ÑˆÐ½Ð¾ Ð´Ð¾Ð´Ð°Ð½Ð¸Ð¹";
+$lang["comments"]["nickname"]="ÐÑ–Ðº";
+$lang["comments"]["comment"]="ÐšÐ¾Ð¼ÐµÐ½Ñ‚Ð°Ñ€";
+$lang["comments"]["button"]="Ð”Ð¾Ð´Ð°Ñ‚Ð¸";
+$lang["comments"]["captcha"]="Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ñ†Ð¸Ñ„Ñ€Ð¸, Ð²ÐºÐ°Ð·Ð°Ð½Ñ– Ð½Ð° ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–";
+$lang["comments"]["kcaptha_error"]="Ð’Ð¸ Ð²ÐºÐ°Ð·Ð°Ð»Ð¸ Ð½ÐµÐ²Ñ–Ñ€Ð½Ñ– Ñ†Ð¸Ñ„Ñ€Ð¸, Ð²ÐºÐ°Ð·Ð°Ð½Ñ– Ð½Ð° ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–";
 ?>

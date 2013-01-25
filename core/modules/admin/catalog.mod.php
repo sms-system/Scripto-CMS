@@ -1,6 +1,6 @@
 <?
 /*
-модуль каталог
+РјРѕРґСѓР»СЊ РєР°С‚Р°Р»РѕРі
 */
 global $config;
 if (defined("SCRIPTO_GALLERY")) {
@@ -36,7 +36,7 @@ if (defined("SCRIPTO_GALLERY")) {
 						}
 						$ident_str='';
 $ident[$key]=trim($ident[$key]);
-						if (preg_match("/^[-а-яА-Яa-zA-Z0-9_\/]{2,255}$/i",$ident[$key])) {
+						if (preg_match("/^[-Р°-СЏРђ-РЇa-zA-Z0-9_\/]{2,255}$/i",$ident[$key])) {
 							if (!in_array($ident[$key],$idents)) {
 								$ident_str=", `ident`='".strtolower($ident[$key])."'";
 							}
@@ -145,7 +145,7 @@ $ident[$key]=trim($ident[$key]);
 				$id_cat1=@$_REQUEST["id_cat1"];
 				$category=$this->getCategoryByID($id_cat1);
 			}
-			//устанавливаем превью
+			//СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїСЂРµРІСЊСЋ
 				if (isset($_REQUEST["setPreview"])) {
 					$previewMode=@$_REQUEST["previewMode"];
 					$id_image=@$_REQUEST["id_image"];
@@ -159,21 +159,21 @@ $ident[$key]=trim($ident[$key]);
 						switch ($previewMode) {
 							case "small":
 								if ($mode!="edit") {
-$this->setPreview($img["small_photo"],$previewMode,'Малое превью установлено');
+$this->setPreview($img["small_photo"],$previewMode,'РњР°Р»РѕРµ РїСЂРµРІСЊСЋ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ');
 $_SESSION["category_small"]=$img["small_photo"];
 								} else {
 								if ($db->query("update `%categories%` set preview='".$img["small_photo"]."' where id_category=$id_cat1")) {
-$this->setPreview($img["small_photo"],$previewMode,'Малое превью установлено');
+$this->setPreview($img["small_photo"],$previewMode,'РњР°Р»РѕРµ РїСЂРµРІСЊСЋ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ');
 								}
 								}
 							break;
 							case "medium":
 								if ($mode!="edit") {
-$this->setPreview($img["medium_photo"],$previewMode,'Среднее превью установлено');
+$this->setPreview($img["medium_photo"],$previewMode,'РЎСЂРµРґРЅРµРµ РїСЂРµРІСЊСЋ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ');
 $_SESSION["category_middle"]=$img["medium_photo"];
 								} else {
 								if ($db->query("update `%categories%` set big_preview='".$img["medium_photo"]."' where id_category=$id_cat1")) {
-									$this->setPreview($img["medium_photo"],$previewMode,'Среднее превью установлено');
+									$this->setPreview($img["medium_photo"],$previewMode,'РЎСЂРµРґРЅРµРµ РїСЂРµРІСЊСЋ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ');
 								}
 								}
 							break;
@@ -278,7 +278,7 @@ $_SESSION["category_middle"]=$img["medium_photo"];
 						$is_registered=$category["is_registered"];
 						$lang_values=$this->generateLangArray("categories",$category);
 					} else {
-						//показываем ошибку
+						//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 					}
 				} else {
 					if (defined("SCRIPTO_tags")) {
@@ -337,13 +337,13 @@ if (defined("SCRIPTO_tags")) {
 $frm->addField($lang["forms"]["catalog"]["tags"]["caption"],$lang["forms"]["catalog"]["tags"]["error"],"text",$tags,$tags,"/^[^`#]{2,255}$/i","tags",0,$lang["forms"]["catalog"]["tags"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["catalog"]["tags"]["rules"]));
 }
 
-$frm->addField($lang["forms"]["catalog"]["ident"]["caption"],$lang["forms"]["catalog"]["ident"]["error"],"text",$ident,$ident,"/^[-а-яА-Яa-zA-Z0-9_\/]{2,255}$/i","ident",1,$lang["forms"]["catalog"]["ident"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["catalog"]["ident"]["rules"]));
+$frm->addField($lang["forms"]["catalog"]["ident"]["caption"],$lang["forms"]["catalog"]["ident"]["error"],"text",$ident,$ident,"/^[-Р°-СЏРђ-РЇa-zA-Z0-9_\/]{2,255}$/i","ident",1,$lang["forms"]["catalog"]["ident"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["catalog"]["ident"]["rules"]));
 
 
-$frm->addField('Превью для раздела',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('hidden'=>true));
+$frm->addField('РџСЂРµРІСЊСЋ РґР»СЏ СЂР°Р·РґРµР»Р°',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('hidden'=>true));
 if ($mode=="edit") {
-$frm->addField('Малое изображение превью','',"preview",$category["preview"],$category["preview"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true,'id_cat'=>$category["id_category"]));
-$frm->addField('Большое изображение превью','',"preview",$category["big_preview"],$category["big_preview"],"/^[0-9]{1,}$/i","big_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true,'id_cat'=>$category["id_category"]));
+$frm->addField('РњР°Р»РѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРµРІСЊСЋ','',"preview",$category["preview"],$category["preview"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true,'id_cat'=>$category["id_category"]));
+$frm->addField('Р‘РѕР»СЊС€РѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРµРІСЊСЋ','',"preview",$category["big_preview"],$category["big_preview"],"/^[0-9]{1,}$/i","big_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true,'id_cat'=>$category["id_category"]));
 } else {
 if (isset($_SESSION["category_small"])) {
 $category["preview"]=$_SESSION["category_small"];
@@ -360,13 +360,13 @@ if (preg_match("/^[0-9]{1,}$/i",$id_cat)) {
 } else {
 	$cat_idcat=false;
 }
-$frm->addField('Малое изображение превью','',"preview",$category["preview"],$category["preview"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true,'id_cat'=>$cat_idcat));
-$frm->addField('Большое изображение превью','',"preview",$category["big_preview"],$category["big_preview"],"/^[0-9]{1,}$/i","big_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true,'id_cat'=>$cat_idcat));
+$frm->addField('РњР°Р»РѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРµРІСЊСЋ','',"preview",$category["preview"],$category["preview"],"/^[0-9]{1,}$/i","min_preview",0,'',array('mode'=>'small','multiple'=>'no','fancy_show'=>true,'id_cat'=>$cat_idcat));
+$frm->addField('Р‘РѕР»СЊС€РѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРµРІСЊСЋ','',"preview",$category["big_preview"],$category["big_preview"],"/^[0-9]{1,}$/i","big_preview",0,'',array('mode'=>'medium','multiple'=>'no','fancy_show'=>true,'id_cat'=>$cat_idcat));
 }
-$frm->addField('Превью для раздела',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('end'=>true));
+$frm->addField('РџСЂРµРІСЊСЋ РґР»СЏ СЂР°Р·РґРµР»Р°',"","caption",0,0,"/^[0-9]{1}$/i","preview",0,'',array('end'=>true));
 
 
-$frm->addField('Контент раздела',"","caption",0,0,"/^[0-9]{1}$/i","con",0,'',array('hidden'=>true));
+$frm->addField('РљРѕРЅС‚РµРЅС‚ СЂР°Р·РґРµР»Р°',"","caption",0,0,"/^[0-9]{1}$/i","con",0,'',array('hidden'=>true));
 
 $frm->addField($lang["forms"]["catalog"]["file_content"]["caption"],$lang["forms"]["catalog"]["file_content"]["error"],"check",$file_content,$file_content,"/^[0-9]{1}$/i","file_content",1);
 
@@ -376,9 +376,9 @@ $frm->addField($lang["forms"]["catalog"]["content"]["caption"],$lang["forms"]["c
 $fck_editor2=$this->createFCKEditor("fck2",$subcontent);
 $frm->addField($lang["forms"]["catalog"]["subcontent"]["caption"],$lang["forms"]["catalog"]["subcontent"]["error"],"solmetra",$fck_editor2,$fck_editor2,"/^[[:print:][:allnum:]]{1,}$/i","content2",1,"");
 
-$frm->addField('Контент раздела',"","caption",0,0,"/^[0-9]{1}$/i","con",0,'',array('end'=>true));
+$frm->addField('РљРѕРЅС‚РµРЅС‚ СЂР°Р·РґРµР»Р°',"","caption",0,0,"/^[0-9]{1}$/i","con",0,'',array('end'=>true));
 
-$frm->addField('SEO оптимизация',"","caption",0,0,"/^[0-9]{1}$/i","seo",0,'',array('hidden'=>true));
+$frm->addField('SEO РѕРїС‚РёРјРёР·Р°С†РёСЏ',"","caption",0,0,"/^[0-9]{1}$/i","seo",0,'',array('hidden'=>true));
 
 $frm->addField($lang["forms"]["catalog"]["titletag"]["caption"],$lang["forms"]["catalog"]["titletag"]["error"],"text",$titletag,$titletag,"/^[^`#]{2,255}$/i","titletag",0,$lang["forms"]["catalog"]["titletag"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["catalog"]["titletag"]["rules"]));
 
@@ -388,7 +388,7 @@ $frm->addField($lang["forms"]["catalog"]["metakeywords"]["caption"],$lang["forms
 
 $frm->addField('',"","caption",0,0,"/^[0-9]{1}$/i","seo",0,'',array('end'=>true));
 
-$frm->addField('Прочее',"","caption",0,0,"/^[0-9]{1}$/i","other",0,'',array('hidden'=>true));
+$frm->addField('РџСЂРѕС‡РµРµ',"","caption",0,0,"/^[0-9]{1}$/i","other",0,'',array('hidden'=>true));
 
 $frm->addField($lang["forms"]["catalog"]["rss_link"]["caption"],$lang["forms"]["catalog"]["rss_link"]["error"],"text",$rss_link,$rss_link,"/^(http|https)+(:\/\/)+[a-z0-9_-]+\.+[a-z0-9_-]/i","rss_link",0,$lang["forms"]["catalog"]["rss_link"]["sample"],array('size'=>'40','ticket'=>$lang["forms"]["catalog"]["rss_link"]["rules"]));
 
@@ -402,7 +402,7 @@ $frm->addField($lang["forms"]["catalog"]["preview_height"]["caption"],$lang["for
 
 $frm->addField('',"","caption",0,0,"/^[0-9]{1}$/i","other",0,'',array('end'=>true));
 
-$frm->addField('Системные настройки',"","caption",0,0,"/^[0-9]{1}$/i","system",0,'',array('hidden'=>true));
+$frm->addField('РЎРёСЃС‚РµРјРЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё',"","caption",0,0,"/^[0-9]{1}$/i","system",0,'',array('hidden'=>true));
 
 $frm->addField($lang["forms"]["catalog"]["template"]["caption"],$lang["forms"]["catalog"]["template"]["error"],"list",$templates,$id_tpl,"/^[0-9]{1,}$/i","id_tpl",1,$lang["forms"]["catalog"]["template"]["sample"],array('size'=>'30'));
 
@@ -465,12 +465,12 @@ if (!checkdate($date_news[1],$date_news[0],$date_news[2]))
 			if (
 $this->processFormData($frm,$lang["forms"]["catalog"]["submit_name"],$first
 			)) {
-				//добавляем или редактируем
-				//404 ошибка
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
+				//404 РѕС€РёР±РєР°
 				if ($page404==1) 
 					$db->query("update `%categories%` set `page404`=0");
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if ($file_content) {
 					if ($this->setContentFile($id_cat1,$content)) {
 						$this->updateContent($id_cat1);
@@ -482,7 +482,7 @@ $this->processFormData($frm,$lang["forms"]["catalog"]["submit_name"],$first
 				 if (isset($id_cat1)) {
 				 if ($id_cat==$id_cat1) $id_cat=$category["id_sub_category"];
 				 	if ($db->query("update %categories% set caption='".sql_quote($title)."' , title='".sql_quote($titletag)."', meta='".sql_quote($metatag)."',content='".sql_quote($content)."',`subcontent`='".sql_quote($subcontent)."',visible=$visible,`page404`=$page404,`category_type`='".sql_quote($content_type)."',ident='".sql_quote($ident)."',rss_link='".sql_quote($rss_link)."',id_sub_category=$id_cat,id_tpl=$id_tpl,position='".sql_quote($position)."',`keywords`='".sql_quote($metakeywords)."',`date_post`='".sql_quote($date_news[2])."-".sql_quote($date_news[1])."-".sql_quote($date_news[0])."',`future_post`=$future_post, `preview_width`=$preview_width , `preview_height`=$preview_height,`in_navigation`=$in_navigation,`is_registered`=$is_registered ".$this->generateUpdateSQL("categories",$lang_values)." where id_category=$id_cat1")) {
-						//отредактировали
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
 				//	   $modAction="view";
 				  		if (defined("SCRIPTO_tags")) {
 							$tgs->addTags($tags,$id_cat1,'category');
@@ -495,10 +495,10 @@ $this->processFormData($frm,$lang["forms"]["catalog"]["submit_name"],$first
 					
 					}
 				 } else {
-				 	//показываем ошибку
+				 	//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
 				 if ($file_content) {
 				 	$cont=$content;
 					$content="";
@@ -517,7 +517,7 @@ $this->processFormData($frm,$lang["forms"]["catalog"]["submit_name"],$first
 				 }
 				 $add_id=$this->addCategory($id_cat,$title,$content_type,$ident,$visible,$page404,$titletag,$metatag,$metakeywords,$rss_link,$content,$subcontent,$id_tpl,$position,$date_news,$future_post,$preview_width,$preview_height,$in_navigation,$is_registered,$category_small,$category_middle,'',$lang_values);
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				//   $modAction="view";
 				  		if (defined("SCRIPTO_tags")) {
 							$tgs->addTags($tags,$add_id,'category');
@@ -534,7 +534,7 @@ $this->processFormData($frm,$lang["forms"]["catalog"]["submit_name"],$first
 				} else {
 				   $this->setCongratulation('',$lang["congratulation"]["rubric_add"],3000);
 				   if ($file_content) {
-				   	//контент в файл
+				   	//РєРѕРЅС‚РµРЅС‚ РІ С„Р°Р№Р»
 					if ($this->setContentFile($add_id,$cont)) {
 						$this->updateContent($add_id);
 					}
@@ -543,7 +543,7 @@ $this->processFormData($frm,$lang["forms"]["catalog"]["submit_name"],$first
 				   $this->clearPath();
 				  }
 				 } else {
-				   //показываем ошибку
+				   //РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				   
 				 }
 				
@@ -555,7 +555,7 @@ $this->processFormData($frm,$lang["forms"]["catalog"]["submit_name"],$first
 				$smarty->assign("id_object",$id_cat1);
 		break;
 		case "delete":
-			//удаление
+			//СѓРґР°Р»РµРЅРёРµ
 			$id_cat=@$_REQUEST["id_cat"];
 			if (preg_match("/^[0-9]{1,}$/i",$id_cat)) {
 				$cat=$this->getCategoryByID($id_cat);
@@ -564,7 +564,7 @@ $this->processFormData($frm,$lang["forms"]["catalog"]["submit_name"],$first
 				$modAction="view";
 				$this->setCongratulation('',$lang["congratulation"]["rubric_delete"],3000);
 			} else {
-				//выдаем ошибку
+				//РІС‹РґР°РµРј РѕС€РёР±РєСѓ
 			}
 		break;
 	}

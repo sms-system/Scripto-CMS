@@ -1,27 +1,27 @@
-/*Файл для обработки функций добавления типов в модуль каталог товаров*/
+/*Р¤Р°Р№Р» РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё С„СѓРЅРєС†РёР№ РґРѕР±Р°РІР»РµРЅРёСЏ С‚РёРїРѕРІ РІ РјРѕРґСѓР»СЊ РєР°С‚Р°Р»РѕРі С‚РѕРІР°СЂРѕРІ*/
 $(document).ready(function(){
 
 	$('#createType').click(function() {	
 		if ($("#typeName").val()!='') {
-			setLoadProcess('Добавление нового типа товара');
-			showLoad('Товары');
+			setLoadProcess('Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ С‚РёРїР° С‚РѕРІР°СЂР°');
+			showLoad('РўРѕРІР°СЂС‹');
 		var ser=$("#typeName").serialize();	$.post('/admin/?module=modules&module_name=products&m_action=add_type&modAction=settings&' + ser,function(response, status, xhr) {
 			  if (status == "error") {
-			    var msg = "В процессе загрузки произошла ошибка: ";
+			    var msg = "Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
 				hideLoad();
 			 } else {
 				hideLoad();
 			 	switch (response) {
 					case 'ERROR':
-						tooltip('Ошибка','Ошибка добавления нового типа товаров',5000);
+						tooltip('РћС€РёР±РєР°','РћС€РёР±РєР° РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕРіРѕ С‚РёРїР° С‚РѕРІР°СЂРѕРІ',5000);
 					break;
 					default:
 					try {
 						var object = jQuery.parseJSON(response);
 					} catch(e) {};
 					if (object==null) {
-						tooltip("Ошибка","При добавлении типа товара произошла непредвиденная ошибка, пожалуйста повторите попытку добавления еще раз",5000);
+						tooltip("РћС€РёР±РєР°","РџСЂРё РґРѕР±Р°РІР»РµРЅРёРё С‚РёРїР° С‚РѕРІР°СЂР° РїСЂРѕРёР·РѕС€Р»Р° РЅРµРїСЂРµРґРІРёРґРµРЅРЅР°СЏ РѕС€РёР±РєР°, РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ РґРѕР±Р°РІР»РµРЅРёСЏ РµС‰Рµ СЂР°Р·",5000);
 					} else {
 			var clss=$(".objects tr:last").attr('class');
 			if (clss=='objects_cell_bold') {
@@ -31,8 +31,8 @@ $(document).ready(function(){
 			} else {
 				clss='objects_cell_light';
 			}					
-					var s_object='<tr class="' + clss + '" id="type' + object.id_type + '"><td class="editable"><span>' + object.caption + '</span><input type="text" name="caption[' + object.id_type + ']" value="' + object.caption + '" class="nonvisible"></td><td class="editable" align="center"><input type="checkbox" name="del[' + object.id_type + ']" class="deletecheckbox" numb="0"></td><td class="actions" align="right"><ul><li><a href="/admin/?module=modules&module_name=products&m_action=edit_type&modAction=settings&id_type=' + object.id_type + '&mode=edit" title="Редактировать тип ' + object.caption + '"><img src="/images/admin/icons/edit.gif"></a></li><li><a href="/admin/?module=modules&module_name=products&m_action=options&modAction=settings&ajax=yes&id_type=' + object.id_type + '" class="dialog" title="Задать поля для типа ' + object.caption + '"><img src="/images/admin/icons/cube_blue.gif" alt="Задать поля для типа ' + object.caption + '"></a></li></ul></td></tr>';
-						tooltip("Тип товаров добавлен","Тип товаров добавлен успешно",3000);
+					var s_object='<tr class="' + clss + '" id="type' + object.id_type + '"><td class="editable"><span>' + object.caption + '</span><input type="text" name="caption[' + object.id_type + ']" value="' + object.caption + '" class="nonvisible"></td><td class="editable" align="center"><input type="checkbox" name="del[' + object.id_type + ']" class="deletecheckbox" numb="0"></td><td class="actions" align="right"><ul><li><a href="/admin/?module=modules&module_name=products&m_action=edit_type&modAction=settings&id_type=' + object.id_type + '&mode=edit" title="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С‚РёРї ' + object.caption + '"><img src="/images/admin/icons/edit.gif"></a></li><li><a href="/admin/?module=modules&module_name=products&m_action=options&modAction=settings&ajax=yes&id_type=' + object.id_type + '" class="dialog" title="Р—Р°РґР°С‚СЊ РїРѕР»СЏ РґР»СЏ С‚РёРїР° ' + object.caption + '"><img src="/images/admin/icons/cube_blue.gif" alt="Р—Р°РґР°С‚СЊ РїРѕР»СЏ РґР»СЏ С‚РёРїР° ' + object.caption + '"></a></li></ul></td></tr>';
+						tooltip("РўРёРї С‚РѕРІР°СЂРѕРІ РґРѕР±Р°РІР»РµРЅ","РўРёРї С‚РѕРІР°СЂРѕРІ РґРѕР±Р°РІР»РµРЅ СѓСЃРїРµС€РЅРѕ",3000);
 						$('.objects').append(s_object);
 						$('.objects').removeClass('nonvisible');
 						$('.objects2').removeClass('nonvisible');
@@ -44,7 +44,7 @@ $(document).ready(function(){
 			 }
 			 });	
 		} else {
-			tooltip('Ошибка','Необходимо указать название типа товара!',5000);
+			tooltip('РћС€РёР±РєР°','РќРµРѕР±С…РѕРґРёРјРѕ СѓРєР°Р·Р°С‚СЊ РЅР°Р·РІР°РЅРёРµ С‚РёРїР° С‚РѕРІР°СЂР°!',5000);
 		}
 	});		
 

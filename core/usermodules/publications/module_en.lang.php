@@ -1,9 +1,9 @@
 <?
-//ßçûêîâîé ôàéë äëÿ ìîäóëÿ êàòàëîã òîâàðîâ
-$lang["forms"]["publications"]["visible"]["caption"]="Ñäåëàòü ïóáëèêàöèþ âèäèìîé";
-$lang["forms"]["publications"]["visible"]["error"]="Óêàçàíî íåâåðíîå çíà÷åíèå âèäèìîñòè ïóáëèêàöèè";
-$lang["interface"]["edit_publication"]="Ðåäàêòèðîâàòü ïóáëèêàöèþ";
-$lang["dialog"]["delete_publication"]="Óäàëèòü ïóáëèêàöèþ?";
+//Ð¯Ð·Ñ‹ÐºÐ¾Ð²Ð¾Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð²
+$lang["forms"]["publications"]["visible"]["caption"]="Ð¡Ð´ÐµÐ»Ð°Ñ‚ÑŒ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸ÑŽ Ð²Ð¸Ð´Ð¸Ð¼Ð¾Ð¹";
+$lang["forms"]["publications"]["visible"]["error"]="Ð£ÐºÐ°Ð·Ð°Ð½Ð¾ Ð½ÐµÐ²ÐµÑ€Ð½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð²Ð¸Ð´Ð¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸";
+$lang["interface"]["edit_publication"]="Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸ÑŽ";
+$lang["dialog"]["delete_publication"]="Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸ÑŽ?";
 $lang["publications"]["backto"]="back to publications";
 $lang["publications"]["viewpublication"]="View publication";
 $lang["publications"]["author"]="Source";

@@ -1,8 +1,8 @@
 {if $white}
 {if $page.is_error}
-	<h1>Непредвиденная ошибка (модуль: {$page.title}.mod.php)</h1>
+	<h1>РќРµРїСЂРµРґРІРёРґРµРЅРЅР°СЏ РѕС€РёР±РєР° (РјРѕРґСѓР»СЊ: {$page.title}.mod.php)</h1>
 		<p>{$page.content}</p>
-		<p><b>детальное описание:</b></p>
+		<p><b>РґРµС‚Р°Р»СЊРЅРѕРµ РѕРїРёСЃР°РЅРёРµ:</b></p>
 		<p>{$page.help}</p>
 {else}
 	<h1>{$page.title}</h1>
@@ -16,8 +16,8 @@
 
 <html>
 <head>
-	<META http-equiv="content-type" content="text/html; charset=windows-1251">
-	<title>{$page.title} - {if $page.title==$lang.modules.objects}Загрузка новых объектов{/if}</title>
+	<META http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>{$page.title} - {if $page.title==$lang.modules.objects}Р—Р°РіСЂСѓР·РєР° РЅРѕРІС‹С… РѕР±СЉРµРєС‚РѕРІ{/if}</title>
 	<script type="text/javascript" src="{$js}jquery-1.4.2.min.js"></script>	
 	{if $do_jCrop}
 	<script>
@@ -74,7 +74,7 @@
 	
 	$(document).ready(function(){
 		$('#previewcreate').click(function() {
-		if (confirm('Сохранить превью?')) {
+		if (confirm('РЎРѕС…СЂР°РЅРёС‚СЊ РїСЂРµРІСЊСЋ?')) {
 			$("#frm").submit();
 		}
 		});
@@ -94,9 +94,9 @@
 <body>
 <div id="content_white">
 {if $page.is_error}
-	<h1>Непредвиденная ошибка (модуль: {$page.title}.mod.php)</h1>
+	<h1>РќРµРїСЂРµРґРІРёРґРµРЅРЅР°СЏ РѕС€РёР±РєР° (РјРѕРґСѓР»СЊ: {$page.title}.mod.php)</h1>
 		<p>{$page.content}</p>
-		<p><b>детальное описание:</b></p>
+		<p><b>РґРµС‚Р°Р»СЊРЅРѕРµ РѕРїРёСЃР°РЅРёРµ:</b></p>
 		<p>{$page.help}</p>
 {else}
 	{$page.content}

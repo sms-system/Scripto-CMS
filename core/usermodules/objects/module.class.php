@@ -1,6 +1,6 @@
 <?
 /*
-Ìîäóëü îáúåêòû
+ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð¾Ð±ÑŠÐµÐºÑ‚Ñ‹
 */
 
 define("SCRIPTO_mod_objects",true);
@@ -31,7 +31,7 @@ class objects {
 		global $db;
 		global $engine;
 		$type_id=mysql_insert_id();
-		if ($db->query("insert into `%blocks%` values (null,0,'Ïîñëåäíèå îáúåêòû','',$type_id,'lastobjects',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
+		if ($db->query("insert into `%blocks%` values (null,0,'ÐŸÐ¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ Ð¾Ð±ÑŠÐµÐºÑ‚Ñ‹','',$type_id,'lastobjects',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
 			return true;
 		}  else {
 			return false;
@@ -81,7 +81,7 @@ class objects {
 		switch ($block["type"]["type"]) {
 			case "addobjects":
 			case "lastobjects":
-				//äîáàâëÿåì òèïû îáúåêòîâ ê áëîêó
+				//Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ‚Ð¸Ð¿Ñ‹ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð² Ðº Ð±Ð»Ð¾ÐºÑƒ
 				if (isset($_REQUEST["save"])) {
 					$type=@$_REQUEST["type"];
 					if (is_array($type)) {
@@ -118,7 +118,7 @@ class objects {
 	}
 	
 	function checkMe() {
-	//ïðîâåðÿåì ñóùåñòâóþò ëè óæå òàáëèöû ìîäóëÿ
+	//Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‚ Ð»Ð¸ ÑƒÐ¶Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ Ð¼Ð¾Ð´ÑƒÐ»Ñ
 		global $engine;
 		if ($engine->checkInstallModule("objects")) {
 			return true;
@@ -214,7 +214,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		}
 	}
 	
-	//Ïîèñê îáúåêòîâ
+	//ÐŸÐ¾Ð¸ÑÐº Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²
 	function doUserSearch($str,$prefix='') {
 		global $db;
 		$res=$db->query("select * from `%OBJ%` where `caption$prefix` LIKE '%$str%' or `code` LIKE '%$str%' or `small_content$prefix` LIKE '%$str%' and visible=1");
@@ -304,7 +304,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		$count=@mysql_num_rows($res);
 		if ($count>0) {
 			$reminder['subject']=ToUTF8($this->thismodule["caption"]);
-			$reminder['content']=ToUTF8('Ó Âàñ '.@mysql_num_rows($res).' äîáàâëåííûõ îáúåêòà(îâ)');
+			$reminder['content']=ToUTF8('Ð£ Ð’Ð°Ñ '.@mysql_num_rows($res).' Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð½Ñ‹Ñ… Ð¾Ð±ÑŠÐµÐºÑ‚Ð°(Ð¾Ð²)');
 			$reminder['count']=$count;
 			return $reminder;
 		} else {
@@ -556,7 +556,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		return $rubrics;
 	}
 	
-	//Ïîëó÷èòü îáùåå êîëè÷åñòâî îáúåêòîâ
+	//ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð¾Ð±Ñ‰ÐµÐµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²
 	function getCountAllObjects($id_type) {
 		global $db;
 		global $rubrics;
@@ -611,12 +611,12 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 	$filename=$config["pathes"]["templates_dir"].$config["templates"]["user_processor"].$type["ident"].'_short.processor.tpl';
 					if (is_file($filename)) {
 						if (!@unlink($filename))
-							$engine->setCongratulation('Îøèáêà óäàëåíèÿ ôàéëà!','Âíèìàíèå! Ôàéë '.$type["ident"].'_short.processor.tpl íå óäàëîñü óäàëèòü!',0);
+							$engine->setCongratulation('ÐžÑˆÐ¸Ð±ÐºÐ° ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð°!','Ð’Ð½Ð¸Ð¼Ð°Ð½Ð¸Ðµ! Ð¤Ð°Ð¹Ð» '.$type["ident"].'_short.processor.tpl Ð½Ðµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ!',0);
 					}
 	$filename=$config["pathes"]["templates_dir"].$config["templates"]["user_processor"].$type["ident"].'_full.processor.tpl';
 					if (is_file($filename)) {
 						if (!@unlink($filename))
-							$engine->setCongratulation('Îøèáêà óäàëåíèÿ ôàéëà!','Âíèìàíèå! Ôàéë '.$type["ident"].'_full.processor.tpl íå óäàëîñü óäàëèòü!',0);
+							$engine->setCongratulation('ÐžÑˆÐ¸Ð±ÐºÐ° ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð°!','Ð’Ð½Ð¸Ð¼Ð°Ð½Ð¸Ðµ! Ð¤Ð°Ð¹Ð» '.$type["ident"].'_full.processor.tpl Ð½Ðµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ!',0);
 					}
 					return true;
 				} else {
@@ -1045,7 +1045,7 @@ $object["content_full"]=$engine->checkRegistered($object["content_full"]);
 					$max_images=0;
 					$max_videos=0;
 				}
-			/*ïîëó÷åíèå äàííûõ î òîì ãîëîñîâàëè èëè íåò*/
+			/*Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¾ Ñ‚Ð¾Ð¼ Ð³Ð¾Ð»Ð¾ÑÐ¾Ð²Ð°Ð»Ð¸ Ð¸Ð»Ð¸ Ð½ÐµÑ‚*/
 			if (trim($row["voters_ip"])!='') {
 				$voters_ip=explode(';',$row["voters_ip"]);
 				$my_ip=getIp();
@@ -1068,7 +1068,7 @@ $object["content_full"]=$engine->checkRegistered($object["content_full"]);
 				$row["tags"]=$tgs->getTags($row["id_object"],"objects","link");
 				unset($tgs);
 			}
-			/*êîíåö ïîëó÷åíèÿ äàííûõ î òîì ãîëîñîâàëè èëè íåò*/
+			/*ÐºÐ¾Ð½ÐµÑ† Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¾ Ñ‚Ð¾Ð¼ Ð³Ð¾Ð»Ð¾ÑÐ¾Ð²Ð°Ð»Ð¸ Ð¸Ð»Ð¸ Ð½ÐµÑ‚*/
 			if ($type["use_files"])
 				$row["files"]=$this->getFilesByObject($row["id_object"]);
 			$row["values"]=$this->transformateValues($row,$type,$mode);
@@ -1087,10 +1087,10 @@ $object["content_full"]=$engine->checkRegistered($object["content_full"]);
 						$id_objects[]=$obj["id_object"];
 					}
 				}
-				/*ïîëó÷àåì ôîòî è âèäåî äëÿ ðåêîìåíäóåìûõ îáúåêòîâ*/
+				/*Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ñ„Ð¾Ñ‚Ð¾ Ð¸ Ð²Ð¸Ð´ÐµÐ¾ Ð´Ð»Ñ Ñ€ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÐµÐ¼Ñ‹Ñ… Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²*/
 				$images=$this->getImagesByObjects($id_objects);
 				$videos=$this->getVideosByObjects($id_objects);
-				/*êîíåö ïîëó÷åíèÿ ôîòî è âèäåî äëÿ ðåêîìåíäóåìûõ îáúåêòîâ*/
+				/*ÐºÐ¾Ð½ÐµÑ† Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ñ„Ð¾Ñ‚Ð¾ Ð¸ Ð²Ð¸Ð´ÐµÐ¾ Ð´Ð»Ñ Ñ€ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÐµÐ¼Ñ‹Ñ… Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²*/
 				$smarty->assign("object_types",$types);
 				foreach ($types as $key=>$tp) {
 	$filename=$config["pathes"]["templates_dir"].$config["templates"]["user_processor"].$tp["ident"].'_short.processor.tpl';

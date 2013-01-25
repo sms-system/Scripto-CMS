@@ -76,7 +76,7 @@ if (isset($_REQUEST["photo_id"])) {
 	if ($page["main_page"]) {
 	$images=$this->getImagesByCat($page["id_category"],true,true);
 	} else {
-	//ñòðàíèöû
+	//ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹
 	$onpage=$config["category"]["onpage_images"];
 	$max=$this->getCountImagesByCat($page["id_category"],true);
 	if (isset($_REQUEST["pg"])) {

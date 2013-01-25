@@ -1,50 +1,50 @@
 {if $m_action=="add"}
 {$form_html}
-<p><b>Примечание:</b> Вы можете использовать специальные значения:</p>
-<p><b>%NUMBER%</b> - номер заказа</p>
-<p><b>%FIO%</b> - ФИО заказчика (сработает только если в форме есть элемент управления с типом ФИО)</p>
-<p><b>%DATA%</b> - данные , которые были введены в форму</p>
+<p><b>РџСЂРёРјРµС‡Р°РЅРёРµ:</b> Р’С‹ РјРѕР¶РµС‚Рµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРїРµС†РёР°Р»СЊРЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ:</p>
+<p><b>%NUMBER%</b> - РЅРѕРјРµСЂ Р·Р°РєР°Р·Р°</p>
+<p><b>%FIO%</b> - Р¤РРћ Р·Р°РєР°Р·С‡РёРєР° (СЃСЂР°Р±РѕС‚Р°РµС‚ С‚РѕР»СЊРєРѕ РµСЃР»Рё РІ С„РѕСЂРјРµ РµСЃС‚СЊ СЌР»РµРјРµРЅС‚ СѓРїСЂР°РІР»РµРЅРёСЏ СЃ С‚РёРїРѕРј Р¤РРћ)</p>
+<p><b>%DATA%</b> - РґР°РЅРЅС‹Рµ , РєРѕС‚РѕСЂС‹Рµ Р±С‹Р»Рё РІРІРµРґРµРЅС‹ РІ С„РѕСЂРјСѓ</p>
 {elseif $m_action=="forward_order"}
-<h2>История переписки</h2>
+<h2>РСЃС‚РѕСЂРёСЏ РїРµСЂРµРїРёСЃРєРё</h2>
 <div class="answers">
 	<div class="answer_box_user">
 		<div class="answer_from padding">
-			{if $order.fio}{$order.fio}{/if} {if $order.email}(<a href="mailto:{$order.email}">{$order.email}</a>){/if} писал {$order.create_print}:
+			{if $order.fio}{$order.fio}{/if} {if $order.email}(<a href="mailto:{$order.email}">{$order.email}</a>){/if} РїРёСЃР°Р» {$order.create_print}:
 		</div>
 		<div class="answer_content">{$order.content}</div>
-		<div class="answer_from">IP записан: {$order.ip}</div>
+		<div class="answer_from">IP Р·Р°РїРёСЃР°РЅ: {$order.ip}</div>
 	</div>
 	{if $answers}
 	{foreach key=key item=answer from=$answers}
 		{if $answer.is_admin==1}
 	<div class="answer_box_me">
 		<div class="answer_from padding">
-			<b>Администратор</b> писал {$answer.create_print}:
+			<b>РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ</b> РїРёСЃР°Р» {$answer.create_print}:
 		</div>
 		<div class="answer_content">{$answer.forwardtext}</div>
-		<div class="answer_from">IP записан: {$answer.ip}</div>
+		<div class="answer_from">IP Р·Р°РїРёСЃР°РЅ: {$answer.ip}</div>
 	</div>		
 		{else}
 	<div class="answer_box_user">
 		<div class="answer_from padding">
-			{if $order.fio}{$order.fio}{/if} {if $order.email}(<a href="mailto:{$order.email}">{$order.email}</a>){/if} писал {$answer.create_print}:
+			{if $order.fio}{$order.fio}{/if} {if $order.email}(<a href="mailto:{$order.email}">{$order.email}</a>){/if} РїРёСЃР°Р» {$answer.create_print}:
 		</div>
 		<div class="answer_content">{$answer.forwardtext}</div>
-		<div class="answer_from">IP записан: {$answer.ip}</div>
+		<div class="answer_from">IP Р·Р°РїРёСЃР°РЅ: {$answer.ip}</div>
 	</div>		
 		{/if}
 	{/foreach}
 	{/if}
 </div>
 <div class="answer_form">
-<h2>Отправить ответ</h2>
+<h2>РћС‚РїСЂР°РІРёС‚СЊ РѕС‚РІРµС‚</h2>
 {if $save}
 <script>
-parent.tooltip('Ответ отправлен','Ответ на заявку успешно отправлен',3000);
+parent.tooltip('РћС‚РІРµС‚ РѕС‚РїСЂР°РІР»РµРЅ','РћС‚РІРµС‚ РЅР° Р·Р°СЏРІРєСѓ СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅ',3000);
 parent.show_close_dialog=false;
 parent.$.fancybox.close();
 </script>
-<h2>Ответ на заявку был успешно отправлен</h2>
+<h2>РћС‚РІРµС‚ РЅР° Р·Р°СЏРІРєСѓ Р±С‹Р» СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅ</h2>
 {/if}
 {$form_html}
 </div>
@@ -53,46 +53,46 @@ parent.$.fancybox.close();
 {elseif $m_action=="read_orders"}
 {if $orders}
 {foreach key=key item=order from=$orders}
-<h1>Заявка # {$order.order_number}</h1>
+<h1>Р—Р°СЏРІРєР° # {$order.order_number}</h1>
 {$order.content}
 <p style="padding-top:5px;padding-bottom:5px"><hr></p>
 {/foreach}
 {else}
-<p>Непрочитанных заявок не найдено</p>
+<p>РќРµРїСЂРѕС‡РёС‚Р°РЅРЅС‹С… Р·Р°СЏРІРѕРє РЅРµ РЅР°Р№РґРµРЅРѕ</p>
 {/if}
 {elseif $m_action=="view_order"}
-<h1>Заявка # {$order.order_number}</h1>
+<h1>Р—Р°СЏРІРєР° # {$order.order_number}</h1>
 {$order.content}
-<p align="center"><input type="button" class="bigbutton" value="Распечатать заявку" onclick="javascript:print();"></p>
+<p align="center"><input type="button" class="bigbutton" value="Р Р°СЃРїРµС‡Р°С‚Р°С‚СЊ Р·Р°СЏРІРєСѓ" onclick="javascript:print();"></p>
 {elseif $m_action=="view_orders"}
 {if $orders}
 <table class="objects" id="value_list">
 <tr height="30">
-	<td width="20%" class="objects_header">Заявка</td>
-	<td width="20%" class="objects_header">ФИО</td>
+	<td width="20%" class="objects_header">Р—Р°СЏРІРєР°</td>
+	<td width="20%" class="objects_header">Р¤РРћ</td>
 	<td width="20%" class="objects_header">E-mail</td>		
-	<td width="25%" class="objects_header">Получена</td>
-	<td width="5%" class="objects_header">Ответить</td>
-	<td width="10%" class="objects_header" align="right">Операции</td>
+	<td width="25%" class="objects_header">РџРѕР»СѓС‡РµРЅР°</td>
+	<td width="5%" class="objects_header">РћС‚РІРµС‚РёС‚СЊ</td>
+	<td width="10%" class="objects_header" align="right">РћРїРµСЂР°С†РёРё</td>
 </tr>
 {assign var="k" value=1}
 {foreach key=key item=order from=$orders}
 <tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="order{$order.id_order}">
-	<td>{if $order.unread}<b>{/if}Заявка #{$order.order_number}{if $order.unread}</b>{/if}</td>
-	<td>{if $order.fio}{$order.fio}{else}не указано{/if}</td>
-	<td>{if $order.email}<a href="mailto:{$order.email}">{$order.email}</a>{else}не указано{/if}</td>
+	<td>{if $order.unread}<b>{/if}Р—Р°СЏРІРєР° #{$order.order_number}{if $order.unread}</b>{/if}</td>
+	<td>{if $order.fio}{$order.fio}{else}РЅРµ СѓРєР°Р·Р°РЅРѕ{/if}</td>
+	<td>{if $order.email}<a href="mailto:{$order.email}">{$order.email}</a>{else}РЅРµ СѓРєР°Р·Р°РЅРѕ{/if}</td>
 	<td>{$order.create_print}</td>
-	<td align="center"><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=forward_order&ajax=true&modAction=settings&id_order={$order.id_order}"  class="dialog" title="Ответить на заявку  #{$order.order_number}"><img src="{$img}admin/icons/forward{if $order.unread==0}_off{/if}.png"></a></td>
+	<td align="center"><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=forward_order&ajax=true&modAction=settings&id_order={$order.id_order}"  class="dialog" title="РћС‚РІРµС‚РёС‚СЊ РЅР° Р·Р°СЏРІРєСѓ  #{$order.order_number}"><img src="{$img}admin/icons/forward{if $order.unread==0}_off{/if}.png"></a></td>
 	<td class="actions" align="right">
 		<ul>
-			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=view_order&ajax=true&modAction=settings&id_order={$order.id_order}"  class="dialog" title="Просмотреть заявку #{$order.order_number}"><img src="{$img}admin/icons/edit.gif"></a></li>
+			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=view_order&ajax=true&modAction=settings&id_order={$order.id_order}"  class="dialog" title="РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р·Р°СЏРІРєСѓ #{$order.order_number}"><img src="{$img}admin/icons/edit.gif"></a></li>
 		</ul>	
 	</td>
 </tr>
 {assign var="k" value=$k+1}
 {/foreach}
 </table>
-<p>Выберите страницу: 
+<p>Р’С‹Р±РµСЂРёС‚Рµ СЃС‚СЂР°РЅРёС†Сѓ: 
 {foreach key=key item=p from=$pages}
 {if $p==$pg}
 <b>{$p+1}</b>&nbsp;
@@ -102,36 +102,36 @@ parent.$.fancybox.close();
 {/foreach}
 </p>
 {else}
-<b>Заявки по данной форме еще не поступали</b>
+<b>Р—Р°СЏРІРєРё РїРѕ РґР°РЅРЅРѕР№ С„РѕСЂРјРµ РµС‰Рµ РЅРµ РїРѕСЃС‚СѓРїР°Р»Рё</b>
 {/if}
 {elseif $m_action=="set_value"}
 <div id="values">
-<h1>Добавление нового значения</h1>
+<h1>Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ</h1>
 {if $added}
 <script>
-	parent.tooltip('','Значение добавлено!',3000);
+	parent.tooltip('','Р—РЅР°С‡РµРЅРёРµ РґРѕР±Р°РІР»РµРЅРѕ!',3000);
 </script>
 {/if}
 <form id="frm" action="{$siteurl}admin/?module=modules&module_name=forms&m_action=set_value&modAction=settings&id_input={$input.id_input}&ajax=yes&add_value=yes" method="post">
-<p>Введите значение:<br>
+<p>Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ:<br>
 <input type="text" name="caption" value="" size="40"></p>
-<p><input name="default" type="checkbox">Использовать по умолчанию</p>
-<p><input type="submit" value="Добавить" class="button"></p>
+<p><input name="default" type="checkbox">РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ</p>
+<p><input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ" class="button"></p>
 </p>
 </form>
 {if $changed}
 <script>
-	parent.tooltip('','Значения обновлены!',3000);
+	parent.tooltip('','Р—РЅР°С‡РµРЅРёСЏ РѕР±РЅРѕРІР»РµРЅС‹!',3000);
 </script>
 {/if}
-<h1 style="padding-bottom:10px;">Значения для элемента {$input.caption}:</h1>
+<h1 style="padding-bottom:10px;">Р—РЅР°С‡РµРЅРёСЏ РґР»СЏ СЌР»РµРјРµРЅС‚Р° {$input.caption}:</h1>
 {if $values}
 <form id="frm2" action="{$siteurl}admin/?module=modules&module_name=forms&m_action=set_value&modAction=settings&id_input={$input.id_input}&ajax=yes&save_value=yes" method="post">
 <table class="objects" id="value_list">
 <tr height="30">
-	<td width="30%" class="objects_header">Значение</td>
-	<td width="7%" class="objects_header">По умолчанию</td>
-	<td width="5%" class="objects_header" align="right">Удалить</td>
+	<td width="30%" class="objects_header">Р—РЅР°С‡РµРЅРёРµ</td>
+	<td width="7%" class="objects_header">РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ</td>
+	<td width="5%" class="objects_header" align="right">РЈРґР°Р»РёС‚СЊ</td>
 </tr>
 {foreach key=key item=value from=$values}
 <tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="value{$value.id_value}">
@@ -141,29 +141,29 @@ parent.$.fancybox.close();
 <input type="hidden" name="idval[{$value.id_value}]" value="{$value.id_value}">
 {/foreach}
 <tr>
-	<td colspan="3" align="center" style="padding-top:10px;"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="3" align="center" style="padding-top:10px;"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 </table>
 </form>
 {else}
-<p>Ни одного значения пока не создано</p>
+<p>РќРё РѕРґРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РїРѕРєР° РЅРµ СЃРѕР·РґР°РЅРѕ</p>
 {/if}
 </div>
 {elseif $m_action=="view_form"}
 <div class="body">					
-<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=forms&modAction=settings');"><< назад к списку форм</div>
-<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=forms&m_action=addinput&mode=add&modAction=settings&id_form={$form.id_form}');">создать элемент управления</div>
+<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=forms&modAction=settings');"><< РЅР°Р·Р°Рґ Рє СЃРїРёСЃРєСѓ С„РѕСЂРј</div>
+<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=forms&m_action=addinput&mode=add&modAction=settings&id_form={$form.id_form}');">СЃРѕР·РґР°С‚СЊ СЌР»РµРјРµРЅС‚ СѓРїСЂР°РІР»РµРЅРёСЏ</div>
 </div>
-<h2>Просмотр элементов управления формы {$form.caption}:</h2>
+<h2>РџСЂРѕСЃРјРѕС‚СЂ СЌР»РµРјРµРЅС‚РѕРІ СѓРїСЂР°РІР»РµРЅРёСЏ С„РѕСЂРјС‹ {$form.caption}:</h2>
 {if $inputs}
 <table class="objects" id="inputs">
 <tr height="30">
-	<td width="35%" class="objects_header">Название</td>
-	<td width="15%" class="objects_header">Тип элемента</td>
-	<td width="10%" class="objects_header">Тип данных</td>
-	<td width="10%" class="objects_header">Обязательное</td>
-	<td width="10%" class="objects_header" align="right">Сортировка</td>
-	<td width="10%" class="objects_header" align="right">Операции</td>
+	<td width="35%" class="objects_header">РќР°Р·РІР°РЅРёРµ</td>
+	<td width="15%" class="objects_header">РўРёРї СЌР»РµРјРµРЅС‚Р°</td>
+	<td width="10%" class="objects_header">РўРёРї РґР°РЅРЅС‹С…</td>
+	<td width="10%" class="objects_header">РћР±СЏР·Р°С‚РµР»СЊРЅРѕРµ</td>
+	<td width="10%" class="objects_header" align="right">РЎРѕСЂС‚РёСЂРѕРІРєР°</td>
+	<td width="10%" class="objects_header" align="right">РћРїРµСЂР°С†РёРё</td>
 </tr>
 {assign var="k" value=0}
 {foreach key=key item=input from=$inputs}
@@ -171,16 +171,16 @@ parent.$.fancybox.close();
 	<td>{$input.caption}</td>
 	<td>{$input.type_caption}</td>
 	<td>{$input.data_caption}</td>
-	<td align="center">{if $input.obyaz}<b>да</b>{else}нет{/if}</td>
+	<td align="center">{if $input.obyaz}<b>РґР°</b>{else}РЅРµС‚{/if}</td>
 	<td class="actions">
 		<ul>
 		{if $k<$inputs_count-1}
-			<li><a href="{$siteurl}admin/?module=modules&modAction=settings&module_name=forms&m_action=view_form&id_form={$form.id_form}&id_input={$input.id_input}&sort_up=yes" title="Переместить элемент {$input.caption} вниз"><img src="{$img}admin/icons/arrow_down.gif"></a></li>
+			<li><a href="{$siteurl}admin/?module=modules&modAction=settings&module_name=forms&m_action=view_form&id_form={$form.id_form}&id_input={$input.id_input}&sort_up=yes" title="РџРµСЂРµРјРµСЃС‚РёС‚СЊ СЌР»РµРјРµРЅС‚ {$input.caption} РІРЅРёР·"><img src="{$img}admin/icons/arrow_down.gif"></a></li>
 		{else}
 			<li><img src="{$img}admin/blank.gif" width="16"></li>		
 		{/if}
 		{if $k>0}
-			<li><a href="{$siteurl}admin/?module=modules&modAction=settings&module_name=forms&m_action=view_form&id_form={$form.id_form}&id_input={$input.id_input}&sort_down=yes" title="Переместить элемент {$input.caption} вверх"><img src="{$img}admin/icons/arrow_top.gif"></a></li>
+			<li><a href="{$siteurl}admin/?module=modules&modAction=settings&module_name=forms&m_action=view_form&id_form={$form.id_form}&id_input={$input.id_input}&sort_down=yes" title="РџРµСЂРµРјРµСЃС‚РёС‚СЊ СЌР»РµРјРµРЅС‚ {$input.caption} РІРІРµСЂС…"><img src="{$img}admin/icons/arrow_top.gif"></a></li>
 			{else}
 			<li><img src="{$img}admin/blank.gif" width="16"></li>
 		{/if}		
@@ -189,10 +189,10 @@ parent.$.fancybox.close();
 	</td>
 	<td class="actions" align="left">
 		<ul>
-			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=addinput&mode=edit&modAction=settings&id_form={$form.id_form}&id_input={$input.id_input}" title="Редактировать элемент {$input.caption}"><img src="{$img}admin/icons/edit.gif"></a></li>
-			<li><a href="javascript:void(0);" title="Удалить элемент {$input.caption}?" onclick="YesNo('Удалить элемент {$input.caption}?','{$siteurl}admin/?module=modules&module_name=forms&m_action=delete_input&modAction=settings&id_form={$form.id_form}&id_input={$input.id_input}');"><img src="{$img}admin/icons/delete.gif"></a></li>
+			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=addinput&mode=edit&modAction=settings&id_form={$form.id_form}&id_input={$input.id_input}" title="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЌР»РµРјРµРЅС‚ {$input.caption}"><img src="{$img}admin/icons/edit.gif"></a></li>
+			<li><a href="javascript:void(0);" title="РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ {$input.caption}?" onclick="YesNo('РЈРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ {$input.caption}?','{$siteurl}admin/?module=modules&module_name=forms&m_action=delete_input&modAction=settings&id_form={$form.id_form}&id_input={$input.id_input}');"><img src="{$img}admin/icons/delete.gif"></a></li>
 			{if $input.input_type==5 || $input.input_type==6}
-			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=set_value&modAction=settings&id_input={$input.id_input}&ajax=yes" title="Просмотреть значения элемента управления {$input.caption}" class="dialog"><img src="{$img}admin/icons/cube_blue.gif"></a></li>			
+			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=set_value&modAction=settings&id_input={$input.id_input}&ajax=yes" title="РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ Р·РЅР°С‡РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° СѓРїСЂР°РІР»РµРЅРёСЏ {$input.caption}" class="dialog"><img src="{$img}admin/icons/cube_blue.gif"></a></li>			
 			{/if}
 		</ul>
 	</td>
@@ -200,23 +200,23 @@ parent.$.fancybox.close();
 {/foreach}
 </table>
 {else}
-Ни одного элемента управления создано не было.
+РќРё РѕРґРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° СѓРїСЂР°РІР»РµРЅРёСЏ СЃРѕР·РґР°РЅРѕ РЅРµ Р±С‹Р»Рѕ.
 {/if}
 {else}
 <div class="body">					
-<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=forms&m_action=add&mode=add&modAction=settings');">создать форму</div>
+<div class="actionbutton" onclick="goTo('{$siteurl}admin/?module=modules&module_name=forms&m_action=add&mode=add&modAction=settings');">СЃРѕР·РґР°С‚СЊ С„РѕСЂРјСѓ</div>
 </div>
 <div class="body">
 {if $forms}
 <form action="{$siteurl}admin?module=modules&modAction=settings&module_name=forms&m_action=save" method="post" id="forms_form">
 <table class="objects" id="forms">
 <tr height="30">
-	<td width="25%" class="objects_header editable_header"><span>Название</span></td>
-	<td width="20%" class="objects_header">Показывать в разделе</td>	
-	<td width="5%" class="objects_header">Новые заявки</td>
+	<td width="25%" class="objects_header editable_header"><span>РќР°Р·РІР°РЅРёРµ</span></td>
+	<td width="20%" class="objects_header">РџРѕРєР°Р·С‹РІР°С‚СЊ РІ СЂР°Р·РґРµР»Рµ</td>	
+	<td width="5%" class="objects_header">РќРѕРІС‹Рµ Р·Р°СЏРІРєРё</td>
 	<td width="20%" class="objects_header editable_header"><span>E-mail</span></td>
-	<td width="10%" class="objects_header editable_header"><span>Видимость</span></td>
-	<td width="20%" class="objects_header" align="right">Операции</td>
+	<td width="10%" class="objects_header editable_header"><span>Р’РёРґРёРјРѕСЃС‚СЊ</span></td>
+	<td width="20%" class="objects_header" align="right">РћРїРµСЂР°С†РёРё</td>
 </tr>
 {foreach key=key item=form from=$forms}
 <tr class="{cycle values="objects_cell_light,objects_cell_bold"}" id="form{$form.id_form}">
@@ -227,10 +227,10 @@ parent.$.fancybox.close();
 	<td align="center"><input type="checkbox" name="vis[{$form.id_form}]" {if $form.visible}checked{/if} class="checkbox" numb="0"></td>
 	<td class="actions" align="right">
 		<ul>
-			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=add&mode=edit&modAction=settings&id_form={$form.id_form}" title="Редактировать форму {$form.caption_admin}"><img src="{$img}admin/icons/edit.gif" border="0"></a></li>
-			<li><a href="javascript:void(0);" onclick="YesNo('Удалить форму?','{$siteurl}admin/?module=modules&module_name=forms&m_action=delete&modAction=settings&id_form={$form.id_form}');" title="Удалить форму {$form.caption_admin}"><img src="{$img}admin/icons/delete.gif" border="0"></a></li>
-			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=view_form&modAction=settings&id_form={$form.id_form}" title="Просмотреть поля формы {$form.caption_admin}"><img src="{$img}admin/icons/cube_blue.gif" border="0"></a></li>		
-			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=view_orders&modAction=settings&id_form={$form.id_form}" title="Полученные заявки по форме {$form.caption_admin}"><img src="{$img}admin/icons/forms/orders.png" width="16" height="16" border="0"></a></li>	
+			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=add&mode=edit&modAction=settings&id_form={$form.id_form}" title="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ С„РѕСЂРјСѓ {$form.caption_admin}"><img src="{$img}admin/icons/edit.gif" border="0"></a></li>
+			<li><a href="javascript:void(0);" onclick="YesNo('РЈРґР°Р»РёС‚СЊ С„РѕСЂРјСѓ?','{$siteurl}admin/?module=modules&module_name=forms&m_action=delete&modAction=settings&id_form={$form.id_form}');" title="РЈРґР°Р»РёС‚СЊ С„РѕСЂРјСѓ {$form.caption_admin}"><img src="{$img}admin/icons/delete.gif" border="0"></a></li>
+			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=view_form&modAction=settings&id_form={$form.id_form}" title="РџСЂРѕСЃРјРѕС‚СЂРµС‚СЊ РїРѕР»СЏ С„РѕСЂРјС‹ {$form.caption_admin}"><img src="{$img}admin/icons/cube_blue.gif" border="0"></a></li>		
+			<li><a href="{$siteurl}admin/?module=modules&module_name=forms&m_action=view_orders&modAction=settings&id_form={$form.id_form}" title="РџРѕР»СѓС‡РµРЅРЅС‹Рµ Р·Р°СЏРІРєРё РїРѕ С„РѕСЂРјРµ {$form.caption_admin}"><img src="{$img}admin/icons/forms/orders.png" width="16" height="16" border="0"></a></li>	
 		</ul>
 	</td>
 </tr>
@@ -242,12 +242,12 @@ parent.$.fancybox.close();
 	<td></td>
 </tr>
 <tr id="save_submit">
-	<td colspan="6" align="center"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="6" align="center"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 </table>
 </form>
 {else}
-Ни одной формы создано не было
+РќРё РѕРґРЅРѕР№ С„РѕСЂРјС‹ СЃРѕР·РґР°РЅРѕ РЅРµ Р±С‹Р»Рѕ
 {/if}
 </div>
 {/if}

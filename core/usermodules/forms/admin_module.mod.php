@@ -1,8 +1,8 @@
 <?
 /*
-Модуль формы, управление
-Версия модуля - 1.0
-Разработчик - Иванов Дмитрий
+РњРѕРґСѓР»СЊ С„РѕСЂРјС‹, СѓРїСЂР°РІР»РµРЅРёРµ
+Р’РµСЂСЃРёСЏ РјРѕРґСѓР»СЏ - 1.0
+Р Р°Р·СЂР°Р±РѕС‚С‡РёРє - РРІР°РЅРѕРІ Р”РјРёС‚СЂРёР№
 */
 $m_action=@$_REQUEST["m_action"];
 			
@@ -39,21 +39,21 @@ switch ($m_action) {
 				}
 				$forwardcontent=str_replace($search,$replace,$form["forwardcontent"]);
 				$subject='RE: '.str_replace($search,$replace,$form["caption_mail_user"]);
-				$content=$forwardcontent.'<p></p><hr><font style="color:#A1A1A1;"><i>Вы писали: <br>'.$order["content"].'</i></font>';
+				$content=$forwardcontent.'<p></p><hr><font style="color:#A1A1A1;"><i>Р’С‹ РїРёСЃР°Р»Рё: <br>'.$order["content"].'</i></font>';
 			}
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
-			$frm->addField("E-mail получателя","Неверно заполнен e-mail получателя","text",$email,$email,"/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i","email",1,"",array('size'=>'40','ticket'=>"e-mail адрес"));
-			$frm->addField("Тема письма","Неверно заполнена тема письма","text",$subject,$subject,"/^[^`]{2,255}$/i","subject",1,"",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+			$frm->addField("E-mail РїРѕР»СѓС‡Р°С‚РµР»СЏ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ e-mail РїРѕР»СѓС‡Р°С‚РµР»СЏ","text",$email,$email,"/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i","email",1,"",array('size'=>'40','ticket'=>"e-mail Р°РґСЂРµСЃ"));
+			$frm->addField("РўРµРјР° РїРёСЃСЊРјР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅР° С‚РµРјР° РїРёСЃСЊРјР°","text",$subject,$subject,"/^[^`]{2,255}$/i","subject",1,"",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 			$fck_editor1=$engine->createFCKEditor("fck1",$content);
-			$frm->addField("Содержимое письма","Неверно заполнено содержимое письма","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1);
+			$frm->addField("РЎРѕРґРµСЂР¶РёРјРѕРµ РїРёСЃСЊРјР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ СЃРѕРґРµСЂР¶РёРјРѕРµ РїРёСЃСЊРјР°","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1);
 			$frm->addField("","","hidden",$id_order,$id_order,"/^[0-9]{1,}$/i","id_order",1);
 			if (
-$engine->processFormData($frm,"Отправить",$first
+$engine->processFormData($frm,"РћС‚РїСЂР°РІРёС‚СЊ",$first
 			)) {
 				if ($this->createAnswer($id_order,1,$form["email"],$content)) {
 				$this_cat=$engine->getCategoryByID($form["id_category"]);
-				$content.='<p><b>ВНИМАНИЕ</b> Данное сообщение было сгенерировано автоматизированной системой, если Вы хотите ответить на него , то пожалуйста воспользуйтесь следующей ссылкой:</p><p><a href="'.$this_cat["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($email).'" target="_blank">'.$this_cat["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($email).'</a></p>';
+				$content.='<p><b>Р’РќРРњРђРќРР•</b> Р”Р°РЅРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ Р±С‹Р»Рѕ СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅРѕ Р°РІС‚РѕРјР°С‚РёР·РёСЂРѕРІР°РЅРЅРѕР№ СЃРёСЃС‚РµРјРѕР№, РµСЃР»Рё Р’С‹ С…РѕС‚РёС‚Рµ РѕС‚РІРµС‚РёС‚СЊ РЅР° РЅРµРіРѕ , С‚Рѕ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РІРѕСЃРїРѕР»СЊР·СѓР№С‚РµСЃСЊ СЃР»РµРґСѓСЋС‰РµР№ СЃСЃС‹Р»РєРѕР№:</p><p><a href="'.$this_cat["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($email).'" target="_blank">'.$this_cat["url"].'?answer_mode=yes&id_order='.$id_order.'&skey='.md5($email).'</a></p>';
 				$smarty->assign("save",true);
 				mailHTML($email,$form["email"],$subject,$content);
 				$db->query("update `%FORMS_ORDERS%` set unread=0 where id_order=".$order["id_order"]);
@@ -84,7 +84,7 @@ $engine->processFormData($frm,"Отправить",$first
 				if ($db->query("UPDATE %FORMS% set `visible`=$vis_value $caption $mail where `id_form`=$form")) 
 					$n++;
 			}
-			$engine->setCongratulation("","Обновлено $n форм(ы)",3000);
+			$engine->setCongratulation("","РћР±РЅРѕРІР»РµРЅРѕ $n С„РѕСЂРј(С‹)",3000);
 			$m_action="view";
 	break;	
 	case "add":
@@ -161,33 +161,33 @@ $engine->processFormData($frm,"Отправить",$first
 			
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
-$frm->addField("Раздел, в котором будет выводиться форма","Ошибка выбора раздела для формы","list",$values,$id_cat,"/^[0-9]{1,}$/i","id_cat",1,$lang["forms"]["catalog"]["razdel"]["sample"],array('size'=>'30'));
+$frm->addField("Р Р°Р·РґРµР», РІ РєРѕС‚РѕСЂРѕРј Р±СѓРґРµС‚ РІС‹РІРѕРґРёС‚СЊСЃСЏ С„РѕСЂРјР°","РћС€РёР±РєР° РІС‹Р±РѕСЂР° СЂР°Р·РґРµР»Р° РґР»СЏ С„РѕСЂРјС‹","list",$values,$id_cat,"/^[0-9]{1,}$/i","id_cat",1,$lang["forms"]["catalog"]["razdel"]["sample"],array('size'=>'30'));
 			
-$frm->addField("Название формы (пользовательское)","Неверно заполнено название формы (пользовательское)","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",0,"Заполните форму",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РќР°Р·РІР°РЅРёРµ С„РѕСЂРјС‹ (РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРµ)","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РЅР°Р·РІР°РЅРёРµ С„РѕСЂРјС‹ (РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРµ)","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",0,"Р—Р°РїРѕР»РЅРёС‚Рµ С„РѕСЂРјСѓ",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Название формы (административное)","Неверно заполнено название формы (административное)","text",$caption_admin,$caption_admin,"/^[^`#]{2,255}$/i","caption_admin",1,"Форма заказа",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РќР°Р·РІР°РЅРёРµ С„РѕСЂРјС‹ (Р°РґРјРёРЅРёСЃС‚СЂР°С‚РёРІРЅРѕРµ)","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РЅР°Р·РІР°РЅРёРµ С„РѕСЂРјС‹ (Р°РґРјРёРЅРёСЃС‚СЂР°С‚РёРІРЅРѕРµ)","text",$caption_admin,$caption_admin,"/^[^`#]{2,255}$/i","caption_admin",1,"Р¤РѕСЂРјР° Р·Р°РєР°Р·Р°",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Тема письма для администратора","Неверно заполнена тема письма для администратора","text",$caption_mail_admin,$caption_mail_admin,"/^[^`]{2,255}$/i","caption_mail_admin",0,"Поступила заявка с сайта site.ru",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РўРµРјР° РїРёСЃСЊРјР° РґР»СЏ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅР° С‚РµРјР° РїРёСЃСЊРјР° РґР»СЏ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°","text",$caption_mail_admin,$caption_mail_admin,"/^[^`]{2,255}$/i","caption_mail_admin",0,"РџРѕСЃС‚СѓРїРёР»Р° Р·Р°СЏРІРєР° СЃ СЃР°Р№С‚Р° site.ru",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Тема письма для пользователя","Неверно заполнена тема письма для пользователя","text",$caption_mail_user,$caption_mail_user,"/^[^`]{2,255}$/i","caption_mail_user",0,"Вы отправили заявку на сайт site.ru",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РўРµРјР° РїРёСЃСЊРјР° РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅР° С‚РµРјР° РїРёСЃСЊРјР° РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ","text",$caption_mail_user,$caption_mail_user,"/^[^`]{2,255}$/i","caption_mail_user",0,"Р’С‹ РѕС‚РїСЂР°РІРёР»Рё Р·Р°СЏРІРєСѓ РЅР° СЃР°Р№С‚ site.ru",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("E-mail , на который присылать форму","Неверно заполнен e-mail , на который присылать форму","text",$email,$email,"/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i","email",1,"info@site.ru",array('size'=>'40','ticket'=>"e-mail адрес"));
+$frm->addField("E-mail , РЅР° РєРѕС‚РѕСЂС‹Р№ РїСЂРёСЃС‹Р»Р°С‚СЊ С„РѕСЂРјСѓ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ e-mail , РЅР° РєРѕС‚РѕСЂС‹Р№ РїСЂРёСЃС‹Р»Р°С‚СЊ С„РѕСЂРјСѓ","text",$email,$email,"/^[A-Z0-9._%-]+@[A-Z0-9._%-]+\.[A-Z]{2,6}$/i","email",1,"info@site.ru",array('size'=>'40','ticket'=>"e-mail Р°РґСЂРµСЃ"));
 
 $fck_editor4=$engine->createFCKEditor("fck4",$forwardcontent);
-$frm->addField("Текст, при ответе администратором","Неверно заполнен текст, при ответе администратором","solmetra",$fck_editor4,$fck_editor4,"/^[[:print:][:allnum:]]{1,}$/i","forwardcontent",1,"");
+$frm->addField("РўРµРєСЃС‚, РїСЂРё РѕС‚РІРµС‚Рµ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРѕРј","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ С‚РµРєСЃС‚, РїСЂРё РѕС‚РІРµС‚Рµ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРѕРј","solmetra",$fck_editor4,$fck_editor4,"/^[[:print:][:allnum:]]{1,}$/i","forwardcontent",1,"");
 
-$frm->addField("Начальное значение счетчика заказов","Неверно заполнено начальное значение счетчика заказов","text",$start_value,$start_value,"/^[0-9]{1,5}$/i","start_value",0,"700",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РќР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃС‡РµС‚С‡РёРєР° Р·Р°РєР°Р·РѕРІ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РЅР°С‡Р°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃС‡РµС‚С‡РёРєР° Р·Р°РєР°Р·РѕРІ","text",$start_value,$start_value,"/^[0-9]{1,5}$/i","start_value",0,"700",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 
-$frm->addField("Показывать на сайте","Неверно выбрано свойство показывать на сайте","check",$visible,$visible,"/^[0-9]{1}$/i","visible",1);
+$frm->addField("РџРѕРєР°Р·С‹РІР°С‚СЊ РЅР° СЃР°Р№С‚Рµ","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ СЃРІРѕР№СЃС‚РІРѕ РїРѕРєР°Р·С‹РІР°С‚СЊ РЅР° СЃР°Р№С‚Рµ","check",$visible,$visible,"/^[0-9]{1}$/i","visible",1);
 
 $fck_editor1=$engine->createFCKEditor("fck1",$content);
-$frm->addField("Краткое описание формы","Неверно заполнено краткое описание формы","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+$frm->addField("РљСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ С„РѕСЂРјС‹","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РєСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ С„РѕСЂРјС‹","solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
 
 $fck_editor2=$engine->createFCKEditor("fck2",$success_admin);
-$frm->addField("Сообщение об успешной отправке формы администратору","Неверно заполнено сообщение об успешной отправке формы администратору","solmetra",$fck_editor2,$fck_editor2,"/^[[:print:][:allnum:]]{1,}$/i","success_admin",1,"");
+$frm->addField("РЎРѕРѕР±С‰РµРЅРёРµ РѕР± СѓСЃРїРµС€РЅРѕР№ РѕС‚РїСЂР°РІРєРµ С„РѕСЂРјС‹ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ СЃРѕРѕР±С‰РµРЅРёРµ РѕР± СѓСЃРїРµС€РЅРѕР№ РѕС‚РїСЂР°РІРєРµ С„РѕСЂРјС‹ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ","solmetra",$fck_editor2,$fck_editor2,"/^[[:print:][:allnum:]]{1,}$/i","success_admin",1,"");
 
 $fck_editor3=$engine->createFCKEditor("fck3",$success_user);
-$frm->addField("Сообщение об успешной отправке формы пользователю","Неверно заполнено сообщение об успешной отправке формы пользователю","solmetra",$fck_editor3,$fck_editor3,"/^[[:print:][:allnum:]]{1,}$/i","success_user",1,"");
+$frm->addField("РЎРѕРѕР±С‰РµРЅРёРµ РѕР± СѓСЃРїРµС€РЅРѕР№ РѕС‚РїСЂР°РІРєРµ С„РѕСЂРјС‹ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ СЃРѕРѕР±С‰РµРЅРёРµ РѕР± СѓСЃРїРµС€РЅРѕР№ РѕС‚РїСЂР°РІРєРµ С„РѕСЂРјС‹ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ","solmetra",$fck_editor3,$fck_editor3,"/^[[:print:][:allnum:]]{1,}$/i","success_user",1,"");
 
 $engine->generateLangControls("FORMS",$lang_values,$frm);
 
@@ -198,34 +198,34 @@ $id_form=$_REQUEST["id_form"];
 $frm->addField("","","hidden",$id_form,$id_form,"/^[^`]{0,}$/i","id_form",1);
 }
 if ($mode=="edit") {
-	$engine->addPath('Редактирование формы','',false);
+	$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С„РѕСЂРјС‹','',false);
 } else {
-	$engine->addPath('Добавление формы','',false);
+	$engine->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ С„РѕСЂРјС‹','',false);
 }
 			if (
-$engine->processFormData($frm,"Сохранить",$first
+$engine->processFormData($frm,"РЎРѕС…СЂР°РЅРёС‚СЊ",$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if (isset($id_form)) {
 				 $category=$engine->getCategoryByID($id_cat);
 				 	if ($db->query("update %FORMS% set `caption`='".sql_quote($caption)."',`caption_admin`='".sql_quote($caption_admin)."',`caption_mail_admin`='".sql_quote($caption_mail_admin)."' ,`caption_mail_user`='".sql_quote($caption_mail_user)."', email='".sql_quote($email)."' , `content`='".sql_quote($content)."',`forwardcontent`='".sql_quote($forwardcontent)."',`success_user`='".sql_quote($success_user)."',`success_admin`='".sql_quote($success_admin)."',visible=$visible,id_category=$id_cat,`category_caption`='".sql_quote($category["caption"])."',`start_value`=$start_value ".$engine->generateUpdateSQL("FORMS",$lang_values)." where id_form=$id_form")) {
-						//отредактировали
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
 				//	   $modAction="view";
-				    $engine->setCongratulation("","Форма отредактирована успешно!",3000);
+				    $engine->setCongratulation("","Р¤РѕСЂРјР° РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅР° СѓСЃРїРµС€РЅРѕ!",3000);
 					$m_action="view";
 					}
 				 } else {
-				 	//показываем ошибку
+				 	//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
 				 $add_id=$this->addForm($id_cat,$caption,$caption_admin,$caption_mail_admin,$caption_mail_user,$content,$forwardcontent,$success_admin,$success_user,$email,$visible,$start_value,$engine->generateInsertSQL("FORMS",$lang_values));
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				//   $modAction="view";
-				   $engine->setCongratulation("","Форма создана успешно!",3000);
+				   $engine->setCongratulation("","Р¤РѕСЂРјР° СЃРѕР·РґР°РЅР° СѓСЃРїРµС€РЅРѕ!",3000);
 				   $engine->addModuleToCategory($this->thismodule["name"],$id_cat);
 					$m_action="view";
 				 }
@@ -334,17 +334,17 @@ $engine->processFormData($frm,"Сохранить",$first
 			
 			require ($config["classes"]["form"]);
 			$frm=new Form($smarty);
-$frm->addField("Тип элемента","Ошибка выбора типа элемента","list",$this->thismodule["inputs"],$id_type,"/^[0-9]{1,}$/i","id_type",1,"Текстовое поле",array('size'=>'30'));
+$frm->addField("РўРёРї СЌР»РµРјРµРЅС‚Р°","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° СЌР»РµРјРµРЅС‚Р°","list",$this->thismodule["inputs"],$id_type,"/^[0-9]{1,}$/i","id_type",1,"РўРµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ",array('size'=>'30'));
 			
-$frm->addField("Тип данных элемента","Ошибка выбора типа данных элемента","list",$this->thismodule["types"],$data_type,"/^[0-9]{1,}$/i","data_type",1,"e-mail",array('size'=>'30'));
+$frm->addField("РўРёРї РґР°РЅРЅС‹С… СЌР»РµРјРµРЅС‚Р°","РћС€РёР±РєР° РІС‹Р±РѕСЂР° С‚РёРїР° РґР°РЅРЅС‹С… СЌР»РµРјРµРЅС‚Р°","list",$this->thismodule["types"],$data_type,"/^[0-9]{1,}$/i","data_type",1,"e-mail",array('size'=>'30'));
 			
-$frm->addField("Элемент является обязательным для заполнения","Неверно выбрано обязательности элемента","check",$obyaz,$obyaz,"/^[0-9]{1}$/i","obyaz",1);
+$frm->addField("Р­Р»РµРјРµРЅС‚ СЏРІР»СЏРµС‚СЃСЏ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹Рј РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ","РќРµРІРµСЂРЅРѕ РІС‹Р±СЂР°РЅРѕ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕСЃС‚Рё СЌР»РµРјРµРЅС‚Р°","check",$obyaz,$obyaz,"/^[0-9]{1}$/i","obyaz",1);
 			
-$frm->addField("Название элемента","Неверно заполнено название элемента","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"Открытие сайта",array('size'=>'40','ticket'=>"Любые буквы и цифры"));
+$frm->addField("РќР°Р·РІР°РЅРёРµ СЌР»РµРјРµРЅС‚Р°","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅРѕ РЅР°Р·РІР°РЅРёРµ СЌР»РµРјРµРЅС‚Р°","text",$caption,$caption,"/^[^`#]{2,255}$/i","caption",1,"РћС‚РєСЂС‹С‚РёРµ СЃР°Р№С‚Р°",array('size'=>'40','ticket'=>"Р›СЋР±С‹Рµ Р±СѓРєРІС‹ Рё С†РёС„СЂС‹"));
 			
-$frm->addField("Текст, при неправильном вводе значения","Неверно заполнен текст при неправильном вводе значения","textarea",$error_text,$error_text,"/^[^#]{1,}$/i","error_text",0,"Элемент <название> заполнен неверно",array('rows'=>'40','cols'=>'10'));
+$frm->addField("РўРµРєСЃС‚, РїСЂРё РЅРµРїСЂР°РІРёР»СЊРЅРѕРј РІРІРѕРґРµ Р·РЅР°С‡РµРЅРёСЏ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ С‚РµРєСЃС‚ РїСЂРё РЅРµРїСЂР°РІРёР»СЊРЅРѕРј РІРІРѕРґРµ Р·РЅР°С‡РµРЅРёСЏ","textarea",$error_text,$error_text,"/^[^#]{1,}$/i","error_text",0,"Р­Р»РµРјРµРЅС‚ <РЅР°Р·РІР°РЅРёРµ> Р·Р°РїРѕР»РЅРµРЅ РЅРµРІРµСЂРЅРѕ",array('rows'=>'40','cols'=>'10'));
 
-$frm->addField("Пример правильного значения","Неверно заполнен пример правильного значения","textarea",$tooltip,$tooltip,"/^[^#]{1,}$/i","tooltip",0,"",array('rows'=>'40','cols'=>'10'));
+$frm->addField("РџСЂРёРјРµСЂ РїСЂР°РІРёР»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ","РќРµРІРµСЂРЅРѕ Р·Р°РїРѕР»РЅРµРЅ РїСЂРёРјРµСЂ РїСЂР°РІРёР»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ","textarea",$tooltip,$tooltip,"/^[^#]{1,}$/i","tooltip",0,"",array('rows'=>'40','cols'=>'10'));
 
 $engine->generateLangControls("FORMS_INPUT",$lang_values,$frm);
 
@@ -360,37 +360,37 @@ $frm->addField("","","hidden",$id_input,$id_input,"/^[^`]{1,}$/i","id_input",1);
 }
 
 if ($mode=="edit") {
-	$engine->addPath('Редактирование элемента управления','',false);
+	$engine->addPath('Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СЌР»РµРјРµРЅС‚Р° СѓРїСЂР°РІР»РµРЅРёСЏ','',false);
 } else {
-	$engine->addPath('Добавление элемента управления','',false);
+	$engine->addPath('Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° СѓРїСЂР°РІР»РµРЅРёСЏ','',false);
 }
 			if (
-$engine->processFormData($frm,"Сохранить",$first
+$engine->processFormData($frm,"РЎРѕС…СЂР°РЅРёС‚СЊ",$first
 			)) {
-				//добавляем или редактируем
+				//РґРѕР±Р°РІР»СЏРµРј РёР»Рё СЂРµРґР°РєС‚РёСЂСѓРµРј
 				if ($mode=="edit") {
-				 //редактируем
+				 //СЂРµРґР°РєС‚РёСЂСѓРµРј
 				 if (isset($id_input)) {
 				 $type_caption=$this->thismodule["inputs"][$id_type]["name"];
 				 $data_caption=$this->thismodule["types"][$data_type]["name"];
 				 	if ($db->query("update `%FORMS_INPUT%` set `caption`='".sql_quote($caption)."' ,input_type=$id_type,data_type=$data_type,obyaz=$obyaz,error_text='".sql_quote($error_text)."', tooltip='".sql_quote($tooltip)."',`type_caption`='".sql_quote($type_caption)."',`data_caption`='".sql_quote($data_caption)."' ".$engine->generateUpdateSQL("FORMS_INPUT",$lang_values)." where id_input=$id_input")) {
-						//отредактировали
+						//РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°Р»Рё
 				//	   $modAction="view";
-				    $engine->setCongratulation("","Элемент отредактирован успешно!",3000);
+				    $engine->setCongratulation("","Р­Р»РµРјРµРЅС‚ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°РЅ СѓСЃРїРµС€РЅРѕ!",3000);
 					$m_action="view_form";
 					}
 				 } else {
-				 	//показываем ошибку
+				 	//РїРѕРєР°Р·С‹РІР°РµРј РѕС€РёР±РєСѓ
 				 }
 				} else {
-				 //добавляем
+				 //РґРѕР±Р°РІР»СЏРµРј
 				 $type_caption=$this->thismodule["inputs"][$id_type]["name"];
 				 $data_caption=$this->thismodule["types"][$data_type]["name"];
  $add_id=$this->addInput($id_form,$type_caption,$id_type,$data_caption,$data_type,$obyaz,$caption,$error_text,$tooltip,$engine->generateInsertSQL("FORMS_INPUT",$lang_values));
 				 if ($add_id!=false) {
-				   //добавили успешно!
+				   //РґРѕР±Р°РІРёР»Рё СѓСЃРїРµС€РЅРѕ!
 				//   $modAction="view";
-				   $engine->setCongratulation("","Элемент создан успешно!",3000);
+				   $engine->setCongratulation("","Р­Р»РµРјРµРЅС‚ СЃРѕР·РґР°РЅ СѓСЃРїРµС€РЅРѕ!",3000);
 				   $m_action="view_form";
 				 }
 			}
@@ -404,7 +404,7 @@ $engine->processFormData($frm,"Сохранить",$first
 			$form=$this->getFormByID($id_form);
 			$input=$this->getInputByID($id_input);
 			if ($this->deleteInput($id_input)) {
-			$engine->setCongratulation("","Элемент управления ".$input["caption"]." успешно удален!",5000);
+			$engine->setCongratulation("","Р­Р»РµРјРµРЅС‚ СѓРїСЂР°РІР»РµРЅРёСЏ ".$input["caption"]." СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅ!",5000);
 			$m_action="view_form";
 			}
 			$smarty->assign("form",$form);
@@ -416,7 +416,7 @@ $engine->processFormData($frm,"Сохранить",$first
 		if (preg_match("/^[0-9]{1,}$/i",$id_form)) {
 			$form=$this->getFormByID($id_form);
 			if ($this->deleteForm($id_form)) {
-				$engine->setCongratulation("","Форма ".$form["caption_admin"]." успешно удалена",3000);
+				$engine->setCongratulation("","Р¤РѕСЂРјР° ".$form["caption_admin"]." СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°",3000);
 				$m_action="view";
 			}
 		}
@@ -430,7 +430,7 @@ $engine->processFormData($frm,"Сохранить",$first
 			$engine->clearPath();
 			$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 			$engine->addPath($this->thismodule["caption"],'/admin/?module=modules&modAction=settings&module_name='.$this->thismodule["name"],true);
-$engine->addPath('Просмотр заказов по форме '.$form["caption_admin"],'',false);
+$engine->addPath('РџСЂРѕСЃРјРѕС‚СЂ Р·Р°РєР°Р·РѕРІ РїРѕ С„РѕСЂРјРµ '.$form["caption_admin"],'',false);
 			$engine->assignPath();
 		$onpage=20;
 		$count=$this->getCountOrdersByForm($id_form);
@@ -514,7 +514,7 @@ if ($m_action=="view_form") {
 				foreach ($inputs as $key=>$input) {
 					$db->query("UPDATE `%FORMS_INPUT%` set `sort`=".$key." where id_input=".$input["id_input"]);
 				}
-				$engine->setCongratulation("","Элементы отсортированы",3000);
+				$engine->setCongratulation("","Р­Р»РµРјРµРЅС‚С‹ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅС‹",3000);
 				}
 			}
 			if (isset($_REQUEST["sort_up"])) {
@@ -532,7 +532,7 @@ if ($m_action=="view_form") {
 				foreach ($inputs as $key=>$input) {
 					$db->query("UPDATE `%FORMS_INPUT%` set `sort`=".$key." where id_input=".$input["id_input"]);
 				}
-				$engine->setCongratulation("","Элементы отсортированы",3000);
+				$engine->setCongratulation("","Р­Р»РµРјРµРЅС‚С‹ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅС‹",3000);
 				}
 			}
 			$smarty->assign("inputs",$inputs);
@@ -540,7 +540,7 @@ if ($m_action=="view_form") {
 		}
 }
 if ($m_action=="view") {
-	//получаем все формы
+	//РїРѕР»СѓС‡Р°РµРј РІСЃРµ С„РѕСЂРјС‹
 	$engine->clearPath();
 	$engine->addPath($lang["interface"]["rule_module"],'/admin?module=modules',true);
 	$engine->addPath($this->thismodule["caption"],'',false);

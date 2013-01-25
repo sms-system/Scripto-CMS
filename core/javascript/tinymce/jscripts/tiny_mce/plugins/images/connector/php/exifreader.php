@@ -242,9 +242,9 @@ define("TAG_GPS_GPSDateStamp","0x001D"); //
 define("TAG_GPS_GPSDifferential","0x001E"); //
 
 define("TAG_AUDIO_IMA_ADPCM_DESC","0x0028"); //  IMA-ADPCM Audio File Description Example - 40
-define("TAG_AUDIO_MU_LAW_DESC","0x0032"); //  µ-Law Audio File Description Sample - 50
+define("TAG_AUDIO_MU_LAW_DESC","0x0032"); //  Вµ-Law Audio File Description Sample - 50
 
-define("TAG_AUDIO_MU_LAW","0x0086"); // (This File µ-LAW Sample) - 134
+define("TAG_AUDIO_MU_LAW","0x0086"); // (This File Вµ-LAW Sample) - 134
 
 
 define("TAG_EXPOSURE_INDEX","0xA215"); // Exposure index
@@ -1168,7 +1168,7 @@ class phpExifReader {
 				case TAG_AUDIO_IMA_ADPCM_DESC: //  IMA-ADPCM Audio File Description Example - 40
 					$this->ImageInfo['h']["AudioIMA-ADPCM-DESC"] = $this->ConvertAnyFormat($ValuePtr, $Format);
 					break;
-				case TAG_AUDIO_MU_LAW_DESC: //  µ-Law Audio File Description Sample - 50
+				case TAG_AUDIO_MU_LAW_DESC: //  Вµ-Law Audio File Description Sample - 50
 					$this->ImageInfo['h']["AudioMuLawDesc"] = $this->ConvertAnyFormat($ValuePtr, $Format);
 					break;
 

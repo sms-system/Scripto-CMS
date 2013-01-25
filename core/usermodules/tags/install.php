@@ -1,6 +1,6 @@
 <?
 /*
-Óñòàíîâî÷íûé ôàéë äëÿ ìîäóëÿ òåãè
+Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¾Ñ‡Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ñ‚ÐµÐ³Ð¸
 */
 global $engine;
 $install_sql[]="CREATE TABLE `%TAGS%` (
@@ -17,7 +17,7 @@ FOREIGN KEY (id_tag) REFERENCES %TAGS%(id_tag)
 `object_type` VARCHAR(255)
 );";
 /*
-Ïîëó÷àåì èäåíòèôèêàòîð ãëàâíîãî ðàçäåëà
+ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ Ð³Ð»Ð°Ð²Ð½Ð¾Ð³Ð¾ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°
 */
 $m_page=$engine->getMainpage();
 $date_category=array();
@@ -25,11 +25,11 @@ $date_category[0]=(int)date("d");
 $date_category[1]=(int)date("m");
 $date_category[2]=(int)date("Y");
 /*
-Äîáàâëÿåì ðàçäåë êîðçèíà
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» ÐºÐ¾Ñ€Ð·Ð¸Ð½Ð°
 */
 if (!$engine->rubricExist($m->thismodule["tag_url"],0)) {
-$engine->addCategory($m_page["id_category"],"Òåã","text",$m->thismodule["tag_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
+$engine->addCategory($m_page["id_category"],"Ð¢ÐµÐ³","text",$m->thismodule["tag_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
 $engine->addModuleToCategory("tags",mysql_insert_id());
 }
-$install_sql[]="insert into `%block_types%` values (null,'Îáëàêî òåãîâ','first_test','tags',1);";
+$install_sql[]="insert into `%block_types%` values (null,'ÐžÐ±Ð»Ð°ÐºÐ¾ Ñ‚ÐµÐ³Ð¾Ð²','first_test','tags',1);";
 ?>

@@ -42,7 +42,7 @@ $lang["objects"]["videogallery"]="Videos";
 $lang["objects"]["files"]="Files";
 $lang["objects"]["download_registered"]="For possibility of downloading of files, it is necessary for you to be authorized on a site.";
 
-/*форма добавления*/
+/*С„РѕСЂРјР° РґРѕР±Р°РІР»РµРЅРёСЏ*/
 $lang["objects"]["rubric"]["caption"]="Rubric";
 $lang["objects"]["rubric"]["error"]="Incorrect rubric";
 $lang["objects"]["rubric"]["sample"]="About&nbsp;>&nbsp;Publications";

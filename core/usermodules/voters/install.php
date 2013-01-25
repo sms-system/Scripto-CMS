@@ -1,6 +1,6 @@
 <?
 /*
-Óñòàíîâî÷íûé ôàéë äëÿ ìîäóëÿ ãîëîñîâàíèÿ
+Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¾Ñ‡Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ð³Ð¾Ð»Ð¾ÑÐ¾Ð²Ð°Ð½Ð¸Ñ
 */
 global $engine;
 $install_sql[]="CREATE TABLE `%VOTERS%` (
@@ -26,9 +26,9 @@ $install_sql[]="CREATE TABLE `%VOTERS_IP%` (
 `ip` VARCHAR(255) not null default '',
 `date` date
 );";
-$install_sql[]="insert into `%block_types%` values (null,'Îïðîñ','voters','voters',0);";
+$install_sql[]="insert into `%block_types%` values (null,'ÐžÐ¿Ñ€Ð¾Ñ','voters','voters',0);";
 /*
-Äîáàâëÿåì ðàçäåë ãîëîñîâàíèÿ
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» Ð³Ð¾Ð»Ð¾ÑÐ¾Ð²Ð°Ð½Ð¸Ñ
 */
 $m_page=$engine->getMainpage();
 $date_category=array();
@@ -36,7 +36,7 @@ $date_category[0]=(int)date("d");
 $date_category[1]=(int)date("m");
 $date_category[2]=(int)date("Y");
 if (!$engine->rubricExist($m->thismodule["voters_url"],0)) {
-$engine->addCategory($m_page["id_category"],"Ãîëîñîâàíèÿ","text",$m->thismodule["voters_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
+$engine->addCategory($m_page["id_category"],"Ð“Ð¾Ð»Ð¾ÑÐ¾Ð²Ð°Ð½Ð¸Ñ","text",$m->thismodule["voters_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0);
 $engine->addModuleToCategory("voters",mysql_insert_id());
 }
 ?>

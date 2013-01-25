@@ -1,41 +1,41 @@
 <?
-$moduleinfo["caption"]="Ìîäóëü íîâîñòåé";
+$moduleinfo["caption"]="ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð½Ð¾Ð²Ð¾ÑÑ‚ÐµÐ¹";
 $moduleinfo["url"]="http://www.scripto-cms.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
 $moduleinfo["version"]="1.0";
 $moduleinfo["icon"]="news.png";
 $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/news/";
-$moduleinfo["use_in_one_rubric"]=true;//òîëüêî äëÿ îäíîé ðóáðèêè
+$moduleinfo["use_in_one_rubric"]=true;//Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð´Ð»Ñ Ð¾Ð´Ð½Ð¾Ð¹ Ñ€ÑƒÐ±Ñ€Ð¸ÐºÐ¸
 $moduleinfo["onpage_admin"]=20;
 $moduleinfo["onpage"]=10;
 $moduleinfo["comments"]=true;
 $moduleinfo["news_url"]="news";
 
-/*Íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 $moduleinfo["tables"]["NEWS"]["caption"]["type"]="text";
-$moduleinfo["tables"]["NEWS"]["caption"]["caption"]="Çàãîëîâîê íîâîñòè";
+$moduleinfo["tables"]["NEWS"]["caption"]["caption"]="Ð—Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº Ð½Ð¾Ð²Ð¾ÑÑ‚Ð¸";
 $moduleinfo["tables"]["NEWS"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["NEWS"]["caption"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["NEWS"]["content"]["type"]="solmetra";
-$moduleinfo["tables"]["NEWS"]["content"]["caption"]="Êðàòêîå îïèñàíèå";
+$moduleinfo["tables"]["NEWS"]["content"]["caption"]="ÐšÑ€Ð°Ñ‚ÐºÐ¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ";
 $moduleinfo["tables"]["NEWS"]["content"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["NEWS"]["content"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["NEWS"]["content_full"]["type"]="solmetra";
-$moduleinfo["tables"]["NEWS"]["content_full"]["caption"]="Ïîëíîå îïèñàíèå";
+$moduleinfo["tables"]["NEWS"]["content_full"]["caption"]="ÐŸÐ¾Ð»Ð½Ð¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ";
 $moduleinfo["tables"]["NEWS"]["content_full"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["NEWS"]["content_full"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["NEWS"]["meta"]["type"]="textarea";
-$moduleinfo["tables"]["NEWS"]["meta"]["caption"]="Òåã meta description";
+$moduleinfo["tables"]["NEWS"]["meta"]["caption"]="Ð¢ÐµÐ³ meta description";
 $moduleinfo["tables"]["NEWS"]["meta"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["NEWS"]["meta"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["NEWS"]["keywords"]["type"]="textarea";
-$moduleinfo["tables"]["NEWS"]["keywords"]["caption"]="Òåã keywords";
+$moduleinfo["tables"]["NEWS"]["keywords"]["caption"]="Ð¢ÐµÐ³ keywords";
 $moduleinfo["tables"]["NEWS"]["keywords"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["NEWS"]["keywords"]["sql_type"]="LONGTEXT NULL";
-/*Êîíåö íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐšÐ¾Ð½ÐµÑ† Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 ?>

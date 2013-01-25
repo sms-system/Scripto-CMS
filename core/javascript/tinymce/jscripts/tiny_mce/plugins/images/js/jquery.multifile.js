@@ -344,7 +344,7 @@
             // Clear element value (DOES NOT WORK in some browsers)
             //slave.reset().val('').attr('value', '')[0].value = '';
             
-            // 2007-06-24: BUG FIX - Thanks to Adrian Wróbel <adrian [dot] wrobel [at] gmail.com>
+            // 2007-06-24: BUG FIX - Thanks to Adrian WrÑƒbel <adrian [dot] wrobel [at] gmail.com>
             // Ditch the trouble maker and add a fresh new element
             MF.n--;
             MF.addSlave(newEle[0], this.i);

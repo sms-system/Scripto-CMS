@@ -1,6 +1,6 @@
 <?
 /*
-Модуль товары
+РњРѕРґСѓР»СЊ С‚РѕРІР°СЂС‹
 */
 
 define("SCRIPTO_products",true);
@@ -37,7 +37,7 @@ class products {
 		global $db;
 		global $engine;
 		$type_id=mysql_insert_id();
-		if ($db->query("insert into `%blocks%` values (null,0,'Товары','',$type_id,'products',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
+		if ($db->query("insert into `%blocks%` values (null,0,'РўРѕРІР°СЂС‹','',$type_id,'products',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
 			return true;
 		}  else {
 			return false;
@@ -98,7 +98,7 @@ class products {
 		}
 	}
 	
-	function getPrintPrice($price,$valute="руб") {
+	function getPrintPrice($price,$valute="СЂСѓР±") {
 		if (!preg_match("/^[0-9]{1,}$/i",$price)) return $price." $valute";
 		$new_price="";
 		$l=strlen($price);
@@ -344,7 +344,7 @@ class products {
 		switch ($block["type"]["type"]) {
 			case "products_random":
 			case "products":
-				//добавляем товары к блоку
+				//РґРѕР±Р°РІР»СЏРµРј С‚РѕРІР°СЂС‹ Рє Р±Р»РѕРєСѓ
 				if (isset($_REQUEST["add_product"])) {
 					$id_product=@$_REQUEST["id_product"];
 					$this->addProductToBlock($block["id_block"],$id_product);
@@ -468,7 +468,7 @@ class products {
 	}
 	
 	function checkMe() {
-	//проверяем существуют ли уже таблицы модуля
+	//РїСЂРѕРІРµСЂСЏРµРј СЃСѓС‰РµСЃС‚РІСѓСЋС‚ Р»Рё СѓР¶Рµ С‚Р°Р±Р»РёС†С‹ РјРѕРґСѓР»СЏ
 		global $engine;
 		if ($engine->checkInstallModule("products")) {
 			return true;
@@ -489,7 +489,7 @@ class products {
 		
 		if (is_file($this->thismodule["path"]."user_module.mod.php")) {
 			include($this->thismodule["path"]."user_module.mod.php");
-			//здесь получаем товары для рубрик
+			//Р·РґРµСЃСЊ РїРѕР»СѓС‡Р°РµРј С‚РѕРІР°СЂС‹ РґР»СЏ СЂСѓР±СЂРёРє
 $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path"]."user_module".$this->engine->current_prefix.".tpl.html";
 		if (is_file($fname)) {
 		$content=$smarty->fetch($this->thismodule["template_path"]."user_module".$this->engine->current_prefix.".tpl.html");
@@ -543,7 +543,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		}
 	}
 	
-	//Поиск товаров
+	//РџРѕРёСЃРє С‚РѕРІР°СЂРѕРІ
 	function doUserSearch($str,$prefix='') {
 		global $db;
 		$res=$db->query("select * from `%PRODUCTS%` where `caption$prefix` LIKE '%$str%' or `code` LIKE '%$str%' or `content$prefix` LIKE '%$str%' and visible=1 order by `sort` DESC");
@@ -555,7 +555,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		return false;
 	}
 	
-	//проверяем существование товара
+	//РїСЂРѕРІРµСЂСЏРµРј СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ С‚РѕРІР°СЂР°
 	function existProduct($code) {
 		global $db;
 		$res=$db->query("select id_product from `%PRODUCTS%` where `code`='".sql_quote($code)."'");
@@ -565,7 +565,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 			return false;
 		}
 	}
-	/*добавление товаров*/
+	/*РґРѕР±Р°РІР»РµРЅРёРµ С‚РѕРІР°СЂРѕРІ*/
 	function addProduct($date_news="",$caption="",$content="",$content_full="",$url="",$id_firm=0,$id_collection=0,$id_cat,$id_type,$price1=0,$price2=0,$price_default=0,$kolvo=0,$visible=1,$code="",$sql="",$meta='',$keywords='') {
 		global $db;
 		if (!preg_match("/^[0-9]{1,}$/i",$id_firm)) return false;
@@ -593,7 +593,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		return false;
 	}
 	
-	//получаем товар по идентификатору
+	//РїРѕР»СѓС‡Р°РµРј С‚РѕРІР°СЂ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ
 	function getProductByID($id_product) {
 		global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_product)) {
@@ -611,7 +611,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		}
 	}
 	
-	//Декодировать значения
+	//Р”РµРєРѕРґРёСЂРѕРІР°С‚СЊ Р·РЅР°С‡РµРЅРёСЏ
 	function decodeSerialize($array) {
 		if (is_array($array)) {
 			foreach ($array as $key=>$arr) {
@@ -625,7 +625,7 @@ $fname=$this->config["pathes"]["templates_dir"].$this->thismodule["template_path
 		return $array;
 	}
 	
-	//получить общее количество товаров
+	//РїРѕР»СѓС‡РёС‚СЊ РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРІР°СЂРѕРІ
 	function getCountAllProducts() {
 		global $db;
 		global $rubrics;
@@ -899,10 +899,10 @@ $products[$row["id_product"]]["price2_print"]=$this->getPrintPrice($products[$ro
 		return $level;
 	}
 	
-	/*Функции по работе с типами товаров*/
+	/*Р¤СѓРЅРєС†РёРё РїРѕ СЂР°Р±РѕС‚Рµ СЃ С‚РёРїР°РјРё С‚РѕРІР°СЂРѕРІ*/
 	function addType($caption='',$sql='') {
 		global $db;
-		//Функция добавления нового типа товара
+		//Р¤СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕРіРѕ С‚РёРїР° С‚РѕРІР°СЂР°
 		if ($db->query("insert into `%PRODUCT_TYPES%` values (null,'".sql_quote($caption)."'$sql)")) {
 			return true;
 		} else {
@@ -987,10 +987,10 @@ $products[$row["id_product"]]["price2_print"]=$this->getPrintPrice($products[$ro
 			return false;
 		}
 	}
-	/*Конец функций по работе с типами товаров*/
+	/*РљРѕРЅРµС† С„СѓРЅРєС†РёР№ РїРѕ СЂР°Р±РѕС‚Рµ СЃ С‚РёРїР°РјРё С‚РѕРІР°СЂРѕРІ*/
 	
 	function generatePricingSQL($filter) {
-		//функция генерации выборки для наценки
+		//С„СѓРЅРєС†РёСЏ РіРµРЅРµСЂР°С†РёРё РІС‹Р±РѕСЂРєРё РґР»СЏ РЅР°С†РµРЅРєРё
 		if (is_array($filter)) {
 			if (sizeof($filter)>0) {
 				$where='';
@@ -1123,8 +1123,8 @@ $products[$row["id_product"]]["price2_print"]=$this->getPrintPrice($products[$ro
 		}
 	}
 	
-	//Работа с фирмами и коллекциями
-	//Функция получения фирм и коллекций для вставки в форму добавления\редактирования товара
+	//Р Р°Р±РѕС‚Р° СЃ С„РёСЂРјР°РјРё Рё РєРѕР»Р»РµРєС†РёСЏРјРё
+	//Р¤СѓРЅРєС†РёСЏ РїРѕР»СѓС‡РµРЅРёСЏ С„РёСЂРј Рё РєРѕР»Р»РµРєС†РёР№ РґР»СЏ РІСЃС‚Р°РІРєРё РІ С„РѕСЂРјСѓ РґРѕР±Р°РІР»РµРЅРёСЏ\СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ С‚РѕРІР°СЂР°
 	function getFirmsAndCollections() {
 		global $db;
 		global $lang;
@@ -1170,7 +1170,7 @@ $products[$row["id_product"]]["price2_print"]=$this->getPrintPrice($products[$ro
 		return $item;
 	}
 	
-	/*управление акциями*/
+	/*СѓРїСЂР°РІР»РµРЅРёРµ Р°РєС†РёСЏРјРё*/
 	function getActionByID($id_action) {
 		global $db;
 		if (!preg_match("/^[0-9]{1,}$/i",$id_action)) return false;

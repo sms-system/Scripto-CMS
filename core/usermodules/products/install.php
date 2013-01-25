@@ -1,6 +1,6 @@
 <?
 /*
-Óñòàíîâî÷íûé ôàéë äëÿ ìîäóëÿ òîâàðû
+Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¾Ñ‡Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ñ‚Ð¾Ð²Ð°Ñ€Ñ‹
 */
 global $engine;
 
@@ -115,7 +115,7 @@ PRIMARY KEY ( `id_collection` )
 ) ENGINE=MyISAM;";
 
 /*
-Ïîëó÷àåì èäåíòèôèêàòîð ãëàâíîãî ðàçäåëà
+ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€ Ð³Ð»Ð°Ð²Ð½Ð¾Ð³Ð¾ Ñ€Ð°Ð·Ð´ÐµÐ»Ð°
 */
 $m_page=$engine->getMainpage();
 $date_category=array();
@@ -123,39 +123,39 @@ $date_category[0]=(int)date("d");
 $date_category[1]=(int)date("m");
 $date_category[2]=(int)date("Y");
 /*
-Äîáàâëÿåì ðàçäåë ïðîñìîòð òîâàðîâ ïî ïðîèçâîäèòåëþ
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð² Ð¿Ð¾ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŽ
 */
 if (!$engine->rubricExist($m->thismodule["brand_url"],0)) {
 $val["brand_page"]=true;
-$engine->addCategory($m_page["id_category"],"Ïðîñìîòð òîâàðîâ ïî ïðîèçâîäèòåëþ","text",$m->thismodule["brand_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0,0,0,0,0,'','',$val);
+$engine->addCategory($m_page["id_category"],"ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð² Ð¿Ð¾ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŽ","text",$m->thismodule["brand_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0,0,0,0,0,'','',$val);
 $engine->addModuleToCategory("products",mysql_insert_id());
 }
 
 /*
-Äîáàâëÿåì ðàçäåë ïðîñìîòð òîâàðîâ ïî òèïó òîâàðà
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» Ð¿Ñ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð² Ð¿Ð¾ Ñ‚Ð¸Ð¿Ñƒ Ñ‚Ð¾Ð²Ð°Ñ€Ð°
 */
 if (!$engine->rubricExist($m->thismodule["type_url"],0)) {
 unset($val);
 $val["type_url"]=true;
-$engine->addCategory($m_page["id_category"],"Ïðîñìîòð òîâàðîâ ïî òèïó","text",$m->thismodule["type_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0,0,0,0,0,'','',$val);
+$engine->addCategory($m_page["id_category"],"ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð² Ð¿Ð¾ Ñ‚Ð¸Ð¿Ñƒ","text",$m->thismodule["type_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0,0,0,0,0,'','',$val);
 $engine->addModuleToCategory("products",mysql_insert_id());
 }
 
 /*
-Äîáàâëÿåì ðàçäåë ñðàâíåíèå òîâàðîâ
+Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ñ€Ð°Ð·Ð´ÐµÐ» ÑÑ€Ð°Ð²Ð½ÐµÐ½Ð¸Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð²
 */
 if (!$engine->rubricExist($m->thismodule["favorite_url"],0)) {
 unset($val);
 $val["favorite_url"]=true;
-$engine->addCategory($m_page["id_category"],"Ñðàâíåíèå òîâàðîâ","text",$m->thismodule["favorite_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0,0,1,0,0,'','',$val);
+$engine->addCategory($m_page["id_category"],"Ð¡Ñ€Ð°Ð²Ð½ÐµÐ½Ð¸Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð²","text",$m->thismodule["favorite_url"],0,0,'','','','','','',$m_page["id_tpl"],$m_page["position"],$date_category,0,0,1,0,0,'','',$val);
 $engine->addModuleToCategory("products",mysql_insert_id());
 }
 
-$install_sql[]="insert into `%block_types%` values (null,'Ëèäåðû ïðîäàæ','products_leaders','products',0);";
-$install_sql[]="insert into `%block_types%` values (null,'Ñðàâíåíèå òîâàðîâ','products_compare','products',0);";
-$install_sql[]="insert into `%block_types%` values (null,'Âûâîä òèïîâ òîâàðîâ','products_types','products',1);";
-$install_sql[]="insert into `%block_types%` values (null,'Àêöèè','products_actions','products',1);";
-$install_sql[]="insert into `%block_types%` values (null,'Âûâîä ôèðì äëÿ òîâàðîâ','products_firms','products',1);";
-$install_sql[]="insert into `%block_types%` values (null,'Òîâàðû íà âûáîð (random)','products_random','products',0);";
-$install_sql[]="insert into `%block_types%` values (null,'Òîâàðû íà âûáîð','products','products',1);";
+$install_sql[]="insert into `%block_types%` values (null,'Ð›Ð¸Ð´ÐµÑ€Ñ‹ Ð¿Ñ€Ð¾Ð´Ð°Ð¶','products_leaders','products',0);";
+$install_sql[]="insert into `%block_types%` values (null,'Ð¡Ñ€Ð°Ð²Ð½ÐµÐ½Ð¸Ðµ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð²','products_compare','products',0);";
+$install_sql[]="insert into `%block_types%` values (null,'Ð’Ñ‹Ð²Ð¾Ð´ Ñ‚Ð¸Ð¿Ð¾Ð² Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð²','products_types','products',1);";
+$install_sql[]="insert into `%block_types%` values (null,'ÐÐºÑ†Ð¸Ð¸','products_actions','products',1);";
+$install_sql[]="insert into `%block_types%` values (null,'Ð’Ñ‹Ð²Ð¾Ð´ Ñ„Ð¸Ñ€Ð¼ Ð´Ð»Ñ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð²','products_firms','products',1);";
+$install_sql[]="insert into `%block_types%` values (null,'Ð¢Ð¾Ð²Ð°Ñ€Ñ‹ Ð½Ð° Ð²Ñ‹Ð±Ð¾Ñ€ (random)','products_random','products',0);";
+$install_sql[]="insert into `%block_types%` values (null,'Ð¢Ð¾Ð²Ð°Ñ€Ñ‹ Ð½Ð° Ð²Ñ‹Ð±Ð¾Ñ€','products','products',1);";
 ?>

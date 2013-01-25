@@ -1,8 +1,8 @@
 {if $white}
 {if $page.is_error}
-	<h1>Непредвиденная ошибка (модуль: {$page.title}.mod.php)</h1>
+	<h1>РќРµРїСЂРµРґРІРёРґРµРЅРЅР°СЏ РѕС€РёР±РєР° (РјРѕРґСѓР»СЊ: {$page.title}.mod.php)</h1>
 		<p>{$page.content}</p>
-		<p><b>детальное описание:</b></p>
+		<p><b>РґРµС‚Р°Р»СЊРЅРѕРµ РѕРїРёСЃР°РЅРёРµ:</b></p>
 		<p>{$page.help}</p>
 {else}
 	{$page.content}
@@ -16,7 +16,7 @@
 
 <html>
 <head>
-	<META http-equiv="content-type" content="text/html; charset=windows-1251">
+	<META http-equiv="content-type" content="text/html; charset=utf-8">
 	<title>Scripto CMS | {$admin_title}</title>
 	<script type="text/javascript" src="{$js}jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="{$js}fancybox/jquery.fancybox-1.3.1.pack.js"></script>
@@ -76,7 +76,7 @@ function toggleEditor(id) {
 		name: 'photoupload',
 		onSubmit : function(file, ext){
 			// change button text, when user selects file			
-			button.text('Загрузка');
+			button.text('Р—Р°РіСЂСѓР·РєР°');
 			
 			// If you want to allow uploading only 1 file at time,
 			// you can disable upload button
@@ -88,12 +88,12 @@ function toggleEditor(id) {
 				if (text.length < 13){
 					button.text(text + '.');					
 				} else {
-					button.text('Загрузка');				
+					button.text('Р—Р°РіСЂСѓР·РєР°');				
 				}
 			}, 200);
 		},
 		onComplete: function(file, response){
-			button.text('Загрузить файл');
+			button.text('Р—Р°РіСЂСѓР·РёС‚СЊ С„Р°Р№Р»');
 						
 			window.clearInterval(interval);
 						
@@ -103,22 +103,22 @@ function toggleEditor(id) {
 			// add file to the list
 			switch (response) {
 				case 'error':
-					parent.tooltip("Ошибка при загрузке файла","При загрузке файла произошла ошибка",3000);
+					parent.tooltip("РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ С„Р°Р№Р»Р°","РџСЂРё Р·Р°РіСЂСѓР·РєРµ С„Р°Р№Р»Р° РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°",3000);
 				break;
 				case 'wrong_format':
-					parent.tooltip("Неверный формат файла","Загружаемый формат файла не поддерживается",3000);
+					parent.tooltip("РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚ С„Р°Р№Р»Р°","Р—Р°РіСЂСѓР¶Р°РµРјС‹Р№ С„РѕСЂРјР°С‚ С„Р°Р№Р»Р° РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ",3000);
 				break;
 				case 'wrong_name':
-					parent.tooltip("Файл неверно назван","Загружаемые файлы должны быть названы латинскими буквами и цифрами, например s8934.jpg",3000);
+					parent.tooltip("Р¤Р°Р№Р» РЅРµРІРµСЂРЅРѕ РЅР°Р·РІР°РЅ","Р—Р°РіСЂСѓР¶Р°РµРјС‹Рµ С„Р°Р№Р»С‹ РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РЅР°Р·РІР°РЅС‹ Р»Р°С‚РёРЅСЃРєРёРјРё Р±СѓРєРІР°РјРё Рё С†РёС„СЂР°РјРё, РЅР°РїСЂРёРјРµСЂ s8934.jpg",3000);
 				break
 				default:
 					try {
 					var object = jQuery.parseJSON(response);
 					} catch(e) {};
 					if (object==null) {
-						parent.tooltip("Произошла ошибка!","Возможно размер загружаемого файла " + file + " , больше чем максимально допустимый на сервере, либо при передаче файла произошла ошибка.",0);
+						parent.tooltip("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!","Р’РѕР·РјРѕР¶РЅРѕ СЂР°Р·РјРµСЂ Р·Р°РіСЂСѓР¶Р°РµРјРѕРіРѕ С„Р°Р№Р»Р° " + file + " , Р±РѕР»СЊС€Рµ С‡РµРј РјР°РєСЃРёРјР°Р»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјС‹Р№ РЅР° СЃРµСЂРІРµСЂРµ, Р»РёР±Рѕ РїСЂРё РїРµСЂРµРґР°С‡Рµ С„Р°Р№Р»Р° РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°.",0);
 					} else {
-					parent.tooltip("Файл загружен","Файл " + file + " загружен успешно!",3000);					
+					parent.tooltip("Р¤Р°Р№Р» Р·Р°РіСЂСѓР¶РµРЅ","Р¤Р°Р№Р» " + file + " Р·Р°РіСЂСѓР¶РµРЅ СѓСЃРїРµС€РЅРѕ!",3000);					
 					switch (object.format) {
 						case "image":
 							$("#clear").html('');
@@ -133,10 +133,10 @@ function toggleEditor(id) {
 							$('.icons[type=' + object.format + ']').append(s_object);
 						break;
 						case "music":
-							alert('Аудиозапись загружена в библиотеку, но не будет показан в данном диалоге');
+							alert('РђСѓРґРёРѕР·Р°РїРёСЃСЊ Р·Р°РіСЂСѓР¶РµРЅР° РІ Р±РёР±Р»РёРѕС‚РµРєСѓ, РЅРѕ РЅРµ Р±СѓРґРµС‚ РїРѕРєР°Р·Р°РЅ РІ РґР°РЅРЅРѕРј РґРёР°Р»РѕРіРµ');
 						break;
 						case "flash":
-							alert('Флешролик загружен в библиотеку, но не будет показан в данном диалоге');
+							alert('Р¤Р»РµС€СЂРѕР»РёРє Р·Р°РіСЂСѓР¶РµРЅ РІ Р±РёР±Р»РёРѕС‚РµРєСѓ, РЅРѕ РЅРµ Р±СѓРґРµС‚ РїРѕРєР°Р·Р°РЅ РІ РґР°РЅРЅРѕРј РґРёР°Р»РѕРіРµ');
 						break;
 					}
 
@@ -151,10 +151,10 @@ function toggleEditor(id) {
 $(document).ready(function(){
 
 	$('#urldownload').live('click', function() {
-	var url=prompt('Укажите URL к файлу, который необходимо загрузить.');
+	var url=prompt('РЈРєР°Р¶РёС‚Рµ URL Рє С„Р°Р№Р»Сѓ, РєРѕС‚РѕСЂС‹Р№ РЅРµРѕР±С…РѕРґРёРјРѕ Р·Р°РіСЂСѓР·РёС‚СЊ.');
 			if (url!='' && url!=null) {	
-			parent.setLoadProcess('Скачиваю файл с URL ' + url);
-			parent.showLoad('загрузка объектов');	
+			parent.setLoadProcess('РЎРєР°С‡РёРІР°СЋ С„Р°Р№Р» СЃ URL ' + url);
+			parent.showLoad('Р·Р°РіСЂСѓР·РєР° РѕР±СЉРµРєС‚РѕРІ');	
 			var idcat=$(this).attr("idcat");
 			var str_cat='';
 			if (idcat>0) {
@@ -162,29 +162,29 @@ $(document).ready(function(){
 			}
 			$.post('/admin/?module=objects&modAction=geturl&url=' + url + str_cat, function(response, status, xhr) {
 			  if (status == "error") {
-			    var msg = "В процессе загрузки произошла ошибка: ";
+			    var msg = "Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: ";
 			    alert(msg + xhr.status + " " + xhr.statusText);
 				parent.hideLoad();
 			 } else {
 			 	parent.hideLoad();
 			 	switch(response) {
 					case 'error_download':
-						parent.tooltip('Произошла ошибка','В процессе загрузки произошла ошибка! Невозможно загрузить файл с удаленного сервера, возможно загрузка файлов отключена у Вашего хостинг провайдера, либо сайт недоступен.',0);
+						parent.tooltip('РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°','Р’ РїСЂРѕС†РµСЃСЃРµ Р·Р°РіСЂСѓР·РєРё РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°! РќРµРІРѕР·РјРѕР¶РЅРѕ Р·Р°РіСЂСѓР·РёС‚СЊ С„Р°Р№Р» СЃ СѓРґР°Р»РµРЅРЅРѕРіРѕ СЃРµСЂРІРµСЂР°, РІРѕР·РјРѕР¶РЅРѕ Р·Р°РіСЂСѓР·РєР° С„Р°Р№Р»РѕРІ РѕС‚РєР»СЋС‡РµРЅР° Сѓ Р’Р°С€РµРіРѕ С…РѕСЃС‚РёРЅРі РїСЂРѕРІР°Р№РґРµСЂР°, Р»РёР±Рѕ СЃР°Р№С‚ РЅРµРґРѕСЃС‚СѓРїРµРЅ.',0);
 					break;
 					case 'url_error':
-						parent.tooltip('Произошла ошибка','Вы неверно указали URL!',5000);
+						parent.tooltip('РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°','Р’С‹ РЅРµРІРµСЂРЅРѕ СѓРєР°Р·Р°Р»Рё URL!',5000);
 					break;
 					case 'wrong_format':
-						parent.tooltip('Произошла ошибка','Загружаемый формат файла не поддерживается!',0);
+						parent.tooltip('РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°','Р—Р°РіСЂСѓР¶Р°РµРјС‹Р№ С„РѕСЂРјР°С‚ С„Р°Р№Р»Р° РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ!',0);
 					break;
 					default:
 						try {
 						var object = jQuery.parseJSON(response);
 						} catch(e) {};
 if (object==null) {
-						parent.tooltip("Произошла ошибка","Возможно размер загружаемого файла больше, чем максимально допустимый на сервере, либо при передаче файла произошла ошибка.",0);
+						parent.tooltip("РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°","Р’РѕР·РјРѕР¶РЅРѕ СЂР°Р·РјРµСЂ Р·Р°РіСЂСѓР¶Р°РµРјРѕРіРѕ С„Р°Р№Р»Р° Р±РѕР»СЊС€Рµ, С‡РµРј РјР°РєСЃРёРјР°Р»СЊРЅРѕ РґРѕРїСѓСЃС‚РёРјС‹Р№ РЅР° СЃРµСЂРІРµСЂРµ, Р»РёР±Рѕ РїСЂРё РїРµСЂРµРґР°С‡Рµ С„Р°Р№Р»Р° РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°.",0);
 					} else {
-					tooltip("Файл загружен","Файл загружен успешно!",3000);					
+					tooltip("Р¤Р°Р№Р» Р·Р°РіСЂСѓР¶РµРЅ","Р¤Р°Р№Р» Р·Р°РіСЂСѓР¶РµРЅ СѓСЃРїРµС€РЅРѕ!",3000);					
 					switch (object.format) {
 						case "image":
 							$("#clear").html('');
@@ -199,10 +199,10 @@ var s_object='<div class="preview" id="obj' + object.id_video + '"><div class="p
 							$('.icons[type=' + object.format + ']').append(s_object);	
 						break;
 						case "music":
-							alert('Аудиозапись загружена в библиотеку, но не будет показан в данном диалоге');
+							alert('РђСѓРґРёРѕР·Р°РїРёСЃСЊ Р·Р°РіСЂСѓР¶РµРЅР° РІ Р±РёР±Р»РёРѕС‚РµРєСѓ, РЅРѕ РЅРµ Р±СѓРґРµС‚ РїРѕРєР°Р·Р°РЅ РІ РґР°РЅРЅРѕРј РґРёР°Р»РѕРіРµ');
 						break;
 						case "flash":
-							alert('Флешролик загружен в библиотеку, но не будет показан в данном диалоге');
+							alert('Р¤Р»РµС€СЂРѕР»РёРє Р·Р°РіСЂСѓР¶РµРЅ РІ Р±РёР±Р»РёРѕС‚РµРєСѓ, РЅРѕ РЅРµ Р±СѓРґРµС‚ РїРѕРєР°Р·Р°РЅ РІ РґР°РЅРЅРѕРј РґРёР°Р»РѕРіРµ');
 						break;
 					}
 
@@ -213,7 +213,7 @@ var s_object='<div class="preview" id="obj' + object.id_video + '"><div class="p
 			 		 
 			});	
 			} else {
-				tooltip('Ошибка!','Вы не указали URL!',5000);
+				tooltip('РћС€РёР±РєР°!','Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё URL!',5000);
 			}
 	});		
 	
@@ -310,9 +310,9 @@ var s_object='<div class="preview" id="obj' + object.id_video + '"><div class="p
 
 <div id="popup">
 {if $page.is_error}	
-	<h1>Непредвиденная ошибка (модуль: {$page.title}.mod.php)</h1>
+	<h1>РќРµРїСЂРµРґРІРёРґРµРЅРЅР°СЏ РѕС€РёР±РєР° (РјРѕРґСѓР»СЊ: {$page.title}.mod.php)</h1>
 		<p>{$page.content}</p>
-		<p><b>детальное описание:</b></p>
+		<p><b>РґРµС‚Р°Р»СЊРЅРѕРµ РѕРїРёСЃР°РЅРёРµ:</b></p>
 		<p>{$page.help}</p>		
 {else}
 	{$page.content}

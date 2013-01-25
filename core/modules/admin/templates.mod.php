@@ -1,6 +1,6 @@
 <?
 /*
-ìîäóëü áëîêîâ
+Ð¼Ð¾Ð´ÑƒÐ»ÑŒ Ð±Ð»Ð¾ÐºÐ¾Ð²
 */
 global $page;
 
@@ -11,10 +11,10 @@ $smarty->assign("page",$page);
 $smarty->assign("module_documentation","http://scripto-cms.ru/documentation/standart/templates/");
 $this->setAdminTitle($lang["modules"]["templates"]);
 
-				/*èíôîðìàöèÿ äëÿ ãåíåðàöèè øàáëîíîâ*/
+				/*Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð´Ð»Ñ Ð³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸Ð¸ ÑˆÐ°Ð±Ð»Ð¾Ð½Ð¾Ð²*/
 				$blocks=$this->getAllBlocks(false);
 				$smarty->assign("blocks",$blocks);
-				/*êîíåö èíôîðìàöèè äëÿ ãåíåðàöèè øàáëîíîâ*/
+				/*ÐºÐ¾Ð½ÐµÑ† Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð´Ð»Ñ Ð³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸Ð¸ ÑˆÐ°Ð±Ð»Ð¾Ð½Ð¾Ð²*/
 
 	switch ($modAction) {
 		case "edit":
@@ -23,7 +23,7 @@ $this->setAdminTitle($lang["modules"]["templates"]);
 				$tpl=$this->getTemplateByID($id_tpl);
 				$smarty->assign("tpl",$tpl);
 				if ($tpl["tpl_type"]=="site") {
-				$this->addPath('Øàáëîíû ñàéòà','/admin?module=templates&modAction=view&type='.$tpl["tpl_type"],true);
+				$this->addPath('Ð¨Ð°Ð±Ð»Ð¾Ð½Ñ‹ ÑÐ°Ð¹Ñ‚Ð°','/admin?module=templates&modAction=view&type='.$tpl["tpl_type"],true);
 				$tpl_path=$config["pathes"]["templates_dir"].$config["templates"]["themes"].$tpl["path"];
 $main_css=$config["pathes"]["templates_dir"].$config["templates"]["css"].$tpl["tpl_theme"]."/".$tpl["tpl_css"];
 				if (is_file($tpl_path)) {
@@ -71,7 +71,7 @@ $main_css=$config["pathes"]["templates_dir"].$config["templates"]["css"].$tpl["t
 				}
 				}
 				if ($tpl["tpl_type"]=="block") {
-				$this->addPath('Øàáëîíû áëîêîâ','/admin?module=templates&modAction=view&type='.$tpl["tpl_type"],true);	
+				$this->addPath('Ð¨Ð°Ð±Ð»Ð¾Ð½Ñ‹ Ð±Ð»Ð¾ÐºÐ¾Ð²','/admin?module=templates&modAction=view&type='.$tpl["tpl_type"],true);	
 				$tpl_path=$config["pathes"]["templates_dir"].$config["templates"]["themes"].$tpl["path"];
 				if (is_file($tpl_path)) {	
 					$is_writable=is_writable($tpl_path);
@@ -148,7 +148,7 @@ $frm->addField("","","hidden",$type,$type,"/^[^`]{0,}$/i","type",1);
 $this->processFormData($frm,$lang["forms"]["templates"]["submit_name"],$first
 			)) {
 				if ($type=="site") {
-					//Øàáëîí ñàéòà
+					//Ð¨Ð°Ð±Ð»Ð¾Ð½ ÑÐ°Ð¹Ñ‚Ð°
 					if ($this->addTemplate($title,$file,$css,$type)) {
 						$this->clearPath();
 						$modAction="view";
@@ -165,7 +165,7 @@ $this->processFormData($frm,$lang["forms"]["templates"]["submit_name"],$first
 					}
 				}
 				if ($type=="block") {
-					//Øàáëîí áëîêà
+					//Ð¨Ð°Ð±Ð»Ð¾Ð½ Ð±Ð»Ð¾ÐºÐ°
 					if ($this->addTemplate($title,$file,$css,$type)) {
 						$this->clearPath();
 						$modAction="view";
@@ -199,21 +199,21 @@ $this->processFormData($frm,$lang["forms"]["templates"]["submit_name"],$first
 				if (is_array($caption)) {
 					foreach ($caption as $id_tpl=>$capt)
 						$db->query("update `%templates%` set `tpl_caption`='".sql_quote($capt)."' where id_tpl=$id_tpl");
-					$this->setCongratulation("","Èçìåíåíèÿ ñîõðàíåíû!",3000);
+					$this->setCongratulation("","Ð˜Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ñ‹!",3000);
 				}
 			}
 			$type=@$_REQUEST["type"];
 			switch ($type) {
 				case "site":
-					//ïîëó÷àåì øàáëîíû ñàéòà
+					//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑˆÐ°Ð±Ð»Ð¾Ð½Ñ‹ ÑÐ°Ð¹Ñ‚Ð°
 					$templates=$this->getTemplatesByType($type);
 				break;
 				case "block":
-					//ïîëó÷àåì øàáëîíû áëîêîâ
+					//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑˆÐ°Ð±Ð»Ð¾Ð½Ñ‹ Ð±Ð»Ð¾ÐºÐ¾Ð²
 					$templates=$this->getTemplatesByType($type);
 				break;
 				case "module":
-					//ïîëó÷àåì øàáëîíû ìîäóëåé
+					//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑˆÐ°Ð±Ð»Ð¾Ð½Ñ‹ Ð¼Ð¾Ð´ÑƒÐ»ÐµÐ¹
 					$templates=$this->getTemplatesByType($type);
 				break;
 			}

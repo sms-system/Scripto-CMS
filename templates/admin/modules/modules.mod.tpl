@@ -4,16 +4,16 @@
 						{include file='admin/module_header.tpl.html'}
 					<div class="body">
 {if $modAction=="view"}
-<h2>Установленные модули</h2>
+<h2>РЈСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹Рµ РјРѕРґСѓР»Рё</h2>
 <table width="100%" cellpadding="1" cellspacing="2" id="cats">
 <tr height="30">
-	<td width="30%" class="shapka">Название модуля</td>
-	<td width="10%" class="shapka">Разработчик</td>
-	<td width="10%" class="shapka">Версия</td>
-	<td width="20%" class="shapka" align="center">Управление</td>	
-	<td width="10%" class="shapka" align="center">Выбор раздела</td>
-	<td width="10%" class="shapka" align="center">Обновление</td>
-	<td width="10%" class="shapka" align="center">Удаление</td>
+	<td width="30%" class="shapka">РќР°Р·РІР°РЅРёРµ РјРѕРґСѓР»СЏ</td>
+	<td width="10%" class="shapka">Р Р°Р·СЂР°Р±РѕС‚С‡РёРє</td>
+	<td width="10%" class="shapka">Р’РµСЂСЃРёСЏ</td>
+	<td width="20%" class="shapka" align="center">РЈРїСЂР°РІР»РµРЅРёРµ</td>	
+	<td width="10%" class="shapka" align="center">Р’С‹Р±РѕСЂ СЂР°Р·РґРµР»Р°</td>
+	<td width="10%" class="shapka" align="center">РћР±РЅРѕРІР»РµРЅРёРµ</td>
+	<td width="10%" class="shapka" align="center">РЈРґР°Р»РµРЅРёРµ</td>
 </tr>
 {if $modules}
 {foreach key=key item=mod from=$modules}
@@ -31,13 +31,13 @@
 {/if}
 </table>
 
-<h2>Неустановленные модули</h2>
+<h2>РќРµСѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹Рµ РјРѕРґСѓР»Рё</h2>
 <table width="100%" cellpadding="0" cellspacing="0" id="cats">
 <tr height="30">
-	<td width="30%" class="shapka">Название модуля</td>
-	<td width="30%" class="shapka">Разработчик</td>
-	<td width="30%" class="shapka">Версия</td>
-	<td width="10%" class="shapka" align="right">Действия</td>
+	<td width="30%" class="shapka">РќР°Р·РІР°РЅРёРµ РјРѕРґСѓР»СЏ</td>
+	<td width="30%" class="shapka">Р Р°Р·СЂР°Р±РѕС‚С‡РёРє</td>
+	<td width="30%" class="shapka">Р’РµСЂСЃРёСЏ</td>
+	<td width="10%" class="shapka" align="right">Р”РµР№СЃС‚РІРёСЏ</td>
 </tr>
 {if $modules}
 {foreach key=key item=mod from=$modules}
@@ -53,14 +53,14 @@
 </table>
 {elseif $modAction=="category_module"}
 {if $user_module.use_in_all_rubrics}
-<b>Внимание! Данный модуль выводится во всех созданных Вами разделах!</b>
+<b>Р’РЅРёРјР°РЅРёРµ! Р”Р°РЅРЅС‹Р№ РјРѕРґСѓР»СЊ РІС‹РІРѕРґРёС‚СЃСЏ РІРѕ РІСЃРµС… СЃРѕР·РґР°РЅРЅС‹С… Р’Р°РјРё СЂР°Р·РґРµР»Р°С…!</b>
 {else}
-<p>Выберите раздел , в котором выводить модуль <b>{$user_module.caption}</b></p>
+<p>Р’С‹Р±РµСЂРёС‚Рµ СЂР°Р·РґРµР» , РІ РєРѕС‚РѕСЂРѕРј РІС‹РІРѕРґРёС‚СЊ РјРѕРґСѓР»СЊ <b>{$user_module.caption}</b></p>
 <form id="frm" action="{$siteurl}admin/?module=modules&modAction=category_module&module_name={$user_module.name}" method="post">
 <table width="100%" id="mods">
 <tr height="30">
 	<td width="10%" class="shapka"></td>
-	<td width="90%" class="shapka">Название раздела</td>
+	<td width="90%" class="shapka">РќР°Р·РІР°РЅРёРµ СЂР°Р·РґРµР»Р°</td>
 </tr>
 {if $categories}
 {foreach key=key item=category from=$categories}
@@ -71,7 +71,7 @@
 {/foreach}
 <input type="hidden" name="m_save" value="1">
 <tr>
-	<td colspan="2" align="center" style="padding-top:10px;"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="2" align="center" style="padding-top:10px;"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 {/if}
 </table>
@@ -79,8 +79,8 @@
 {/if}
 {elseif $modAction=="settings"}
 {if $denied}
-<h2>Доступ к модулю закрыт</h2>
-<p>Вам необходимо связаться с администратором ресурса для предоставления Вам доступа.</p>
+<h2>Р”РѕСЃС‚СѓРї Рє РјРѕРґСѓР»СЋ Р·Р°РєСЂС‹С‚</h2>
+<p>Р’Р°Рј РЅРµРѕР±С…РѕРґРёРјРѕ СЃРІСЏР·Р°С‚СЊСЃСЏ СЃ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂРѕРј СЂРµСЃСѓСЂСЃР° РґР»СЏ РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅРёСЏ Р’Р°Рј РґРѕСЃС‚СѓРїР°.</p>
 {else}
 {$module_content}
 {/if}

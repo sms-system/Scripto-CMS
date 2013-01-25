@@ -1,6 +1,6 @@
 <?
 /*
-Ìîäóëü Îïðîñû
+ÐœÐ¾Ð´ÑƒÐ»ÑŒ ÐžÐ¿Ñ€Ð¾ÑÑ‹
 */
 
 define("SCRIPTO_voters",true);
@@ -26,7 +26,7 @@ class voters {
 		global $db;
 		global $engine;
 		$type_id=mysql_insert_id();
-		if ($db->query("insert into `%blocks%` values (null,0,'Îïðîñ','',$type_id,'voters',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
+		if ($db->query("insert into `%blocks%` values (null,0,'ÐžÐ¿Ñ€Ð¾Ñ','',$type_id,'voters',1,0,2,5,'".date('Y-m-d H:i:s')."',0".$engine->generateInsertSQL("blocks",array()).");")) {
 			return true;
 		}  else {
 			return false;
@@ -80,7 +80,7 @@ class voters {
 	}
 	
 	function checkMe() {
-	//ïðîâåðÿåì ñóùåñòâóþò ëè óæå òàáëèöû ìîäóëÿ
+	//Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‚ Ð»Ð¸ ÑƒÐ¶Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ Ð¼Ð¾Ð´ÑƒÐ»Ñ
 		global $engine;
 		if ($engine->checkInstallModule("voters")) {
 			return true;
@@ -131,7 +131,7 @@ class voters {
 	}	
 	
 	
-	//ïðîâåðÿåì ãîëîñîâàëè èëè íåò
+	//Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ Ð³Ð¾Ð»Ð¾ÑÐ¾Ð²Ð°Ð»Ð¸ Ð¸Ð»Ð¸ Ð½ÐµÑ‚
 	function voted($ip,$id_vote=0) {
 		global $db;
 		global $engine;
@@ -144,7 +144,7 @@ class voters {
 		}
 	}
 	
-	//ãîëîñóåì
+	//Ð³Ð¾Ð»Ð¾ÑÑƒÐµÐ¼
 	function vote($id_vote=0,$otvet=0,$ip="") {
 		global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_vote) && preg_match("/^[0-9]{1,}$/i",$otvet)) {
@@ -159,7 +159,7 @@ class voters {
 		}
 	}
 	
-	//ïîëó÷àåì îïðîñ ïî èäåíòèôèêàòîðó
+	//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð¾Ð¿Ñ€Ð¾Ñ Ð¿Ð¾ Ð¸Ð´ÐµÐ½Ñ‚Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ñƒ
 	function getVoteByID($id_vote) {
 		global $db;
 		if (preg_match("/^[0-9]{1,}$/i",$id_vote)) {
@@ -170,7 +170,7 @@ class voters {
 		}
 	}
 	
-	//Ïîëó÷àåì âîïðîñû
+	//ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð²Ð¾Ð¿Ñ€Ð¾ÑÑ‹
 	function getUserAllVoters($page=0,$onpage=10) {
 		global $db;
 		global $engine;
@@ -215,7 +215,7 @@ class voters {
 		}
 	}
 	
-	//Ïîëó÷àåì âîïðîñû
+	//ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð²Ð¾Ð¿Ñ€Ð¾ÑÑ‹
 	function getAllVoters() {
 		global $db;
 		global $engine;
@@ -232,7 +232,7 @@ class voters {
 		}
 	}
 	
-	/*äîáàâëåíèå îïðîñà*/
+	/*Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¾Ð¿Ñ€Ð¾ÑÐ°*/
 	function addVote($vopros="",$otvet1="",$otvet2="",$otvet3="",$otvet4="",$otvet5="",$current=0,$sql='') {
 		global $db;
 		if (
@@ -246,7 +246,7 @@ insert %VOTERS% values (null,'".sql_quote($vopros)."','".sql_quote($otvet1)."',0
 		}
 	}
 	
-	//Ïîëó÷èòü âñå IP
+	//ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð²ÑÐµ IP
 	function getAllIps() {
 		global $db;
 		$res=$db->query("select `id_vote`,`ip` from `%VOTERS_IP%`");

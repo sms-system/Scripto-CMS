@@ -52,12 +52,12 @@ $text.="$separator<b>".$this->frm[$j]["name"]." :  </b>".$this->frm[$j]["value"]
 		} elseif ($this->frm[$j]["type"]=="time") {
 $text.="$separator<b>".$this->frm[$j]["name"]." :  </b>".$this->frm[$j]["value"][0].":".$this->frm[$j]["value"][1].$separator;
 		} elseif ($this->frm[$j]["type"]=="date") {
-			$text.=$this->frm[$j]["name"]." : Файл был прикреплен к письму";
+			$text.=$this->frm[$j]["name"]." : Р¤Р°Р№Р» Р±С‹Р» РїСЂРёРєСЂРµРїР»РµРЅ Рє РїРёСЃСЊРјСѓ";
 		} elseif ($this->frm[$j]["type"]=="check") {
 			if ($this->frm[$j]["value"]==1) {
-				$v="Да";
+				$v="Р”Р°";
 			} else {
-				$v="Нет";
+				$v="РќРµС‚";
 			}
 			$text.=$this->frm[$j]["name"]." : ".$v.$separator;
 		} else {
@@ -87,7 +87,7 @@ $text.="$separator<b>".$this->frm[$j]["name"]." :  </b>".$this->frm[$j]["value"]
 			}
 			}
 			} elseif ($this->frm[$j]["type"]=='date') {
-			//если дата
+			//РµСЃР»Рё РґР°С‚Р°
 					for ($i=0;$i<=2;$i++) {
 						if (!preg_match($this->frm[$j]["eregi"],$this->frm[$j]["value"][$i])) {
 	$this->err[$this->n]["description"]=$this->frm[$j]["name"].":".$this->frm[$j]["error"];
@@ -96,7 +96,7 @@ $this->n++;
 						}
 					}
 			} elseif ($this->frm[$j]["type"]=='time') {
-			//если время
+			//РµСЃР»Рё РІСЂРµРјСЏ
 					for ($i=0;$i<=1;$i++) {
 						if (!preg_match($this->frm[$j]["eregi"],$this->frm[$j]["value"][$i])) {
 	$this->err[$this->n]["description"]=$this->frm[$j]["name"].":".$this->frm[$j]["error"];

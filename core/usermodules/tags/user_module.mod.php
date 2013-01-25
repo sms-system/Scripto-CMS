@@ -1,13 +1,13 @@
 <?
-//Ìîäóëü òåãè, ïîëüçîâàòåëüñêàÿ ÷àñòü
+//ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ñ‚ÐµÐ³Ð¸, Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ°Ñ Ñ‡Ð°ÑÑ‚ÑŒ
 global $page;
 global $rubrics;
 
-//ïîëó÷åíèå òåãà
+//Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ Ñ‚ÐµÐ³Ð°
 if (isset($_REQUEST["t"])) {
 	$tag=urldecode($_REQUEST["t"]);
 	$smarty->assign("tag",$tag);
-	//ïîëó÷àåì ñïèñîê îáúåêòîâ
+	//Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÑÐ¿Ð¸ÑÐ¾Ðº Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²
 $info=$this->getTagsCountByTag($tag);
 $count=$info["cnt"];
 $id_tag=$info["id_tag"];

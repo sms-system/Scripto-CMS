@@ -1,5 +1,5 @@
 <?
-//ßçûêîâîé ôàéë äëÿ ìîäóëÿ ôîðì
+//Ð¯Ð·Ñ‹ÐºÐ¾Ð²Ð¾Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ Ñ„Ð¾Ñ€Ð¼
 $lang["forms"]["send"]="Send";
 $lang["forms"]["sended"]="Form successfully send";
 $lang["forms"]["number"]="Please remember your order number.";

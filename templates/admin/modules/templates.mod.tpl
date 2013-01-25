@@ -1,125 +1,125 @@
 			<table class="moduletable">
 				<tr>
 					<td class="module_left">
-					<h2>Выберите тип шаблонов</h2>
+					<h2>Р’С‹Р±РµСЂРёС‚Рµ С‚РёРї С€Р°Р±Р»РѕРЅРѕРІ</h2>
 						<div class="body">
 						<ul>
 							{if $type=="site"}
-							<li>Шаблоны сайта</li>							
+							<li>РЁР°Р±Р»РѕРЅС‹ СЃР°Р№С‚Р°</li>							
 							{else}
-							<li><a href="{$siteurl}admin/?module=templates&modAction=view&type=site">Шаблоны сайта</a></li>							
+							<li><a href="{$siteurl}admin/?module=templates&modAction=view&type=site">РЁР°Р±Р»РѕРЅС‹ СЃР°Р№С‚Р°</a></li>							
 							{/if}
 							{if $type=="block"}
-							<li>Шаблоны блоков</li>							
+							<li>РЁР°Р±Р»РѕРЅС‹ Р±Р»РѕРєРѕРІ</li>							
 							{else}
-							<li><a href="{$siteurl}admin/?module=templates&modAction=view&type=block">Шаблоны блоков</a></li>
+							<li><a href="{$siteurl}admin/?module=templates&modAction=view&type=block">РЁР°Р±Р»РѕРЅС‹ Р±Р»РѕРєРѕРІ</a></li>
 							{/if}
 						</ul>
 						</div>
 						{if $config.template_help.enable}
-<h2>Генератор переменных шаблона</h2>
-<p>Пожалуйста выберите тип объекта, который Вы хотите вывести:</p>
+<h2>Р“РµРЅРµСЂР°С‚РѕСЂ РїРµСЂРµРјРµРЅРЅС‹С… С€Р°Р±Р»РѕРЅР°</h2>
+<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р° РІС‹Р±РµСЂРёС‚Рµ С‚РёРї РѕР±СЉРµРєС‚Р°, РєРѕС‚РѕСЂС‹Р№ Р’С‹ С…РѕС‚РёС‚Рµ РІС‹РІРµСЃС‚Рё:</p>
 	<table width="100%" cellpadding="0" cellspacing="0">
-		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('blocks');">Функции вывода блоков</span></td></tr>
+		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('blocks');">Р¤СѓРЅРєС†РёРё РІС‹РІРѕРґР° Р±Р»РѕРєРѕРІ</span></td></tr>
 		<tr class="form_hidden" id="blocks">
 			<td class="element">
-			<h3>Вывод одного блока</h3>
-			 <p>Выберите блок, который нужно вывести:
+			<h3>Р’С‹РІРѕРґ РѕРґРЅРѕРіРѕ Р±Р»РѕРєР°</h3>
+			 <p>Р’С‹Р±РµСЂРёС‚Рµ Р±Р»РѕРє, РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РІС‹РІРµСЃС‚Рё:
 				<select generate_type="blocks" name="blocks" class="show_hidden" ident="code">
-					<option value="">---выберите--</option>
+					<option value="">---РІС‹Р±РµСЂРёС‚Рµ--</option>
 					{foreach key=key item=bl from=$blocks}
 					<option value="{$bl.ident}">{$bl.caption}</option>
 					{/foreach}
 				</select>
 			 </p>
-			 <h3>Вывод нескольких блоков</h3>
+			 <h3>Р’С‹РІРѕРґ РЅРµСЃРєРѕР»СЊРєРёС… Р±Р»РѕРєРѕРІ</h3>
 			  <p>
 			  	<select generate_type="allblocks" name="allblocks" class="show_hidden" ident="code">
-			  		<option value="">---выберите--</option>
-					<option value="all">Все блоки</option>					
+			  		<option value="">---РІС‹Р±РµСЂРёС‚Рµ--</option>
+					<option value="all">Р’СЃРµ Р±Р»РѕРєРё</option>					
 				</select>
 			  </p>
 			</td>
 		</tr>
-		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('modules');">Модули</span></td></tr>
+		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('modules');">РњРѕРґСѓР»Рё</span></td></tr>
 		<tr class="form_hidden" id="modules">
 			<td class="element">
-			<h3>Модули</h3>
+			<h3>РњРѕРґСѓР»Рё</h3>
 			  <p>
 			  	<select generate_type="allmodules" name="allmodules" class="show_hidden" ident="code">
-			  		<option value="">---выберите--</option>
-					<option value="all">Все модули</option>					
+			  		<option value="">---РІС‹Р±РµСЂРёС‚Рµ--</option>
+					<option value="all">Р’СЃРµ РјРѕРґСѓР»Рё</option>					
 				</select>
 			  </p>			
 			</td>
 		</tr>		
-		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('path');">Путь по сайту (хлебные крошки)</span></td></tr>
+		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('path');">РџСѓС‚СЊ РїРѕ СЃР°Р№С‚Сѓ (С…Р»РµР±РЅС‹Рµ РєСЂРѕС€РєРё)</span></td></tr>
 		<tr class="form_hidden" id="path">
 			<td class="element">
-			<h3>Путь по сайту</h3>
+			<h3>РџСѓС‚СЊ РїРѕ СЃР°Р№С‚Сѓ</h3>
 			  <p>
 			  	<select generate_type="path" name="path" class="show_hidden" ident="code">
-			  		<option value="">---выберите--</option>
-					<option value="all">Вывести путь по сайту</option>					
+			  		<option value="">---РІС‹Р±РµСЂРёС‚Рµ--</option>
+					<option value="all">Р’С‹РІРµСЃС‚Рё РїСѓС‚СЊ РїРѕ СЃР°Р№С‚Сѓ</option>					
 				</select>
 			  </p>			
 			</td>
 		</tr>
-		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('rubrics');">Вывод разделов сайта</span></td></tr>
+		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('rubrics');">Р’С‹РІРѕРґ СЂР°Р·РґРµР»РѕРІ СЃР°Р№С‚Р°</span></td></tr>
 		<tr class="form_hidden" id="rubrics">
 			<td class="element">
-			<h3>Вывести разделы</h3>
+			<h3>Р’С‹РІРµСЃС‚Рё СЂР°Р·РґРµР»С‹</h3>
 			  <p>
 			  	<select generate_type="rubrics" name="rubrics" class="show_hidden" ident="code">
-			  		<option value="">---выберите--</option>
-					<option value="razd">Вывести разделы N уровня верхнего меню (up)</option>
-					<option value="podrazd">Вывести подразделы текущего раздела</option>
-					<option value="tree">Вывести дерево разделов (карта сайта)</option>				
+			  		<option value="">---РІС‹Р±РµСЂРёС‚Рµ--</option>
+					<option value="razd">Р’С‹РІРµСЃС‚Рё СЂР°Р·РґРµР»С‹ N СѓСЂРѕРІРЅСЏ РІРµСЂС…РЅРµРіРѕ РјРµРЅСЋ (up)</option>
+					<option value="podrazd">Р’С‹РІРµСЃС‚Рё РїРѕРґСЂР°Р·РґРµР»С‹ С‚РµРєСѓС‰РµРіРѕ СЂР°Р·РґРµР»Р°</option>
+					<option value="tree">Р’С‹РІРµСЃС‚Рё РґРµСЂРµРІРѕ СЂР°Р·РґРµР»РѕРІ (РєР°СЂС‚Р° СЃР°Р№С‚Р°)</option>				
 				</select>
 			  </p>			
 			</td>
 		</tr>					
-		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('page');">Текущий раздел</span></td></tr>
+		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('page');">РўРµРєСѓС‰РёР№ СЂР°Р·РґРµР»</span></td></tr>
 		<tr class="form_hidden" id="page">
 			<td class="element">
-			<h3>Свойства раздела</h3>
+			<h3>РЎРІРѕР№СЃС‚РІР° СЂР°Р·РґРµР»Р°</h3>
 			  <p>
 			  	<select generate_type="page" name="page" class="show_hidden" ident="code">
-			  		<option value="">---выберите--</option>
-					<option value="caption">Название</option>
-					<option value="content">Содержание</option>	
-					<option value="subcontent">Краткое содержание</option>	
-					<option value="url">Ссылка</option>	
-					<option value="id_category">ID раздела</option>			
-					<option value="id_sub_category">ID родительского раздела</option>		
-					<option value="title">Тэг title</option>
-					<option value="meta">Тэг meta</option>
-					<option value="keywords">Тэг keywords</option>	
-					<option value="rss_link">Внешняя ссылка</option>		
-					<option value="main_page">Главная страница? (TRUE\FALSE)</option>		
+			  		<option value="">---РІС‹Р±РµСЂРёС‚Рµ--</option>
+					<option value="caption">РќР°Р·РІР°РЅРёРµ</option>
+					<option value="content">РЎРѕРґРµСЂР¶Р°РЅРёРµ</option>	
+					<option value="subcontent">РљСЂР°С‚РєРѕРµ СЃРѕРґРµСЂР¶Р°РЅРёРµ</option>	
+					<option value="url">РЎСЃС‹Р»РєР°</option>	
+					<option value="id_category">ID СЂР°Р·РґРµР»Р°</option>			
+					<option value="id_sub_category">ID СЂРѕРґРёС‚РµР»СЊСЃРєРѕРіРѕ СЂР°Р·РґРµР»Р°</option>		
+					<option value="title">РўСЌРі title</option>
+					<option value="meta">РўСЌРі meta</option>
+					<option value="keywords">РўСЌРі keywords</option>	
+					<option value="rss_link">Р’РЅРµС€РЅСЏСЏ СЃСЃС‹Р»РєР°</option>		
+					<option value="main_page">Р“Р»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°? (TRUE\FALSE)</option>		
 				</select>
 			  </p>			
 			</td>
 		</tr>	
-		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('site');">Переменные сайта и настройки</span></td></tr>
+		<tr><td valign="middle" class="form_separator"><span onclick="javascript:show_hide_form('site');">РџРµСЂРµРјРµРЅРЅС‹Рµ СЃР°Р№С‚Р° Рё РЅР°СЃС‚СЂРѕР№РєРё</span></td></tr>
 		<tr class="form_hidden" id="site">
 			<td class="element">
-			<h3>Переменные сайта</h3>
+			<h3>РџРµСЂРµРјРµРЅРЅС‹Рµ СЃР°Р№С‚Р°</h3>
 			  <p>
 			  	<select generate_type="site" name="page" class="show_hidden" ident="code">
-			  		<option value="">---выберите--</option>
-			  		<option value="css">Стили текущего шаблона</option>	
-			  		<option value="siteurl">Адрес сайта</option>
-			  		<option value="user_upload">Пользовательские файлы</option>
-			  		<option value="config">Конфигурационный массив</option>	
-			  		<option value="lang">Языковой массив</option>
+			  		<option value="">---РІС‹Р±РµСЂРёС‚Рµ--</option>
+			  		<option value="css">РЎС‚РёР»Рё С‚РµРєСѓС‰РµРіРѕ С€Р°Р±Р»РѕРЅР°</option>	
+			  		<option value="siteurl">РђРґСЂРµСЃ СЃР°Р№С‚Р°</option>
+			  		<option value="user_upload">РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ С„Р°Р№Р»С‹</option>
+			  		<option value="config">РљРѕРЅС„РёРіСѓСЂР°С†РёРѕРЅРЅС‹Р№ РјР°СЃСЃРёРІ</option>	
+			  		<option value="lang">РЇР·С‹РєРѕРІРѕР№ РјР°СЃСЃРёРІ</option>
 				</select>
 			  </p>			
 			</td>
 		</tr>			
 	</table>
 <div class="hidden_element" ident="code">
-<h2>Сгенерированный код</h2>
+<h2>РЎРіРµРЅРµСЂРёСЂРѕРІР°РЅРЅС‹Р№ РєРѕРґ</h2>
 <textarea id="codegenerated" style="width:100%;height:200px;"></textarea>
 </div>						
 {/if}
@@ -130,7 +130,7 @@
 {if $modAction=="view"}
 					{if $type!=''}
 					<div class="body">
-						<div class="actionbutton" onclick="goTo('{$siteurl}admin?module=templates&modAction=add&type={$type}');">Создать шаблон</div>
+						<div class="actionbutton" onclick="goTo('{$siteurl}admin?module=templates&modAction=add&type={$type}');">РЎРѕР·РґР°С‚СЊ С€Р°Р±Р»РѕРЅ</div>
 					</div>
 					{/if}
 <div class="body">
@@ -139,9 +139,9 @@
 <table class="objects">
 <tr height="30">
 	<td width="5%" class="objects_header"></td>
-	<td width="30%" class="objects_header editable_header"><span>Название</span></td>
-	<td width="60%" class="objects_header">Путь</td>
-	<td width="5%" class="objects_header" align="right">Операции</td>
+	<td width="30%" class="objects_header editable_header"><span>РќР°Р·РІР°РЅРёРµ</span></td>
+	<td width="60%" class="objects_header">РџСѓС‚СЊ</td>
+	<td width="5%" class="objects_header" align="right">РћРїРµСЂР°С†РёРё</td>
 </tr>
 {assign var="k" value=0}
 {foreach key=key item=tpl from=$templates}
@@ -159,28 +159,28 @@
 {assign var="k" value=$k+1}
 {/foreach}
 <tr id="save_submit">
-	<td colspan="4" align="center" style="padding-top:10px;"><input type="submit" value="Сохранить" class="button"></td>
+	<td colspan="4" align="center" style="padding-top:10px;"><input type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"></td>
 </tr>
 </table>
 <input type="hidden" name="type" value="{$type}">
 <input type="hidden" name="saveme" value="yes">
 </form>
 {else}
-<p>Ни одного шаблона не создано</p>
+<p>РќРё РѕРґРЅРѕРіРѕ С€Р°Р±Р»РѕРЅР° РЅРµ СЃРѕР·РґР°РЅРѕ</p>
 {/if}
 </div>
 {elseif $modAction=="add"}
 {if $congratulation}
-Шаблон добавлен успешно!
+РЁР°Р±Р»РѕРЅ РґРѕР±Р°РІР»РµРЅ СѓСЃРїРµС€РЅРѕ!
 {else}
-<p><b>Внимание!</b> Для того , чтобы файл шаблона был создан , необходимо, чтобы стояли права 777 на папки: <i>/templates/themes/default/site/</i> и <i>/templates/themes/default/block/</i></p>
-<p>Файлы стилей необходимо создавать самостоятельно.</p>
+<p><b>Р’РЅРёРјР°РЅРёРµ!</b> Р”Р»СЏ С‚РѕРіРѕ , С‡С‚РѕР±С‹ С„Р°Р№Р» С€Р°Р±Р»РѕРЅР° Р±С‹Р» СЃРѕР·РґР°РЅ , РЅРµРѕР±С…РѕРґРёРјРѕ, С‡С‚РѕР±С‹ СЃС‚РѕСЏР»Рё РїСЂР°РІР° 777 РЅР° РїР°РїРєРё: <i>/templates/themes/default/site/</i> Рё <i>/templates/themes/default/block/</i></p>
+<p>Р¤Р°Р№Р»С‹ СЃС‚РёР»РµР№ РЅРµРѕР±С…РѕРґРёРјРѕ СЃРѕР·РґР°РІР°С‚СЊ СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ.</p>
 {$form_html}
 {/if}
 {elseif $modAction=="edit"}
-<h2>Редактирование шаблона {$tpl.tpl_caption}</h2>
+<h2>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С€Р°Р±Р»РѕРЅР° {$tpl.tpl_caption}</h2>
 {if $file_error}
-<b>Файла шаблона не существует!</b>
+<b>Р¤Р°Р№Р»Р° С€Р°Р±Р»РѕРЅР° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!</b>
 {else}
 <form action="" method="post">
 <div style="border: 1px solid black; padding: 0px;">
@@ -191,10 +191,10 @@
 <div style="width:100%;text-align:center;padding-top:10px;">
 {if $is_writable}
 <input type="hidden" name="save" value="yes">
-<input type="submit" class="button" value="Сохранить изменения в шаблоне">
+<input type="submit" class="button" value="РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ РІ С€Р°Р±Р»РѕРЅРµ">
 {else}
-<b>Внимание!</b><br>
-Сохранение шаблона невозможно , т.к. файл {$tpl_path} не доступен для записи.
+<b>Р’РЅРёРјР°РЅРёРµ!</b><br>
+РЎРѕС…СЂР°РЅРµРЅРёРµ С€Р°Р±Р»РѕРЅР° РЅРµРІРѕР·РјРѕР¶РЅРѕ , С‚.Рє. С„Р°Р№Р» {$tpl_path} РЅРµ РґРѕСЃС‚СѓРїРµРЅ РґР»СЏ Р·Р°РїРёСЃРё.
 {/if}
 </form>
 </div>
@@ -213,7 +213,7 @@
 {/literal}
 {/if}
 {if $have_css}
-<h2>Редактирование файла стилей шаблона {$tpl.tpl_caption}</h2>
+<h2>Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ С„Р°Р№Р»Р° СЃС‚РёР»РµР№ С€Р°Р±Р»РѕРЅР° {$tpl.tpl_caption}</h2>
 <form action="" method="post">
 <div style="border: 1px solid black; padding: 0px;">
 <textarea id="css" cols="120" rows="30" name="csscode">
@@ -236,16 +236,16 @@
 <div style="width:100%;text-align:center;padding-top:10px;">
 {if $is_writable_css}
 <input type="hidden" name="savecss" value="yes">
-<input type="submit" class="button" value="Сохранить изменения в файле стилей">
+<input type="submit" class="button" value="РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ РІ С„Р°Р№Р»Рµ СЃС‚РёР»РµР№">
 {else}
-<b>Внимание!</b><br>
-Сохранение css файла невозможно , т.к. файл {$css_path} не доступен для записи.
+<b>Р’РЅРёРјР°РЅРёРµ!</b><br>
+РЎРѕС…СЂР°РЅРµРЅРёРµ css С„Р°Р№Р»Р° РЅРµРІРѕР·РјРѕР¶РЅРѕ , С‚.Рє. С„Р°Р№Р» {$css_path} РЅРµ РґРѕСЃС‚СѓРїРµРЅ РґР»СЏ Р·Р°РїРёСЃРё.
 {/if}
 </form>
 </div>
 {/if}
 {else}
-<p>Пожалуйста выберите тип шаблонов в списке слева</p>
+<p>РџРѕР¶Р°Р»СѓР№СЃС‚Р° РІС‹Р±РµСЂРёС‚Рµ С‚РёРї С€Р°Р±Р»РѕРЅРѕРІ РІ СЃРїРёСЃРєРµ СЃР»РµРІР°</p>
 {/if}
 		</div>
 		</td>

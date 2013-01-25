@@ -2,53 +2,53 @@
 global $engine;
 global $settings;
 
-$moduleinfo["caption"]="Ìîäóëü èíòåðíåò ìàãàçèí";
+$moduleinfo["caption"]="ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð¸Ð½Ñ‚ÐµÑ€Ð½ÐµÑ‚ Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½";
 $moduleinfo["url"]="http://www.scripto.ru";
 $moduleinfo["author"]="Scripto";
 $moduleinfo["description"]="";
 $moduleinfo["documentation"]="http://scripto-cms.ru/documentation/additional/shop/";
 $moduleinfo["version"]="1.0";
-$moduleinfo["use_in_one_rubric"]=false;//âûâîäèòü âî âñåõ ðàçäåëàõ ñàéòà
+$moduleinfo["use_in_one_rubric"]=false;//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð²Ð¾ Ð²ÑÐµÑ… Ñ€Ð°Ð·Ð´ÐµÐ»Ð°Ñ… ÑÐ°Ð¹Ñ‚Ð°
 $moduleinfo["icon"]="shop.png";
 
-$moduleinfo["mailadmin"]=$settings["mailadmin"];//âûâîäèòü ïî 20 òîâàðîâ íà ñòðàíèöå
+$moduleinfo["mailadmin"]=$settings["mailadmin"];//Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð¿Ð¾ 20 Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð² Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ
 $moduleinfo["basket_url"]="basket";
 $moduleinfo["order_url"]="order";
 $moduleinfo["onpage_orders"]=25;
-$moduleinfo["mode"]="max";//max - ñ÷èòàòü áÎëüøóþ ñêèäêó
+$moduleinfo["mode"]="max";//max - ÑÑ‡Ð¸Ñ‚Ð°Ñ‚ÑŒ Ð±ÐžÐ»ÑŒÑˆÑƒÑŽ ÑÐºÐ¸Ð´ÐºÑƒ
 
-$moduleinfo["sales_count"]=1;//êîëè÷åñòâî ïðîäàæ ïî îäíîìó êóïîíó íà îäèí ëîãèí
-$moduleinfo["max_percent"]=50;//ìàêñèìàëüíàÿ ñêèäêà ïî îäíîìó êóïîíó
+$moduleinfo["sales_count"]=1;//ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ñ€Ð¾Ð´Ð°Ð¶ Ð¿Ð¾ Ð¾Ð´Ð½Ð¾Ð¼Ñƒ ÐºÑƒÐ¿Ð¾Ð½Ñƒ Ð½Ð° Ð¾Ð´Ð¸Ð½ Ð»Ð¾Ð³Ð¸Ð½
+$moduleinfo["max_percent"]=50;//Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ ÑÐºÐ¸Ð´ÐºÐ° Ð¿Ð¾ Ð¾Ð´Ð½Ð¾Ð¼Ñƒ ÐºÑƒÐ¿Ð¾Ð½Ñƒ
 
 $moduleinfo["dicount_type"][0]["id"]=0;
-$moduleinfo["dicount_type"][0]["name"]="Ñêèäêà â ðóáëÿõ";
+$moduleinfo["dicount_type"][0]["name"]="Ð¡ÐºÐ¸Ð´ÐºÐ° Ð² Ñ€ÑƒÐ±Ð»ÑÑ…";
 $moduleinfo["dicount_type"][1]["id"]=1;
-$moduleinfo["dicount_type"][1]["name"]="Ñêèäêà â ïðîöåíòàõ";
+$moduleinfo["dicount_type"][1]["name"]="Ð¡ÐºÐ¸Ð´ÐºÐ° Ð² Ð¿Ñ€Ð¾Ñ†ÐµÐ½Ñ‚Ð°Ñ…";
 
-/*Íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 $moduleinfo["tables"]["DELIVERY"]["caption"]["type"]="text";
-$moduleinfo["tables"]["DELIVERY"]["caption"]["caption"]="Íàçâàíèå";
+$moduleinfo["tables"]["DELIVERY"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ";
 $moduleinfo["tables"]["DELIVERY"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["DELIVERY"]["caption"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["DELIVERY"]["description"]["type"]="textarea";
-$moduleinfo["tables"]["DELIVERY"]["description"]["caption"]="Îïèñàíèå";
+$moduleinfo["tables"]["DELIVERY"]["description"]["caption"]="ÐžÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ";
 $moduleinfo["tables"]["DELIVERY"]["description"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["DELIVERY"]["description"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["PAYMENT"]["caption"]["type"]="text";
-$moduleinfo["tables"]["PAYMENT"]["caption"]["caption"]="Íàçâàíèå";
+$moduleinfo["tables"]["PAYMENT"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ";
 $moduleinfo["tables"]["PAYMENT"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PAYMENT"]["caption"]["sql_type"]="VARCHAR(255) NULL";
 
 $moduleinfo["tables"]["PAYMENT"]["description"]["type"]="textarea";
-$moduleinfo["tables"]["PAYMENT"]["description"]["caption"]="Îïèñàíèå";
+$moduleinfo["tables"]["PAYMENT"]["description"]["caption"]="ÐžÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ";
 $moduleinfo["tables"]["PAYMENT"]["description"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["PAYMENT"]["description"]["sql_type"]="LONGTEXT NULL";
 
 $moduleinfo["tables"]["DISCOUNTS"]["caption"]["type"]="text";
-$moduleinfo["tables"]["DISCOUNTS"]["caption"]["caption"]="Íàçâàíèå";
+$moduleinfo["tables"]["DISCOUNTS"]["caption"]["caption"]="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ";
 $moduleinfo["tables"]["DISCOUNTS"]["caption"]["eregi"]="/^[^`#]{2,255}$/i";
 $moduleinfo["tables"]["DISCOUNTS"]["caption"]["sql_type"]="VARCHAR(255) NULL";
-/*Êîíåö íàñòðîéêè ÿçûêîâûõ âåðñèé*/
+/*ÐšÐ¾Ð½ÐµÑ† Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ·Ñ‹ÐºÐ¾Ð²Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹*/
 ?>

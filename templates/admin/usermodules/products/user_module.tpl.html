@@ -71,7 +71,7 @@
 {$firm.description}
 {/if}
 {if $collections}
-<h2>Коллекции фирмы {$firm.caption}</h2>
+<h2>РљРѕР»Р»РµРєС†РёРё С„РёСЂРјС‹ {$firm.caption}</h2>
 {foreach key=key item=collection from=$collections}
 <p>{if $coll.id_collection==$collection.id_collection}<b>{$collection.caption}</b>{else}<a href="{$siteurl}{$current_lang}{$thismodule.brand_url}?id_firm={$firm.id_firm}&id_collection={$collection.id_collection}">{$collection.caption}</a>{/if}</p>
 {/foreach}

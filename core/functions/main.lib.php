@@ -1,5 +1,5 @@
 <?
-//áèáëèîòåêà äëÿ Scripto CMS
+//Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ° Ð´Ð»Ñ Scripto CMS
 
 function getImagesByCat($id_cat=0,$visible=0,$main=false,$pg=false,$onpage=0) {
 	global $engine;
@@ -13,7 +13,7 @@ function getVideosByCat($id_cat=0,$visible=0,$main=false,$pg=false,$onpage=0) {
 	return $images;
 }
 
-/*ôóíêöèè , íóæíûå ïðîãðàììå óñòàíîâêè*/
+/*Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ , Ð½ÑƒÐ¶Ð½Ñ‹Ðµ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸*/
 function apache_is_module_loaded($mod_name)
  {
  	if (function_exists("apache_get_modules")) {
@@ -50,9 +50,9 @@ function apache_is_module_loaded($mod_name)
 
     return $passwd;
 	} 
-/*êîíåö ôóíêöèé, íóæíûõ ïðîãðàììå óñòàíîâêè*/
+/*ÐºÐ¾Ð½ÐµÑ† Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¹, Ð½ÑƒÐ¶Ð½Ñ‹Ñ… Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ðµ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸*/
 
-//Ïîëó÷åíèå MIME òèïîâ
+//ÐŸÐ¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ MIME Ñ‚Ð¸Ð¿Ð¾Ð²
 
 
     function get_content_type($filename) {
@@ -121,7 +121,7 @@ function apache_is_module_loaded($mod_name)
     }
 
 
-//Ïðîâåðêà çàïðåùåí ëè IP
+//ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð·Ð°Ð¿Ñ€ÐµÑ‰ÐµÐ½ Ð»Ð¸ IP
 function checkIP($allowed_ip,$myip) {
 	$allowed_ip=trim($allowed_ip);
 	if ($allowed_ip!='') {
@@ -192,7 +192,7 @@ function json_fix_cyr($var)
    }
    return $var;
 }
-//ôóíêöèÿ êîíâåðòàöèè èç UTF8 â êîäèðîâêó ïîëüçîâàòåëÿ
+//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ ÐºÐ¾Ð½Ð²ÐµÑ€Ñ‚Ð°Ñ†Ð¸Ð¸ Ð¸Ð· UTF8 Ð² ÐºÐ¾Ð´Ð¸Ñ€Ð¾Ð²ÐºÑƒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ
 function UTF8($str="",$encoding="cp1251") {
 return @iconv("UTF-8",$encoding,$str);
 }
@@ -201,7 +201,7 @@ function ToUTF8($str="",$encoding="cp1251") {
 return @iconv($encoding,"UTF-8",$str);
 }
 
-//ôóíêöèÿ äëÿ ïîëó÷åíèÿ ðàñøèðåíèÿ ôàéëà
+//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð´Ð»Ñ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ñ€Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð°
 function getFileExt($filename) {
 	$len=strlen(trim($filename));
 	$pos=0;
@@ -218,7 +218,7 @@ function getFileExt($filename) {
 	return "";
 	}
 }
-//ôóíêöèÿ, óäàëÿþùàÿ ïàïêè ñ ïîäïàïêàìè
+//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ, ÑƒÐ´Ð°Ð»ÑÑŽÑ‰Ð°Ñ Ð¿Ð°Ð¿ÐºÐ¸ Ñ Ð¿Ð¾Ð´Ð¿Ð°Ð¿ÐºÐ°Ð¼Ð¸
 function delTree($dir) {
     $files = glob( $dir . '*', GLOB_MARK );
 	if (is_array($files)) {
@@ -499,7 +499,7 @@ function getIp()
     } 
 	
 function mailHTML($to,$from,$subject,$body,$with_files=false) {
-//ôóíêöèÿ îòïðàâêè e-mail
+//Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¸ e-mail
 	global $config;
 	$headers  = "MIME-Version: 1.0\n";
 	$headers .= "From: $from\n";
@@ -538,7 +538,7 @@ fclose($f);
 	mail($to, $subject, $zag, $headers);
 }
 
-//ñîðòèðîâêà ðàçäåëîâ ïî óáûâàíèþ
+//ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ñ€Ð°Ð·Ð´ÐµÐ»Ð¾Ð² Ð¿Ð¾ ÑƒÐ±Ñ‹Ð²Ð°Ð½Ð¸ÑŽ
 function cmp2 ($a, $b)
 {
     if ($a["sort"] == $b["sort"]) return 0;

@@ -1,6 +1,6 @@
 /**
  * @author Antonov Andrey http://dustweb.ru/
- * @copyright Copyright � 2008-2009, Antonov A Andrey, All rights reserved.
+ * @copyright Copyright пїЅ 2008-2009, Antonov A Andrey, All rights reserved.
  */
 
 (function() {

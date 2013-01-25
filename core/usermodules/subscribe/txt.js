@@ -1,4 +1,4 @@
-/*Файл для обработки функций csv импорта в модуль каталог товаров*/
+/*Р¤Р°Р№Р» РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё С„СѓРЅРєС†РёР№ csv РёРјРїРѕСЂС‚Р° РІ РјРѕРґСѓР»СЊ РєР°С‚Р°Р»РѕРі С‚РѕРІР°СЂРѕРІ*/
 $(document).ready(function(){
 var button = $('#txt_button'), interval;
 new AjaxUpload(button,{
@@ -6,7 +6,7 @@ new AjaxUpload(button,{
 		name: 'txt_file',
 		onSubmit : function(file, ext){
 			// change button text, when user selects file			
-			button.text('Загрузка');
+			button.text('Р—Р°РіСЂСѓР·РєР°');
 			
 			// If you want to allow uploading only 1 file at time,
 			// you can disable upload button
@@ -18,12 +18,12 @@ new AjaxUpload(button,{
 				if (text.length < 13){
 					button.text(text + '.');					
 				} else {
-					button.text('Загрузка');				
+					button.text('Р—Р°РіСЂСѓР·РєР°');				
 				}
 			}, 200);
 		},
 		onComplete: function(file, response){
-			button.text('Импорт из текстового файла');
+			button.text('РРјРїРѕСЂС‚ РёР· С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р°');
 						
 			window.clearInterval(interval);
 						
@@ -32,13 +32,13 @@ new AjaxUpload(button,{
 			// add file to the list
 			switch (response) {
 				case 'wrong_format':
-					tooltip("Ошибка при загрузке файла","Поддерживается только загрузка в формате TXT",3000);
+					tooltip("РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ С„Р°Р№Р»Р°","РџРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ Р·Р°РіСЂСѓР·РєР° РІ С„РѕСЂРјР°С‚Рµ TXT",3000);
 				break;
 				case 'ok':
-					tooltip("","Импорт e-mail успешно завершен!",3000);
+					tooltip("","РРјРїРѕСЂС‚ e-mail СѓСЃРїРµС€РЅРѕ Р·Р°РІРµСЂС€РµРЅ!",3000);
 				break;
 				default:
-					tooltip("Ошибка","В процессе импорта произошла ошибка",3000);
+					tooltip("РћС€РёР±РєР°","Р’ РїСЂРѕС†РµСЃСЃРµ РёРјРїРѕСЂС‚Р° РїСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°",3000);
 			}		
 		}
 	});

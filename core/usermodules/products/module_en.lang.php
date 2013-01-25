@@ -1,11 +1,11 @@
 <?
-//ßçûêîâîé ôàéë äëÿ ìîäóëÿ êàòàëîã òîâàðîâ
-$lang["forms"]["products"]["visible"]["caption"]="Ñäåëàòü òîâàð âèäèìûì";
-$lang["forms"]["products"]["visible"]["error"]="Óêàçàíî íåâåðíîå çíà÷åíèå âèäèìîñòè òîâàðà";
-$lang["interface"]["edit_product"]="Ðåäàêòèðîâàòü òîâàð";
-$lang["interface"]["change_picture_product"]="Âûáðàòü èçîáðàæåíèÿ äëÿ òîâàðà";
-$lang["interface"]["change_options"]="Çàïîëíèòü äîïîëíèòåëüíûå ïîëÿ äëÿ òîâàðà";
-$lang["dialog"]["delete_product"]="Óäàëèòü òîâàð?";
+//Ð¯Ð·Ñ‹ÐºÐ¾Ð²Ð¾Ð¹ Ñ„Ð°Ð¹Ð» Ð´Ð»Ñ Ð¼Ð¾Ð´ÑƒÐ»Ñ ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³ Ñ‚Ð¾Ð²Ð°Ñ€Ð¾Ð²
+$lang["forms"]["products"]["visible"]["caption"]="Ð¡Ð´ÐµÐ»Ð°Ñ‚ÑŒ Ñ‚Ð¾Ð²Ð°Ñ€ Ð²Ð¸Ð´Ð¸Ð¼Ñ‹Ð¼";
+$lang["forms"]["products"]["visible"]["error"]="Ð£ÐºÐ°Ð·Ð°Ð½Ð¾ Ð½ÐµÐ²ÐµÑ€Ð½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð²Ð¸Ð´Ð¸Ð¼Ð¾ÑÑ‚Ð¸ Ñ‚Ð¾Ð²Ð°Ñ€Ð°";
+$lang["interface"]["edit_product"]="Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ñ‚Ð¾Ð²Ð°Ñ€";
+$lang["interface"]["change_picture_product"]="Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð´Ð»Ñ Ñ‚Ð¾Ð²Ð°Ñ€Ð°";
+$lang["interface"]["change_options"]="Ð—Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÑŒ Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ðµ Ð¿Ð¾Ð»Ñ Ð´Ð»Ñ Ñ‚Ð¾Ð²Ð°Ñ€Ð°";
+$lang["dialog"]["delete_product"]="Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ñ‚Ð¾Ð²Ð°Ñ€?";
 $lang["product_no"]="No";
 $lang["products"]["code"]="Product code";
 $lang["products"]["price"]="Price";
