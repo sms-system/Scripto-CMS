@@ -1001,28 +1001,20 @@ global $settings;
 			$item["uservideo"]=@$objects["uservideo"][$row["id_category"]];
 			$item["flash"]=@$objects["flash"][$row["id_category"]];
 			$item["userflash"]=@$objects["userflash"][$row["id_category"]];
-			if ($position!=false) {
-			$items[$row["position"]][$row["id_sub_category"]][$row["id_category"]]=$item;
-			} else {
 			$items[$row["id_sub_category"]][$row["id_category"]]=$item;
-			}
 		}
-		if ($position!=false) {
-		unset($item);
 		$item=array();
-		foreach ($items as $pos=>$it) {
-		$new_items=array();
-		$this->convertArray2(0,$it,$new_items,0,$print);
-		$item[$pos]=$new_items;
-		unset($new_items);
-		}
-		} else {
 		$new_items=array();
 		$this->convertArray2(0,$items,$new_items,0,$print);
 		unset($items);
-		$item=$new_items;
-		unset($new_items);
+		if ($position!=false) {
+		 	foreach ($new_items as $key=>$it) {
+		 		$item[$it["position"]][$key] = $it;
+		 	}
+		} else {
+			$item=$new_items;
 		}
+		unset($new_items);
 		return $item;
 	}
 
