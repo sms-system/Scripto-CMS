@@ -1001,12 +1001,30 @@ global $settings;
 			$item["uservideo"]=@$objects["uservideo"][$row["id_category"]];
 			$item["flash"]=@$objects["flash"][$row["id_category"]];
 			$item["userflash"]=@$objects["userflash"][$row["id_category"]];
+			//if ($position!=false) {
+			//$items[$row["position"]][$row["id_sub_category"]][$row["id_category"]]=$item;
+			//} else {
 			$items[$row["id_sub_category"]][$row["id_category"]]=$item;
+			//}
 		}
+		// if ($position!=false) {
+		// unset($item);
 		$item=array();
+		// foreach ($items as $pos=>$it) {
+		// $new_items=array();
+		// $this->convertArray2(0,$it,$new_items,0,$print);
+		// $item[$pos]=$new_items;
+		// unset($new_items);
+		// }
+		// } else {
 		$new_items=array();
 		$this->convertArray2(0,$items,$new_items,0,$print);
 		unset($items);
+
+
+		//$item=$new_items;
+
+
 		if ($position!=false) {
 		 	foreach ($new_items as $key=>$it) {
 		 		$item[$it["position"]][$key] = $it;
@@ -1014,8 +1032,14 @@ global $settings;
 		} else {
 			$item=$new_items;
 		}
+
+
+
 		unset($new_items);
+		// }
 		return $item;
+
+
 	}
 
 	function getIdent($id_category) {
@@ -2407,10 +2431,10 @@ $template["path"]=$template["tpl_theme"]."/".$template["tpl_type"]."/".$template
 	}
 
 	//функция добавления нового блока
-	function addBlock($id_cat=0,$caption="",$content="",$id_type=0,$ident="",$visible=1,$show_mode=0,$id_tpl=0,$number=0,$sql='') {
+	function addBlock($id_cat=0,$caption="",$content="",$id_type=0,$ident="",$visible=1,$editor=1,$show_mode=0,$id_tpl=0,$number=0,$sql='') {
 		global $db;
 		if ($db->query("
-		insert into %blocks% values (null,$id_cat,'".sql_quote($caption)."','".sql_quote($content)."',$id_type,'".sql_quote($ident)."',$visible,$show_mode,$id_tpl,$number,'".date('Y-m-d H:i:s')."',0".$sql.")
+		insert into %blocks% values (null,$id_cat,'".sql_quote($caption)."','".sql_quote($content)."',$id_type,'".sql_quote($ident)."',$visible,$editor,$show_mode,$id_tpl,$number,'".date('Y-m-d H:i:s')."',0".$sql.")
 		")) {
 			return mysql_insert_id();
 		} else {

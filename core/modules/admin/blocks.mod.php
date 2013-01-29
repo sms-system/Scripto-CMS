@@ -48,9 +48,12 @@ if ($modAction=="") $modAction="view";
 				    } else {
 				    	$content=$block["content"];
 				    	$first=true;
-				    }	
-					$fck_editor1=$this->createFCKEditor("fck1",$content);
-					$smarty->assign("editor",$fck_editor1);
+				    }
+				    if ($block["editor"]) {	
+						$fck_editor1=$this->createFCKEditor("fck1",$content);
+						$smarty->assign("editor",$fck_editor1);
+					} else
+						$smarty->assign("editor",'<textarea id="fck1" name="fck1" style="width:100%;height:400px;">'.$content.'</textarea>');
 					$smarty->assign("block",$block);
 					$close=@$_REQUEST["close"];
 					$smarty->assign("close",$close);
@@ -66,6 +69,7 @@ if ($modAction=="") $modAction="view";
 		case "save":
 			$id_block=@$_REQUEST["idblock"];
 			$visible=@$_REQUEST["visible"];
+			$editor=@$_REQUEST["editor"];
 			$caption=@$_REQUEST["caption"];
 			$blocktype=@$_REQUEST["blocktype"];
 			$ident=@$_REQUEST["ident"];
@@ -296,6 +300,11 @@ if ($modAction=="") $modAction="view";
 				} else {
 					$visible=1;
 				}
+				if (!isset($_REQUEST["editor"])) {
+					$editor=0;
+				} else {
+					$editor=1;
+				}
 				$ident=strip_tags(@$_REQUEST["ident"]);
 				$content=$this->stripContent(@$_REQUEST["fck1"]);
 				$block_type=@$_REQUEST["block_type"];
@@ -312,6 +321,7 @@ if ($modAction=="") $modAction="view";
 						$ident=$block["ident"];
 						$content=$block["content"];
 						$visible=$block["visible"];
+						$editor=$block["editor"];
 						$block_type=$block["id_type"];
 						$show_mode=$block["show_mode"];
 						$number=$block["number_objects"];
@@ -323,6 +333,7 @@ if ($modAction=="") $modAction="view";
 					$id_cat=0;
 					$ident="";
 					$visible=1;
+					$editor=1;
 					$content="";
 					$id_tpl=@$templates[0]["id"];
 					$block_type=@$types[0]["id"];
@@ -354,10 +365,15 @@ $frm->addField("Прочее","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","othe
 
 $frm->addField($lang["forms"]["block"]["visible"]["caption"],$lang["forms"]["block"]["visible"]["error"],"check",$visible,$visible,"/^[0-9]{1}$/i","visible",1);
 
+$frm->addField($lang["forms"]["block"]["editor"]["caption"],$lang["forms"]["block"]["editor"]["error"],"check",$editor,$editor,"/^[0-9]{1}$/i","editor",0);
+
 $frm->addField($lang["forms"]["block"]["number_objects"]["caption"],$lang["forms"]["block"]["number_objects"]["error"],"text",$number,$number,"/^[0-9]{1,4}$/i","number",1,$lang["forms"]["block"]["number_objects"]["sample"],array('size'=>'4','ticket'=>$lang["forms"]["block"]["number_objects"]["rules"]));
 
-$fck_editor1=$this->createFCKEditor("fck1",$content);
-$frm->addField($lang["forms"]["block"]["content"]["caption"],$lang["forms"]["block"]["content"]["error"],"solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+if($editor) {
+	$fck_editor1=$this->createFCKEditor("fck1",$content);
+	$frm->addField($lang["forms"]["block"]["content"]["caption"],$lang["forms"]["block"]["content"]["error"],"solmetra",$fck_editor1,$fck_editor1,"/^[[:print:][:allnum:]]{1,}$/i","content",1,"");
+} else
+	$frm->addField($lang["forms"]["block"]["content"]["caption"],$lang["forms"]["block"]["content"]["error"],"textarea",$content,$content,"/^[^`#]{1,}$/i","fck1",1,"");
 
 $frm->addField("","","caption","","","/^[^a-zA-Z0-9]{2,10}$/i","other",0,'',array('end'=>true));
 
@@ -387,7 +403,7 @@ $this->processFormData($frm,$s_name,$first
 				if ($mode=="edit") {
 				 //редактируем
 				 if (isset($id_block)) {
-				 	if ($db->query("update %blocks% set `caption`='".sql_quote($caption)."' , `id_category`=$id_cat , `visible`=$visible , `ident`='".sql_quote($ident)."' , content='".sql_quote($content)."' , `id_type`=$block_type , `show_mode`=$show_mode , id_tpl=$id_tpl , `number_objects` = $number ".$this->generateUpdateSQL("blocks",$lang_values)."  where id_block=$id_block")) {
+				 	if ($db->query("update %blocks% set `caption`='".sql_quote($caption)."' , `id_category`=$id_cat , `visible`=$visible , `editor`=$editor , `ident`='".sql_quote($ident)."' , content='".sql_quote($content)."' , `id_type`=$block_type , `show_mode`=$show_mode , id_tpl=$id_tpl , `number_objects` = $number ".$this->generateUpdateSQL("blocks",$lang_values)."  where id_block=$id_block")) {
 						//отредактировали
 				//	   $modAction="view";
 				   $this->setCongratulation('',$lang["congratulation"]["block_edit"],3000);
@@ -400,7 +416,7 @@ $this->processFormData($frm,$s_name,$first
 				 }
 				} else {
 				 //добавляем
- $add_id=$this->addBlock($id_cat,$caption,$content,$block_type,$ident,$visible,$show_mode,$id_tpl,$number,$this->generateInsertSQL("blocks",$lang_values));
+ $add_id=$this->addBlock($id_cat,$caption,$content,$block_type,$ident,$visible,$editor,$show_mode,$id_tpl,$number,$this->generateInsertSQL("blocks",$lang_values));
 				 if ($add_id!=false) {
 				   //добавили успешно!
 				//   $modAction="view";

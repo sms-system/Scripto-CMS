@@ -207,6 +207,7 @@ CREATE TABLE `%prefix%blocks` (
 `id_type` BIGINT NOT NULL ,
 `ident` VARCHAR( 250 ) NOT NULL ,
 `visible` INT NOT NULL default 1,
+`editor` INT NOT NULL default 1,
 `show_mode` INT NOT NULL default 1,
 `id_tpl` BIGINT DEFAULT '0' NOT NULL ,
 `number_objects` BIGINT NOT NULL default 0,
